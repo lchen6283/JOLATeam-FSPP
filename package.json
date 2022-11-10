@@ -1,0 +1,16 @@
+{
+  "name": "jolateam-fspp",
+  "version": "1.0.0",
+  "description": "An App for the adventurous eater, indecisive person in us,  or  a foodie that wants to try something new!",
+  "main": "back-end/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "food",
+    "delivery",
+    "fullstack"
+  ],
+  "author": "Lawrence Chen, Jossy Pascasio, Augusto Rupay, and Oscar Andres Varon",
+  "license": "ISC"
+}
