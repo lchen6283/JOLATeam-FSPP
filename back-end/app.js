@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.status(404).send("Sorry Bud, no such route");
+  res.status(404).send("Sorry Bud, nothing here");
 });
 
 //EXPORT
