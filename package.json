@@ -12,9 +12,5 @@
     "fullstack"
   ],
   "author": "Lawrence Chen, Jossy Pascasio, Augusto Rupay, and Oscar Andres Varon",
-  "license": "ISC",
-  "dependencies": {
-    "pg": "^8.8.0",
-    "promise": "^8.3.0"
-  }
+  "license": "ISC"
 }
