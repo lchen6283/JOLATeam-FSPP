@@ -7,7 +7,10 @@ import SignUp from "./Pages/SignUp";
 import NavBar from "./Components/NavBar";
 import Error from "./Pages/Error";
 import Index from "./Pages/Index";
-
+import PaymentFinalized from "./Pages/PaymentFinalized";
+import Reviews from "./Pages/Reviews";
+import Budget from "./Pages/Budget";
+import PaymentInfo from "./Pages/PaymentInfo";
 function App() {
   return (
     <div className="App">
@@ -21,6 +24,10 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/error404" element={<Error />} />
             <Route path="/index" element={<Index />} />
+            <Route path="/pickabudget" element={<Budget />} />
+            <Route path="/paymentdone" element={<PaymentFinalized />} />
+            <Route path="/testimonials" element={<Reviews />} />
+            <Route path="/paymentInfo" element={<PaymentInfo />} />
           </Routes>
         </main>
       </Router>
