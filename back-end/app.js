@@ -1,14 +1,16 @@
 //DEPENDENCIES
 const express = require("express");
 const cors = require("cors");
-const customerController = require("./controllers/customerController");
+const usersController = require("./controllers/usersController");
 
 //CONFIG
 const app = express();
 
+//MIDDLEWARE
 app.use(cors());
 app.use(express.json());
-app.use("/customer", customerController);
+app.use("/users", usersController);
+
 //ROUTES
 
 app.get("/", (req, res) => {
