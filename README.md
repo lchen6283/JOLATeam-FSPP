@@ -3,8 +3,8 @@ JOLA-TEAM Capstone Project's README Template
 -->
 <div align="center">
 
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
-  <h1>JOLA-TEAM CAPSTONE PROJECT</h1>
+  <img src="./front-end/src/assets/SmakLogos/Regular_Logo_01_BB.png" alt="logo" width="200" height="auto" />
+  <h1>SMAK</h1>
   
   <p>
     THE PROJECT'S README TEMPLATE
@@ -13,34 +13,34 @@ JOLA-TEAM Capstone Project's README Template
   
 <!-- Badges -->
 <p>
-  <a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/Louis3797/awesome-readme-template" alt="contributors" />
+  <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/JOLATEAM/JOLATeam-FSPP" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/Louis3797/awesome-readme-template" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/JOLATEAM/JOLATeam-FSPP" alt="last update" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/network/members">
-    <img src="https://img.shields.io/github/forks/Louis3797/awesome-readme-template" alt="forks" />
+  <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/network/members">
+    <img src="https://img.shields.io/github/forks/JOLATEAM/JOLATeam-FSPP" alt="forks" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/stargazers">
-    <img src="https://img.shields.io/github/stars/Louis3797/awesome-readme-template" alt="stars" />
+  <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/stargazers">
+    <img src="https://img.shields.io/github/stars/JOLATEAM/JOLATeam-FSPP" alt="stars" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/issues/">
-    <img src="https://img.shields.io/github/issues/Louis3797/awesome-readme-template" alt="open issues" />
+  <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/issues/">
+    <img src="https://img.shields.io/github/issues/JOLATEAM/JOLATeam-FSPP" alt="open issues" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/Louis3797/awesome-readme-template.svg" alt="license" />
+  <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/JOLATEAM/JOLATeam-FSPP.svg" alt="license" />
   </a>
 </p>
    
 <h4>
-    <a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
+    <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template">Documentation</a>
+    <a href="https://github.com/JOLATEAM/JOLATeam-FSPP">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Report Bug</a>
+    <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Request Feature</a>
+    <a href="https://github.com/JOLATEAM/JOLATeam-FSPP/issues/">Request Feature</a>
   </h4>
 </div>
 
@@ -50,26 +50,27 @@ JOLA-TEAM Capstone Project's README Template
 
 # :notebook_with_decorative_cover: Table of Contents
 
-- [About the Project](#star2-about-the-project)
-  - [Screenshots](#camera-screenshots)
-  - [Tech Stack](#space_invader-tech-stack)
-  - [Features](#dart-features)
-  - [Color Reference](#art-color-reference)
-  - [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
-  - [Prerequisites](#bangbang-prerequisites)
-  - [Installation](#gear-installation)
-  - [Running Tests](#test_tube-running-tests)
-  - [Run Locally](#running-run-locally)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [Usage](#eyes-usage)
-- [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-  - [Code of Conduct](#scroll-code-of-conduct)
-- [FAQ](#grey_question-faq)
-- [License](#warning-license)
-- [Contact](#handshake-contact)
-- [Acknowledgements](#gem-acknowledgements)
+- [:notebook_with_decorative_cover: Table of Contents](#notebook_with_decorative_cover-table-of-contents)
+  - [:star2: About the Project](#star2-about-the-project)
+    - [:camera: Screenshots](#camera-screenshots)
+    - [:space_invader: Tech Stack](#space_invader-tech-stack)
+    - [:dart: Features](#dart-features)
+    - [:art: Color Reference](#art-color-reference)
+    - [:key: Environment Variables](#key-environment-variables)
+  - [:toolbox: Getting Started](#toolbox-getting-started)
+    - [:bangbang: Prerequisites](#bangbang-prerequisites)
+    - [:gear: Installation](#gear-installation)
+    - [:test_tube: Running Tests](#test_tube-running-tests)
+    - [:running: Run Locally](#running-run-locally)
+    - [:triangular_flag_on_post: Deployment](#triangular_flag_on_post-deployment)
+  - [:eyes: Usage](#eyes-usage)
+  - [:compass: Roadmap](#compass-roadmap)
+  - [:wave: Contributing](#wave-contributing)
+    - [:scroll: Code of Conduct](#scroll-code-of-conduct)
+  - [:grey_question: FAQ](#grey_question-faq)
+  - [:warning: License](#warning-license)
+  - [:handshake: Contact](#handshake-contact)
+  - [:gem: Acknowledgements](#gem-acknowledgements)
 
 <!-- About the Project -->
 
@@ -148,10 +149,10 @@ JOLA-TEAM Capstone Project's README Template
 
 | Color           | Hex                                                              |
 | --------------- | ---------------------------------------------------------------- |
-| Primary Color   | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color    | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color      | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
+| Primary Color   | ![#FFFFFE](https://via.placeholder.com/10/FFFFFE?text=+) #FFFFFE |
+| Secondary Color | ![#EF8F36](https://via.placeholder.com/10/EF8F36?text=+) #EF8F36 |
+| Accent Color    | ![#E16954](https://via.placeholder.com/10/E16954?text=+) #E16954 |
+| Text Color      | ![#0F0E16](https://via.placeholder.com/10/0F0E16?text=+) #0F0E16 |
 
 <!-- Env Variables -->
 
@@ -205,7 +206,7 @@ To run tests, run the following command
 Clone the project
 
 ```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
+  git clone https://github.com/JOLATEAM/JOLATeam-FSPP.git
 ```
 
 Go to the project directory
@@ -261,8 +262,6 @@ function App() {
 
 ## :wave: Contributing
 
-augusto branch test 123
-
 Contributions are always welcome!
 
 See `contributing.md` for ways to get started.
@@ -271,7 +270,7 @@ See `contributing.md` for ways to get started.
 
 ### :scroll: Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
+Please read the [Code of Conduct](https://github.com/JOLATEAM/JOLATeam-FSPP/blob/master/CODE_OF_CONDUCT.md)
 
 <!-- FAQ -->
 
@@ -297,7 +296,7 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
+Project Link: [https://github.com/JOLATEAM/JOLATeam-FSPP](https://github.com/JOLATEAM/JOLATeam-FSPP)
 
 <!-- Acknowledgments -->
 
