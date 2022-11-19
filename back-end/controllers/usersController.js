@@ -1,6 +1,11 @@
 const express = require("express");
 const db = require("../db/dbConfig");
 const users = express.Router();
+const reviewsController = require("./reviewsController.js");
+const ordersController = require("./ordersController");
+
+users.use("/:userid/reviews", reviewsController);
+users.use("/:userid/orders", ordersController);
 
 const {
   getAllUsers,
@@ -8,6 +13,7 @@ const {
   createUser,
 } = require("../queries/usersqueries");
 
+//GET ALL
 users.get("/", async (req, res) => {
   const customerObj = await getAllUsers();
   if (customerObj) {
