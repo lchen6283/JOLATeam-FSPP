@@ -1,8 +1,12 @@
 import React from "react";
-// import About from './About';
 import { Link } from "react-router-dom";
 import Error from "./Error";
 import Index from "./Index";
+import React from 'react';
+import About from './About';
+import { Link } from 'react-router-dom';
+import Index from './Index';
+
 
 export default function Home() {
   return (
@@ -14,9 +18,9 @@ export default function Home() {
       <Link to="/signup">
         <button>Sign Up </button>
       </Link>
-
       {/* <About /> */}
       <Error />
+      <About />
       <Index />
     </div>
   );

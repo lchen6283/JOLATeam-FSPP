@@ -9,7 +9,10 @@ import Error from "./Pages/Error";
 import Index from "./Pages/Index";
 import Order from "./Pages/Order";
 import History from "./Pages/OrderHistory";
-
+import PaymentFinalized from "./Pages/PaymentFinalized";
+import Reviews from "./Pages/Reviews";
+import Budget from "./Pages/Budget";
+import PaymentInfo from "./Pages/PaymentInfo";
 function App() {
   return (
     <div className="App">
@@ -25,6 +28,10 @@ function App() {
             <Route path="/index" element={<Index />} />
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />
+            <Route path="/pickabudget" element={<Budget />} />
+            <Route path="/paymentdone" element={<PaymentFinalized />} />
+            <Route path="/testimonials" element={<Reviews />} />
+            <Route path="/paymentInfo" element={<PaymentInfo />} />
           </Routes>
         </main>
       </Router>
