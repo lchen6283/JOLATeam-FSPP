@@ -12,13 +12,10 @@ export default function NavBar() {
         <Link to="/">Home</Link>
       </h1>
       <h1>
-        <Link to="/orders">Orders</Link>
+        <Link to="/about">About SMAK </Link>
       </h1>
       <h1>
-        <Link to="/about">About</Link>
-      </h1>
-      <h1>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">The Developers</Link>
       </h1>
       <h1>
         <Link to="/order">Order</Link>
