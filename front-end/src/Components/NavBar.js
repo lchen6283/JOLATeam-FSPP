@@ -20,6 +20,12 @@ export default function NavBar() {
       <h1>
         <Link to="/contact">Contact</Link>
       </h1>
+      <h1>
+        <Link to="/order">Order</Link>
+      </h1>
+      <h1>
+        <Link to="/history">OrderHistory</Link>
+      </h1>
     </nav>
   );
 }
