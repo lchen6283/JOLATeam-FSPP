@@ -26,7 +26,11 @@ export default function Users() {
       <h5>list of names</h5>
       <div>
         {users.map((user, i) => {
-          return <div key={i}>{user.name}</div>;
+          return (
+            <div key={i}>
+              {user.firstname} {user.lastname}
+            </div>
+          );
         })}
         ;
       </div>
