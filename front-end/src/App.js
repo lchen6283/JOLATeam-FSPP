@@ -7,6 +7,8 @@ import SignUp from "./Pages/SignUp";
 import NavBar from "./Components/NavBar";
 import Error from "./Pages/Error";
 import Index from "./Pages/Index";
+import Order from "./Pages/Order";
+import History from "./Pages/OrderHistory";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/error404" element={<Error />} />
             <Route path="/index" element={<Index />} />
+            <Route path="/order" element={<Order />} />
+            <Route path="/history" element={<History />} />
           </Routes>
         </main>
       </Router>
