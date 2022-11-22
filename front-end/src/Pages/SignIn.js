@@ -1,10 +1,8 @@
 
 import React, { useState } from "react";
 import Axios from "axios";
-
-import About from './About';
 import { Link, useNavigate } from 'react-router-dom';
-import Index from './Index';
+
 
 
 export default function SignIn() {

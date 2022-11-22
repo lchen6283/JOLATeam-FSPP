@@ -1,10 +1,8 @@
 
-import React, { useState } from "react";
-import Axios from "axios";
+import React from "react";
 
-import About from './About';
-import { Link } from 'react-router-dom';
-import Index from './Index';
+
+
 
 
 export default function Dashboard() {
