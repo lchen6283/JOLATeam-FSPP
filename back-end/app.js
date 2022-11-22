@@ -1,7 +1,6 @@
 //DEPENDENCIES
 const express = require("express");
 const cors = require("cors");
-//const { pool } = require("./dbConfig");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const flash = require("express-flash");
@@ -13,7 +12,6 @@ const { Pool } = require("pg");
 const isProduction = process.env.NODE_ENV === "production";
 
 const connectionString = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
-//console.log(connectionString)
 const credentials = {
   user: "postgres",
   host: "localhost",
@@ -22,19 +20,6 @@ const credentials = {
   port: 5432,
 };
 
-// const pool = new Pool({
-//   connectionString: connectionString,
-//   ssl: isProduction
-// });
-// const pool = new Pool(credentials);
-// async function poolDemo() {
-//   const pool = new Pool(credentials);
-//   const now = await pool.query("SELECT NOW()");
-//   await pool.end();
-
-//   return now;
-// }
-//console.log(poolDemo())
 
 const usersController = require("./controllers/usersController");
 const reviewsController = require("./controllers/reviewsController.js");
@@ -43,13 +28,18 @@ const ordersControllers = require("./controllers/ordersController");
 //CONFIG
 const app = express();
 
+
 const initializePassport = require("./passportConfig");
 
 initializePassport(passport)
 
-//MIDDLEWARE
 app.use(cors());
 app.use(express.json());
+app.use("/users", usersController);
+app.use("/reviews", reviewsController);
+app.use("/orders", ordersControllers);
+
+//ROUTES
 
 app.use(express.urlencoded({ extended: false }));
 app.use(
@@ -69,9 +59,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use("/users", usersController);
-app.use("/reviews", reviewsController);
-app.use("/orders", ordersControllers);
 
 //ROUTES
 app.get("/", (req, res) => {
@@ -81,8 +68,6 @@ app.get("/", (req, res) => {
 
 app.get("/login", checkAuthenticated, (req, res) => {
   // flash sets a messages variable. passport sets the error message
-  //console.log(req.session.flash.error);
-  //console.log(req.session);
   return res.redirect('/dashboard');
 });
 

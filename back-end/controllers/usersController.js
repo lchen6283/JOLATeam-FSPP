@@ -18,7 +18,6 @@ users.get("/", async (req, res) => {
   const customerObj = await getAllUsers();
   if (customerObj) {
     res.json({ sucess: true, payload: customerObj });
-    console.log(customerObj)
   } else {
     res.status(404).json("Error");
   }
