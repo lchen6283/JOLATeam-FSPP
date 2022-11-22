@@ -1,6 +1,7 @@
 //DEPENDENCIES
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const flash = require("express-flash");
@@ -20,7 +21,6 @@ const credentials = {
   port: 5432,
 };
 
-
 const usersController = require("./controllers/usersController");
 const reviewsController = require("./controllers/reviewsController.js");
 const ordersControllers = require("./controllers/ordersController");
@@ -28,10 +28,9 @@ const ordersControllers = require("./controllers/ordersController");
 //CONFIG
 const app = express();
 
-
 const initializePassport = require("./passportConfig");
 
-initializePassport(passport)
+initializePassport(passport);
 
 app.use(cors());
 app.use(express.json());
@@ -49,7 +48,7 @@ app.use(
     // Should we resave our session variables if nothing has changes which we dont
     resave: false,
     // Save empty value if there is no vaue which we do not want to do
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 
@@ -59,7 +58,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-
 //ROUTES
 app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
@@ -68,19 +66,20 @@ app.get("/", (req, res) => {
 
 app.get("/login", checkAuthenticated, (req, res) => {
   // flash sets a messages variable. passport sets the error message
-  return res.redirect('/dashboard');
+  return res.redirect("/dashboard");
 });
 
-app.post("/login",
+app.post(
+  "/login",
   passport.authenticate("local", {
     successRedirect: "/dashboard",
     failureRedirect: "/login",
-    failureFlash: true
+    failureFlash: true,
   })
 );
 
 function checkAuthenticated(req, res, next) {
-  console.log(req.isAuthenticated())
+  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     return res.redirect("/dashboard");
   }
@@ -97,6 +96,27 @@ function checkNotAuthenticated(req, res, next) {
 app.get("/dashboard", (req, res) => {
   res.send("Welcome to Dashboard");
   //res.render("index");
+});
+
+app.get("/yelp", async (req, res) => {
+  const { location } = req.query;
+  const config = {
+    method: "get",
+    url: `https://api.yelp.com/v3/businesses/search?term=restaurants&location=hells+kitchen`,
+    headers: {
+      Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+    },
+  };
+  axios(config)
+    .then(function (response) {
+      return JSON.stringify(response.data, null, 2);
+    })
+    .then(function (jsonResponse) {
+      res.send(jsonResponse);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 });
 
 app.get("*", (req, res) => {
