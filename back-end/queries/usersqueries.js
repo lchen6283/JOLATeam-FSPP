@@ -14,7 +14,7 @@ const getAllUsers = async () => {
 
 const getOneUser = async (id) => {
   try {
-    const oneUser = await db.any("SELECT * FROM users WHERE id = $1", id);
+    const oneUser = await db.one("SELECT * FROM users WHERE id = $1", id);
     return oneUser;
   } catch (error) {
     console.log(error.message || error);
