@@ -7,6 +7,7 @@ import SignUp from "./Pages/SignUp";
 import NavBar from "./Components/NavBar";
 import Error from "./Pages/Error";
 import Index from "./Pages/Index";
+import Dashboard from "./Pages/Dashboard";
 import PaymentFinalized from "./Pages/PaymentFinalized";
 import Reviews from "./Pages/Reviews";
 import Budget from "./Pages/Budget";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/error404" element={<Error />} />
             <Route path="/index" element={<Index />} />
             <Route path="/pickabudget" element={<Budget />} />

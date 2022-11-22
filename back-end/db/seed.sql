@@ -1,7 +1,18 @@
 \c dev_smak;
 
-INSERT INTO users (firstname, lastname, address, city, state, zip, phonenumber, username, token, gary_points, avatar, is_active) VALUES ('Veronica', 'Perez','231 Gary Street', 'Elmhurst', 'New York', '11372', 5164729482, 'VerPerez', '489njs2k', 0, null, false),
-('Mike', 'Perez','231 Gary Street', 'Elmhurst', 'New York', '11372', 5162229482, 'MikePerez', '429njs2k', 0, null, false);
+INSERT INTO users (
+  firstname, lastname, address, city, state, zip, phonenumber, username, password, gary_points, avatar, is_active, role
+) 
+VALUES 
+(
+  'Andres','Varon','777 Broadway Av Suite 7','New York','New York','11372',9179993311,'anvaron@gmail.com','051801',0,null,true,1
+),
+(
+  'Veronica','Perez','231 Gary Street','Elmhurst','New York','11372',5164729482,'veroperez@gmail.com','123456',0,null,true,2
+),
+(
+  'Mike','Perez','237 Gary Street','Elmhurst','New York','11372',5162229482,'mikeperez@gmail.com','429njs2k',0,null,true,2
+);
 
 INSERT INTO orders (restaurant_id, date, delivery_address, total_cost, userid) VALUES ('CaboRVC', '2022-11-11', '231 Gary Street Elmhurst New York 11372', 7500, 1),('CaboRVC', '2022-11-12', '231 Gary Street Elmhurst New York 11372', 10000, 2);
 

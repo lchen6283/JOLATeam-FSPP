@@ -12,11 +12,12 @@ CREATE TABLE users (
     state TEXT,
     zip TEXT,
     phonenumber CHAR(10),
-    username TEXT NOT NULL,
-    token TEXT,
+    username varchar(255) UNIQUE,
+    password varchar(100),
     gary_points INT,
     avatar TEXT,
-    is_active BOOLEAN
+    is_active BOOLEAN,
+    role INT
 );
 
 CREATE TABLE orders (

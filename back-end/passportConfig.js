@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const connectionString = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
 
 const pool = new Pool({
-  connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
+  connectionString: connectionString,
   ssl: isProduction
 });
 
@@ -19,12 +19,12 @@ const pool = new Pool({
 function initialize(passport) {
   console.log("Initialized");
 
-  const authenticateUser = (email, password, done) => {
+  const authenticateUser = (username, password, done) => {
     console.log('test');
-    console.log(email, password);
+    console.log(username, password);
     pool.query(
-      `SELECT * FROM users WHERE email = $1`,
-      [email],
+      `SELECT * FROM users WHERE username = $1`,
+      [username],
       (err, results) => {
         if (err) {
           throw err;
@@ -57,7 +57,7 @@ function initialize(passport) {
 
   passport.use(
     new LocalStrategy(
-      { usernameField: "email", passwordField: "password" },
+      { usernameField: "username", passwordField: "password" },
       authenticateUser
     )
   );

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 
 import About from './About';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Index from './Index';
 
 
@@ -13,6 +13,7 @@ export default function Home() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
 
   const register = () => {
@@ -39,7 +40,10 @@ export default function Home() {
       },
       withCredentials: false,
       url: "http://localhost:3345/login",
-    }).then((res) => console.log(res));
+    }).then(
+      (res) => navigate("/dashboard"),
+      
+    );
   };
 
   const getUser = () => {

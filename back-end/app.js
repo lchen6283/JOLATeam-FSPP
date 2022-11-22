@@ -13,11 +13,28 @@ const { Pool } = require("pg");
 const isProduction = process.env.NODE_ENV === "production";
 
 const connectionString = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
+//console.log(connectionString)
+const credentials = {
+  user: "postgres",
+  host: "localhost",
+  database: "dev_smak",
+  password: "1088291521",
+  port: 5432,
+};
 
-const pool = new Pool({
-  connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
-  ssl: isProduction
-});
+// const pool = new Pool({
+//   connectionString: connectionString,
+//   ssl: isProduction
+// });
+const pool = new Pool(credentials);
+async function poolDemo() {
+  const pool = new Pool(credentials);
+  const now = await pool.query("SELECT NOW()");
+  await pool.end();
+
+  return now;
+}
+console.log(poolDemo())
 
 const usersController = require("./controllers/usersController");
 const reviewsController = require("./controllers/reviewsController.js");
@@ -27,6 +44,7 @@ const ordersControllers = require("./controllers/ordersController");
 const app = express();
 
 const initializePassport = require("./passportConfig");
+
 initializePassport(passport)
 
 //MIDDLEWARE
@@ -44,6 +62,7 @@ app.use(
     saveUninitialized: false
   })
 );
+
 // Funtion inside passport which initializes passport
 app.use(passport.initialize());
 // Store our variables to be persisted across the whole session. Works with app.use(Session) above
@@ -55,7 +74,7 @@ app.use("/reviews", reviewsController);
 app.use("/orders", ordersControllers);
 
 //ROUTES
- app.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
   //res.render("index");
 });
@@ -63,10 +82,8 @@ app.use("/orders", ordersControllers);
 app.get("/login", checkAuthenticated, (req, res) => {
   // flash sets a messages variable. passport sets the error message
   //console.log(req.session.flash.error);
-  return res.status(200).json({
-      success:true,
-      redirectUrl: '/SignIn'
-  })
+  console.log(req.session);
+  return res.redirect('/dashboard');
 });
 
 app.post("/login",
@@ -78,6 +95,7 @@ app.post("/login",
 );
 
 function checkAuthenticated(req, res, next) {
+  console.log(req.isAuthenticated())
   if (req.isAuthenticated()) {
     return res.redirect("/dashboard");
   }
@@ -91,12 +109,14 @@ function checkNotAuthenticated(req, res, next) {
   res.redirect("/login");
 }
 
-
+app.get("/dashboard", (req, res) => {
+  res.send("Welcome to Dashboard");
+  //res.render("index");
+});
 
 app.get("*", (req, res) => {
   res.status(404).send("Sorry Bud, nothing here");
 });
 
 //EXPORT
-
 module.exports = app;
