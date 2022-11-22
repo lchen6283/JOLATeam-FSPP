@@ -14,8 +14,6 @@ const pool = new Pool({
   ssl: isProduction
 });
 
-
-
 function initialize(passport) {
   console.log("Initialized");
 
@@ -34,14 +32,19 @@ function initialize(passport) {
         if (results.rows.length > 0) {
           const user = results.rows[0];
 
+          console.log('password:', password);
+          console.log('user.password', user.password);
           bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) {
               console.log(err);
             }
+
             if (isMatch) {
+              console.log('isMatch:', isMatch);
               return done(null, user);
             } else {
               //password is incorrect
+              console.log('Password is incorrect');
               return done(null, false, { message: "Password is incorrect" });
             }
           });

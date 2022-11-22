@@ -13,7 +13,7 @@ CREATE TABLE users (
     zip TEXT,
     phonenumber CHAR(10),
     username varchar(255) UNIQUE,
-    password varchar(100),
+    password varchar(255),
     gary_points INT,
     avatar TEXT,
     is_active BOOLEAN,

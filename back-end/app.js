@@ -26,15 +26,15 @@ const credentials = {
 //   connectionString: connectionString,
 //   ssl: isProduction
 // });
-const pool = new Pool(credentials);
-async function poolDemo() {
-  const pool = new Pool(credentials);
-  const now = await pool.query("SELECT NOW()");
-  await pool.end();
+// const pool = new Pool(credentials);
+// async function poolDemo() {
+//   const pool = new Pool(credentials);
+//   const now = await pool.query("SELECT NOW()");
+//   await pool.end();
 
-  return now;
-}
-console.log(poolDemo())
+//   return now;
+// }
+//console.log(poolDemo())
 
 const usersController = require("./controllers/usersController");
 const reviewsController = require("./controllers/reviewsController.js");
@@ -82,7 +82,7 @@ app.get("/", (req, res) => {
 app.get("/login", checkAuthenticated, (req, res) => {
   // flash sets a messages variable. passport sets the error message
   //console.log(req.session.flash.error);
-  console.log(req.session);
+  //console.log(req.session);
   return res.redirect('/dashboard');
 });
 
