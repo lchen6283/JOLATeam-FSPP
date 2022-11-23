@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import Search from "../Components/Search";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const API = process.env.REACT_APP_API_URL;
 
 export default function Home() {
   const [city, setCity] = useState("Rego Park");
+  const [restaurants, setRestaurants] = useState([]);
   let navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/about`);
+  console.log(restaurants);
+  const handleClick = async () => {
+    await axios
+      .get(`${API}/yelp`)
+      .then((res) => {
+        console.log(res);
+        setRestaurants(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
