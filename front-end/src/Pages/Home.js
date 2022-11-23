@@ -9,19 +9,17 @@ export default function Home() {
   const [city, setCity] = useState("Rego Park");
   const [restaurants, setRestaurants] = useState([]);
   let navigate = useNavigate();
-  console.log(restaurants);
   const handleClick = async () => {
     await axios
       .get(`${API}/yelp`)
       .then((res) => {
-        console.log(res);
         setRestaurants(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
+  console.log(restaurants);
   return (
     <div className="h-full bg-yellow-200">
       <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
