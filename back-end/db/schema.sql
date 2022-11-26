@@ -38,4 +38,16 @@ CREATE TABLE reviews (
     content TEXT NOT NULL,
     img_url TEXT,
     date DATE
-)
+);
+
+CREATE TABLE menus (
+    id SERIAL PRIMARY KEY,
+   cuisine TEXT NOT NULL 
+);
+
+CREATE TABLE plates (
+    id SERIAL PRIMARY KEY,
+    menuid INTEGER REFERENCES menus (id),
+    dish_type TEXT NOT NULL,
+    name TEXT NOT NULL
+);

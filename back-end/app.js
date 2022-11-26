@@ -23,8 +23,9 @@ const credentials = {
 
 const usersController = require("./controllers/usersController");
 const reviewsController = require("./controllers/reviewsController.js");
-const ordersControllers = require("./controllers/ordersController");
-
+const ordersController = require("./controllers/ordersController");
+const menusController = require('./controllers/menusController')
+const platesController = require("./controllers/platesController")
 //CONFIG
 const app = express();
 
@@ -36,8 +37,9 @@ app.use(cors());
 app.use(express.json());
 app.use("/users", usersController);
 app.use("/reviews", reviewsController);
-app.use("/orders", ordersControllers);
-
+app.use("/orders", ordersController);
+app.use("/menus", menusController);
+app.use("/plates", platesController);
 //ROUTES
 
 app.use(express.urlencoded({ extended: false }));
