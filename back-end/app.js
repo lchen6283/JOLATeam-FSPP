@@ -107,10 +107,12 @@ app.get("/yelp", async (req, res) => {
     url: `https://api.yelp.com/v3/businesses/search?term=restaurants&location=hells+kitchen`,
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+      "Accept-Encoding": false,
     },
   };
   axios(config)
     .then(function (response) {
+      console.log(response);
       return JSON.stringify(response.data, null, 2);
     })
     .then(function (jsonResponse) {
