@@ -20,3 +20,7 @@ INSERT INTO orders (restaurant_id, date, delivery_address, total_cost, userid) V
 INSERT INTO reviews (userid, orderid, rating, content, img_url, date) VALUES (1, 1, 5, 'Those enchiladas hit the spot so good, how did they know?  Im just blown away', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-11'), (2, 2, 5, 'These tongue tacos are the best i never had. Wow wow wow', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-12');
 
 
+INSERT INTO menus (cuisine) VALUES ('mexican'),('chinese'),('american');
+
+
+INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Chicken Fajitas'),(2,'entree', 'Spicy Noodles'),(1,'entree', 'Lengua Tacos');
