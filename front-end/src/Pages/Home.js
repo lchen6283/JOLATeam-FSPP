@@ -3,7 +3,6 @@ import Search from "../Components/Search";
 // import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 const API = process.env.REACT_APP_API_URL;
 
 export default function Home() {
@@ -17,7 +16,7 @@ export default function Home() {
     await axios
       .get(`${API}/yelp/${param}`)
       .then((res) => {
-        setRestaurants(res.data.businesses);
+        setRestaurants(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -33,19 +32,18 @@ export default function Home() {
               <b className="px-4 py-2 mt-2 text-4xl md:text-6xl bg-smaksalmon text-white no-italic rounded-md shadow">
                 Ordering Just Got Easier
               </b>
-            </span>            
+            </span>
             <span className="block text-4xl md:text-6xl">
               Welcome to <b className="text-smakorange">SMAK!</b>
             </span>
           </h2>
-          
-         <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
+
+          <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
             Choose a location to get started.
           </p>
           <div className="lg:mt-0 lg:flex-shrink-0">
             <div className="mt-12 inline-flex rounded-md shadow"></div>
             <Search setCity={setCity} city={city} />
-            
           </div>
           <div className="mt-12 inline-flex rounded-md shadow">
             <button
@@ -58,7 +56,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {restaurants.length ? (
+      {restaurants[0] ? (
         <section class="overflow-hidden text-gray-700 ">
           <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
             <div class="flex flex-wrap -m-1 md:-m-2">
@@ -79,7 +77,7 @@ export default function Home() {
           </div>
         </section>
       ) : (
-        <></>
+        <div>SMAK</div>
       )}
     </div>
   );
