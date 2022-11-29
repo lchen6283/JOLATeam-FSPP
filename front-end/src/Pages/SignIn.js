@@ -98,7 +98,7 @@ export default function SignIn() {
             </div> 
             </form>
             <p className="text-lg mt-4 max-w-md mx-auto text-gray-600">
-              Doesn't have an account?
+              Don't have an account?
               <Link
                 to="/signup"
                 className="mx-2 text-gray font-semibold"
