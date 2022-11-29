@@ -19,6 +19,7 @@ import PaymentFinalized from "./Pages/PaymentFinalized";
 import Budget from "./Pages/Budget";
 import PaymentInfo from "./Pages/PaymentInfo";
 import axios from "axios";
+import Survey from "./Pages/Survey";
 
 // TOASTIFY
 import "react-toastify/dist/ReactToastify.css";
@@ -29,16 +30,15 @@ function App() {
   //
   const API_URL = process.env.REACT_APP_API_URL;
 
-
   const checkAuthenticated = async () => {
     try {
       const res = await fetch(`${API_URL}/auth/verify`, {
         method: "POST",
-        headers: { jwt_token: localStorage.token }
+        headers: { jwt_token: localStorage.token },
       });
 
       const parseRes = await res.json();
-      console.log(parseRes)
+      console.log(parseRes);
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
     } catch (err) {
       console.error(err.message);
@@ -51,11 +51,11 @@ function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const setAuth = boolean => {
+  const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   };
 
-  console.log('isAuthenticated:', isAuthenticated)
+  console.log("isAuthenticated:", isAuthenticated);
 
   return (
     <div className="App">
@@ -67,18 +67,19 @@ function App() {
             <Route path="/index" element={<Index />} />
             <Route
               path="/login"
-              element={!isAuthenticated ? (
+              element={
+                !isAuthenticated ? (
                   //<Navigate to="/dashboard" />
                   <Login setAuth={setAuth} replace />
                 ) : (
                   <Navigate to="/dashboard" />
-                  
                 )
               }
             />
             <Route
               path="/register"
-              element={!isAuthenticated ? (
+              element={
+                !isAuthenticated ? (
                   <Register setAuth={setAuth} />
                 ) : (
                   <Navigate to="/dashboard" />
@@ -87,7 +88,8 @@ function App() {
             />
             <Route
               path="/dashboard"
-              element={isAuthenticated ? (
+              element={
+                isAuthenticated ? (
                   <Dashboard setAuth={setAuth} />
                 ) : (
                   <Navigate to="/login" />
@@ -102,6 +104,7 @@ function App() {
             <Route path="/paymentdone" element={<PaymentFinalized />} />
             <Route path="/testimonials" element={<Reviews />} />
             <Route path="/paymentInfo" element={<PaymentInfo />} />
+            <Route path="/survey" element={<Survey />} />
           </Routes>
         </main>
       </Router>

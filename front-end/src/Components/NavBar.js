@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/SmakLogos/Transparent_Logo_02.png";
+import logo from "../assets/SmakLogos/Transparent_Logo2_01.png";
 
 export default function NavBar() {
   return (
