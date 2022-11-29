@@ -5,7 +5,7 @@ export default function Survey() {
   const [budget, setBudget] = useState("");
   const [cuisineType, setCuisineType] = useState({
     spicy: false,
-    flavor: "",
+    flavor: [],
     eliminate: [],
   });
 
@@ -49,7 +49,6 @@ export default function Survey() {
             Choose your flavors
           </h2>
         </div>
-
         <div class="mt-4 space-y-4">
           <div class="flex h-5 items-center">
             <input id="zesty" name="zesty" type="checkbox" class="" />
@@ -144,7 +143,9 @@ export default function Survey() {
       {/* THIRD QUIZ */}
       <div class="mt-4 space-y-4">
         <div class="px-4 sm:px-0">
-          <h2 class="text-lg font-medium leading-6 text-gray-900">3 QUIZ</h2>
+          <h2 class="text-lg font-medium leading-6 text-gray-900">
+            Eliminate Two Cuisines
+          </h2>
         </div>
         <div class="px-4 sm:px-0">{/*  */}</div>
       </div>
