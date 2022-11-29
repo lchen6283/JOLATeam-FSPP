@@ -24,8 +24,8 @@ const credentials = {
 const usersController = require("./controllers/usersController");
 const reviewsController = require("./controllers/reviewsController.js");
 const ordersController = require("./controllers/ordersController");
-const menusController = require('./controllers/menusController')
-const platesController = require("./controllers/platesController")
+const menusController = require("./controllers/menusController");
+const platesController = require("./controllers/platesController");
 //CONFIG
 const app = express();
 
@@ -100,6 +100,8 @@ app.get("/dashboard", (req, res) => {
   //res.render("index");
 });
 
+const { formatted } = require("./validators/yelpvalidators");
+
 app.get("/yelp/:location", async (req, res) => {
   const { location } = req.params;
   const config = {
@@ -115,7 +117,8 @@ app.get("/yelp/:location", async (req, res) => {
       return JSON.stringify(response.data, null, 2);
     })
     .then(function (jsonResponse) {
-      res.send(jsonResponse);
+      let parsed = JSON.parse(jsonResponse).businesses;
+      res.send(formatted(parsed));
     })
     .catch(function (error) {
       console.log(error);
