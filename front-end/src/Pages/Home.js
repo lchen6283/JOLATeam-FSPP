@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Search from "../Components/Search";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -9,10 +9,11 @@ const API = process.env.REACT_APP_API_URL;
 export default function Home() {
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const handleClick = async () => {
     setRestaurants([]);
-    let param = city.label.split(",")[0];
+    let param = city.label.split(",").splice(0, 2).join("");
+    console.log(param);
     await axios
       .get(`${API}/yelp/${param}`)
       .then((res) => {
@@ -32,8 +33,7 @@ export default function Home() {
               <b className="px-4 py-2 mt-2 text-4xl md:text-6xl bg-smaksalmon text-white no-italic rounded-md shadow">
                 Ordering Just Got Easier
               </b>
-            </span>
-            
+            </span>            
             <span className="block text-4xl md:text-6xl">
               Welcome to <b className="text-smakorange">SMAK!</b>
             </span>
