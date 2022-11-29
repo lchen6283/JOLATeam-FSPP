@@ -7,7 +7,7 @@ const formatted = (data) => {
     "australian",
     "korean",
     "spanish",
-    "american",
+    "newamerican",
     "thai",
   ];
 
