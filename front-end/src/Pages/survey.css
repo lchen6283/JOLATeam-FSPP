@@ -1,0 +1,60 @@
+ .survey {
+    text-align: center;
+  } 
+  
+   .question-card {
+    margin: 0 auto;
+    width: 80%; 
+    height: auto;
+    background-color: #E16955;
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    box-shadow: #32325d40 0px 30px 60px -12px,
+      #0000004d 0px 18px 36px -18px;
+  }
+  
+
+  
+ .happy {
+    margin-top: 8px;
+    background-color: #EF8F35;
+    padding: 16px;
+    border: 3px solid white;
+    border-radius: 20px;
+    font-size: 20px;
+  }
+  
+  .question-text {
+    color: rgb(254, 254, 254);
+    font-size: 24px;
+  } 
+  
+ 
+  
+  .final-results {
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    margin-top: 64px;
+    background-color: #fb9352;
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    box-shadow: #32325d40 0px 30px 60px -12px,
+      #0000004d 0px 18px 36px -18px;
+  }
+  
+  button {
+    background-color: #ff004c; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+  
+    border-radius: 24px;
+  }

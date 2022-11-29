@@ -14,6 +14,7 @@ import PaymentFinalized from "./Pages/PaymentFinalized";
 import Reviews from "./Components/Reviews";
 import Budget from "./Pages/Budget";
 import PaymentInfo from "./Pages/PaymentInfo";
+import Survey from "./Pages/Survey";
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
             <Route path="/paymentdone" element={<PaymentFinalized />} />
             <Route path="/testimonials" element={<Reviews />} />
             <Route path="/paymentInfo" element={<PaymentInfo />} />
+            <Route path="/survey" element={<Survey />} />
           </Routes>
         </main>
       </Router>
