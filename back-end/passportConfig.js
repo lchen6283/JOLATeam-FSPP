@@ -15,11 +15,11 @@ const pool = new Pool({
 });
 
 function initialize(passport) {
-  console.log("Initialized");
+  //console.log("Initialized");
 
   const authenticateUser = (username, password, done) => {
-    console.log('test');
-    console.log(username, password);
+    console.log('authenticateUser');
+    //console.log(username, password);
     pool.query(
       `SELECT * FROM users WHERE username = $1`,
       [username],
@@ -39,13 +39,16 @@ function initialize(passport) {
               console.log(err);
             }
 
+            //console.log('isMatch:', isMatch);
             if (isMatch) {
               console.log('isMatch:', isMatch);
               return done(null, user);
             } else {
               //password is incorrect
-              console.log('Password is incorrect');
-              return done(null, false, { message: "Password is incorrect" });
+              //console.log('Password is incorrect');
+              return done(null, false, { 
+                message: "Incorrect Password" 
+              });
             }
           });
         } else {
@@ -74,6 +77,7 @@ function initialize(passport) {
   // The fetched object is attached to the request object as req.user
 
   passport.deserializeUser((id, done) => {
+    console.log('passport.deserializeUser')
     pool.query(`SELECT * FROM users WHERE id = $1`, [id], (err, results) => {
       if (err) {
         return done(err);
