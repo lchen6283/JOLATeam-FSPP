@@ -12,10 +12,10 @@ CREATE TABLE users (
     state TEXT,
     zip TEXT,
     phonenumber CHAR(10),
-    username varchar(255) NOT NULL UNIQUE,
-    password varchar(255) NOT NULL,
+    username varchar(255) UNIQUE,
+    password varchar(255),
     gary_points INT,
-    avatar varchar(255),
+    avatar TEXT,
     is_active BOOLEAN,
     role INT
 );
