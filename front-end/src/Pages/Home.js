@@ -10,6 +10,10 @@ export default function Home() {
   let [restaurants, setRestaurants] = useState([]);
   // let navigate = useNavigate();
   const handleClick = async () => {
+    if (!city) {
+      alert("You must enter a city");
+      return;
+    }
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
     console.log(param);

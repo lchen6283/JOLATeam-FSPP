@@ -43,6 +43,7 @@ CREATE TABLE reviews (
 CREATE TABLE menus (
     id SERIAL PRIMARY KEY,
    cuisine TEXT NOT NULL 
+   icon TEXT NOT NULL
 );
 
 CREATE TABLE plates (

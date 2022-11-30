@@ -117,6 +117,8 @@ app.get("/yelp/:location", async (req, res) => {
       return JSON.stringify(response.data, null, 2);
     })
     .then(function (jsonResponse) {
+      console.log(jsonResponse);
+
       let parsed = JSON.parse(jsonResponse).businesses;
       res.send(formatted(parsed));
     })

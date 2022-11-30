@@ -7,8 +7,9 @@ const formatted = (data) => {
     "australian",
     "korean",
     "spanish",
-    "american",
+    "newamerican",
     "thai",
+    "japanese",
   ];
 
   let catMatcher = (cuisines, apiCats) => {
@@ -33,7 +34,8 @@ const formatted = (data) => {
       price: e.price,
       image_url: e.image_url,
       coordinates: e.coordinates,
-      categories: catMatcher(cuisines, catReducer(e.categories)),
+      originalcategories: catReducer(e.categories),
+      matchedcategory: catMatcher(cuisines, catReducer(e.categories)),
     };
   });
 };
