@@ -67,7 +67,10 @@ function App() {
             <Route path="/paymentdone" element={<PaymentFinalized />} />
             <Route path="/testimonials" element={<Reviews />} />
             <Route path="/paymentInfo" element={<PaymentInfo />} />
-            <Route path="/survey" element={<Survey />} />
+            <Route
+              path="/survey"
+              element={<Survey restaurants={restaurants} />}
+            />
           </Routes>
         </main>
       </Router>
