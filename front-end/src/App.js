@@ -59,7 +59,7 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/error404" element={<Error />} />
+            <Route path="/*" element={<Error />} />
             <Route path="/index" element={<Index />} />
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />
