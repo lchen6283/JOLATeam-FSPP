@@ -1,5 +1,19 @@
 import React, { useState } from "react";
+import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN AS PROPS
 import "./survey.css";
+
+const list = [
+  { word: "zesty", menu: ["mediterranean", "mexican"] },
+  { word: "rich", menu: ["french", "italian"] },
+  { word: "creamy", menu: ["italian", "french"] },
+  { word: "hearty", menu: ["spanish", "other"] },
+  { word: "crunchy", menu: ["other", "korean"] },
+  { word: "sweet", menu: ["newamerican", "thai"] },
+  { word: "savory", menu: ["spanish", "korean"] },
+  { word: "comfort", menu: ["american", "vietnamese"] },
+  { word: "fresh", menu: ["mediterranean", "vietnamese"] },
+];
+let apiCategories = [...new Set(sohoAPI.map((e) => e.matchedcategory))];
 
 export default function Survey() {
   const [budget, setBudget] = useState("");
@@ -8,10 +22,48 @@ export default function Survey() {
     flavor: [],
     eliminate: [],
   });
-
+  console.log("budget", budget, "cuisineType", cuisineType);
   // HANDLERS
   const handleChange = (e) => {
     setBudget(([e.target.id] = e.target.value));
+  };
+  const handleFlavorCheck = (e) => {
+    // Destructuring
+    const { value, checked } = e.target;
+    const { flavor } = cuisineType;
+    // Case 1 : The user checks the box
+    if (checked) {
+      setCuisineType((prevState) => ({
+        ...prevState,
+        flavor: [...flavor, value],
+      }));
+    }
+    // Case 2  : The user unchecks the box
+    else {
+      setCuisineType((prevState) => ({
+        ...prevState,
+        flavor: flavor.filter((e) => e !== value),
+      }));
+    }
+  };
+  const handleEliminationCheck = (e) => {
+    // Destructuring
+    const { value, checked } = e.target;
+    const { eliminate } = cuisineType;
+    // Case 1 : The user checks the box
+    if (checked) {
+      setCuisineType((prevState) => ({
+        ...prevState,
+        eliminate: [...eliminate, value],
+      }));
+    }
+    // Case 2  : The user unchecks the box
+    else {
+      setCuisineType((prevState) => ({
+        ...prevState,
+        eliminate: eliminate.filter((e) => e !== value),
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -20,7 +72,7 @@ export default function Survey() {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       {/* 1ST QUIZ */}
       <div class="mt-4 space-y-4">
         <div class="px-4 sm:px-0">
@@ -35,7 +87,7 @@ export default function Survey() {
             name="budget"
             onChange={handleChange}
           >
-            <option value="">Select an option</option>
+            <option value="">Select An Option</option>
             <option value="100">100 $</option>
             <option value="150">150 $</option>
             <option value="200">200 $</option>
@@ -49,96 +101,27 @@ export default function Survey() {
             Choose your flavors
           </h2>
         </div>
-        <div class="mt-4 space-y-4">
-          <div class="flex h-5 items-center">
-            <input id="zesty" name="zesty" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="zesty" class="font-medium text-gray-700">
-              ZESTY
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="rich" name="rich" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="rich" class="font-medium text-gray-700">
-              RICH
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="creamy" name="creamy" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="creamy" class="font-medium text-gray-700">
-              CREAMY
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="hearty" name="hearty" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="hearty" class="font-medium text-gray-700">
-              HEARTY
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="crunchy" name="crunchy" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="crunchy" class="font-medium text-gray-700">
-              CRUNCHY
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="sweet" name="sweet" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="sweet" class="font-medium text-gray-700">
-              SWEET
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="savory" name="savory" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="savory" class="font-medium text-gray-700">
-              SAVORY
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="comfort" name="comfort" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="comfort" class="font-medium text-gray-700">
-              COMFORT
-            </label>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <div class="flex h-5 items-center">
-            <input id="fresh" name="fresh" type="checkbox" class="" />
-          </div>
-          <div class="ml-3 text-sm">
-            <label for="fresh" class="font-medium text-gray-700">
-              FRESH
-            </label>
-          </div>
-        </div>
+        {list.map((item, i) => {
+          return (
+            <div class="flex items-start" key={i}>
+              <div class="flex h-5 items-center">
+                <input
+                  id={item.word}
+                  name={item.word}
+                  value={item.word}
+                  onChange={handleFlavorCheck}
+                  type="checkbox"
+                  class=""
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label htmlFor={item.word} class="font-medium text-gray-700">
+                  {item.word.toUpperCase()}
+                </label>
+              </div>
+            </div>
+          );
+        })}
       </div>
       {/* THIRD QUIZ */}
       <div class="mt-4 space-y-4">
@@ -147,10 +130,50 @@ export default function Survey() {
             Eliminate Two Cuisines
           </h2>
         </div>
-        <div class="px-4 sm:px-0">{/*  */}</div>
+        <div class="px-4 sm:px-0">
+          {apiCategories.map((category, i) => {
+            return (
+              <div class="flex items-start" key={i}>
+                <div class="flex h-5 items-center">
+                  <input
+                    id={category}
+                    name={category}
+                    value={category}
+                    onChange={handleEliminationCheck}
+                    type="checkbox"
+                    class=""
+                  />
+                </div>
+                <div class="ml-3 text-sm">
+                  <label htmlFor={category} class="font-medium text-gray-700">
+                    {category.toUpperCase()}
+                  </label>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
+      <label
+        htmlFor="message"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        <h2 class="text-lg font-medium leading-6 text-gray-900">
+          Notes for your order
+        </h2>
+      </label>
+      <textarea
+        id="message"
+        rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Spicy? Allergies?"
+      ></textarea>
+
       <div class="">
-        <button type="submit" class="">
+        <button
+          type="submit"
+          class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        >
           Submit
         </button>
       </div>
@@ -234,7 +257,6 @@ export default function Survey() {
 //             { id: 1, text: "PEOPLE" },
 //             { id: 2, text: "SMILE" },
 //             { id: 3, text: "EVERYDAY" },
-
 //           ],
 //         },
 //       ];
