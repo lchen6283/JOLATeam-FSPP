@@ -1,32 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Search from "../Components/Search";
 // import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-const API = process.env.REACT_APP_API_URL;
-
-export default function Home() {
-  let [city, setCity] = useState("");
-  let [restaurants, setRestaurants] = useState([]);
+export default function Home({ restaurants, city, setCity, handleClick }) {
   // let navigate = useNavigate();
-  const handleClick = async () => {
-    if (!city) {
-      alert("You must enter a city");
-      return;
-    }
-    setRestaurants([]);
-    let param = city.label.split(",").splice(0, 2).join("");
-    console.log(param);
-    await axios
-      .get(`${API}/yelp/${param}`)
-      .then((res) => {
-        setRestaurants(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  console.log(restaurants);
+
   return (
     <div>
       <div className="h-full">

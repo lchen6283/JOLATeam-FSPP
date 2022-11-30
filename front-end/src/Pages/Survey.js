@@ -94,36 +94,7 @@ export default function Survey() {
           </select>
         </div>
       </div>
-      {/* 2ND QUIZ */}
-      <div class="mt-4 space-y-4">
-        <div class="px-4 sm:px-0">
-          <h2 class="text-lg font-medium leading-6 text-gray-900">
-            Choose your flavors
-          </h2>
-        </div>
-        {list.map((item, i) => {
-          return (
-            <div class="flex items-start" key={i}>
-              <div class="flex h-5 items-center">
-                <input
-                  id={item.word}
-                  name={item.word}
-                  value={item.word}
-                  onChange={handleFlavorCheck}
-                  type="checkbox"
-                  class=""
-                />
-              </div>
-              <div class="ml-3 text-sm">
-                <label htmlFor={item.word} class="font-medium text-gray-700">
-                  {item.word.toUpperCase()}
-                </label>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      {/* THIRD QUIZ */}
+      {/* 2nd QUIZ */}
       <div class="mt-4 space-y-4">
         <div class="px-4 sm:px-0">
           <h2 class="text-lg font-medium leading-6 text-gray-900">
@@ -154,6 +125,36 @@ export default function Survey() {
           })}
         </div>
       </div>
+      {/* third QUIZ */}
+      <div class="mt-4 space-y-4">
+        <div class="px-4 sm:px-0">
+          <h2 class="text-lg font-medium leading-6 text-gray-900">
+            Choose your flavors
+          </h2>
+        </div>
+        {list.map((item, i) => {
+          return (
+            <div class="flex items-start" key={i}>
+              <div class="flex h-5 items-center">
+                <input
+                  id={item.word}
+                  name={item.word}
+                  value={item.word}
+                  onChange={handleFlavorCheck}
+                  type="checkbox"
+                  class=""
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label htmlFor={item.word} class="font-medium text-gray-700">
+                  {item.word.toUpperCase()}
+                </label>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       <label
         htmlFor="message"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
