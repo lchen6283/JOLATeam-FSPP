@@ -12,14 +12,14 @@ export default function Home({ restaurants, city, setCity, handleClick }) {
           <h2 className=" font-extrabold text-black sm:text-4xl">
             <span className="block  text-gray-500 text-4xl md:text-6xl italic my-20 py-0 leading-0">
               <b className="px-4 py-2 mt-2 text-4xl md:text-6xl bg-smaksalmon text-white no-italic rounded-md shadow">
-                Ordering Just Got Easier
+                Welcome To SMAK
               </b>
             </span>
-            <span className="block text-4xl md:text-6xl">
-              Welcome to <b className="text-smakorange">SMAK!</b>
-            </span>
           </h2>
-
+          
+          <span className="block text-4xl md:text-6xl">
+             LET'S FIND A NEW<b className="text-smakorange"> FLAVOR!</b>
+            </span>
           <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
             Choose a location to get started.
           </p>
@@ -53,6 +53,7 @@ export default function Home({ restaurants, city, setCity, handleClick }) {
                       />
                     </div>
                   </div>
+                  
                 );
               })}
             </div>
