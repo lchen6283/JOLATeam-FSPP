@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Components/About";
@@ -15,14 +15,46 @@ import Reviews from "./Components/Reviews";
 import Budget from "./Pages/Budget";
 import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
+import axios from "axios";
+
+const API = process.env.REACT_APP_API_URL;
 function App() {
+  let [restaurants, setRestaurants] = useState([]);
+  let [city, setCity] = useState("");
+  const handleClick = async () => {
+    if (!city) {
+      alert("You must enter a city");
+      return;
+    }
+    setRestaurants([]);
+    let param = city.label.split(",").splice(0, 2).join("");
+    console.log(param);
+    await axios
+      .get(`${API}/yelp/${param}`)
+      .then((res) => {
+        setRestaurants(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="App">
       <Router>
         <NavBar />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  restaurants={restaurants}
+                  city={city}
+                  setCity={setCity}
+                  handleClick={handleClick}
+                />
+              }
+            />
             <Route path="/about" element={<About />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
