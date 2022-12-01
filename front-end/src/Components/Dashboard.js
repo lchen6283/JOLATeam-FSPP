@@ -24,9 +24,9 @@ const Dashboard = () => {
         },
       )
 
-      // After validate credentials, proceed to redirect to Dashboard
+      // After validate credentials, proceed to redirect to /
       setTimeout(() => {
-        navigate(from, { replace: true });
+        navigate('/');
       }, 1050);
      
     } catch (err) {
