@@ -19,6 +19,8 @@ app.use(express.json());
 app.use("/users", usersController);
 app.use("/reviews", reviewsController);
 app.use("/orders", ordersController);
+app.use("/menus", menusController);
+app.use("/plates", platesController);
 
 //ROUTES
 app.use("/auth", require("./routes/jwtAuth"));

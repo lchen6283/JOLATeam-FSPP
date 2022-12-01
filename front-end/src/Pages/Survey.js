@@ -4,6 +4,9 @@ import useAuth from "../hooks/useAuth";
 
 import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN AS PROPS
 import "./survey.css";
+import Budget from "../Components/Budget";
+import Questionnaire from "../Components/Questionnaire";
+import { matchRoutes } from "react-router-dom";
 
 const list = [
   { word: "zesty", menu: ["mediterranean", "mexican"] },
@@ -22,20 +25,23 @@ export default function Survey() {
   const { setAuth } = useContext(AuthContext);
   const { auth } = useAuth();
 
-  
   const [budget, setBudget] = useState("");
   const [cuisineType, setCuisineType] = useState({
-    spicy: false,
+    notes: "",
     flavor: [],
     eliminate: [],
   });
-  console.log("budget", budget, "cuisineType", cuisineType);
   // HANDLERS
   const handleChange = (e) => {
     setBudget(([e.target.id] = e.target.value));
   };
+  const handleNotes = (e) => {
+    setCuisineType((prevState) => ({
+      ...prevState,
+      notes: e.target.value,
+    }));
+  };
   const handleFlavorCheck = (e) => {
-    // Destructuring
     const { value, checked } = e.target;
     const { flavor } = cuisineType;
     // Case 1 : The user checks the box
@@ -54,7 +60,6 @@ export default function Survey() {
     }
   };
   const handleEliminationCheck = (e) => {
-    // Destructuring
     const { value, checked } = e.target;
     const { eliminate } = cuisineType;
     // Case 1 : The user checks the box
@@ -73,110 +78,60 @@ export default function Survey() {
     }
   };
 
+  const restaurantPicker = (list, apiObj, survey) => {
+    //1. Eliminate two restaurants of choice (PRESERVE THIS LIST IF STEP 2 ELIMINATES ALL CUISINES)
+    //2. Eliminate all options that are NOT true w/ word association
+    ////////=> Extract cuisine types from word association
+    ////////=> . Eliminate all restaurants w/ cuisine types that are NOT the listed cuisine types
+    /////////=> RETURN all remaining restaurants
+    //3.  RETURN 1 if 1 LEFT // RETURN RANDOM 1 if MORE THAN 1.  RETURN RANDOM from step 1, IF ZERO LEFT.
+    if (!cuisineType.flavor && !cuisineType.eliminate) {
+      console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
+    }
+    console.log(apiObj);
+    //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
+    let postElimination = apiObj.filter(
+      (e) =>
+        e.matchedcategory !== survey.eliminate[0] &&
+        e.matchedcategory !== survey.eliminate[1]
+    );
+    let wordAssociationCuisines = list
+      .filter((e) => survey.flavor.includes(e.word))
+      .map((e) => e.menu)
+      .flat();
+
+    let finalChoice = postElimination.filter((restaurant) =>
+      wordAssociationCuisines.includes(restaurant.matchedcategory)
+    );
+    let chosenRestaurant = {};
+    if (finalChoice.length === 1) {
+      chosenRestaurant = finalChoice;
+    } else if (finalChoice.length > 1) {
+      chosenRestaurant =
+        finalChoice[Math.floor(Math.random() * finalChoice.length + 1)];
+    } else {
+      chosenRestaurant =
+        postElimination[Math.floor(Math.random() * postElimination.length + 1)];
+    }
+    console.log([chosenRestaurant, { notes: cuisineType.notes }]);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    restaurantPicker(list, sohoAPI, cuisineType);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* 1ST QUIZ */}
-      <div class="mt-4 space-y-4">
-        <div class="px-4 sm:px-0">
-          <h2 class="text-lg font-medium leading-6 text-gray-900">
-            Select A Budget
-          </h2>
-        </div>
-        <div class="col-span-6 sm:col-span-3">
-          <select
-            value={budget}
-            id="budget"
-            name="budget"
-            onChange={handleChange}
-          >
-            <option value="">Select An Option</option>
-            <option value="100">100 $</option>
-            <option value="150">150 $</option>
-            <option value="200">200 $</option>
-          </select>
-        </div>
-      </div>
-      {/* 2nd QUIZ */}
-      <div class="mt-4 space-y-4">
-        <div class="px-4 sm:px-0">
-          <h2 class="text-lg font-medium leading-6 text-gray-900">
-            Eliminate Two Cuisines
-          </h2>
-        </div>
-        <div class="px-4 sm:px-0">
-          {apiCategories.map((category, i) => {
-            return (
-              <div class="flex items-start" key={i}>
-                <div class="flex h-5 items-center">
-                  <input
-                    id={category}
-                    name={category}
-                    value={category}
-                    onChange={handleEliminationCheck}
-                    type="checkbox"
-                    class=""
-                  />
-                </div>
-                <div class="ml-3 text-sm">
-                  <label htmlFor={category} class="font-medium text-gray-700">
-                    {category.toUpperCase()}
-                  </label>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      {/* third QUIZ */}
-      <div class="mt-4 space-y-4">
-        <div class="px-4 sm:px-0">
-          <h2 class="text-lg font-medium leading-6 text-gray-900">
-            Choose your flavors
-          </h2>
-        </div>
-        {list.map((item, i) => {
-          return (
-            <div class="flex items-start" key={i}>
-              <div class="flex h-5 items-center">
-                <input
-                  id={item.word}
-                  name={item.word}
-                  value={item.word}
-                  onChange={handleFlavorCheck}
-                  type="checkbox"
-                  class=""
-                />
-              </div>
-              <div class="ml-3 text-sm">
-                <label htmlFor={item.word} class="font-medium text-gray-700">
-                  {item.word.toUpperCase()}
-                </label>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <label
-        htmlFor="message"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        <h2 class="text-lg font-medium leading-6 text-gray-900">
-          Notes for your order
-        </h2>
-      </label>
-      <textarea
-        id="message"
-        rows="4"
-        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Spicy? Allergies?"
-      ></textarea>
-
+      <Budget budget={budget} handleChange={handleChange} />
+      {/* THIRD QUIZ */}
+      <Questionnaire
+        list={list}
+        apiCategories={apiCategories}
+        handleEliminationCheck={handleEliminationCheck}
+        handleFlavorCheck={handleFlavorCheck}
+        cuisineType={cuisineType}
+        handleNotes={handleNotes}
+      />
       <div class="">
         <button
           type="submit"
