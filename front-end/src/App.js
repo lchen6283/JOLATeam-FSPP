@@ -16,6 +16,7 @@ import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 import Order from "./Pages/Order";
 import PaymentFinalized from "./Pages/PaymentFinalized";
+import Budget from "./Pages/Budget";
 import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
 
@@ -27,6 +28,7 @@ const ROLES = {
 function App() {
 
   return (
+
     <Routes>
       
       <Route path="/" element={<Layout />}>
@@ -38,14 +40,14 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="error404" element={<Error />} />
         <Route path="unauthorized" element={<Unauthorized />} />
+        <Route path="survey" element={<Survey />} />
+        <Route path="dashboard" element={<Dashboard />} />
 
         {/* PROTECTED ROUTES */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]}  />}>
-          <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Order />} />
           <Route path="paymentdone" element={<PaymentFinalized />} />
           <Route path="paymentInfo" element={<PaymentInfo />} />
-          <Route path="survey" element={<Survey />} />
         </Route>
         
       </Route>
