@@ -11,7 +11,6 @@ import Dashboard from "./Pages/Dashboard";
 import Order from "./Pages/Order";
 import History from "./Pages/OrderHistory";
 import PaymentFinalized from "./Pages/PaymentFinalized";
-import Reviews from "./Components/Reviews";
 import Budget from "./Pages/Budget";
 import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
@@ -59,13 +58,12 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/*" element={<Error />} />
+            <Route path="*" element={<Error />} />
             <Route path="/index" element={<Index />} />
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />
             <Route path="/pickabudget" element={<Budget />} />
             <Route path="/paymentdone" element={<PaymentFinalized />} />
-            <Route path="/testimonials" element={<Reviews />} />
             <Route path="/paymentInfo" element={<PaymentInfo />} />
             <Route path="/survey" element={<Survey />} />
           </Routes>
