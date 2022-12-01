@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 
@@ -10,13 +9,26 @@ const Dashboard = () => {
   const { setAuth } = useContext(AuthContext);
   const { auth } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = "/";
 
   const logout = async e => {
     e.preventDefault();
     try {
       setAuth({});
-      navigate('/home');
-      toast.success("Logout successfully");
+      
+      toast.success("Logout successfully", 
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 1000,
+        },
+      )
+
+      // After validate credentials, proceed to redirect to Dashboard
+      setTimeout(() => {
+        navigate(from, { replace: true });
+      }, 1050);
+     
     } catch (err) {
       console.error(err.message);
     }

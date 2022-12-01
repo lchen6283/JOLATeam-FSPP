@@ -56,17 +56,27 @@ const Login = () => {
       setAuth({ jwtToken, firstName, lastName, userName, userRole });
       setInputs('');
       // Setting the success notification
-      toast.success("Login successful!", {
-        position: toast.POSITION.TOP_CENTER
-      }); 
+      toast.success("Login successful!", 
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 1000,
+        }, 
+        // {
+        //   onClose: () => navigate(from, { replace: true })
+        // }
+      );
+
       // After validate credentials, proceed to redirect to Dashboard
-      navigate(from, { replace: true });
+      setTimeout(() => {
+        navigate(from, { replace: true });
+      }, 1050);
 
     } catch (err) {
       console.error(err);
       // Setting the error notification
       toast.error(err.response.data, {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
       }); 
     }
   };

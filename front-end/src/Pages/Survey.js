@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AuthContext from "../context/AuthProvider";
+import useAuth from "../hooks/useAuth";
+
 import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN AS PROPS
 import "./survey.css";
 
@@ -16,6 +19,10 @@ const list = [
 let apiCategories = [...new Set(sohoAPI.map((e) => e.matchedcategory))];
 
 export default function Survey() {
+  const { setAuth } = useContext(AuthContext);
+  const { auth } = useAuth();
+
+  
   const [budget, setBudget] = useState("");
   const [cuisineType, setCuisineType] = useState({
     spicy: false,
