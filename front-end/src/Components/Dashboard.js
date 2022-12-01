@@ -3,7 +3,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const { setAuth } = useContext(AuthContext);
@@ -36,6 +37,7 @@ const Dashboard = () => {
   
   return (
     <div className="h-full bg-yellow-200">
+      <ToastContainer />
       <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <h2 className=" font-extrabold text-black sm:text-4xl">
           <span className="block  text-gray-500 text-4xl md:text-6xl my-20 py-0 leading-0">
