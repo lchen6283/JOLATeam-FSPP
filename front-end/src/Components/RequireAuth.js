@@ -6,12 +6,12 @@ const RequireAuth = ({ allowedRoles }) => {
     const location = useLocation();
     console.log(auth)
     return (
-        auth?.jwtToken)
+        auth?.jwtToken
             ? <Outlet />
             : auth?.role!==2
                 ? <Navigate to="/unauthorized" state={{ from: location }} replace />
                 : <Navigate to="/login" state={{ from: location }} replace />
-    //);
+    );
 }
 
 export default RequireAuth;
