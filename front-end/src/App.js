@@ -1,43 +1,55 @@
-import React from "react";
+import React, { useState, useEffect, Navigate, redirect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
+
+// COMPONENTS
+import Layout from './Components/Layout';
+import Login from "./Components/Login";
+import Register from "./Components/Register";
 import About from "./Components/About";
-import SignIn from "./Pages/SignIn";
-import SignUp from "./Pages/SignUp";
-import NavBar from "./Components/NavBar";
+import Contact from "./Components/Contact";
+import Dashboard from "./Components/Dashboard";
+import Unauthorized from './Components/Unauthorized';
+import RequireAuth from './Components/RequireAuth';
+
+// PAGES
+import Home from "./Pages/Home";
 import Error from "./Pages/Error";
-import Index from "./Pages/Index";
-import Dashboard from "./Pages/Dashboard";
 import Order from "./Pages/Order";
-import History from "./Pages/OrderHistory";
 import PaymentFinalized from "./Pages/PaymentFinalized";
-import Reviews from "./Components/Reviews";
-import Budget from "./Pages/Budget";
 import PaymentInfo from "./Pages/PaymentInfo";
+import Survey from "./Pages/Survey";
+
+const ROLES = {
+  'User': 2,
+  'Admin': 1
+}
+
 function App() {
+
   return (
-    <div className="App">
-      <Router>
-        <NavBar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/error404" element={<Error />} />
-            <Route path="/index" element={<Index />} />
-            <Route path="/order" element={<Order />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/pickabudget" element={<Budget />} />
-            <Route path="/paymentdone" element={<PaymentFinalized />} />
-            <Route path="/testimonials" element={<Reviews />} />
-            <Route path="/paymentInfo" element={<PaymentInfo />} />
-          </Routes>
-        </main>
-      </Router>
-    </div>
+    <Routes>
+      
+      <Route path="/" element={<Layout />}>
+        {/* PUBLIC ROUTES */}
+        <Route path="" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="error404" element={<Error />} />
+        <Route path="unauthorized" element={<Unauthorized />} />
+
+        {/* PROTECTED ROUTES */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.User]}  />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="orders" element={<Order />} />
+          <Route path="paymentdone" element={<PaymentFinalized />} />
+          <Route path="paymentInfo" element={<PaymentInfo />} />
+          <Route path="survey" element={<Survey />} />
+        </Route>
+        
+      </Route>
+    </Routes>
   );
 }
 

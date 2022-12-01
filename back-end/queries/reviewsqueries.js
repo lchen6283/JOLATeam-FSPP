@@ -4,14 +4,17 @@ const db = require("../db/dbConfig");
 const getAllReviews = async (userid) => {
   try {
     if (userid === "all") {
-      const allReviews = await db.any("SELECT * FROM reviews");
+      const allReviews = await db.any(
+        "SELECT users.firstname, users.lastname, users.avatar, reviews.rating, reviews.content, reviews.img_url, reviews.date FROM reviews JOIN users ON users.id = reviews.userid"
+      );
       return allReviews;
     }
     const allReviews = await db.any(
-      `SELECT * FROM reviews WHERE userid = ${userid}`
+      `SELECT users.firstname, users.lastname, users.avatar, reviews.rating, reviews.content, reviews.img_url, reviews.date FROM reviews JOIN users ON users.id = reviews.userid WHERE users.id = ${userid}`
     );
     return allReviews;
   } catch (error) {
+    console.log(error.message || error);
     return error;
   }
 };
