@@ -41,6 +41,7 @@ export default function Home() {
           <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
             Choose a location to get started.
           </p>
+          <div className="w-1/2 mx-auto">
           <div className="lg:mt-0 lg:flex-shrink-0">
             <div className="mt-12 inline-flex rounded-md shadow"></div>
             <Search setCity={setCity} city={city} />
@@ -49,10 +50,11 @@ export default function Home() {
             <button
               onClick={handleClick}
               type="button"
-              className="py-3 px-6 bg-smakorange hover:bg-smakHighlight focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+              className="py-2 px-8 bg-smakorange hover:bg-smakHighlight focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-3xl "
             >
               START
             </button>
+          </div>
           </div>
         </div>
       </div>
@@ -69,7 +71,7 @@ export default function Home() {
                         className="block object-cover object-center w-full h-full rounded-lg"
                         src={restaurant.image_url}
                       />
-                    </div>
+                    </div>``
                   </div>
                 );
               })}
