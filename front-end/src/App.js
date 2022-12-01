@@ -6,6 +6,7 @@ import Layout from './Components/Layout';
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import About from "./Components/About";
+import Contact from "./Components/Contact";
 import Dashboard from "./Components/Dashboard";
 import Unauthorized from './Components/Unauthorized';
 import RequireAuth from './Components/RequireAuth';
@@ -27,22 +28,24 @@ function App() {
 
   return (
     <Routes>
+      
       <Route path="/" element={<Layout />}>
         {/* PUBLIC ROUTES */}
-        <Route path="home" element={<Home />} />
+        <Route path="" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/error404" element={<Error />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="error404" element={<Error />} />
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* PROTECTED ROUTES */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]}  />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/paymentdone" element={<PaymentFinalized />} />
-          <Route path="/paymentInfo" element={<PaymentInfo />} />
-          <Route path="/survey" element={<Survey />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="orders" element={<Order />} />
+          <Route path="paymentdone" element={<PaymentFinalized />} />
+          <Route path="paymentInfo" element={<PaymentInfo />} />
+          <Route path="survey" element={<Survey />} />
         </Route>
         
       </Route>
