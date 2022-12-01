@@ -4,6 +4,9 @@ import useAuth from "../hooks/useAuth";
 
 import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN AS PROPS
 import "./survey.css";
+import Budget from "../Components/Budget";
+import Questionnaire from "../Components/Questionnaire";
+import { matchRoutes } from "react-router-dom";
 
 const list = [
   { word: "zesty", menu: ["mediterranean", "mexican"] },
@@ -74,17 +77,47 @@ export default function Survey() {
       }));
     }
   };
-  console.log(
-    "HERE IS THE BUDGET",
-    budget,
-    "----------------------",
-    "HERE IS THE SURVEY RESULTS",
-    cuisineType
-  );
 
+  const restaurantPicker = (list, apiObj, survey) => {
+    //1. Eliminate two restaurants of choice (PRESERVE THIS LIST IF STEP 2 ELIMINATES ALL CUISINES)
+    //2. Eliminate all options that are NOT true w/ word association
+    ////////=> Extract cuisine types from word association
+    ////////=> . Eliminate all restaurants w/ cuisine types that are NOT the listed cuisine types
+    /////////=> RETURN all remaining restaurants
+    //3.  RETURN 1 if 1 LEFT // RETURN RANDOM 1 if MORE THAN 1.  RETURN RANDOM from step 1, IF ZERO LEFT.
+    if (!cuisineType.flavor && !cuisineType.eliminate) {
+      console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
+    }
+    console.log(apiObj);
+    //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
+    let postElimination = apiObj.filter(
+      (e) =>
+        e.matchedcategory !== survey.eliminate[0] &&
+        e.matchedcategory !== survey.eliminate[1]
+    );
+    let wordAssociationCuisines = list
+      .filter((e) => survey.flavor.includes(e.word))
+      .map((e) => e.menu)
+      .flat();
+
+    let finalChoice = postElimination.filter((restaurant) =>
+      wordAssociationCuisines.includes(restaurant.matchedcategory)
+    );
+    let chosenRestaurant = {};
+    if (finalChoice.length === 1) {
+      chosenRestaurant = finalChoice;
+    } else if (finalChoice.length > 1) {
+      chosenRestaurant =
+        finalChoice[Math.floor(Math.random() * finalChoice.length + 1)];
+    } else {
+      chosenRestaurant =
+        postElimination[Math.floor(Math.random() * postElimination.length + 1)];
+    }
+    console.log([chosenRestaurant, { notes: cuisineType.notes }]);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    restaurantPicker(list, sohoAPI, cuisineType);
   };
 
   return (

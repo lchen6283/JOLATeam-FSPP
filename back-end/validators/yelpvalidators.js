@@ -2,14 +2,16 @@ const formatted = (data) => {
   const cuisines = [
     "mediterranean",
     "italian",
+    "spanish",
     "french",
     "vietnamese",
-    "australian",
-    "korean",
-    "spanish",
     "newamerican",
-    "thai",
+    "korean",
+    "mexican",
     "japanese",
+    "thai",
+    "other",
+    "chinese",
   ];
 
   let catMatcher = (cuisines, apiCats) => {
