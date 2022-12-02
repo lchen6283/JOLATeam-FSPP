@@ -3,6 +3,7 @@ import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
 import About from "../Components/About";
 import banner from "../assets/Food_Images/Banner_01.png";
+import HowitWorks from "../Components/HowitWorks";
 // import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -72,6 +73,7 @@ export default function Home() {
         </div>
 
       )}
+      <HowitWorks/>
        < Reviews/>
        <About/>
     </div>
