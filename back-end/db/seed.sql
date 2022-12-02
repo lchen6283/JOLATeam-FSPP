@@ -15,13 +15,13 @@ VALUES
 );
 
 
-INSERT INTO orders (restaurant_id, date, delivery_address, total_cost, userid) VALUES ('CaboRVC', '2022-11-11', '231 Gary Street Elmhurst New York 11372', 7500, 1),('CaboRVC', '2022-11-12', '231 Gary Street Elmhurst New York 11372', 10000, 2), ('PioPio', '2022-11-20', '200 West 44th Street, Hells Kitchen New York 10010', 100, 1);
+INSERT INTO orders (restaurant_id, date, delivery_address, total_cost, order_contents, userid) VALUES ('CaboRVC', '2022-11-11', '231 Gary Street Elmhurst New York 11372', 7500, null, 1),('CaboRVC', '2022-11-12', '231 Gary Street Elmhurst New York 11372', 10000, null, 2), ('PioPio', '2022-11-20', '200 West 44th Street, Hells Kitchen New York 10010', 100, null, 1);
 
 INSERT INTO reviews (userid, orderid, rating, content, img_url, date) VALUES (1, 1, 5, 'Those enchiladas hit the spot so good, how did they know?  Im just blown away', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-11'), (2, 2, 5, 'These tongue tacos are the best i never had. Wow wow wow', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-12'),
 (1,3,5, 'First time trying Peruvian food and I cannot wait to go back.', 'https://gradfood.com/wp-content/uploads/2022/04/Lomo-Saltado-2-scaled.jpg','2022-11-20');
 
 
-INSERT INTO menus (cuisine) VALUES ('mediterranean'),('italian'),('spanish'),('french'),('vietnamese'),('australian'),('korean'),('japanese'),('indian'),('greek'),('lebanese'),('turkish'),('thai'),('mexican'),('chinese'),('american');
+INSERT INTO menus (cuisine) VALUES ('mediterranean'),('italian'),('spanish'),('french'),('vietnamese'),('newamerican'),('korean'),('mexican'),('japanese'),('other'),('thai'),('chinese');
 
 
 INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken Thighs'),(1, 'entree', 'Garlic Mushroom Pasta'),(1, 'entree', 'Shrimp Scampi'),(1,'entree', 'Roast Lamb Rack'),(1, 'entree', 'Mediterranean fish soup'),(1,'appetizers', 'Vegetarian Mezze Platter'),(1,'appetizers', '7-Layer Mediterranean Dip'),(1,'appetizers', 'Mediterranean Tomato Bites'),(1,'desserts', 'Crema Catalana'),(1,'desserts', 'Tiramisu'),(1,'desserts', 'Kremna Rezina'),
@@ -42,4 +42,8 @@ INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken
 
 (9, 'entree', 'Sushi'),(9, 'entree', 'Ramen'),(9, 'entree', 'Unagi - Grilled Eel'),(9,'entree', 'Shrimp Tempura'),(9, 'entree', 'Soba'),(9,'appetizers', 'Onigiri'),(9,'appetizers', 'Yakitori'),(9,'appetizers', 'Miso Soup'),(9,'desserts', 'Dorayaki (Japanese Red Bean Pancake)'),(9,'desserts', 'Mochi'),(9,'desserts', 'Dango'),
 
-(10, 'entree', 'Chicken parmigiana'),(10, 'entree', 'Barramundi'),(10, 'entree', 'Aussie Burger'),(10,'entree', 'Aussie Steak Sandwich'),(10, 'entree', 'Meatloaf'),(10,'appetizers', 'Meat pies'),(10,'appetizers', 'Bruschetta'),(10,'appetizers', 'French Fries'),(10,'desserts', 'Lamingtons'),(10,'desserts', 'Milo Balls'),(10,'desserts', 'Pavlova');
+(10, 'entree', 'Chicken parmigiana'),(10, 'entree', 'Barramundi'),(10, 'entree', 'Aussie Burger'),(10,'entree', 'Aussie Steak Sandwich'),(10, 'entree', 'Meatloaf'),(10,'appetizers', 'Meat pies'),(10,'appetizers', 'Bruschetta'),(10,'appetizers', 'French Fries'),(10,'desserts', 'Lamingtons'),(10,'desserts', 'Milo Balls'),(10,'desserts', 'Pavlova'),
+
+(11, 'entree', 'Green Curry w/ Chicken'),(11, 'entree', 'Garlic & Black Pepper Stir Fry'),(11, 'entree', 'Pad Kee Mao'),(11,'entree', 'Fried Fish W/ Garlic'),(11, 'entree', 'Pad See Iew'),(11,'appetizers', 'Thai Spring Rolls'),(11,'appetizers', 'Sa-Teh Chicken'),(11,'appetizers', 'Fried Calamari'),(11,'desserts', 'Blackberry Rice w/ Taro & Coconut'),(11,'desserts', 'Deep Fried Banana w/ Ice Cream'),(11,'desserts', 'Tapioca W/ Taro'),
+
+(12, 'entree', 'Egg Foo Young'),(12, 'entree', 'Orange Chicken'),(12, 'entree', 'Choice W/ Broccoli'),(12,'entree', 'Pepper Steak'),(12, 'entree', 'Shrimp L obster Sauce'),(12,'appetizers', 'Hunan Egg Roll'),(12,'appetizers', 'Crab Rangoon'),(12,'appetizers', 'Teriyaki Chicken Sticks'),(12,'desserts', 'Shanghai Soy Milk Pudding'),(12,'desserts', 'Tropical Red Bean Cakes'),(12,'desserts', 'Coconut Milk & Rockmelon Sago');

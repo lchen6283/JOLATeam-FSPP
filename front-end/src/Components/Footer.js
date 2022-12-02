@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function Footer() {
   
   return (
-		<footer className="pt-8 bg-gray-300 text-2 text-gray-500 transition-colors duration-200 bottom-0 border-t-[6px] border-teal-400">
+		<footer className="pt-8 bg-gray-300 text-2 text-gray-500 transition-colors duration-200 bottom-0 border-t-[6px] border-smakorange">
 			<div className="flex flex-col ">
 				<div className="md:hidden mt-7 mx-auto w-11 h-px rounded-full">
 				</div>
@@ -96,7 +96,7 @@ export default function Footer() {
 								to="/"
 								className="text-gray-800 hover:text-primary-gray-20 font-semibold ml-1" 
 							>
-								<b className="text-2xl text-orange-600 font-bold">JOLA</b>Team
+								<b className="text-2xl text-smakorange font-bold">JOLA</b>Team
 							</Link>
 						</span>
 					</div>

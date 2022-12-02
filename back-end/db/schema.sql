@@ -26,6 +26,7 @@ CREATE TABLE orders (
     date DATE,
     delivery_address TEXT,
     total_cost INT,
+    order_contents TEXT,
     userid INTEGER REFERENCES users (id)
     ON DELETE CASCADE
 );
@@ -42,8 +43,7 @@ CREATE TABLE reviews (
 
 CREATE TABLE menus (
     id SERIAL PRIMARY KEY,
-   cuisine TEXT NOT NULL 
-   icon TEXT NOT NULL
+   cuisine TEXT NOT NULL
 );
 
 CREATE TABLE plates (
