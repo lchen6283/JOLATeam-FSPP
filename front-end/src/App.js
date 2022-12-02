@@ -16,7 +16,7 @@ import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 import Order from "./Pages/Order";
 import PaymentFinalized from "./Pages/PaymentFinalized";
-import Budget from "./Pages/Budget";
+
 import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
 import OrderConfirmation from "./Pages/OrderConfirmation";
