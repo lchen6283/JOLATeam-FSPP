@@ -47,3 +47,4 @@ INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken
 (11, 'entree', 'Green Curry w/ Chicken'),(11, 'entree', 'Garlic & Black Pepper Stir Fry'),(11, 'entree', 'Pad Kee Mao'),(11,'entree', 'Fried Fish W/ Garlic'),(11, 'entree', 'Pad See Iew'),(11,'appetizers', 'Thai Spring Rolls'),(11,'appetizers', 'Sa-Teh Chicken'),(11,'appetizers', 'Fried Calamari'),(11,'desserts', 'Blackberry Rice w/ Taro & Coconut'),(11,'desserts', 'Deep Fried Banana w/ Ice Cream'),(11,'desserts', 'Tapioca W/ Taro'),
 
 (12, 'entree', 'Egg Foo Young'),(12, 'entree', 'Orange Chicken'),(12, 'entree', 'Choice W/ Broccoli'),(12,'entree', 'Pepper Steak'),(12, 'entree', 'Shrimp L obster Sauce'),(12,'appetizers', 'Hunan Egg Roll'),(12,'appetizers', 'Crab Rangoon'),(12,'appetizers', 'Teriyaki Chicken Sticks'),(12,'desserts', 'Shanghai Soy Milk Pudding'),(12,'desserts', 'Tropical Red Bean Cakes'),(12,'desserts', 'Coconut Milk & Rockmelon Sago');
+
