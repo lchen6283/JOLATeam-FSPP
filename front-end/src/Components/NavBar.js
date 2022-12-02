@@ -5,7 +5,7 @@ import logo from "../assets/SmakLogos/Transparent_Logo2_01.png";
 export default function NavBar() {
   return (
     <header>
-      <nav className="py-6 px-4 bg-teal-500 sticky top-0 z-50 border-gray-200  lg:px-6 py-2.5 ">
+      <nav className="py-6 px-4 sticky top-0 z-50 border-gray-200  lg:px-6 py-2.5 ">
         <div className="flex flex-wrap justify-between py-2 items-center mx-auto max-w-screen-xl">
           <a href="/" className="flex items-center">
 
