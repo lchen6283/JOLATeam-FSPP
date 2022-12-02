@@ -5,6 +5,7 @@ const db = require("../db/dbConfig");
 const getAllMenus = async () => {
   try {
     const menus = await db.any("SELECT * FROM menus");
+    console.log("hello", menus);
     return menus;
   } catch (error) {
     console.log(error.message || error);

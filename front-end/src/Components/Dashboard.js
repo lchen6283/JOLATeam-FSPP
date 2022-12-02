@@ -3,8 +3,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
   const { setAuth } = useContext(AuthContext);
@@ -13,28 +13,25 @@ const Dashboard = () => {
   const location = useLocation();
   const from = "/";
 
-  const logout = async e => {
+  const logout = async (e) => {
     e.preventDefault();
     try {
       setAuth({});
-      
-      toast.success("Logout successfully", 
-        {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1000,
-        },
-      )
+
+      toast.success("Logout successfully", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
 
       // After validate credentials, proceed to redirect to /
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 1050);
-     
     } catch (err) {
       console.error(err.message);
     }
   };
-  
+
   return (
     <div className="h-full bg-yellow-200">
       <ToastContainer />
@@ -46,19 +43,20 @@ const Dashboard = () => {
             </b>
           </span>
           <span className="block text-4xl md:text-6xl text-gray-600">
-            Welcome back <b className="text-orange-600 uppercase">{auth?.firstName} </b>
+            Welcome back{" "}
+            <b className="text-orange-600 uppercase">{auth?.firstName} </b>
           </span>
         </h2>
         <div className="mt-12 inline-flex rounded-md shadow">
-        <button
-          onClick={e => logout(e)}
-          type="button"
-          className="py-3 px-6 bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-3xl "
-        >
-          Logout
-        </button>
+          <button
+            onClick={(e) => logout(e)}
+            type="button"
+            className="py-3 px-6 bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-3xl "
+          >
+            Logout
+          </button>
         </div>
-    </div>
+      </div>
     </div>
   );
 };

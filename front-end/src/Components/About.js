@@ -1,29 +1,18 @@
 import React from "react";
-import placeholderImage from "../assets/profile_image_placeholder.jpeg";
 
 export default function About() {
   return (
     <div>
-      <h1>About Us/User Experience</h1>
+      <h1>WHat is SMAK?</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Smak is dutch for Taste. Smak is a web app that helps you order food
+        faster by taking “choice” away and making the decision for you. On
+        Average it takes about 10-20 mins to narrow down what you want to eat.
+        On our app All you have to do is answer a simple set of questions and
+        Our algorithm will make a delicious choice for you!
       </p>
-      <img src={placeholderImage} alt="" />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <br />
+      {/* <img src="" alt="" width={200} /> */}
     </div>
   );
 }
