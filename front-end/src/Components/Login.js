@@ -145,12 +145,12 @@ const Login = () => {
                       </label>
                     </div>
                   </div>
-                  <a
+                  {/* <a
                     href="#"
                     className="text-sm font-medium text-gray-600 hover:underline dark:text-primary-500"
                   >
                     Forgot password?
-                  </a>
+                  </a> */}
                 </div>
                 <button
                   type="submit"
@@ -160,7 +160,7 @@ const Login = () => {
                   Sign in
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet?
+                  Don't have an account yet?
                   <Link
                     to="/signup"
                     className="mx-2 text-smaksalmon font-semibold"
@@ -177,9 +177,9 @@ const Login = () => {
           <div className="h-full p-20 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80')] bg-opacity-75 ">
             <div className="h-full p-[28px] bg-white bg-opacity-75 rounded-md text-center">
               <div className="flex-row">
-                <h1 className="p-4 text-xl font-extrabold leading-tight tracking-tight bg-gray-600 text-white rounded-md md:text-4xl dark:text-white uppercase">
-                  Not sure what to eat today?
-                </h1>
+                <span class="p-4 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block">
+                  <span class="text-6xl relative text-white font-extrabold font-[Open Sans]">Not sure what to eat today?</span>
+                </span>
               </div>
               <div className="flex-row items-center">
                 <a href="#" className="mb-6 text-2xl">
@@ -189,7 +189,7 @@ const Login = () => {
                     alt="SMAK logo"
                   />
                 </a>
-                <h2 className=" my-4 font-bold leading-tight tracking-tight text-smaksalmon text-6xl dark:text-white">
+                <h2 className=" my-4 font-bold leading-tight tracking-tight text-smakHighlight text-6xl dark:text-white">
                   <b className="font-extrabold ">SMAK</b> is here to help!
                 </h2>
               </div>

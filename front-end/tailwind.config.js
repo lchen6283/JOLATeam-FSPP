@@ -21,15 +21,19 @@ module.exports = {
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif']
+      },
     },
     fontFamily: {
       'body': [
-    'Open Sans'
-    ]
+        'Open Sans'
+      ],
     }
   },
   plugins: [
     require('flowbite/plugin'),
+    require('flowbite-typography'),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {
