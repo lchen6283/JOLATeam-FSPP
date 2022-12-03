@@ -7,7 +7,7 @@ import { GiFullPizza } from "@react-icons/all-files/gi/GiFullPizza";
 export default function HowitWorks() {
   return (
     <div className="w-full p-2 px-10 md:mt-0 lg:flex-shrink-0">
-      <div className="p-7 text-smakorange text-4xl md:text-6xl -translate-y-40 font-['Fraunces'] text-center ">
+      <div className="p-7 text-smakorange text-4xl md:text-6xl -translate-y-40 text-center ">
         How Does It Work?
       </div>
       <div className="container flex px-6 py-2 lg:pt-12 lg:px-32">
