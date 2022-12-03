@@ -42,7 +42,6 @@ export default function Home() {
           id="default-carousel"
           class="relative flowbite"
           data-carousel="static"
-          indicators={false}
         >
           {/* <!-- Carousel wrapper --> */}
           <div class="relative h-[600px] overflow-hidden rounded-0 ">
