@@ -19,7 +19,6 @@ export default function Home() {
   const handleClick = async () => {
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
-    console.log(param);
     await axios
       .get(`${API}/yelp/${param}`)
       .then((res) => {

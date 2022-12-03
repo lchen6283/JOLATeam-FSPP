@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FormContext } from "../Pages/OrderConfirmation";
 import Basic from "./Basic";
+import Eliminate from "./Eliminate";
 function Step() {
   const { activeStepIndex } = useContext(FormContext);
   let stepContent;
@@ -9,7 +10,7 @@ function Step() {
       stepContent = <Basic />;
       break;
     case 1:
-      //   stepContent = <Workspace />;
+      stepContent = <Eliminate />;
       break;
     case 2:
       //   stepContent = <Success />;
