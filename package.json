@@ -12,5 +12,8 @@
     "fullstack"
   ],
   "author": "Lawrence Chen, Jossy Pascasio, Augusto Rupay, and Oscar Andres Varon",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss-textshadow": "^2.1.3"
+  }
 }

@@ -18,7 +18,7 @@ export default function HowitWorks() {
               <h4 className="my-4 text-4xl text-white text-center font-extrabold font-[Open Sans]">
                 Find Nearby<br/>Restaurants
               </h4>
-              <p className=" text-xl text-white text-center font-semibold">
+              <p className=" text-xl text-white text-center font-medium">
                 Set your location</p>
             </div>
           </div>
@@ -28,7 +28,7 @@ export default function HowitWorks() {
               <h4 className="my-4 text-4xl text-white text-center font-extrabold font-[Open Sans]">
                 Get <br/>Matched
               </h4>
-              <p className=" text-xl text-white text-center font-semibold">
+              <p className=" text-xl text-white text-center font-medium">
                 Take our quiz, skip the menu and find your new favorite restaurant.
               </p>
             </div>
@@ -39,7 +39,7 @@ export default function HowitWorks() {
               <h4 className="my-4 text-4xl text-white text-center font-extrabold font-[Open Sans]">
                 Checkout <br/> Made Easy
               </h4>
-              <p className=" text-xl text-white text-center font-semibold">
+              <p className=" text-xl text-white text-center font-medium">
                 It's quick. safe, and simple
               </p>
             </div>
@@ -50,7 +50,7 @@ export default function HowitWorks() {
               <h4 className="my-4 text-4xl text-white text-center font-extrabold font-[Open Sans]">
                 Enjoy Your<br/> Meal!
               </h4>
-              <p className=" text-xl text-white text-center font-semibold">
+              <p className=" text-xl text-white text-center font-medium">
                 Food is made and delivered to your home.
               </p>
             </div>

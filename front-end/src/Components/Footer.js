@@ -4,7 +4,7 @@ import logo from "../assets/SmakLogos/Transparent_Logo2_01.png";
 
 export default function Footer() {
   return (
-    <footer className="pt-[4rem] bg-white text-2 text-gray-500 transition-colors duration-200 bottom-0 border-t-[0px] border-teal-400">
+    <footer className="pt-[4rem] bg-[#dce1de] text-2 text-gray-500 transition-colors duration-200 bottom-0 border-t-[0px] border-teal-400 shadow-[0_15px_8px_25px_rgb(0,0,0_5)]">
       <div className="flex flex-col ">
         <div className="md:hidden mt-7 mx-auto w-11 h-px rounded-full"></div>
         <div className="mt-4 md:mt-0 flex flex-col md:flex-row">
@@ -12,23 +12,23 @@ export default function Footer() {
             <Link
               to="/"
               aria-current="page"
-              className="hover:text-gray-700 text-md font-semibold"
+              className="hover:text-gray-700 text-lg font-semibold font-[Open Sans]"
             >
               Home
             </Link>
             <Link
-              to="/snacks/project"
+              to="/about"
               aria-current="page"
-              className="hover:text-gray-700 text-md font-semibold"
+              className="hover:text-gray-700 text-lg font-semibold font-[Open Sans]"
             >
-              Project
+              About
             </Link>
             <Link
-              to="/snacks/team"
+              to="/contact"
               aria-current="page"
-              className="hover:text-gray-700 text-md font-semibold"
+              className="hover:text-gray-700 text-lg font-semibold font-[Open Sans]"
             >
-              Team
+              Contact
             </Link>
           </nav>
           <div className="md:hidden mt-4 mx-auto w-11 h-px rounded-full"></div>
@@ -105,9 +105,9 @@ export default function Footer() {
               Developed by
               <Link
                 to="/"
-                className="text-gray-800 hover:text-primary-gray-20 font-semibold ml-1"
+                className="text-gray-800 hover:text-primary-gray-20 font-bold font-[Open Sans] ml-1"
               >
-                <b className="text-2xl text-orange-600 font-bold">JOLA</b>Team
+                <b className="text-2xl text-smakHighlight font-extrabold font-[Open Sans]">JOLA</b>Team
               </Link>
             </span>
           </div>

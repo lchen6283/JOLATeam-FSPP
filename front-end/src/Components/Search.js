@@ -15,7 +15,7 @@ export default function Search({ city, setCity, handleClick }) {
         </div> */}
       </div>
       <div className="w-full mx-auto justify-center">
-        <div className="border-orange-400 border-8 py-4 px-4 rounded-3xl">
+        <div className="border-orange-400 border-[0.5px] py-4 px-4 rounded-3xl shadow-[0_8px_1px_1px_rgb(244,162,89)]">
         <GooglePlacesAutocomplete
           apiKey={googleAPIKey}
           selectProps={{
@@ -26,11 +26,11 @@ export default function Search({ city, setCity, handleClick }) {
         />
         </div>
       </div>
-      <div className="mt-4 inline-flex rounded-md shadow">
+      <div className="mt-6 inline-flex rounded-md shadow">
         <button
           onClick={handleClick}
           type="button"
-          className="py-2 px-24 bg-smakorange hover:bg-smakHighlight focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-3xl "
+          className="py-2 px-24 bg-smakorange hover:bg-smakHighlight focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-extrabold font-[Open Sans]"
         >
           START
         </button>

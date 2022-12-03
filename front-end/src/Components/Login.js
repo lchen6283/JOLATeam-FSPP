@@ -182,13 +182,6 @@ const Login = () => {
                 </span>
               </div>
               <div className="flex-row items-center">
-                <a href="#" className="mb-6 text-2xl">
-                  <img
-                    className="w-60 h-60 mx-auto "
-                    src={logo}
-                    alt="SMAK logo"
-                  />
-                </a>
                 <h2 className=" my-4 font-bold leading-tight tracking-tight text-smakHighlight text-6xl dark:text-white">
                   <b className="font-extrabold ">SMAK</b> is here to help!
                 </h2>
