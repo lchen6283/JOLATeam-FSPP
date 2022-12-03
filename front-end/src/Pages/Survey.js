@@ -121,26 +121,30 @@ export default function Survey() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Budget budget={budget} handleChange={handleChange} />
-      {/* THIRD QUIZ */}
-      <Questionnaire
-        list={list}
-        apiCategories={apiCategories}
-        handleEliminationCheck={handleEliminationCheck}
-        handleFlavorCheck={handleFlavorCheck}
-        cuisineType={cuisineType}
-        handleNotes={handleNotes}
-      />
-      <div class="">
-        <button
-          type="submit"
-          class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        >
-          Submit
-        </button>
+    <div className="w-full" >
+      <div className="container mx-auto" >
+        <form onSubmit={handleSubmit}>
+          <Budget budget={budget} handleChange={handleChange} />
+          {/* THIRD QUIZ */}
+          <Questionnaire
+            list={list}
+            apiCategories={apiCategories}
+            handleEliminationCheck={handleEliminationCheck}
+            handleFlavorCheck={handleFlavorCheck}
+            cuisineType={cuisineType}
+            handleNotes={handleNotes}
+          />
+          <div class="">
+            <button
+              type="submit"
+              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 }
 

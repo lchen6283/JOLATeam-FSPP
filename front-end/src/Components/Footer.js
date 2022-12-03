@@ -4,7 +4,7 @@ import logo from "../assets/SmakLogos/Transparent_Logo2_01.png";
 
 export default function Footer() {
   return (
-    <footer className="pt-8 bg-gray-300 text-2 text-gray-500 transition-colors duration-200 bottom-0 border-t-[0px] border-teal-400">
+    <footer className="pt-[4rem] bg-white text-2 text-gray-500 transition-colors duration-200 bottom-0 border-t-[0px] border-teal-400">
       <div className="flex flex-col ">
         <div className="md:hidden mt-7 mx-auto w-11 h-px rounded-full"></div>
         <div className="mt-4 md:mt-0 flex flex-col md:flex-row">

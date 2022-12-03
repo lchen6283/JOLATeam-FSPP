@@ -48,7 +48,7 @@ router.post("/login", validInfo, async (req, res) => {
     const user = await pool.query("SELECT * FROM users WHERE username = $1", [
       username
     ]);
-    console.log(user.rows[0])
+    //console.log(user.rows[0])
     if (user.rows.length === 0) {
       return res.status(401).json("Invalid Username");
     }
