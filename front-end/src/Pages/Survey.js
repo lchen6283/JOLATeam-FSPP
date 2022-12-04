@@ -6,7 +6,6 @@ import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN 
 import "./survey.css";
 import Budget from "../Components/Budget";
 import Questionnaire from "../Components/Questionnaire";
-import { matchRoutes } from "react-router-dom";
 
 const list = [
   { word: "zesty", menu: ["mediterranean", "mexican"] },
