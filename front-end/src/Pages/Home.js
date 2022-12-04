@@ -228,7 +228,6 @@ export default function Home() {
       <About />
       {/*  R E V I E W S  */}
       {/* <Reviews /> */}
-      
     </div>
   );
 }

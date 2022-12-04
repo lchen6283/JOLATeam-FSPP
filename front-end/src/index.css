@@ -3,7 +3,6 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-
 @keyframes marquee {
 	0% {
 		left: 0;
