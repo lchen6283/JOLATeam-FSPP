@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { FormContext } from "../Pages/OrderConfirmation";
 import * as yup from "yup";
 import sohoAPI from "../data/data";
-import { NavItem } from "react-bootstrap";
+//import { NavItem } from "react-bootstrap";
 
 const list = [
   { word: "zesty", menu: ["mediterranean", "mexican"] },

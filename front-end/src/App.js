@@ -30,7 +30,7 @@ const importFlowbiteFunc = function(flowbitePathStr)
     )
     document.body.appendChild(flowbiteScriptEl)
 }
-importFlowbiteFunc('flowbite.js');
+importFlowbiteFunc('/flowbite.js');
 
 const ROLES = {
   User: 2,

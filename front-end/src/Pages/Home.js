@@ -55,8 +55,8 @@ export default function Home() {
                   className="relative opacity-100"
                 />
                 <div className="w-full mx-auto absolute">
-                  <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block ">
-                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To SMAK!</span>
+                  <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smaksalmon relative inline-block ">
+                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To <b className="text-8xl">SMAK!</b></span>
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>

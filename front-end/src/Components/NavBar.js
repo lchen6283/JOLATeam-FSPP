@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/SmakLogos/Transparent_Logo_09.png";
+import logo from "../assets/SmakLogos/Transparent_Logo_01.png";
 import useAuth from "../hooks/useAuth";
 
 
@@ -17,6 +17,7 @@ export default function NavBar() {
           className="flex items-center"
         >
           <img src={logo} class=" h-[4rem] mr-3 " alt="SMAK Logo" />
+          <span class="self-center text-xl font-bold font-[Open Sans] whitespace-nowrap text-white dark:text-white">SMAK</span>
         </Link>
         <div class="flex items-center md:order-2">
           <Link
@@ -80,19 +81,19 @@ export default function NavBar() {
             <Link
               to="/"
               aria-current="page"
-              className="block py-2 pl-3 pr-4 text-lg text-white bg-blue-700 font-extrabold font-['Open Sans'] rounded md:bg-transparent md:text-smaksalmon md:p-0 dark:text-white"
+              className="block py-2 pl-3 pr-4 text-xl text-white bg-blue-700 font-extrabold font-['Open Sans'] rounded md:bg-transparent md:text-smaksalmon md:p-0 dark:text-white"
             >
               Home
             </Link>
             <Link
               to="/dashboard"
-              className="block py-2 pl-3 pr-4 text-lg text-gray-700 font-bold font-['Open Sans'] rounded hover:bg-smakHighlight md:hover:bg-transparent md:hover:text-smaksalmon md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              className="block py-2 pl-3 pr-4 text-xl text-gray-700 font-bold font-['Open Sans'] rounded hover:bg-smakHighlight md:hover:bg-transparent md:hover:text-smaksalmon md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >
               Dashboard
             </Link>
             <Link
               to="/about"
-              className="block py-2 pl-3 pr-4 text-lg text-gray-700 font-bold font-['Open Sans'] rounded hover:bg-smakHighlight md:hover:bg-transparent md:hover:text-smaksalmon md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              className="block py-2 pl-3 pr-4 text-xl text-gray-700 font-bold font-['Open Sans'] rounded hover:bg-smakHighlight md:hover:bg-transparent md:hover:text-smaksalmon md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
             >
               About
             </Link>

@@ -7,7 +7,7 @@ export default function Search({ city, setCity, handleClick }) {
 
   return (
     <div className="w-full p-2 px-10 md:mt-0 lg:flex-shrink-0  ">
-      <div className="mb-4 items-baseline text-white text-4xl md:text-6xl leading-12 font-extrabold font-[Open Sans]">
+      <div className="mb-4 items-baseline text-white text-4xl md:text-5xl leading-12 font-extrabold font-[Open Sans]">
         Try something<b className="text-smakorange text-[5rem] leading-8"> NEW!</b>
       </div>
       <div className="w-full mx-auto justify-center">
