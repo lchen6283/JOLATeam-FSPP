@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/SmakLogos/Transparent_Logo_01.png";
 import useAuth from "../hooks/useAuth";
 
-
 export default function NavBar() {
   const { auth } = useAuth();
   console.log("auth:", auth);

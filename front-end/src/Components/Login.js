@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/SmakLogos/Transparent_Logo2_04.png";
 
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -178,12 +177,17 @@ const Login = () => {
             <div className="h-full p-[28px] bg-white bg-opacity-75 rounded-md text-center">
               <div className="flex-row">
                 <span class="p-4 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-800 relative inline-block">
-                  <span class="text-6xl relative text-white font-extrabold font-[Open Sans]">Not sure what to eat today?</span>
+                  <span class="text-6xl relative text-white font-extrabold font-[Open Sans]">
+                    Not sure what to eat today?
+                  </span>
                 </span>
               </div>
               <div className="flex-row items-center">
                 <h2 className=" my-4 font-bold leading-tight tracking-tight text-smakHighlight text-6xl dark:text-white">
-                  <b className="block mt-8 text-8xl font-extrabold font-[Open Sans] ">SMAK</b> is here to help!
+                  <b className="block mt-8 text-8xl font-extrabold font-[Open Sans] ">
+                    SMAK
+                  </b>{" "}
+                  is here to help!
                 </h2>
               </div>
             </div>

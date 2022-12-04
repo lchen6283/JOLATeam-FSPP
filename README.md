@@ -3,7 +3,7 @@ JOLA-TEAM Capstone Project's README Template
 -->
 <div align="center">
 
-  <img src="https://github.com/JOLATEAM/JOLATeam-FSPP/blob/main/front-end/src/assets/SmakLogos/Transparent_Logo_09.png" alt="logo" width="400" height="auto" />
+  <img src="https://github.com/JOLATEAM/JOLATeam-FSPP/blob/main/front-end/src/assets/SmakLogos/Transparent_Logo_01.png" alt="logo" width="400" height="auto" />
  <!--<h1>SMAK</h1>-->
   
   <p>
