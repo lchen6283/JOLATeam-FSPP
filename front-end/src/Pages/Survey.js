@@ -3,7 +3,6 @@ import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 
 import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN AS PROPS
-import "./survey.css";
 import Budget from "../Components/Budget";
 import Questionnaire from "../Components/Questionnaire";
 
@@ -120,8 +119,8 @@ export default function Survey() {
   };
 
   return (
-    <div className="w-full" >
-      <div className="container mx-auto" >
+    <div className="w-full">
+      <div className="container mx-auto">
         <form onSubmit={handleSubmit}>
           <Budget budget={budget} handleChange={handleChange} />
           {/* THIRD QUIZ */}
