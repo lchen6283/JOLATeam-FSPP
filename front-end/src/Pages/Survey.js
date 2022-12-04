@@ -101,6 +101,7 @@ export default function Survey() {
     let finalChoice = postElimination.filter((restaurant) =>
       wordAssociationCuisines.includes(restaurant.matchedcategory)
     );
+    console.log(finalChoice);
     let chosenRestaurant = {};
     if (finalChoice.length === 1) {
       chosenRestaurant = finalChoice;
@@ -115,7 +116,7 @@ export default function Survey() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    restaurantPicker(list, sohoAPI, cuisineType);
+    console.log(restaurantPicker(list, sohoAPI, cuisineType));
   };
 
   return (
