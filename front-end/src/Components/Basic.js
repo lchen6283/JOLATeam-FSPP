@@ -19,6 +19,9 @@ function Basic() {
       initialValues={{
         budget: "",
       }}
+      onChange={() => {
+        console.log("changing");
+      }}
       validationSchema={ValidationSchema}
       onSubmit={(values) => {
         const data = { ...formData, ...values };

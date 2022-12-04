@@ -4,17 +4,6 @@ import { FormContext } from "../Pages/OrderConfirmation";
 import * as yup from "yup";
 import sohoAPI from "../data/data";
 
-const list = [
-  { word: "zesty", menu: ["mediterranean", "mexican"] },
-  { word: "rich", menu: ["french", "italian"] },
-  { word: "creamy", menu: ["italian", "french"] },
-  { word: "hearty", menu: ["spanish", "other"] },
-  { word: "crunchy", menu: ["other", "korean"] },
-  { word: "sweet", menu: ["newamerican", "thai"] },
-  { word: "savory", menu: ["spanish", "korean"] },
-  { word: "comfort", menu: ["american", "vietnamese"] },
-  { word: "fresh", menu: ["mediterranean", "vietnamese"] },
-];
 let apiCategories = [...new Set(sohoAPI.map((e) => e.matchedcategory))];
 function Eliminate() {
   const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
@@ -31,8 +20,6 @@ function Eliminate() {
   return (
     <Formik
       initialValues={{
-        // workspaceName: "",
-        // workspaceURL: "",
         eliminate: [],
       }}
       validationSchema={ValidationSchema}
@@ -43,10 +30,11 @@ function Eliminate() {
       }}
     >
       <Form
-        className="flex flex-col justify-center items-center"
+        className="block p-6 rounded-lg shadow-lg bg-white max-w-md mb-5"
         role="group"
         aria-labelledby="checkbox-group"
       >
+        Elimite two from the list below:
         <div className="flex flex-col items-start mb-2">
           {apiCategories.map((category, i) => {
             return (
@@ -58,6 +46,15 @@ function Eliminate() {
           })}
         </div>
         <ErrorMessage name="eliminate" render={renderError} />
+        <button
+          className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
+          type="button"
+          onClick={() => {
+            setActiveStepIndex(activeStepIndex - 1);
+          }}
+        >
+          BACK
+        </button>
         <button
           className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
           type="submit"

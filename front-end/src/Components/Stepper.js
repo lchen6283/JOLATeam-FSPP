@@ -27,6 +27,14 @@ function Stepper() {
       <div className="stepper-item w-12 h-12 text-center font-medium border-2 rounded-full items-center justify-center flex ">
         3
       </div>
+      <div className="flex-auto border-t-2"></div>
+      <div className="stepper-item w-12 h-12 text-center font-medium border-2 rounded-full items-center justify-center flex ">
+        4
+      </div>
+      <div className="flex-auto border-t-2"></div>
+      <div className="stepper-item w-12 h-12 text-center font-medium border-2 rounded-full items-center justify-center flex ">
+        5
+      </div>
     </div>
   );
 }

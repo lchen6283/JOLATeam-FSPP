@@ -1,5 +1,10 @@
 import React, { useState, useEffect, Navigate, redirect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import 'flowbite'
+//import "flowbite/dist/flowbite.css"
+//import "flowbite-react"
+
+// here goes your path to a local flowbite.js you want to import
 
 // COMPONENTS
 import Layout from "./Components/Layout";
@@ -21,12 +26,24 @@ import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 
+const importFlowbiteFunc = function(flowbitePathStr)
+{
+    const flowbiteScriptEl = document.createElement('script')
+    flowbiteScriptEl.setAttribute(
+        'src', flowbitePathStr
+    )
+    document.body.appendChild(flowbiteScriptEl)
+}
+importFlowbiteFunc('flowbite.js');
+
 const ROLES = {
   User: 2,
   Admin: 1,
 };
 
 function App() {
+
+  
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
