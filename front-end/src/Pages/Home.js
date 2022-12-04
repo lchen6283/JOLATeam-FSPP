@@ -17,12 +17,10 @@ export default function Home() {
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
   // let navigate = useNavigate();
-  
-
 
   const handleClick = async () => {
     //
-    
+
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
     await axios
@@ -41,13 +39,16 @@ export default function Home() {
       <div className="text-center w-full">
         <div
           id="default-carousel"
-          class="relative flowbite"
+          className="relative flowbite"
           data-carousel="static"
         >
           {/* <!-- Carousel wrapper --> */}
-          <div class="relative h-[600px] overflow-hidden rounded-0 ">
+          <div className="relative h-[600px] overflow-hidden rounded-0 ">
             {/* <!-- Item 1 --> */}
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+            <div
+              className="hidden duration-1000 ease-in-out"
+              data-carousel-item
+            >
               <div className="flex h-full items-center bg-gray-200 justify-center bg-gray-400 dark:bg-gray-700 dark:text-white rounded-0">
                 <img
                   src={banner01}
@@ -56,7 +57,9 @@ export default function Home() {
                 />
                 <div className="w-full mx-auto absolute">
                   <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block ">
-                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To SMAK!</span>
+                    <span className="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">
+                      Welcome To SMAK!
+                    </span>
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>
@@ -65,7 +68,10 @@ export default function Home() {
               </div>
             </div>
             {/* <!-- Item 2 --> */}
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+            <div
+              className="hidden duration-1000 ease-in-out"
+              data-carousel-item
+            >
               <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white rounded-0">
                 <img
                   src={banner02}
@@ -76,7 +82,7 @@ export default function Home() {
                   <h2 className=" font-extrabold text-black sm:text-4xl">
                     <span className="block  text-gray-500 text-2xl md:text-6xl mb-6 py-0 leading-0">
                       <b className="px-4 py-2 text-6xl md:text-6xl bg-smaksalmon text-white no-italic rounded-md shadow-2xl">
-                        Got a case of dinner time indecision? 
+                        Got a case of dinner time indecision?
                       </b>
                     </span>
                     <span className="block md:text-8xl sm:text-6xl">
@@ -87,8 +93,11 @@ export default function Home() {
               </div>
             </div>
             {/* <!-- Item 3 --> */}
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-            <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white rounded-0">
+            <div
+              className="hidden duration-1000 ease-in-out"
+              data-carousel-item
+            >
+              <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white rounded-0">
                 <img
                   src={banner03}
                   alt="..."
@@ -110,26 +119,24 @@ export default function Home() {
             </div>
           </div>
           {/* <!-- Slider indicators --> */}
-          <div
-            class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
-          >
+          <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
             <button
               type="button"
-              class="w-3 h-3 p-2 rounded-0"
+              className="w-3 h-3 p-2 rounded-0"
               aria-current="false"
               aria-label="Slide 1"
               data-carousel-slide-to="0"
             ></button>
             <button
               type="button"
-              class="w-3 h-3 p-2 rounded-full"
+              className="w-3 h-3 p-2 rounded-full"
               aria-current="false"
               aria-label="Slide 2"
               data-carousel-slide-to="1"
             ></button>
             <button
               type="button"
-              class="w-3 h-3 p-2 rounded-full"
+              className="w-3 h-3 p-2 rounded-full"
               aria-current="false"
               aria-label="Slide 3"
               data-carousel-slide-to="2"
@@ -138,66 +145,58 @@ export default function Home() {
           {/* <!-- Slider controls --> */}
           <button
             type="button"
-            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-prev
           >
-            <span
-              class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-0"
-            >
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-0">
               <svg
                 aria-hidden="true"
-                class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M15 19l-7-7 7-7"
                 ></path>
               </svg>
-              <span class="sr-only">Previous</span>
+              <span className="sr-only">Previous</span>
             </span>
           </button>
           <button
             type="button"
-            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-next
           >
-            <span
-              class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-0"
-            >
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-0">
               <svg
                 aria-hidden="true"
-                class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="https://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M9 5l7 7-7 7"
                 ></path>
               </svg>
-              <span class="sr-only">Next</span>
+              <span className="sr-only">Next</span>
             </span>
           </button>
-        </div>  
+        </div>
       </div>
       {/* S E A R C H */}
       <div className="flex flex-row bg-smakHighlight p-10">
         <div className="py-8 mx-auto items-center text-center">
-          <Search 
-            setCity={setCity} 
-            city={city}
-            handleClick={handleClick}
-          />
+          <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </div>
       {restaurants[0] ? (
