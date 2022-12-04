@@ -1,16 +1,52 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+
+@keyframes marquee {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: -900%;
+	}
+}
+.animate {
+	width: 1800%;
+	animation: marquee 40s linear infinite;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+.image img {
+	width: 40rem;
+  height: 40rem;
+	-webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+@screen lg {
+	@keyframes marquee {
+		0% {
+			left: 0;
+		}
+		100% {
+			left: -200%;
+		}
+	}
+	.animate {
+		width: 320%;
+		animation: marquee 20s linear infinite;
+		top: 50%;
+		transform: translate(0, -50%);
+	}
+	.image img {
+		width: 40rem;
+    height: 40rem;
+		-webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+	}
+}
+.animate:hover {
+	animation-play-state: paused;
+}
+.image img:hover {
+	transform: scale(1.3);
+}
