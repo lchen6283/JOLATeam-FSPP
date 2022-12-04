@@ -1,10 +1,6 @@
 import React, { useState, useEffect, Navigate, redirect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import 'flowbite'
-//import "flowbite/dist/flowbite.css"
-//import "flowbite-react"
 
-// here goes your path to a local flowbite.js you want to import
 
 // COMPONENTS
 import Layout from "./Components/Layout";
