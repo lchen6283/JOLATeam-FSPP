@@ -34,6 +34,7 @@ module.exports = {
   plugins: [
     require('flowbite/plugin'),
     require('flowbite-typography'),
+    require('tailwindcss-textshadow'),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {

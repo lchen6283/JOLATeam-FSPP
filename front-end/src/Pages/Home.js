@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
 import About from "../Components/About";
-import banner from "../assets/Food_Images/Banner_01.png";
-import { Carousel, Modal } from "flowbite-react";
 import HowitWorks from "../Components/HowitWorks";
+
 import banner01 from "../assets/Food_Images/Banner_01.png";
 import banner02 from "../assets/Food_Images/Banner_02.png";
 import banner03 from "../assets/Food_Images/Banner_03.png";
@@ -12,14 +11,18 @@ import banner04 from "../assets/Food_Images/Banner_04.png";
 // import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 const API = process.env.REACT_APP_API_URL;
 
 export default function Home() {
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
   // let navigate = useNavigate();
+  
+
+
   const handleClick = async () => {
+    //
+    
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
     console.log(param);
@@ -32,17 +35,15 @@ export default function Home() {
         console.log(err);
       });
   };
-  console.log(restaurants);
+  //console.log(restaurants);
   return (
     <div className="h-full">
-      
       {/* B A N N E R -- S L I D E R  */}
       <div className="text-center w-full">
         <div
           id="default-carousel"
           class="relative flowbite"
           data-carousel="static"
-          indicators={false}
         >
           {/* <!-- Carousel wrapper --> */}
           <div class="relative h-[600px] overflow-hidden rounded-0 ">
@@ -55,12 +56,8 @@ export default function Home() {
                   className="relative opacity-100"
                 />
                 <div className="w-full mx-auto absolute">
-                  <h2 className=" font-extrabold text-black sm:text-4xl">
-                    <span className="block  text-gray-500 text-4xl md:text-6xl mb-4 py-0 leading-0">
-                      <b className="px-4 py-2 text-4xl md:text-6xl bg-smaksalmon text-white no-italic rounded-md shadow">
-                        Welcome To SMAK
-                      </b>
-                    </span>
+                  <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block ">
+                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To SMAK!</span>
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>
@@ -199,26 +196,23 @@ export default function Home() {
         <div className="py-8 mx-auto items-center text-center">
           <Search 
             setCity={setCity} 
-            city={city} 
-            className="rounded-xl"
+            city={city}
+            handleClick={handleClick}
           />
         </div>
       </div>
       {restaurants[0] ? (
         <section className="overflow-hidden text-gray-700 ">
-          <div className="container px-6 py-2 mx-auto lg:pt-12 lg:px-32">
-            <div className="flex flex-wrap -m-1 md:-m-2">
+          <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative">
+            <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
               {restaurants.map((restaurant, i) => {
                 return (
-                  <div className="flex flex-wrap w-1/3" key={i}>
-                    <div className="w-full p-1 md:p-2">
-                      <img
-                        alt="gallery"
-                        className="block object-cover object-center w-full h-full rounded-lg"
-                        src={restaurant.image_url}
-                      />
-                    </div>
-                    ``
+                  <div className="image" key={i}>
+                    <img
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-60 rounded-lg"
+                      src={restaurant.image_url}
+                    />
                   </div>
                 );
               })}
@@ -233,7 +227,7 @@ export default function Home() {
       {/*  A B O U T  */}
       <About />
       {/*  R E V I E W S  */}
-      <Reviews />
+      {/* <Reviews /> */}
       
     </div>
   );
