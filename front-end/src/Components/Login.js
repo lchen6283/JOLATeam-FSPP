@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import logo from "../assets/SmakLogos/Transparent_Logo_01.png";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -77,20 +78,20 @@ const Login = () => {
   };
 
   return (
-    <div className="flex-row">
+    <div className="w-full ">
       <ToastContainer />
-      <div className="grid grid-cols-2 grid-flow-row auto-rows-max">
-        <div className="w-3/4 flex flex-col items-center justify-center px-6 py-[20] mx-auto md:h-full lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
+        <div className="w-full flex flex-col items-center justify-center px-6 py-[20] mx-auto md:h-full lg:py-0">
+          <div className="w-full md:w-3/4 bg-[#edf2f4] rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight text-center tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              <h1 className="text-3xl font-extrabold leading-tight text-center tracking-tight text-smaksalmon md:text-2xl dark:text-white font-[Open Sans]">
                 Sign in
               </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={onSubmitForm}>
+              <form className="space-y-4 md:space-y-6" >
                 <div>
                   <label
                     for="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
                   >
                     Username
                   </label>
@@ -109,7 +110,7 @@ const Login = () => {
                 <div>
                   <label
                     for="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
                   >
                     Password
                   </label>
@@ -153,10 +154,10 @@ const Login = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-white bg-smaksalmon hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-xl px-5 py-2.5 text-center dark:bg-smaksalmon dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   onClick={onSubmitForm}
                 >
-                  Sign in
+                  Submit
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don't have an account yet?
@@ -171,23 +172,22 @@ const Login = () => {
             </div>
           </div>
         </div>
-
-        <div className="p-8">
-          <div className="h-full p-20 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80')] bg-opacity-75 ">
-            <div className="h-full p-[28px] bg-white bg-opacity-75 rounded-md text-center">
-              <div className="flex-row">
-                <span class="p-4 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-800 relative inline-block">
-                  <span class="text-6xl relative text-white font-extrabold font-[Open Sans]">
-                    Not sure what to eat today?
+        <div className="p-0">
+          <div className="h-screen p-0 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80')] bg-opacity-75 ">
+            <div className="h-full p-[28px] bg-[#ffbe0b] bg-opacity-50 rounded-md text-center">
+              <div className="flex-row hidden">
+                <span class="p-0 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-800 relative inline-block">
+                  <span class="text-6xl relative text-white font-extrabold font-[Open Sans] italic">
+                    Not sure what to eat <b className="text-8xl">today?</b>
                   </span>
                 </span>
               </div>
-              <div className="flex-row items-center">
-                <h2 className=" my-4 font-bold leading-tight tracking-tight text-smakHighlight text-6xl dark:text-white">
+              <div className="flex-row items-center text-center mt-[30%] ">
+                <h2 className=" font-bold leading-tight tracking-tight text-white text-6xl dark:text-white">
                   <b className="block mt-8 text-8xl font-extrabold font-[Open Sans] ">
                     SMAK
-                  </b>{" "}
-                  is here to help!
+                  </b>
+                  Find a new flavor!
                 </h2>
               </div>
             </div>
