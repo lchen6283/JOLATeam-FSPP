@@ -20,37 +20,49 @@ function ConfirmYourOrder() {
       }}
     >
       <Form>
-        <div className="flex flex-col h-full">
-          <h3>Order Details</h3>
-          <div>Selected Package: ${formData.budget}</div>
-          <div>
+        <div className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5">
+          <h2 
+            className="mb-10 text-center text-2xl font-bold text-white dark:text-white"
+          >
+            Order Details
+          </h2>
+          <div className="my-4 text-2xl font-bold text-smakorange dark:text-white">Selected Package: ${formData.budget}</div>
+          <div className="my-0 text-xl font-semibold text-white dark:text-white">
             Will not include:
             {formData.eliminate.map((type) => {
               return <div>{type}</div>;
             })}
           </div>
-          <div>
+          <div className="my-10 text-2xl font-bold text-white dark:text-white">
             I'm in the mood for:
             {formData.choose.map((type, i) => {
-              return <div key={i}>{type}</div>;
+              return <div 
+              className="text-2xl font-bold text-white dark:text-white"
+              key={i}
+              >* {type}</div>;
             })}
           </div>
-          <div>My notes for the kitchen: {formData.notes}</div>
-          <button
-            className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
-            type="button"
-            onClick={() => {
-              setActiveStepIndex(activeStepIndex - 1);
-            }}
-          >
-            BACK
-          </button>
-          <button
-            className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
-            type="submit"
-          >
-            Confirm & Pay
-          </button>
+          <div className="my-10 text-center text-2xl font-bold text-white dark:text-white">
+            My notes for the kitchen: {formData.notes}
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button
+              className="w-full rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+              type="button"
+              onClick={() => {
+                setActiveStepIndex(activeStepIndex - 1);
+              }}
+            >
+              Back
+            </button>
+            <button
+              className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+              type="submit"
+            >
+              Confirm & Pay
+            </button>
+          </div>
         </div>
       </Form>
     </Formik>

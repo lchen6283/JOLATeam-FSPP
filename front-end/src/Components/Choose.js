@@ -43,15 +43,25 @@ function Choose() {
       }}
     >
       <Form
-        className="block p-6 rounded-lg shadow-lg bg-white max-w-md mb-5"
+        className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5"
         role="group"
         aria-labelledby="checkbox-group"
       >
+        <h2
+          className="mb-10 text-center text-2xl font-bold text-white dark:text-white"
+        >
+          Select two food tastes from the list below:
+        </h2>
         <div className="flex flex-col items-start mb-2">
           {list.map((item, i) => {
             return (
-              <label className="font-medium text-gray-900" key={i}>
-                <Field name="choose" type="checkbox" value={item.word} />
+              <label className="p-2 font-bold text-white text-xl " key={i}>
+                <Field 
+                name="choose" 
+                type="checkbox" 
+                value={item.word} 
+                className="p-4 mr-2 rounded-full border-2 border-orange-400"
+                />
                 {item.word}
               </label>
             );
@@ -59,30 +69,32 @@ function Choose() {
         </div>
         <ErrorMessage name="choose" render={renderError} />
         <div className="flex flex-col items-start mb-2">
-          <label className="font-medium text-gray-900">Notes</label>
+          <label className="font-bold text-white">Notes</label>
           <Field
             name="notes"
             as="textarea"
-            className="rounded-md border-2 p-2"
+            className="w-full rounded-md border-2 p-2"
             placeholder="Spicy, Allergies, Protein of Choice?"
           />
         </div>
         <ErrorMessage name="notes" render={renderError} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <button
-          className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
+          className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
           type="button"
           onClick={() => {
             setActiveStepIndex(activeStepIndex - 1);
           }}
         >
-          BACK
+          Back
         </button>
         <button
-          className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
+          className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
           type="submit"
         >
           Continue
         </button>
+        </div>
       </Form>
     </Formik>
   );

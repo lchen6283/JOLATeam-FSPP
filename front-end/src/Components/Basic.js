@@ -26,12 +26,12 @@ function Basic() {
         setActiveStepIndex(activeStepIndex + 1);
       }}
     >
-      <Form className="w-full p-6 rounded-lg shadow-lg bg-white max-w-md mb-5">
+      <Form className="w-full p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5">
         <div className="mg6">
-          <div className="flex flex-col items-start mb-2">
+          <div className="flex flex-col mb-2">
             <label
               htmlFor="budget"
-              className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="mb-10 text-center text-2xl font-bold text-white dark:text-white"
             >
               Choose A Budget
             </label>
@@ -47,9 +47,13 @@ function Basic() {
               <option value="200">$ 200 (Treat The Family)</option>
             </Field>
           </div>
-          <ErrorMessage name="budget" render={renderError} />
+          <ErrorMessage 
+            name="budget" 
+            render={renderError} 
+            className="text-xl font-bold"
+          />
           <button
-            className="my-10 rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
+            className="w-full p-2 rounded-md bg-gray-600 font-bold text-white text-lg"
             type="submit"
           >
             Continue

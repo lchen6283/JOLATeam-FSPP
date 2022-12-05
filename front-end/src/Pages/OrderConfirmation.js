@@ -12,7 +12,10 @@ export default function OrderConfirmation() {
     <FormContext.Provider
       value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}
     >
-      <div className="w-screen h-full flex flex-col items-center justify-start">
+      <div className="w-screen h-full flex flex-col items-center justify-start p-10">
+        <h2 className="py-8 text-gray-600 text-4xl md:text-5xl font-extrabold font-[Open Sans] text-center ">
+          Processing your SMAK order
+        </h2>
         <Stepper />
         <Step />
       </div>
