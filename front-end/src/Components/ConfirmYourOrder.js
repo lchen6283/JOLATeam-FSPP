@@ -20,7 +20,7 @@ function ConfirmYourOrder() {
       }}
     >
       <Form>
-        <div className="flex flex-col">
+        <div className="flex flex-col h-full">
           <h3>Order Details</h3>
           <div>Selected Package: ${formData.budget}</div>
           <div>

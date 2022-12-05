@@ -12,7 +12,7 @@ export default function OrderConfirmation() {
     <FormContext.Provider
       value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}
     >
-      <div className="w-screen flex flex-col items-center justify-start">
+      <div className="w-screen h-full flex flex-col items-center justify-start">
         <Stepper />
         <Step />
       </div>

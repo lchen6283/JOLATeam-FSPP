@@ -3,24 +3,28 @@ import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
 import About from "../Components/About";
 import HowitWorks from "../Components/HowitWorks";
+import useAuth from "../hooks/useAuth";
 
 import banner01 from "../assets/Food_Images/Banner_01.png";
 import banner02 from "../assets/Food_Images/Banner_02.png";
 import banner03 from "../assets/Food_Images/Banner_03.png";
 import banner04 from "../assets/Food_Images/Banner_04.png";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
 export default function Home() {
+  const { auth } = useAuth();
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
+  console.log(auth)
+
+  // H A N D L E R S
   const handleClick = async () => {
     //
-
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
     await axios
@@ -32,11 +36,18 @@ export default function Home() {
         console.log(err);
       });
   };
+
+  const handleStart = async () => {
+    //
+    navigate("/survey/orderconfirmation");
+  };
+
+
   //console.log(restaurants);
   return (
     <div className="h-full">
       {/* B A N N E R -- S L I D E R  */}
-      <div className="text-center w-full">
+      <section className="text-center w-full">
         <div
           id="default-carousel"
           className="relative flowbite"
@@ -56,15 +67,8 @@ export default function Home() {
                   className="relative opacity-100"
                 />
                 <div className="w-full mx-auto absolute">
-<<<<<<< HEAD
                   <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smaksalmon relative inline-block ">
                     <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To <b className="text-8xl">SMAK!</b></span>
-=======
-                  <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block ">
-                    <span className="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">
-                      Welcome To SMAK!
-                    </span>
->>>>>>> b19ac1d1c9e08942706d8716fdb12b6749937310
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>
@@ -127,21 +131,21 @@ export default function Home() {
           <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
             <button
               type="button"
-              className="w-3 h-3 p-2 rounded-0"
+              className="w-6 h-1 p-2 rounded-0"
               aria-current="false"
               aria-label="Slide 1"
               data-carousel-slide-to="0"
             ></button>
             <button
               type="button"
-              className="w-3 h-3 p-2 rounded-full"
+              className="w-6 h-1 p-2 rounded-0"
               aria-current="false"
               aria-label="Slide 2"
               data-carousel-slide-to="1"
             ></button>
             <button
               type="button"
-              className="w-3 h-3 p-2 rounded-full"
+              className="w-6 h-1 p-2 rounded-0"
               aria-current="false"
               aria-label="Slide 3"
               data-carousel-slide-to="2"
@@ -197,18 +201,22 @@ export default function Home() {
             </span>
           </button>
         </div>
-      </div>
+      </section>
       {/* S E A R C H */}
-      <div className="flex flex-row bg-smakHighlight p-10">
+      <section className="flex flex-row bg-smakHighlight p-10">
         <div className="py-8 mx-auto items-center text-center">
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
-      </div>
+      </section>
       {restaurants[0] ? (
-        <section className="overflow-hidden text-gray-700 ">
-          <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative">
+        <section className="pb-10  bg-smakHighlight ">
+          <div className="mb-6 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
+            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see all your options!
+          </div>
+          <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
             <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
               {restaurants.map((restaurant, i) => {
+
                 return (
                   <div className="image" key={i}>
                     <img
@@ -221,6 +229,16 @@ export default function Home() {
               })}
             </div>
           </div>
+          <div className="w-full mt-8 rounded-md items-center text-center">
+            <button
+              onClick={handleStart}
+              type="button"
+              className="py-2 px-24 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans]"
+            >
+              Start
+            </button>
+          </div>
+
         </section>
       ) : (
         <div></div>

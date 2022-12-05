@@ -210,24 +210,22 @@ const Register = () => {
             </p>
           </div>
         </div>
-        <div className="p-8">
-          <div className="h-full p-20 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80')] bg-opacity-75 ">
-            <div className="h-full p-[28px] bg-white bg-opacity-75 rounded-md text-center">
-              <div className="flex-row">
-                <h1 className="p-4 text-xl font-extrabold leading-tight tracking-tight bg-gray-600 text-white rounded-md md:text-4xl dark:text-white uppercase">
-                  Not sure what to eat today?
-                </h1>
+        <div className="p-0">
+          <div className="h-screen p-0 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80')] bg-opacity-75 ">
+            <div className="h-full p-[28px] bg-[#ffbe0b] bg-opacity-50 rounded-md text-center">
+              <div className="flex-row hidden">
+                <span class="p-0 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-800 relative inline-block">
+                  <span class="text-6xl relative text-white font-extrabold font-[Open Sans] italic">
+                    Not sure what to eat <b className="text-8xl">today?</b>
+                  </span>
+                </span>
               </div>
-              <div className="flex-row items-center">
-                <a href="#" className="mb-6 text-2xl">
-                  <img
-                    className="w-60 h-60 mx-auto "
-                    src={logo}
-                    alt="SMAK logo"
-                  />
-                </a>
-                <h2 className=" my-4 font-bold leading-tight tracking-tight text-smaksalmon text-6xl dark:text-white">
-                  <b className="font-extrabold ">SMAK</b> is here to help!
+              <div className="flex-row items-center text-center mt-[30%] ">
+                <h2 className=" font-bold leading-tight tracking-tight text-white text-6xl dark:text-white">
+                  <b className="block mt-8 text-8xl font-extrabold font-[Open Sans] ">
+                    SMAK
+                  </b>
+                  Find a new flavor!
                 </h2>
               </div>
             </div>

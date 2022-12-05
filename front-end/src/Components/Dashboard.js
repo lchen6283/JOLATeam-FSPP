@@ -13,6 +13,8 @@ const Dashboard = () => {
   const location = useLocation();
   const from = "/";
 
+  console.log(auth)
+
   const logout = async (e) => {
     e.preventDefault();
     try {
@@ -58,7 +60,7 @@ const Dashboard = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="h-full bg-smaksalmon">
+    <div className="h-full bg-white">
       <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2 ">

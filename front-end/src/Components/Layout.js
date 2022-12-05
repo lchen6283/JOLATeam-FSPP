@@ -4,7 +4,7 @@ import Footer from "../Components/Footer"
 
 const Layout = () => {
   return (
-    <main className="App">
+    <main className="App w-full">
       <NavBar />
       <Outlet />
       <Footer />
