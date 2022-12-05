@@ -30,7 +30,7 @@ export default function About() {
           At SMAK, our engineers know how stressful it can be to decide what to
           eat, especially if you're ordering for two. Our SMAK Quiz is designed
           to filter out cuisines you don't like, while focusing on the flavors
-          and textures that <strong>please your palate</strong>.
+          and textures that <strong>you do like</strong>.
         </p>
         <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
           Really, no<b className="text-[4rem] leading-8"> menu ? </b>
@@ -42,7 +42,7 @@ export default function About() {
         "
         >
           That's right! At SMAK we are dedicated to eliminating menu noise, so
-          we have partnered with restaurants to curate a secret list of their
+          we have partnered with restaurants to curate a special menu of
           greatest hits dishes to always bring you the very best. Think of it as
           <strong> restaurant week, every week.</strong>
         </p>
