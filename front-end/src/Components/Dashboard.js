@@ -28,80 +28,57 @@ const Dashboard = () => {
       // After validate credentials, proceed to redirect to /
       setTimeout(() => {
         navigate("/");
-      }, 1050);
+      }, 1100);
     } catch (err) {
       console.error(err.message);
     }
   };
 
   return (
-    // <div classNameName="h-full bg-yellow-200">
-    //   <ToastContainer />
-    //   <div classNameName="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-    //     <h2 classNameName=" font-extrabold text-black sm:text-4xl">
-    //       <span classNameName="block  text-gray-500 text-4xl md:text-6xl my-20 py-0 leading-0">
-    //         <b classNameName="px-4 py-2 mt-2 text-4xl md:text-6xl bg-orange-500 text-white no-italic rounded-md shadow">
-    //           Dashboard
-    //         </b>
-    //       </span>
-    //       <span classNameName="block text-4xl md:text-6xl text-gray-600">
-    //         Welcome back{" "}
-    //         <b classNameName="text-orange-600 uppercase">{auth?.firstName} </b>
-    //       </span>
-    //     </h2>
-    //     <div classNameName="mt-12 inline-flex rounded-md shadow">
-    //       <button
-    //         onClick={(e) => logout(e)}
-    //         type="button"
-    //         classNameName="py-3 px-6 bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-3xl "
-    //       >
-    //         Logout
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="h-full bg-white">
-      <div className="container mx-auto my-5 p-5">
-        <div className="md:flex no-wrap md:-mx-2 ">
+    <div className="flex flex-col flex-auto bg-[#bfd7ea]">
+      <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
+        <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
           <div className="w-full md:w-3/12 md:mx-2 ">
-            <div className="bg-white p-3 rounded border-t-4 border-yellow-200">
+            <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
-                  className="h-auto w-full mx-auto"
+                  className="h-auto w-full mx-auto rounded-lg border-[1rem] border-gray-200"
                   src="https://fakeface.rest/face/view/55?gender=male"
                   alt=""
                 />
               </div>
-              <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
+              <h1 className="my-4 text-3xl text-gray-600 font-extrabold font-[Open Sans]">
                 Michel Cajamarca
               </h1>
-              <h3 className="text-gray-600 font-lg text-semibold leading-6">
+              <div className="py-4">
+              <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
                 SMAK Newbie
               </h3>
-              <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">
+              <p className="text-md text-gray-500 hover:text-gray-600 leading-6">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur
                 non deserunt
               </p>
+              </div>
               <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                <li className="flex items-center py-3">
+                <li className="flex items-center py-3 font-bold font-[Open Sans]">
                   <span>Status</span>
                   <span className="ml-auto">
-                    <span className="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                    <span className="bg-green-500 py-1 px-2 rounded text-white text-md font-bold font-[Open Sans]">
                       Active
                     </span>
                   </span>
                 </li>
-                <li className="flex items-center py-3">
+                <li className="flex items-center py-3 font-bold font-[Open Sans]">
                   <span>Most Recent SMAK:</span>
                   <span className="ml-auto">Nov 07, 2022</span>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-9/12 mx-2 h-64">
+          <div className="w-full md:w-9/12 mx-2 px-4">
             <div className="bg-white p-3 shadow-sm rounded-sm">
-              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-4">
                 <span clas="text-green-500">
                   <svg
                     className="h-5"
@@ -118,37 +95,41 @@ const Dashboard = () => {
                     />
                   </svg>
                 </span>
-                <span className="tracking-wide">About</span>
+                <span 
+                  className="py-2 tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]"
+                >
+                  About
+                </span>
               </div>
-              <div className="text-gray-700">
+              <div className="my-2 text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">First Name</div>
-                    <div className="px-4 py-2">Miguel</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">First Name</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">Miguel</div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Last Name</div>
-                    <div className="px-4 py-2">Cajamarca</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Last Name</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">Cajamarca</div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Contact No.</div>
-                    <div className="px-4 py-2">+11 998001001</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Contact No.</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">+11 998001001</div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Home Address</div>
-                    <div className="px-4 py-2">
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Home Address</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       Beech Creek, PA, Pennsylvania
                     </div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Work Address</div>
-                    <div className="px-4 py-2">
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Work Address</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       Arlington Heights, IL, Illinois
                     </div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Email.</div>
-                    <div className="px-4 py-2">
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Email.</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       <a
                         className="text-blue-800"
                         href="mailto:jane@example.com"
@@ -159,7 +140,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <button className="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+              <button className="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
                 Edit Profile Information
               </button>
             </div>
@@ -167,9 +148,9 @@ const Dashboard = () => {
             <div className="my-4"></div>
 
             <div className="bg-white p-3 shadow-sm rounded-sm">
-              <div className="grid grid-cols-2">
+              <div className="flex flex-row">
                 <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3 border-b-4">
                     <span clas="text-green-500">
                       <svg
                         className="h-5"
@@ -186,22 +167,29 @@ const Dashboard = () => {
                         />
                       </svg>
                     </span>
-                    <span className="tracking-wide">Recent Orders</span>
+                    <span className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
+                      Recent Orders
+                    </span>
                   </div>
                   <ul className="list-inside space-y-2">
-                    <li>
-                      <div className="text-teal-600">Cabo Rockville Centre</div>
-                      <div className="text-gray-500 text-xs">Date</div>
+                    <li className="p-2">
+                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">Di Grande Trattoria Little Villa D' Italia New York City</div>
+                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">Budget $150</div>
+                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">Nov 25, 2022</div>
                     </li>
-                    <li>
-                      <div className="text-teal-600">
-                        Pio Pio 8 Hell's Kitchen
-                      </div>
-                      <div className="text-gray-500 text-xs">Date</div>
+                    <li className="p-2">
+                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">Cabo Rockville Centre</div>
+                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">Budget $100</div>
+                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">Nov 25, 2022</div>
                     </li>
                   </ul>
                 </div>
-                <div>
+              </div>
+            </div>
+            <div className="my-4"></div>
+            <div className="bg-white p-3 shadow-sm rounded-sm">
+              <div className="flex flex-row">
+              <div>
                   <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                     <span clas="text-green-500">
                       <svg
@@ -224,25 +212,32 @@ const Dashboard = () => {
                         />
                       </svg>
                     </span>
-                    <span className="tracking-wide">Recent Reviews</span>
+                    <span 
+                      className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]"
+                    >
+                      Recent Reviews
+                    </span>
                   </div>
-                  <ul className="list-inside space-y-2">
-                    <li>
-                      <div className="text-teal-600">Cabo Rockville Centre</div>
-                      <div className="text-gray-500 text-xs">Date</div>
-                    </li>
-                    <li>
-                      <div className="text-teal-600">
-                        Pio Pio 8 Hell's Kitchen
+                  <ul className="w-full list-inside space-y-2">
+                    <li className="p-4">
+                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">Great experience!</div>
+                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt
                       </div>
-                      <div className="text-gray-500 text-xs">Date</div>
+                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">Dec 04, 2022</div>
+                    </li>
+                    <li className="p-4">
+                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">Definitely a life changing </div>
+                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt
+                      </div>
+                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">Dec 04, 2022</div>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="my-4"></div>
-
             <div className="bg-white p-3 hover:shadow">
               <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                 <span className="text-green-500">
@@ -261,7 +256,11 @@ const Dashboard = () => {
                     />
                   </svg>
                 </span>
-                <span>Badges</span>
+                <span 
+                  className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]"
+                >
+                  Badges
+                </span>
               </div>
               <div className="grid grid-cols-3">
                 <div className="text-center my-2">
