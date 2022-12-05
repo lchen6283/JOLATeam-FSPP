@@ -22,7 +22,7 @@ function ConfirmYourOrder() {
       <Form>
         <div className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5">
           <h2 
-            className="mb-10 text-center text-2xl font-bold text-white dark:text-white"
+            className="mb-10 text-center text-3xl font-bold text-white dark:text-white"
           >
             Order Details
           </h2>

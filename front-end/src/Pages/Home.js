@@ -38,7 +38,11 @@ export default function Home() {
   };
 
   const handleStart = async () => {
-    //
+    // Adding data to local storage
+    localStorage.setItem(
+      'searchResults', JSON.stringify(restaurants)
+    );
+    
     navigate("/survey/orderconfirmation");
   };
 
@@ -233,7 +237,7 @@ export default function Home() {
             <button
               onClick={handleStart}
               type="button"
-              className="py-2 px-24 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans]"
+              className="py-2 px-24 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] hover:bg-orange-400"
             >
               Start
             </button>

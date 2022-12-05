@@ -22,11 +22,11 @@ export default function Search({ city, setCity, handleClick }) {
         />
         </div>
       </div>
-      <div className="mt-8 inline-flex rounded-md shadow">
+      <div className="mt-8 inline-flex">
         <button
           onClick={handleClick}
           type="button"
-          className="py-2 px-24 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans]"
+          className="py-2 px-24 hover:bg-orange-400 hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] bg-orange-600"
         >
           Search
         </button>

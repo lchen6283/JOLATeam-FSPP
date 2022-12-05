@@ -80,7 +80,7 @@ export default function NavBar() {
             <Link
               to="/"
               aria-current="page"
-              className="block py-2 pl-3 pr-4 text-xl text-white bg-blue-700 font-extrabold font-['Open Sans'] rounded md:bg-transparent md:text-smaksalmon md:p-0 dark:text-white"
+              className="block py-2 pl-3 pr-4 text-xl text-smaksalmon bg-blue-700 font-extrabold font-['Open Sans'] rounded md:bg-transparent md:text-smaksalmon md:p-0 dark:text-white"
             >
               Home
             </Link>
