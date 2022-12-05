@@ -24,7 +24,7 @@ INSERT INTO reviews (userid, orderid, rating, content, img_url, date) VALUES (1,
 INSERT INTO menus (cuisine) VALUES ('mediterranean'),('italian'),('spanish'),('french'),('vietnamese'),('newamerican'),('korean'),('mexican'),('japanese'),('other'),('thai'),('chinese');
 
 
-INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken Thighs'),(1, 'entree', 'Garlic Mushroom Pasta'),(1, 'entree', 'Shrimp Scampi'),(1,'entree', 'Roast Lamb Rack'),(1, 'entree', 'Mediterranean fish soup'),(1,'appetizers', 'Vegetarian Mezze Platter'),(1,'appetizers', '7-Layer Mediterranean Dip'),(1,'appetizers', 'Mediterranean Tomato Bites'),(1,'desserts', 'Crema Catalana'),(1,'desserts', 'Tiramisu'),(1,'desserts', 'Kremna Rezina'),
+INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken Thighs'),(1, 'entree', 'Garlic Mushroom Pasta'),(1, 'entree', 'Per-Peri Chicken'),(1,'entree', 'Roast Lamb Rack'),(1, 'entree', 'Mediterranean Fish Soup'),(1,'appetizers', 'Vegetarian Mezze Platter'),(1,'appetizers', 'Spice Beet Dip'),(1,'appetizers', 'Mediterranean Tomato Bites'),(1,'desserts', 'Noams Malva Pudding'),(1,'desserts', 'Homemade Spiced Cheesecake'),(1,'desserts', 'Kremna Rezina'),
 
 (2, 'entree', 'Mushroom Carbonara'),(2, 'entree', 'Spaghetti and Meatballs'),(2, 'entree', 'Margherita Pizza Beans'),(2,'entree', 'Sausage and Broccoli Rabe Frittata'),(2, 'entree', 'Eggplant Parmesan'),(2,'appetizers', 'Arancini'),(2,'appetizers', 'Herbed Chickpea Bruschetta'),(2,'appetizers', 'Focaccia col Formaggio'),(2,'desserts', 'Chocolate Ganache Tart'),(2,'desserts', 'Pizzettes'),(2,'desserts', 'Raspberry Jam Bomboloni'),
 
@@ -47,3 +47,4 @@ INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken
 (11, 'entree', 'Green Curry w/ Chicken'),(11, 'entree', 'Garlic & Black Pepper Stir Fry'),(11, 'entree', 'Pad Kee Mao'),(11,'entree', 'Fried Fish W/ Garlic'),(11, 'entree', 'Pad See Iew'),(11,'appetizers', 'Thai Spring Rolls'),(11,'appetizers', 'Sa-Teh Chicken'),(11,'appetizers', 'Fried Calamari'),(11,'desserts', 'Blackberry Rice w/ Taro & Coconut'),(11,'desserts', 'Deep Fried Banana w/ Ice Cream'),(11,'desserts', 'Tapioca W/ Taro'),
 
 (12, 'entree', 'Egg Foo Young'),(12, 'entree', 'Orange Chicken'),(12, 'entree', 'Choice W/ Broccoli'),(12,'entree', 'Pepper Steak'),(12, 'entree', 'Shrimp L obster Sauce'),(12,'appetizers', 'Hunan Egg Roll'),(12,'appetizers', 'Crab Rangoon'),(12,'appetizers', 'Teriyaki Chicken Sticks'),(12,'desserts', 'Shanghai Soy Milk Pudding'),(12,'desserts', 'Tropical Red Bean Cakes'),(12,'desserts', 'Coconut Milk & Rockmelon Sago');
+

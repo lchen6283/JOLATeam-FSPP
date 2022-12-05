@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Navigate, redirect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 // COMPONENTS
 import Layout from "./Components/Layout";
 import Login from "./Components/Login";
@@ -16,10 +17,20 @@ import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 import Order from "./Pages/Order";
 import PaymentFinalized from "./Pages/PaymentFinalized";
-import Budget from "./Pages/Budget";
+
 import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
 import OrderConfirmation from "./Pages/OrderConfirmation";
+
+const importFlowbiteFunc = function(flowbitePathStr)
+{
+    const flowbiteScriptEl = document.createElement('script')
+    flowbiteScriptEl.setAttribute(
+        'src', flowbitePathStr
+    )
+    document.body.appendChild(flowbiteScriptEl)
+}
+importFlowbiteFunc('/flowbite.js');
 
 const ROLES = {
   User: 2,
@@ -27,6 +38,8 @@ const ROLES = {
 };
 
 function App() {
+
+  
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

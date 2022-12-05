@@ -8,7 +8,7 @@ const RequireAuth = ({ allowedRoles }) => {
     return (
         auth?.jwtToken
             ? <Outlet />
-            : auth?.role!==2
+            : auth?.userName
                 ? <Navigate to="/unauthorized" state={{ from: location }} replace />
                 : <Navigate to="/login" state={{ from: location }} replace />
     );

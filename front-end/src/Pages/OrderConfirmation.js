@@ -1,11 +1,24 @@
-//LOCAL STORAGE PRACTICE PAGE
 //PROOF OF CONCEPT PAGE TO DRAW CHOSEN RESTAURANT , CONFIGURE RANDOMIZATION OF FOOD ITEMS ACCORDING TO BUDGET
+import { createContext, useState } from "react";
+import Stepper from "../Components/Stepper";
+import Step from "../Components/Step";
+export const FormContext = createContext();
+
 export default function OrderConfirmation() {
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [formData, setFormData] = useState({});
+  console.log(formData);
   return (
-    <div>
-      PROOF OF CONCEPT PAGE
-      <section>CHOSEN RESTAURANT DETAILS</section>
-      <section>ITEMS IN BAG DETAILS</section>
-    </div>
+    <FormContext.Provider
+      value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}
+    >
+      <div className="w-screen h-full flex flex-col items-center justify-start p-10">
+        <h2 className="py-8 text-gray-600 text-4xl md:text-5xl font-extrabold font-[Open Sans] text-center ">
+          Processing your SMAK order
+        </h2>
+        <Stepper />
+        <Step />
+      </div>
+    </FormContext.Provider>
   );
 }

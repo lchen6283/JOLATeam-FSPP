@@ -3,16 +3,54 @@ import React from "react";
 export default function About() {
   return (
     <div className="box p-4 bg-smakorange">
-      <h1 className="mt-10 mb-10 text-center text-4xl font-bold text-gray-800">
-        What is SMAK?
-      </h1>
-      <p className="mx-20 text-center text-xl">
-        Smak is dutch for Taste. Smak is a web app that helps you order food
-        faster by taking “choice” away and making the decision for you. On
-        Average it takes about 10-20 mins to narrow down what you want to eat.
-        On our app All you have to do is answer a simple set of questions and
-        Our algorithm will make a delicious choice for you!
-      </p>
+      <div className="w-full py-20 px-0 md:mt-0 bg-[#bfd7ea]">
+        <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+          <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
+            What is <b className="text-[4rem] leading-8"> SMAK?</b>
+          </h2>
+          <p
+            className="first-line:uppercase first-line:tracking-widest
+          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+          first-letter:mr-3 first-letter:float-left
+        "
+          >
+            Enjoy a new way to order from the best restaurants in your area.
+            <strong> No scrolling, no menus, just great food.</strong> Choose a
+            package that best fits your party size, answer a couple questions,
+            and leave the rest to us.
+          </p>
+          <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
+            How does<b className="text-[4rem] leading-8"> matching</b> work?
+          </h2>
+          <p
+            className="first-line:uppercase first-line:tracking-widest
+          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+          first-letter:mr-3 first-letter:float-left
+        "
+          >
+            At SMAK, our engineers know how stressful it can be to decide what
+            to eat, especially if you're ordering for two. Our SMAK Quiz is
+            designed to filter out cuisines you don't like, while focusing on
+            the flavors and textures that <strong>you do like</strong>.
+          </p>
+          <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
+            Really, no<b className="text-[4rem] leading-8"> menu ? </b>
+          </h2>
+          <p
+            className="first-line:uppercase first-line:tracking-widest
+          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+          first-letter:mr-3 first-letter:float-left
+        "
+          >
+            That's right! At SMAK we are dedicated to eliminating menu noise, so
+            we have partnered with restaurants to curate a special menu of
+            greatest hits dishes to always bring you the very best. Think of it
+            as
+            <strong> restaurant week, every week.</strong>
+          </p>
+        </article>
+      </div>
+
       <br />
       <hr className="border-2 mx-20" />
       <p className="mt-10 mb-20 text-center text-4xl font-bold text-gray-800">

@@ -3,10 +3,8 @@ import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 
 import sohoAPI from "../data/data"; //HARD CODED API CALL ---> EDIT TO BRING IN AS PROPS
-import "./survey.css";
 import Budget from "../Components/Budget";
 import Questionnaire from "../Components/Questionnaire";
-import { matchRoutes } from "react-router-dom";
 
 const list = [
   { word: "zesty", menu: ["mediterranean", "mexican"] },
@@ -103,6 +101,7 @@ export default function Survey() {
     let finalChoice = postElimination.filter((restaurant) =>
       wordAssociationCuisines.includes(restaurant.matchedcategory)
     );
+    console.log(finalChoice);
     let chosenRestaurant = {};
     if (finalChoice.length === 1) {
       chosenRestaurant = finalChoice;
@@ -117,30 +116,34 @@ export default function Survey() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    restaurantPicker(list, sohoAPI, cuisineType);
+    console.log(restaurantPicker(list, sohoAPI, cuisineType));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Budget budget={budget} handleChange={handleChange} />
-      {/* THIRD QUIZ */}
-      <Questionnaire
-        list={list}
-        apiCategories={apiCategories}
-        handleEliminationCheck={handleEliminationCheck}
-        handleFlavorCheck={handleFlavorCheck}
-        cuisineType={cuisineType}
-        handleNotes={handleNotes}
-      />
-      <div class="">
-        <button
-          type="submit"
-          class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        >
-          Submit
-        </button>
+    <div className="w-full">
+      <div className="container mx-auto">
+        <form onSubmit={handleSubmit}>
+          <Budget budget={budget} handleChange={handleChange} />
+          {/* THIRD QUIZ */}
+          <Questionnaire
+            list={list}
+            apiCategories={apiCategories}
+            handleEliminationCheck={handleEliminationCheck}
+            handleFlavorCheck={handleFlavorCheck}
+            cuisineType={cuisineType}
+            handleNotes={handleNotes}
+          />
+          <div class="">
+            <button
+              type="submit"
+              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 }
 
