@@ -43,7 +43,7 @@ const Dashboard = () => {
               <div className="">
                 <img
                   className="h-auto w-full mx-auto rounded-lg border-[1rem] border-gray-200"
-                  src="https://fakeface.rest/face/view/55?gender=male"
+                  src="https://fakeface.rest/face/view/55?gender=female&minimum_age=20&maximum_age=30"
                   alt=""
                 />
               </div>
@@ -98,7 +98,8 @@ const Dashboard = () => {
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      First Name
+                      First Name: <br />
+                      Piper
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       {auth.firstName}
@@ -106,7 +107,8 @@ const Dashboard = () => {
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Last Name
+                      Last Name: <br />
+                      Williams
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       {auth.lastName}
@@ -114,24 +116,28 @@ const Dashboard = () => {
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Contact No.
+                      Phone Number: <br />
+                      718-987-654
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       {" "}
                       {auth.phonenumber}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2">
+                  <div>
+                    {/* <div className="grid grid-cols-2"> */}
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Adress
+                      Address: <br />
+                      529 APT 2F Broadway New York, NY
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.address}, {auth.city}
+                      {auth.address} {auth.city}
                     </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Zip
+                      Zip: <br />
+                      10012
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       {auth.zip}
@@ -139,7 +145,8 @@ const Dashboard = () => {
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Email.
+                      Email: <br />
+                      pWilliams0735@gmail.com
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       <a
@@ -186,13 +193,13 @@ const Dashboard = () => {
                   <ul className="list-inside space-y-2">
                     <li className="p-2">
                       <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
-                        Di Grande Trattoria Little Villa D' Italia New York City
+                        Jack's Wife Freda
                       </div>
                       <div className="text-gray-500 text-md font-bold font-[Open Sans]">
                         Budget $150
                       </div>
                       <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
-                        Nov 25, 2022
+                        Dec 7, 2022
                       </div>
                     </li>
                     <li className="p-2">
