@@ -15,7 +15,7 @@ const getAllMenus = async () => {
 
 const getOneMenu = async (id) => {
   try {
-    const oneMenu = await db.one("SELECT * FROM menus WHERE id = $1", id);
+    const oneMenu = await db.one("SELECT * FROM menus WHERE cuisine = $1", id);
     return oneMenu;
   } catch (error) {
     console.log(error.message || error);

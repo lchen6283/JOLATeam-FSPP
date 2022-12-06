@@ -48,8 +48,48 @@ const createUser = async (user) => {
   }
 };
 
+const editUser = async (
+  id,
+  {
+    firstname,
+    lastname,
+    address,
+    city,
+    state,
+    zip,
+    phonenumber,
+    username,
+    avatar,
+    is_active,
+  }
+) => {
+  try {
+    const updatedUser = await db.one(
+      "UPDATE users SET firstname=$1, lastname=$2, address=$3, city=$4, state=$5, zip=$6, phonenumber=$7, username=$8, avatar=$9, is_active=$10 WHERE id=$11 RETURNING *",
+      [
+        firstname,
+        lastname,
+        address,
+        city,
+        state,
+        zip,
+        phonenumber,
+        username,
+        avatar,
+        is_active,
+        id,
+      ]
+    );
+    return updatedUser;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
 module.exports = {
   getAllUsers,
   getOneUser,
   createUser,
+  editUser,
 };
