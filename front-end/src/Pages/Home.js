@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
 import AboutHome from "../Components/AboutHome";
@@ -21,6 +21,19 @@ export default function Home() {
   let navigate = useNavigate();
 
   console.log(auth);
+   //console.log(auth)
+  useEffect(() => {
+    const importFlowbiteFunc = function(flowbitePathStr)
+  {
+      const flowbiteScriptEl = document.createElement('script')
+      flowbiteScriptEl.setAttribute(
+          'src', flowbitePathStr
+      )
+      document.body.appendChild(flowbiteScriptEl)
+  }
+  importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
+    
+  }, []);
 
   // H A N D L E R S
   const handleClick = async () => {
