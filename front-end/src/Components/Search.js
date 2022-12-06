@@ -26,7 +26,7 @@ export default function Search({ city, setCity, handleClick }) {
         <button
           onClick={handleClick}
           type="button"
-          className="py-2 px-24 hover:bg-orange-400 hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] bg-orange-600"
+          className="py-2 px-24  text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2x font-extrabold font-[Open Sans] bg-yellow-400"
         >
           Search
         </button>

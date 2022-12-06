@@ -252,7 +252,7 @@ export default function Home() {
       {/*  A B O U T  */}
       <About />
       {/*  R E V I E W S  */}
-      {/* <Reviews /> */}
+      <Reviews />
     </div>
   );
 }
