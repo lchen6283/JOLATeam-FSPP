@@ -12,11 +12,22 @@ const {
   getOneUser,
   createUser,
   editUser,
+  getByUserName,
 } = require("../queries/usersqueries");
 
 //GET ALL
 users.get("/", async (req, res) => {
   const customerObj = await getAllUsers();
+  if (customerObj) {
+    res.json({ sucess: true, payload: customerObj });
+  } else {
+    res.status(404).json("Error");
+  }
+});
+
+users.get("/username/:username", async (req, res) => {
+  const { username } = req.params;
+  const customerObj = await getByUserName(username);
   if (customerObj) {
     res.json({ sucess: true, payload: customerObj });
   } else {

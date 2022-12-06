@@ -116,19 +116,26 @@ const Dashboard = () => {
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
                       Contact No.
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {" "}
+                      {auth.phonenumber}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Home Address
+                      Adress
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.address}, {auth.city}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Work Address
+                      Zip
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.zip}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
