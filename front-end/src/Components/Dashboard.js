@@ -48,7 +48,7 @@ const Dashboard = () => {
                 />
               </div>
               <h1 className="my-4 text-3xl text-gray-600 font-extrabold font-[Open Sans]">
-                Michel Cajamarca
+                {auth.firstName}
               </h1>
               <div className="py-4">
               <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
@@ -105,26 +105,26 @@ const Dashboard = () => {
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">First Name</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">Miguel</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">{auth.firstName}</div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Last Name</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">Cajamarca</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">{auth.lastName}</div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Contact No.</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">+11 998001001</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Home Address</div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      Beech Creek, PA, Pennsylvania
+                      
                     </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Work Address</div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      Arlington Heights, IL, Illinois
+                      
                     </div>
                   </div>
                   <div className="grid grid-cols-2">
@@ -134,7 +134,7 @@ const Dashboard = () => {
                         className="text-blue-800"
                         href="mailto:jane@example.com"
                       >
-                        jane@example.com
+                        {auth.userName}
                       </a>
                     </div>
                   </div>

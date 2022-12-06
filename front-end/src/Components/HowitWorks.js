@@ -1,7 +1,7 @@
 import React from "react";
 import { GoLocation } from "@react-icons/all-files/go/GoLocation";
 import { FaConciergeBell } from "@react-icons/all-files/fa/FaConciergeBell";
-import { FaFileInvoiceDollar } from "@react-icons/all-files/fa/FaFileInvoiceDollar";
+import {GiTakeMyMoney} from '@react-icons/all-files/gi/GiTakeMyMoney'
 import { GiFullPizza } from "@react-icons/all-files/gi/GiFullPizza";
 
 export default function HowitWorks() {
@@ -12,7 +12,7 @@ export default function HowitWorks() {
         How Does It Work?
       </h2>
       <div className="flex flex-row p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
           <div className=" py-6 px-4 border-gray-400 bg-smaksalmon border-0 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] hover:bg-[#FBB02D]">
             <GoLocation className="w-full h-32 my-4 fill-white  " />
             <div className="flex-row">
@@ -35,7 +35,7 @@ export default function HowitWorks() {
             </div>
           </div>
           <div className=" py-6 px-4 border-gray-400 bg-smaksalmon border-0 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] hover:bg-[#FBB02D]">
-            <FaFileInvoiceDollar className="w-full h-32 my-4 fill-white  " />
+            <GiTakeMyMoney className="w-full h-32 my-4 fill-white  " />
             <div className="flex-row">
               <h4 className="my-4 text-3xl text-white text-center font-extrabold font-[Open Sans]">
                 Checkout <br/> Made Easy

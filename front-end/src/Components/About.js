@@ -10,7 +10,7 @@ export default function About() {
         <p
           className="first-line:uppercase first-line:tracking-widest
           first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
-          first-letter:mr-3 first-letter:float-left
+          first-letter:mr-3 first-letter:float-left text-justify
         "
         >
           Enjoy a new way to order from the best restaurants in your area.
@@ -18,7 +18,7 @@ export default function About() {
           package that best fits your party size, answer a couple questions, and
           leave the rest to us.
         </p>
-        <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
+        {/* <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
           How does<b className="text-[4rem] leading-8"> matching</b> work?
         </h2>
         <p
@@ -45,7 +45,16 @@ export default function About() {
           we have partnered with restaurants to curate a secret list of their
           greatest hits dishes to always bring you the very best. Think of it as
           <strong> restaurant week, every week.</strong>
-        </p>
+        </p> */}
+        <div className="mt-8 text-center">
+          <button
+            //onClick={handleClick}
+            type="button"
+            className="py-2 px-24 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] bg-gray-600"
+          >
+            See More
+          </button>
+        </div>
       </article>
     </div>
   );
