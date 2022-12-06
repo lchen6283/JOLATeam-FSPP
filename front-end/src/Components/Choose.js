@@ -47,22 +47,20 @@ function Choose() {
         role="group"
         aria-labelledby="checkbox-group"
       >
-        <h2
-          className="mb-10 text-center text-2xl font-bold text-white dark:text-white"
-        >
-          Select two food tastes from the list below:
+        <h2 className="mb-10 text-center text-2xl font-bold text-white dark:text-white">
+          Select 2 from the list below:
         </h2>
         <div className="flex flex-col items-start mb-2">
           {list.map((item, i) => {
             return (
               <label className="p-2 font-bold text-white text-xl " key={i}>
-                <Field 
-                name="choose" 
-                type="checkbox" 
-                value={item.word} 
-                className="p-4 mr-2 rounded-full border-2 border-orange-400"
+                <Field
+                  name="choose"
+                  type="checkbox"
+                  value={item.word}
+                  className="p-4 mr-2 rounded-full border-2 border-orange-400"
                 />
-                {item.word}
+                {item.word[0].toUpperCase() + item.word.substring(1)}
               </label>
             );
           })}
@@ -79,21 +77,21 @@ function Choose() {
         </div>
         <ErrorMessage name="notes" render={renderError} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <button
-          className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
-          type="button"
-          onClick={() => {
-            setActiveStepIndex(activeStepIndex - 1);
-          }}
-        >
-          Back
-        </button>
-        <button
-          className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
-          type="submit"
-        >
-          Continue
-        </button>
+          <button
+            className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+            type="button"
+            onClick={() => {
+              setActiveStepIndex(activeStepIndex - 1);
+            }}
+          >
+            Back
+          </button>
+          <button
+            className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+            type="submit"
+          >
+            Continue
+          </button>
         </div>
       </Form>
     </Formik>

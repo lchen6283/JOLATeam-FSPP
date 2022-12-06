@@ -1,18 +1,16 @@
-import React from "react";
-
 export default function About() {
   return (
-    <div className="box p-4 bg-smakorange">
-      <div className="w-full py-20 px-0 md:mt-0 bg-[#bfd7ea]">
+    <div className="box p-4 bg-[#bfd7ea]">
+      <div className="w-full py-20 px-0 md:mt-0">
         <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
           <h2 className="text-[8rem] text-gray-800 font-extrabold font-[Open Sans] ">
             What is <b className="text-[4rem] leading-8"> SMAK?</b>
           </h2>
           <p
             className="first-line:uppercase first-line:tracking-widest
-          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
-          first-letter:mr-3 first-letter:float-left
-        "
+            first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+            first-letter:mr-3 first-letter:float-left
+          "
           >
             Enjoy a new way to order from the best restaurants in your area.
             <strong> No scrolling, no menus, just great food.</strong> Choose a
@@ -24,9 +22,9 @@ export default function About() {
           </h2>
           <p
             className="first-line:uppercase first-line:tracking-widest
-          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
-          first-letter:mr-3 first-letter:float-left
-        "
+            first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+            first-letter:mr-3 first-letter:float-left
+          "
           >
             At SMAK, our engineers know how stressful it can be to decide what
             to eat, especially if you're ordering for two. Our SMAK Quiz is
@@ -38,9 +36,9 @@ export default function About() {
           </h2>
           <p
             className="first-line:uppercase first-line:tracking-widest
-          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
-          first-letter:mr-3 first-letter:float-left
-        "
+            first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+            first-letter:mr-3 first-letter:float-left
+          "
           >
             That's right! At SMAK we are dedicated to eliminating menu noise, so
             we have partnered with restaurants to curate a special menu of
@@ -58,9 +56,8 @@ export default function About() {
       </p>
       <br />
       {/* <p className="text-center mb-20 text-2xl font-normal text-white">
-        Meet the developers behind the project
-      </p> */}
-
+          Meet the developers behind the project
+        </p> */}
       <div className="items-center justify-center flex items-center space-y-24 md:space-y-0 md:pt-10 lg:pt-0 flex-col md:flex-row justify evenly ">
         <div className="p-4 relative">
           <div className="text-center mb-4 absolute -top-16 right-1/2 transform translate-x-1/2">
