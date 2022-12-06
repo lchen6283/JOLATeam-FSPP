@@ -283,7 +283,8 @@ export default function About() {
                 with the ultimate goal of creating a meaningful UX. As a
                 life-long learner, I embrace challenges and enjoy learning
                 different approaches to solving problems both personally and
-                professionally.
+                professionally. I strive to always improve myself and keeping up
+                with new technologies.
               </p>
             </div>
             <div className="pt-8 flex border-t border-gray-200 w-40 mx-auto text-gray-500 items-center justify-between">
