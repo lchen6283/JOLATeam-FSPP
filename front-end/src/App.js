@@ -22,15 +22,10 @@ import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 
-const importFlowbiteFunc = function(flowbitePathStr)
-{
-    const flowbiteScriptEl = document.createElement('script')
-    flowbiteScriptEl.setAttribute(
-        'src', flowbitePathStr
-    )
-    document.body.appendChild(flowbiteScriptEl)
-}
-importFlowbiteFunc('/flowbite.js');
+// import "flowbite"
+// import "flowbite-react"
+// import "flowbite/dist/flowbite.css"
+// import "flowbite/dist/flowbite.js"
 
 const ROLES = {
   User: 2,
@@ -39,6 +34,18 @@ const ROLES = {
 
 function App() {
 
+  // useEffect(() => {
+  //   const importFlowbiteFunc = function(flowbitePathStr)
+  // {
+  //     const flowbiteScriptEl = document.createElement('script')
+  //     flowbiteScriptEl.setAttribute(
+  //         'src', flowbitePathStr
+  //     )
+  //     document.body.appendChild(flowbiteScriptEl)
+  // }
+  // importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
+    
+  // }, []);
   
   return (
     <Routes>

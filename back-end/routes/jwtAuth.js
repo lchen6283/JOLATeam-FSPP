@@ -61,12 +61,14 @@ router.post("/login", validInfo, async (req, res) => {
     if (!validPassword) {
       return res.status(401).json("Invalid Credential");
     }
+
+    const userData = user.rows[0];
     const jwtToken = jwtGenerator(user.rows[0].user_id);
-    const firstName = user.rows[0].firstname;
-    const lastName = user.rows[0].lastname;
-    const userName = user.rows[0].username;
-    const userRole = user.rows[0].role;
-    return res.json({ jwtToken, firstName, lastName, userName, userRole });
+    // const firstName = user.rows[0].firstname;
+    // const lastName = user.rows[0].lastname;
+    // const userName = user.rows[0].username;
+    // const userRole = user.rows[0].role;
+    return res.json({ jwtToken, userData });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

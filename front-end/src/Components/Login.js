@@ -44,7 +44,7 @@ const Login = () => {
           withCredentials: false,
         }
       );
-      //console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response?.data));
 
       //const jwtToken = JSON.stringify(response?.data.jwtToken);
       const jwtToken = response?.data.jwtToken;
@@ -55,7 +55,7 @@ const Login = () => {
       const userRole = response?.data?.userRole;
 
       // Setting the auth state
-      setAuth({ jwtToken, firstName, lastName, userName, userRole });
+      setAuth({ jwtToken });
       setInputs("");
       // Setting the success notification
       toast.success("Login Successfully!", {
