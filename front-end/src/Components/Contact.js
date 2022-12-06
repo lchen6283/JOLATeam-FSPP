@@ -1,14 +1,15 @@
 export default function ProjectTeam() {
   return (
     <>
-      <div className="box p-4 bg-blue-100">
+      <div className="box p-4 bg-smakorange">
         <p className="mt-10 mb-10 text-center text-4xl font-bold text-gray-800">
-          Professional Team
+          The Team
         </p>
-        <p className="text-center mb-10 text-xl font-normal text-gray-500">
-          Meet the developers team behind the project
+        <p className="text-center mb-40 text-2xl font-normal text-white">
+          Meet the developers behind the project
         </p>
-        <div className="items-center justify-center flex items-center space-y-24 md:space-y-0 pt-64 md:pt-10 lg:pt-0 flex-col md:flex-row justify evenly md:mt-56">
+
+        <div className="items-center justify-center flex items-center space-y-24 md:space-y-0 pt-64 md:pt-10 lg:pt-0 flex-col md:flex-row justify evenly ">
           <div className="p-4 relative">
             <div className="text-center mb-4 absolute -top-16 right-1/2 transform translate-x-1/2">
               <a
@@ -22,6 +23,7 @@ export default function ProjectTeam() {
                 />
               </a>
             </div>
+
             <div className="bg-white rounded-lg shadow px-8 py-4 pt-24">
               <div className="text-center">
                 <p className="text-2xl text-indigo-900 font-bold">
@@ -31,15 +33,13 @@ export default function ProjectTeam() {
                   Fullstack Dev
                 </p>
                 <p className="text-md text-gray-500 w-60 mx-auto py-4 font-light">
-                  I am currently pursing my passion and training to become a
-                  software engineer/developer as a member of the Pursuit
-                  Fellowship. Pursuit is a 12-month, Google-funded software
-                  engineering fellowship with a 9% acceptance rate whose
-                  graduates have been hired as developers at leading companies.
-                  My background as an administrative assistant is what inspired
-                  my shift into tech. I wanted to join an industry that allowed
-                  me to be creative and do what I love - which is gaming! After
-                  completing the Pursuit.
+                  Hello there, I'm Josie, a full-stack software engineer in NYC.
+                  I consider myself a naturally curious person which makes me
+                  want to always learn new things, a problem-solver who
+                  questions everything, and a hard worker who doesn't take life
+                  too seriously and enjoys the little small things in life like
+                  a good playlist or series not to mention podcast please feel
+                  free to recommend.
                 </p>
               </div>
               <div className="pt-8 flex border-t border-gray-200 w-40 mx-auto text-gray-500 items-center justify-between">
@@ -169,16 +169,12 @@ export default function ProjectTeam() {
                 </p>
                 <p className="text-md text-gray-500 w-60 mx-auto py-4 font-light">
                   I am an aspiring software engineer and full stack web
-                  developer currently attending Pursuit, an intensive 12 - month
-                  software engineering fellowship with a 9% acceptance rate. I
-                  am pursuing software engineering because I have always had a
-                  passion for technology. As a creative, I wish to explore the
-                  vast array of opportunities with this field. When I'm not on a
-                  computer, you can find me in front of the television as I am a
-                  big fan of Marvel, DC, and enjoy watching shows or reading
-                  manga. Once I obtain the knowledge and skills necessary to
-                  succeed as a developer, I want to build a career at companies
-                  that are shifting the world.
+                  developer. I am pursuing software engineering because I have
+                  always had a passion for technology. As a creative, I wish to
+                  explore the vast array of opportunities with this field. Once
+                  I obtain the knowledge and skills necessary to succeed as a
+                  developer, I want to build a career at companies that are
+                  shifting the world.
                 </p>
               </div>
               <div className="pt-8 flex border-t border-gray-200 w-40 mx-auto text-gray-500 items-center justify-between">
