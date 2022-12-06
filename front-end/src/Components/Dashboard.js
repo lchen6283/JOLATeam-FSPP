@@ -13,7 +13,7 @@ const Dashboard = () => {
   const location = useLocation();
   const from = "/";
 
-  console.log(auth)
+  console.log(auth);
 
   const logout = async (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col flex-auto bg-[#bfd7ea]">
+    <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
           <div className="w-full md:w-3/12 md:mx-2 ">
@@ -50,15 +50,10 @@ const Dashboard = () => {
               <h1 className="my-4 text-3xl text-gray-600 font-extrabold font-[Open Sans]">
                 {auth.firstName}
               </h1>
-              <div className="py-4">
-              <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
-                SMAK Newbie
-              </h3>
-              <p className="text-md text-gray-500 hover:text-gray-600 leading-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur
-                non deserunt
-              </p>
+              <div className="py-4 ml-2 ">
+                <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
+                  Newbie
+                </h3>
               </div>
               <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                 <li className="flex items-center py-3 font-bold font-[Open Sans]">
@@ -95,40 +90,50 @@ const Dashboard = () => {
                     />
                   </svg>
                 </span>
-                <span 
-                  className="py-2 tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]"
-                >
+                <span className="py-2 tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
                   About
                 </span>
               </div>
               <div className="my-2 text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">First Name</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">{auth.firstName}</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
+                      First Name
+                    </div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.firstName}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Last Name</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">{auth.lastName}</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
+                      Last Name
+                    </div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.lastName}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Contact No.</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
+                      Contact No.
+                    </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Home Address</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
+                      Home Address
                     </div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Work Address</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
+                      Work Address
                     </div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
                   </div>
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Email.</div>
+                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
+                      Email.
+                    </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       <a
                         className="text-blue-800"
@@ -173,14 +178,26 @@ const Dashboard = () => {
                   </div>
                   <ul className="list-inside space-y-2">
                     <li className="p-2">
-                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">Di Grande Trattoria Little Villa D' Italia New York City</div>
-                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">Budget $150</div>
-                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">Nov 25, 2022</div>
+                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
+                        Di Grande Trattoria Little Villa D' Italia New York City
+                      </div>
+                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">
+                        Budget $150
+                      </div>
+                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
+                        Nov 25, 2022
+                      </div>
                     </li>
                     <li className="p-2">
-                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">Cabo Rockville Centre</div>
-                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">Budget $100</div>
-                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">Nov 25, 2022</div>
+                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
+                        Cabo Rockville Centre
+                      </div>
+                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">
+                        Budget $100
+                      </div>
+                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
+                        Nov 25, 2022
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -189,7 +206,7 @@ const Dashboard = () => {
             <div className="my-4"></div>
             <div className="bg-white p-3 shadow-sm rounded-sm">
               <div className="flex flex-row">
-              <div>
+                <div>
                   <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                     <span clas="text-green-500">
                       <svg
@@ -212,26 +229,36 @@ const Dashboard = () => {
                         />
                       </svg>
                     </span>
-                    <span 
-                      className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]"
-                    >
+                    <span className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
                       Recent Reviews
                     </span>
                   </div>
                   <ul className="w-full list-inside space-y-2">
                     <li className="p-4">
-                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">Great experience!</div>
-                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt
+                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
+                        Great experience!
                       </div>
-                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">Dec 04, 2022</div>
+                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Reprehenderit, eligendi dolorum sequi illum qui unde
+                        aspernatur non deserunt
+                      </div>
+                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">
+                        Dec 04, 2022
+                      </div>
                     </li>
                     <li className="p-4">
-                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">Definitely a life changing </div>
-                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt
+                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
+                        Definitely a life changing{" "}
                       </div>
-                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">Dec 04, 2022</div>
+                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Reprehenderit, eligendi dolorum sequi illum qui unde
+                        aspernatur non deserunt
+                      </div>
+                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">
+                        Dec 04, 2022
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -256,9 +283,7 @@ const Dashboard = () => {
                     />
                   </svg>
                 </span>
-                <span 
-                  className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]"
-                >
+                <span className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
                   Badges
                 </span>
               </div>
