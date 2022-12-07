@@ -59,7 +59,7 @@ const Dashboard = () => {
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:w-2/5 md:mx-2 ">
+          <div className="w-full md:mx-2 ">
             <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
@@ -92,7 +92,7 @@ const Dashboard = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-3/5 mx-2 px-4">
+          <div className="w-full md:w-3/2 mx-2 px-4">
             <div className="bg-white p-3 shadow-sm rounded-sm">
               <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-4">
                 <span clas="text-green-500">
