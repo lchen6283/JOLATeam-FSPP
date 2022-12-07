@@ -413,10 +413,10 @@ const Dashboard = () => {
             <div class="p-6 space-y-6">
               <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                 <div class="flex flex-wrap justify-center">
-                  <h2 className="py-4 text-2xl text-gray-600 font-extrabold font-[Open Sans]">Restaurant Name : <b className=" text-gray-400 font-md font-[Open Sans]">Jacks Wife Frieda</b></h2>
+                  <h2 className=" py-4 text-2xl text-smaksalmon font-bold font-[Open Sans]">Restaurant Name : <b className=" text-gray-400 font-md font-[Open Sans]">Jacks Wife Frieda</b></h2>
                   <img
                     src="https://s3-media4.fl.yelpcdn.com/bphoto/I_OqttO9HwtbYaPZ_azAsw/o.jpg"
-                    className="h-auto rounded-lg border-[1rem] border-gray-200"
+                    className="h-96 rounded-lg border-[1rem] border-gray-200"
                     alt="..."
                   />
                 </div>
@@ -425,13 +425,13 @@ const Dashboard = () => {
                 Delivery Address : 529 Broadway Apt 2F, New York, New York
               </p>
               <ul className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-md font-[Open Sans]">Vegetarian Mezze Platter</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-md font-[Open Sans]">Mediterranean Tomato Bites</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-md font-[Open Sans]">Roast Lamb Rack</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-md font-[Open Sans]">Baked Chicken Thighs</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Dessert : <b className=" text-gray-400 font-md font-[Open Sans]">Kremna Rezina</b></li>
+                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Vegetarian Mezze Platter</b></li>
+                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Mediterranean Tomato Bites</b></li>
+                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-medium font-[Open Sans]">Roast Lamb Rack</b></li>
+                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-medium font-[Open Sans]">Baked Chicken Thighs</b></li>
+                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Dessert : <b className=" text-gray-400 font-medium font-[Open Sans]">Kremna Rezina</b></li>
               </ul>
-              <p className="py-2 text-xl text-gray-400 font-extrabold font-[Open Sans]">
+              <p className="py-2 text-2xl text-smaksalmon font-bold font-[Open Sans]">
                 Cost : $ 150
               </p>
             </div>
