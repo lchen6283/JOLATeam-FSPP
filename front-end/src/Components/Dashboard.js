@@ -150,7 +150,7 @@ const Dashboard = () => {
                     {/* <div className="grid grid-cols-2"> */}
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
                       Address: <br />
-                      529 APT 2F Broadway New York, NY
+                      529 Broadway Apt 2F, New York, New York
                     </div>
                     <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
                       {auth.address} {auth.city}
@@ -216,21 +216,21 @@ const Dashboard = () => {
                     <li className="p-2">
                       <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
                         {pastOrders.restaurant_name}
-                        <button
-                          class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                          type="button"
-                          data-modal-toggle="defaultModal"
-                        >
-                          Toggle modal
-                        </button>
-                        {/*<!-- Modal toggle -->*/}
                       </div>
                       <div className="text-gray-500 text-md font-bold font-[Open Sans]">
-                        {/* Budget ${pastOrders && pastOrders[0].total_cost} */}
+                        Budget ${pastOrders.total_cost}
                       </div>
                       <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
-                        {/* {pastOrders && pastOrders[0].date} */}
+                        Dec 07, 2022
                       </div>
+                      <button
+                        class="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                        type="button"
+                        data-modal-toggle="defaultModal"
+                      >
+                        More Info...
+                      </button>
+                      {/*<!-- Modal toggle -->*/}
                     </li>
                     <li className="p-2">
                       <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
@@ -242,6 +242,13 @@ const Dashboard = () => {
                       <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
                         Nov 25, 2022
                       </div>
+                      <button
+                        class="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                        type="button"
+                        data-modal-toggle="defaultModal"
+                      >
+                        More Info...
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -406,44 +413,20 @@ const Dashboard = () => {
             </div>
             <div class="p-6 space-y-6">
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                With less than a month to go before the European Union enacts
-                new consumer privacy laws for its citizens, companies around the
-                world are updating their terms of service agreements to comply.
+                Restaurant Name : {pastOrders.restaurant_name}
               </p>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                The European Union’s General Data Protection Regulation
-                (G.D.P.R.) goes into effect on May 25 and is meant to ensure a
-                common set of data rights in the European Union. It requires
-                organizations to notify users as soon as possible of high-risk
-                data breaches that could personally affect them.
+                Delivery Address : {pastOrders.delivery_address}
               </p>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                With less than a month to go before the European Union enacts
-                new consumer privacy laws for its citizens, companies around the
-                world are updating their terms of service agreements to comply.
+                Total Cost : $ {pastOrders.total_cost}
               </p>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                The European Union’s General Data Protection Regulation
-                (G.D.P.R.) goes into effect on May 25 and is meant to ensure a
-                common set of data rights in the European Union. It requires
-                organizations to notify users as soon as possible of high-risk
-                data breaches that could personally affect them.
-              </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                With less than a month to go before the European Union enacts
-                new consumer privacy laws for its citizens, companies around the
-                world are updating their terms of service agreements to comply.
-              </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                The European Union’s General Data Protection Regulation
-                (G.D.P.R.) goes into effect on May 25 and is meant to ensure a
-                common set of data rights in the European Union. It requires
-                organizations to notify users as soon as possible of high-risk
-                data breaches that could personally affect them.
+                Total $$$
               </p>
             </div>
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-              <button
+              {/* <button
                 data-modal-toggle="defaultModal"
                 type="button"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -456,7 +439,7 @@ const Dashboard = () => {
                 class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
               >
                 Decline
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
