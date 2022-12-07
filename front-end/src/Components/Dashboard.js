@@ -185,7 +185,7 @@ const Dashboard = () => {
               </button>
             </div>
 
-            <div className="my-4"></div>
+            <div className="my-8"></div>
 
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               <div className="w-full flex-row">
