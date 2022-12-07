@@ -38,7 +38,7 @@ const Dashboard = () => {
     <div className="flex flex-col flex-auto bg-[#bfd7ea]">
       <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:w-3/12 md:mx-2 ">
+          <div className="w-full md:mx-2 ">
             <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
@@ -105,15 +105,21 @@ const Dashboard = () => {
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">First Name</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">{auth.firstName}</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.firstName}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Last Name</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">{auth.lastName}</div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.lastName}
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Contact No.</div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]"></div>
+                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+
+                    </div>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">Home Address</div>

@@ -257,7 +257,7 @@ export default function Home() {
 
         </section>
       ) : (
-        <div></div>
+        <section></section>
       )}
       {/*  H O W - I T - W O R K S  */}
       <HowitWorks />
@@ -265,6 +265,7 @@ export default function Home() {
       <About />
       {/*  R E V I E W S  */}
       <Reviews />
+      
     </div>
   );
 }

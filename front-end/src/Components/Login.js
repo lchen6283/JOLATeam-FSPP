@@ -90,7 +90,7 @@ const Login = () => {
               <form className="space-y-4 md:space-y-6" >
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
                   >
                     Username
@@ -109,7 +109,7 @@ const Login = () => {
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
                   >
                     Password
@@ -138,7 +138,7 @@ const Login = () => {
                     </div>
                     <div className="ml-3 text-sm">
                       <label
-                        for="remember"
+                        htmlFor="remember"
                         className="text-gray-500 dark:text-gray-300"
                       >
                         Remember me
@@ -162,7 +162,7 @@ const Login = () => {
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don't have an account yet?
                   <Link
-                    to="/signup"
+                    to="/register"
                     className="mx-2 text-smaksalmon font-semibold"
                   >
                     Sign up!
