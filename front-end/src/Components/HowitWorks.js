@@ -46,7 +46,7 @@ export default function HowitWorks() {
                   Checkout <br /> Made Easy
                 </h4>
                 <p className=" text-xl text-white text-center font-medium">
-                  It's quick. safe, and simple
+                  It's quick, safe, and simple
                 </p>
               </div>
             </div>
