@@ -93,8 +93,8 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="w-full md:w-3/2 mx-2 px-4">
-            <div className="bg-white p-3 shadow-sm rounded-sm">
-              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-4">
+            <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
+              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-2">
                 <span clas="text-green-500">
                   <svg
                     className="h-5"
@@ -255,10 +255,10 @@ const Dashboard = () => {
             </div>
 
             <div className="my-4"></div>
-            <div className="bg-white p-3 shadow-sm rounded-sm">
+            <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               <div className="flex flex-row">
                 <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-2">
                     <span clas="text-green-500">
                       <svg
                         className="h-5"
