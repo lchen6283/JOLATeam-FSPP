@@ -72,7 +72,7 @@ function ConfirmYourOrder() {
 
   let postNewOrder = async () => {
     let obj = {
-      restaurant_id: restaurant.id,
+      restaurant_id: JSON.stringify(restaurant),
       restaurant_name: restaurant.name,
       date: created_at,
       delivery_address: "529 APT 2F Broadway New York, NY",
