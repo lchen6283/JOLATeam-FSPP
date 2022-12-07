@@ -23,6 +23,7 @@ CREATE TABLE users (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     restaurant_ID TEXT,
+    restaurant_name TEXT,
     date DATE,
     delivery_address TEXT,
     total_cost INT,

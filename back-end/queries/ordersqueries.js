@@ -15,13 +15,21 @@ const getAllOrders = async (userid) => {
 
 const createOrder = async (
   userid,
-  { restaurant_id, date, delivery_address, total_cost, order_contents }
+  {
+    restaurant_id,
+    restaurant_name,
+    date,
+    delivery_address,
+    total_cost,
+    order_contents,
+  }
 ) => {
   try {
     const newOrder = await db.one(
-      "INSERT INTO orders (restaurant_id, date, delivery_address, total_cost, order_contents, userid) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      "INSERT INTO orders (restaurant_id, restaurant_name, date, delivery_address, total_cost, order_contents, userid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [
         restaurant_id,
+        restaurant_name,
         date,
         delivery_address,
         total_cost,
