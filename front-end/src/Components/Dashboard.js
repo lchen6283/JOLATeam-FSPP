@@ -421,8 +421,8 @@ const Dashboard = () => {
                   />
                 </div>
               </div>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Delivery Address : 529 Broadway Apt 2F, New York, New York
+              <p class="text-xl text-gray-600 font-bold font-[Open Sans]">
+                Delivery Address : <b className=" text-gray-400 font-medium font-[Open Sans]">529 Broadway Apt 2F, New York, New York</b>
               </p>
               <ul className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                 <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Vegetarian Mezze Platter</b></li>
