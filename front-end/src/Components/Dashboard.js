@@ -57,9 +57,9 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col flex-auto bg-smakorange">
-      <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
+      <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:mx-2 ">
+          <div className="w-full md:mx-4 ">
             <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
@@ -254,7 +254,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="my-4"></div>
+            <div className="my-8"></div>
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               <div className="flex flex-row">
                 <div>
@@ -317,7 +317,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="my-4"></div>
+            <div className="my-8"></div>
             <div className="bg-white p-3 hover:shadow">
               <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                 <span className="text-green-500">
