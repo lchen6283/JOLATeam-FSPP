@@ -29,6 +29,18 @@ const ROLES = {
 
 function App() {
 
+  // useEffect(() => {
+  //   const importFlowbiteFunc = function(flowbitePathStr)
+  // {
+  //     const flowbiteScriptEl = document.createElement('script')
+  //     flowbiteScriptEl.setAttribute(
+  //         'src', flowbitePathStr
+  //     )
+  //     document.body.appendChild(flowbiteScriptEl)
+  // }
+  // importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
+    
+  // }, []);
   
   return (
     <Routes>
