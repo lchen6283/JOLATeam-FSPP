@@ -35,7 +35,7 @@ function Eliminate() {
         aria-labelledby="checkbox-group"
       >
         <h2 className="mb-10 text-center text-2xl font-bold text-white dark:text-white">
-          Eliminate two cousine types from the list below:
+          Eliminate two cuisine types from the list below:
         </h2>
 
         <div className="flex flex-col items-start mb-2">
