@@ -38,7 +38,7 @@ const Dashboard = () => {
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:w-3/12 md:mx-2 ">
+          <div className="w-full md:mx-2 ">
             <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
@@ -217,6 +217,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
+
             <div className="my-4"></div>
             <div className="bg-white p-3 shadow-sm rounded-sm">
               <div className="flex flex-row">
@@ -253,9 +254,11 @@ const Dashboard = () => {
                         Great experience!
                       </div>
                       <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Reprehenderit, eligendi dolorum sequi illum qui unde
-                        aspernatur non deserunt
+                        I can't believe how great Boqueria Soho was, wow I am
+                        absolutely amazed by the food quality. SMAK sent me
+                        amazing patatas bravas, and probably one of the best
+                        paellas I've ever had. To think I was gonna get the same
+                        ol' stuff again. Thank god I found SMAK.
                       </div>
                       <div className="text-lg text-gray-600 font-sm font-[Open Sans]">
                         Dec 04, 2022
@@ -266,9 +269,9 @@ const Dashboard = () => {
                         Definitely a life changing{" "}
                       </div>
                       <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Reprehenderit, eligendi dolorum sequi illum qui unde
-                        aspernatur non deserunt
+                        Where has BoCaphe been my whole life? I can't believe
+                        I've never been to this place wow how amazing was this
+                        food omg omg omg.
                       </div>
                       <div className="text-lg text-gray-600 font-sm font-[Open Sans]">
                         Dec 04, 2022

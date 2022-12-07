@@ -41,9 +41,9 @@ export default function About() {
           "
           >
             That's right! At SMAK we are dedicated to eliminating menu noise, so
-            we have partnered with restaurants to curate a special menu of
-            greatest hits dishes to always bring you the very best. Think of it
-            as
+            we have reduced long boring menus to only the Greatest Hits. Your
+            mystery order is customized from this list, so every SMAK is unique.
+            Think of it as
             <strong> restaurant week, every week.</strong>
           </p>
         </article>

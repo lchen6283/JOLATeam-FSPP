@@ -2,7 +2,12 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext, useState, useEffect } from "react";
 import { FormContext } from "../Pages/OrderConfirmation";
 import * as yup from "yup";
+import axios from "axios";
 import sohoAPI from "../data/data";
+
+const API = process.env.REACT_APP_API_URL;
+const id = 2;
+let created_at = new Date().toISOString().slice(0, 19).replace("T", " ");
 
 const list = [
   { word: "zesty", menu: ["mediterranean", "mexican"] },
@@ -19,18 +24,12 @@ const list = [
 function ConfirmYourOrder() {
   const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
     useContext(FormContext);
-  const ValidationSchema = yup.object().shape({});
+  let [menuItems, setMenuitems] = useState([]);
+
   const restaurantPicker = (list, apiObj, survey) => {
-    //1. Eliminate two restaurants of choice (PRESERVE THIS LIST IF STEP 2 ELIMINATES ALL CUISINES)
-    //2. Eliminate all options that are NOT true w/ word association
-    ////////=> Extract cuisine types from word association
-    ////////=> . Eliminate all restaurants w/ cuisine types that are NOT the listed cuisine types
-    /////////=> RETURN all remaining restaurants
-    //3.  RETURN 1 if 1 LEFT // RETURN RANDOM 1 if MORE THAN 1.  RETURN RANDOM from step 1, IF ZERO LEFT.
     if (!formData.choose && !formData.eliminate) {
       console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
     }
-    console.log(apiObj);
     //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
     let postElimination = apiObj.filter(
       (e) =>
@@ -45,30 +44,58 @@ function ConfirmYourOrder() {
     let finalChoice = postElimination.filter((restaurant) =>
       wordAssociationCuisines.includes(restaurant.matchedcategory)
     );
-    console.log("this is final choice b4 random", finalChoice);
     let chosenRestaurant = {};
     if (finalChoice.length === 1) {
-      chosenRestaurant = finalChoice;
+      chosenRestaurant = finalChoice[0];
     } else if (finalChoice.length > 1) {
       chosenRestaurant =
-        finalChoice[Math.floor(Math.random() * finalChoice.length + 1)];
+        finalChoice[Math.floor(Math.random() * finalChoice.length)];
     } else {
       chosenRestaurant =
-        postElimination[Math.floor(Math.random() * postElimination.length + 1)];
+        postElimination[Math.floor(Math.random() * postElimination.length)];
     }
-    return [
-      { budget: formData.budget },
-      chosenRestaurant,
-      { notes: formData.notes },
-    ];
+    return chosenRestaurant;
   };
+  let restaurant = restaurantPicker(list, sohoAPI, formData);
+  useEffect(() => {
+    const fetching = async () => {
+      const { data } = await axios.get(
+        `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
+      );
+      let items = data.payload.map((item) => {
+        return { type: item.dish_type, name: item.name };
+      });
+      setMenuitems(items);
+    };
+    fetching();
+  }, []);
 
+  let postNewOrder = async () => {
+    let obj = {
+      restaurant_id: restaurant.id,
+      restaurant_name: restaurant.name,
+      date: created_at,
+      delivery_address: "529 APT 2F Broadway New York, NY",
+      total_cost: formData.budget,
+      order_contents: JSON.stringify(menuItems),
+      userid: 2,
+    };
+    axios
+      .post(`${API}/users/${id}/orders`, obj)
+      .then(() => {
+        console.log("success");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  console.log(menuItems);
   return (
     <Formik
       initialValues={{}}
-      validationSchema={ValidationSchema}
       onSubmit={(values) => {
         setActiveStepIndex(activeStepIndex + 1);
+        postNewOrder();
       }}
     >
       <Form>
@@ -76,32 +103,33 @@ function ConfirmYourOrder() {
           <h2 className="mb-10 text-center text-3xl font-bold text-white dark:text-white">
             Order Details
           </h2>
-          <div className="my-4 text-2xl font-bold text-smakorange dark:text-white">
-            Selected Package: ${formData.budget}
+          <div>
+            <div className="my-4 text-2xl font-bold text-smakorange dark:text-white">
+              Selected Package: ${formData.budget}
+            </div>
+            <div className="my-0 text-xl font-semibold text-white dark:text-white">
+              Will not include:
+              {formData.eliminate.map((type, i) => {
+                return <div key={i}>{type}</div>;
+              })}
+            </div>
+            <div className="my-10 text-2xl font-bold text-white dark:text-white">
+              I'm in the mood for:
+              {formData.choose.map((type, i) => {
+                return (
+                  <div
+                    className="text-2xl font-bold text-white dark:text-white"
+                    key={i}
+                  >
+                    * {type}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="my-10 text-center text-2xl font-bold text-white dark:text-white">
+              My notes for the kitchen: {formData.notes}
+            </div>
           </div>
-          <div className="my-0 text-xl font-semibold text-white dark:text-white">
-            Will not include:
-            {formData.eliminate.map((type) => {
-              return <div>{type}</div>;
-            })}
-          </div>
-          <div className="my-10 text-2xl font-bold text-white dark:text-white">
-            I'm in the mood for:
-            {formData.choose.map((type, i) => {
-              return (
-                <div
-                  className="text-2xl font-bold text-white dark:text-white"
-                  key={i}
-                >
-                  * {type}
-                </div>
-              );
-            })}
-          </div>
-          <div className="my-10 text-center text-2xl font-bold text-white dark:text-white">
-            My notes for the kitchen: {formData.notes}
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <button
               className="w-full rounded-md bg-gray-600 font-bold text-white my-2 p-2"
