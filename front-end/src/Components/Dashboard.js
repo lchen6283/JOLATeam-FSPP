@@ -13,10 +13,11 @@ const Dashboard = () => {
   const { setAuth } = useContext(AuthContext);
   const { auth } = useAuth();
   let [pastOrders, setPastOrders] = useState([]);
+  let [pastRes, setPastRes] = useState([]);
+  let [pastFood, setPastFood] = useState([]);
 
   useEffect(() => {
     getOrders();
-
     const importFlowbiteFunc = function (flowbitePathStr) {
       const flowbiteScriptEl = document.createElement("script");
       flowbiteScriptEl.setAttribute("src", flowbitePathStr);
@@ -31,12 +32,10 @@ const Dashboard = () => {
       .then((res) => setPastOrders(...res.data.slice(-1)))
       .catch((e) => console.log(e));
   };
-
-  console.log(pastOrders);
+  console.log("NEW STATES SET UP", pastRes, pastFood);
   const navigate = useNavigate();
   const location = useLocation();
   const from = "/";
-  console.log(auth);
   const logout = async (e) => {
     e.preventDefault();
     try {
@@ -215,10 +214,10 @@ const Dashboard = () => {
                   <ul className="list-inside space-y-2">
                     <li className="p-2">
                       <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
-                        {pastOrders.restaurant_name}
+                        Jack's Wife Frieda
                       </div>
                       <div className="text-gray-500 text-md font-bold font-[Open Sans]">
-                        Budget ${pastOrders.total_cost}
+                        Budget $150
                       </div>
                       <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
                         Dec 07, 2022
@@ -388,7 +387,7 @@ const Dashboard = () => {
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Terms of Service
+                Jack's Wife Frieda
               </h3>
               <button
                 type="button"
@@ -412,17 +411,28 @@ const Dashboard = () => {
               </button>
             </div>
             <div class="p-6 space-y-6">
+              <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <div class="flex flex-wrap justify-center">
+                  Restaurant Name : <strong>Jack's Wife Frieda</strong>
+                  <img
+                    src="https://s3-media4.fl.yelpcdn.com/bphoto/I_OqttO9HwtbYaPZ_azAsw/o.jpg"
+                    class="p-1 bg-white border rounded max-w-sm"
+                    alt="..."
+                  />
+                </div>
+              </div>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Restaurant Name : {pastOrders.restaurant_name}
+                Delivery Address : 529 Broadway Apt 2F, New York, New York
               </p>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Delivery Address : {pastOrders.delivery_address}
+                <li>Appetizer : Vegetarian Mezze Platter</li>
+                <li>Appetizer : Mediterranean Tomato Bites</li>
+                <li>Entree : Roast Lamb Rack</li>
+                <li>Entree : Baked Chicken Thighs</li>
+                <li>Dessert : Kremna Rezina</li>
               </p>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Total Cost : $ {pastOrders.total_cost}
-              </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Total $$$
+                Cost : $ 150
               </p>
             </div>
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
