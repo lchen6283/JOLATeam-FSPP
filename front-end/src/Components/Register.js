@@ -98,116 +98,128 @@ const Register = () => {
     <div className="flex-row">
       <ToastContainer />
       <div className="grid grid-cols-2 grid-flow-row auto-rows-max">
-        <div className="py-40">
-          <div className="text-center  ">
-            <h1 className="font-bold text-xl my-4">Sign up</h1>
-          </div>
-          <div className="md:w-1/2 mx-auto">
-            <form>
-              <div className="grid grid-cols-2 grid-flow-row gap-2">
-                <div className="my-2 ">
+      <div className="w-full flex flex-col items-center justify-center px-6 py-[20] mx-auto md:h-full lg:py-0">
+          <div className="w-full md:w-3/4 bg-[#edf2f4] rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 className="text-3xl font-extrabold leading-tight text-center tracking-tight text-smaksalmon md:text-2xl dark:text-white font-[Open Sans]">
+                Sign up
+              </h1>
+              <form className="space-y-4 md:space-y-6" >
+                <div className="grid grid-cols-2 grid-flow-row gap-2">
+                  <div className="my-2 ">
+                    <label
+                      htmlFor="firstname"
+                      className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
+                    >
+                      First name
+                    </label>
+                    <input
+                      type="text"
+                      name="firstname"
+                      id="firstname"
+                      className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      placeholder=""
+                      ref={userRef}
+                      value={firstname}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                  <div className="my-2 ">
+                    <label
+                      htmlFor="lastname"
+                      className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
+                    >
+                      Last name
+                    </label>
+                    <input
+                      type="text"
+                      name="lastname"
+                      id="lastname"
+                      className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      placeholder=""
+                      value={lastname}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                </div>
+                <div>
                   <label
-                    htmlFor="firstname"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="email"
+                    className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
                   >
-                    First name
+                    Username
                   </label>
                   <input
                     type="text"
-                    name="firstname"
-                    id="firstname"
+                    name="username"
+                    id="username"
                     className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     placeholder=""
                     ref={userRef}
-                    value={firstname}
+                    value={username}
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-                <div className="my-2 ">
+                <div>
                   <label
-                    htmlFor="lastname"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="password"
+                    className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
                   >
-                    Last name
+                    Password
                   </label>
                   <input
-                    type="text"
-                    name="lastname"
-                    id="lastname"
+                    type="password"
+                    name="password"
+                    id="password"
                     className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     placeholder=""
-                    value={lastname}
+                    value={password}
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </div>
-              </div>
-              <div className="my-2 col-span-3 sm:col-span-2">
-                <label
-                  htmlFor="username"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Username
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  placeholder=""
-                  value={username}
-                  onChange={(e) => onChange(e)}
-                />
-              </div>
-              <div className="my-2 col-span-3 sm:col-span-2">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  placeholder=""
-                  value={password}
-                  onChange={(e) => onChange(e)}
-                />
-              </div>
-              <div className="my-2 col-span-3 sm:col-span-2">
-                <label
-                  htmlFor="password2"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Verify Password
-                </label>
-                <input
-                  type="password"
-                  name="password2"
-                  id="password2"
-                  className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  placeholder=""
-                  value={password2}
-                  onChange={(e) => onChange(e)}
-                />
-              </div>
-              <div className="my-2 col-span-3 sm:col-span-2">
+                <div>
+                  <label
+                    htmlFor="password2"
+                    className="block mb-2 text-md font-bold text-gray-900 dark:text-white"
+                  >
+                    Verify Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password2"
+                    id="password2"
+                    className="mt-1 p-2 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder=""
+                    value={password2}
+                    onChange={(e) => onChange(e)}
+                    required
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-start">
+                    
+                  </div>
+                </div>
                 <button
-                  type="button"
-                  className="rounded-md border border-gray-300 bg-orange-500 py-2 px-4 text-md font-medium leading-4 text-white shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                  type="submit"
+                  className="w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-xl px-5 py-2.5 text-center dark:bg-smaksalmon dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   onClick={onSubmitForm}
                 >
                   Submit
                 </button>
-              </div>
-            </form>
-            <p className="text-lg mt-4 max-w-md mx-auto text-gray-600">
-              Already have an account?
-              <Link to="/login" className="mx-2 text-gray font-semibold">
-                Sign in!
-              </Link>
-            </p>
+                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                  Already have an account?
+                  <Link
+                    to="/login"
+                    className="mx-2 text-smaksalmon font-semibold"
+                  >
+                    Sign in
+                  </Link>
+                </p>
+              </form>
+            </div>
           </div>
         </div>
         <div className="p-0">

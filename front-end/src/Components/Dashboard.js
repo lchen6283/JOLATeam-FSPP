@@ -38,7 +38,7 @@ const Dashboard = () => {
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:w-3/12 md:mx-2 ">
+          <div className="w-full md:mx-2 ">
             <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
