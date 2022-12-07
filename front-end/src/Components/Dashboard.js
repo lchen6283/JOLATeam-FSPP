@@ -223,11 +223,11 @@ const Dashboard = () => {
                         Dec 07, 2022
                       </div>
                       <button
-                        class="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                        className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
                         type="button"
                         data-modal-toggle="defaultModal"
                       >
-                        More Info...
+                        View Details
                       </button>
                       {/*<!-- Modal toggle -->*/}
                     </li>
@@ -242,11 +242,11 @@ const Dashboard = () => {
                         Nov 25, 2022
                       </div>
                       <button
-                        class="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                        className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
                         type="button"
                         data-modal-toggle="defaultModal"
                       >
-                        More Info...
+                        View Details
                       </button>
                     </li>
                   </ul>
@@ -413,7 +413,7 @@ const Dashboard = () => {
             <div class="p-6 space-y-6">
               <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                 <div class="flex flex-wrap justify-center">
-                  Restaurant Name : <strong>Jack's Wife Frieda</strong>
+                  <h2 className="py-4 text-2xl text-gray-600 font-extrabold font-[Open Sans]">Restaurant Name : <strong>Jack's Wife Frieda</strong></h2>
                   <img
                     src="https://s3-media4.fl.yelpcdn.com/bphoto/I_OqttO9HwtbYaPZ_azAsw/o.jpg"
                     class="p-1 bg-white border rounded max-w-sm"
@@ -424,14 +424,14 @@ const Dashboard = () => {
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                 Delivery Address : 529 Broadway Apt 2F, New York, New York
               </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                <li>Appetizer : Vegetarian Mezze Platter</li>
-                <li>Appetizer : Mediterranean Tomato Bites</li>
-                <li>Entree : Roast Lamb Rack</li>
-                <li>Entree : Baked Chicken Thighs</li>
-                <li>Dessert : Kremna Rezina</li>
-              </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+              <ul className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <li className="py-2 text-xl text-gray-400 font-bold font-[Open Sans]">Appetizer : Vegetarian Mezze Platter</li>
+                <li className="py-2 text-xl text-gray-400 font-bold font-[Open Sans]">Appetizer : Mediterranean Tomato Bites</li>
+                <li className="py-2 text-xl text-gray-400 font-bold font-[Open Sans]">Entree : Roast Lamb Rack</li>
+                <li className="py-2 text-xl text-gray-400 font-bold font-[Open Sans]">Entree : Baked Chicken Thighs</li>
+                <li className="py-2 text-xl text-gray-400 font-bold font-[Open Sans]">Dessert : Kremna Rezina</li>
+              </ul>
+              <p className="py-2 text-xl text-gray-400 font-extrabold font-[Open Sans]">
                 Cost : $ 150
               </p>
             </div>
