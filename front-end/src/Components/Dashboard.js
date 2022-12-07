@@ -188,7 +188,7 @@ const Dashboard = () => {
             <div className="my-4"></div>
 
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
-              <div className="flex flex-row">
+              <div className="w-full flex-row">
                 <div>
                   <div className="flex items-center py-2 space-x-2 font-semibold text-gray-900 leading-8 mb-3 border-b-2">
                     <span clas="text-green-500">
