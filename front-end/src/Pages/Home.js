@@ -414,11 +414,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-//         ) : (
-//           <>
-//             <p>Loading...</p>
-//           </>
-//         )}
+
       </section>
     </div>
   );
