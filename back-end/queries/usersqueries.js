@@ -14,8 +14,21 @@ const getAllUsers = async () => {
 
 const getOneUser = async (id) => {
   try {
-    const oneUser = await db.one("SELECT * FROM users WHERE id = $1", id);
+    const oneUser = await db.one("SELECT * FROM users WHERE username = $1", id);
     return oneUser;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
+const getByUserName = async (username) => {
+  try {
+    const byUsername = await db.one(
+      "SELECT * FROM users WHERE username = $1",
+      username
+    );
+    return byUsername;
   } catch (error) {
     console.log(error.message || error);
     return error;
@@ -48,8 +61,49 @@ const createUser = async (user) => {
   }
 };
 
+const editUser = async (
+  id,
+  {
+    firstname,
+    lastname,
+    address,
+    city,
+    state,
+    zip,
+    phonenumber,
+    username,
+    avatar,
+    is_active,
+  }
+) => {
+  try {
+    const updatedUser = await db.one(
+      "UPDATE users SET firstname=$1, lastname=$2, address=$3, city=$4, state=$5, zip=$6, phonenumber=$7, username=$8, avatar=$9, is_active=$10 WHERE id=$11 RETURNING *",
+      [
+        firstname,
+        lastname,
+        address,
+        city,
+        state,
+        zip,
+        phonenumber,
+        username,
+        avatar,
+        is_active,
+        id,
+      ]
+    );
+    return updatedUser;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
 module.exports = {
   getAllUsers,
   getOneUser,
   createUser,
+  editUser,
+  getByUserName,
 };

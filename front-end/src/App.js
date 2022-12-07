@@ -22,11 +22,6 @@ import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 
-// import "flowbite"
-// import "flowbite-react"
-// import "flowbite/dist/flowbite.css"
-// import "flowbite/dist/flowbite.js"
-
 const ROLES = {
   User: 2,
   Admin: 1,
