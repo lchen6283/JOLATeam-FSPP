@@ -387,7 +387,7 @@ const Dashboard = () => {
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Jack's Wife Frieda
+                Jack's Wife Frieda Order
               </h3>
               <button
                 type="button"
@@ -425,14 +425,14 @@ const Dashboard = () => {
                 Delivery Address : <b className=" text-gray-400 font-medium font-[Open Sans]">529 Broadway Apt 2F, New York, New York</b>
               </p>
               <ul className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Vegetarian Mezze Platter</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Mediterranean Tomato Bites</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-medium font-[Open Sans]">Roast Lamb Rack</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-medium font-[Open Sans]">Baked Chicken Thighs</b></li>
-                <li className=" text-xl text-gray-600 font-bold font-[Open Sans]">Dessert : <b className=" text-gray-400 font-medium font-[Open Sans]">Kremna Rezina</b></li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Vegetarian Mezze Platter</b></li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">Appetizer : <b className=" text-gray-400 font-medium font-[Open Sans]">Mediterranean Tomato Bites</b></li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-medium font-[Open Sans]">Roast Lamb Rack</b></li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">Entree : <b className=" text-gray-400 font-medium font-[Open Sans]">Baked Chicken Thighs</b></li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">Dessert : <b className=" text-gray-400 font-medium font-[Open Sans]">Kremna Rezina</b></li>
               </ul>
               <p className="py-2 text-2xl text-smaksalmon font-bold font-[Open Sans]">
-                Cost : $ 150
+                Total Cost : $ 150
               </p>
             </div>
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
