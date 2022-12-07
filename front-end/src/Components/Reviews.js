@@ -45,6 +45,7 @@ export default function Reviews() {
         console.log(err);
       });
   };
+
   console.log(reviews.length)
   return (
     <section className="text-center w-full">
@@ -141,7 +142,6 @@ export default function Reviews() {
         </div>
     ) : (
       <>
-        <p>Loading...</p>
       </>
     )}
       </section>
