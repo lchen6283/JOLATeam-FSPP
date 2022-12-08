@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import React, { Suspense, useState, useEffect } from "react";
-=======
-import React, { useState, useEffect } from "react";
->>>>>>> 68a1540c36844c2420751d943dce034e7ddc0c25
 import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
-import AboutHome from "../Components/AboutHome";
+import About from "../Components/About";
 import HowitWorks from "../Components/HowitWorks";
 import useAuth from "../hooks/useAuth";
 
@@ -26,7 +22,6 @@ export default function Home() {
   const [reviews, setReviews] = useState([]);
   let navigate = useNavigate();
 
-<<<<<<< HEAD
   //console.log(auth)
   useEffect(() => {
 
@@ -53,22 +48,6 @@ export default function Home() {
         console.log(err);
       });
   };
-=======
-  console.log(auth);
-   //console.log(auth)
-  useEffect(() => {
-    const importFlowbiteFunc = function(flowbitePathStr)
-  {
-      const flowbiteScriptEl = document.createElement('script')
-      flowbiteScriptEl.setAttribute(
-          'src', flowbitePathStr
-      )
-      document.body.appendChild(flowbiteScriptEl)
-  }
-  importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
-    
-  }, []);
->>>>>>> 68a1540c36844c2420751d943dce034e7ddc0c25
 
   // H A N D L E R S
   const handleClick = async () => {
@@ -86,24 +65,19 @@ export default function Home() {
   };
 
   const handleStart = async () => {
-    // Adding data to local storage
-<<<<<<< HEAD
+    // Refreshing data to local storage
     localStorage.removeItem('searchResults');
     localStorage.setItem(
       'searchResults', JSON.stringify(restaurants)
     );
     
-=======
-    localStorage.setItem("searchResults", JSON.stringify(restaurants));
-
->>>>>>> 68a1540c36844c2420751d943dce034e7ddc0c25
     navigate("/survey/orderconfirmation");
   };
 
-  //console.log(restaurants);
+
   return (
     <div className="h-full">
-      {/* B A N N E R -- S L I D E R  */}
+      {/* M A I N - C A R O U S E L  */}
       <section className="text-center w-full">
         <div
           id="default-carousel"
@@ -125,9 +99,7 @@ export default function Home() {
                 />
                 <div className="w-full mx-auto absolute">
                   <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smaksalmon relative inline-block ">
-                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">
-                      Welcome To <b className="text-8xl">SMAK!</b>
-                    </span>
+                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To <b className="text-8xl">SMAK!</b></span>
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>
@@ -267,15 +239,16 @@ export default function Home() {
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </section>
+      {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
         <section className="pb-10  bg-smakHighlight ">
           <div className="mb-6 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-            <b className="text-smakorange text-[5rem] leading-8"></b> Your SMAK
-            Roulette
+            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see all your options!
           </div>
           <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
             <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
               {restaurants.map((restaurant, i) => {
+
                 return (
                   <div className="image" key={i}>
                     <img
@@ -292,15 +265,12 @@ export default function Home() {
             <button
               onClick={handleStart}
               type="button"
-<<<<<<< HEAD
               className="py-2 px-24 my-8 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] hover:bg-orange-400"
-=======
-              className="py-2 px-24  text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] bg-yellow-400"
->>>>>>> 68a1540c36844c2420751d943dce034e7ddc0c25
             >
-              Get Matched
+              Start
             </button>
           </div>
+
         </section>
       ) : (
         <section></section>
@@ -308,178 +278,9 @@ export default function Home() {
       {/*  H O W - I T - W O R K S  */}
       <HowitWorks />
       {/*  A B O U T  */}
-      <AboutHome />
+      <About />
       {/*  R E V I E W S  */}
-      {/* <Suspense fallback={<p>loading Reviews...</p>}>
-        <Reviewss />
-      </Suspense> */}
-      {/* <Reviews /> */}
-      {/* <section className="text-center w-full">
-            <h2 className="py-10 text-4xl text-gray-600 font-extrabold font-[Open Sans] ">
-                <b className="text-6xl leading-8">What</b> our customers are saying
-            </h2>
-        <div
-          id="reviews-carousel"
-          className="relative flowbite"
-          data-carousel="static"
-        >
-          <div className="relative h-96 overflow-hidden rounded-0 ">
-          <Reviews />   
-          </div>
-          <div className="grid grid-cols-2 ">
-          <div className="relative ">
-          <button
-            type="button"
-            className="absolute -top-20 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev
-          >
-            <span className="inline-flex items-center justify-center w-30 h-30 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-100">
-              <svg
-                aria-hidden="true"
-                className=" text-gray-800 w-30 h-30 dark:text-gray-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-              <span className="sr-only">Previous</span>
-            </span>
-          </button>
-          </div>
-          <div className="relative ">
-          <button
-            type="button"
-            className="absolute -top-20 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next
-          >
-            <span className="inline-flex items-center justify-center w-30 h-30 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-100">
-              <svg
-                aria-hidden="true"
-                className="w-30 h-30 text-gray-800 dark:text-gray-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="https://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-              <span className="sr-only">Next</span>
-            </span>
-          </button>
-          </div>
-          </div>
-        </div>
-      </section> */}
-      <section className="text-center w-full">
-      <h2 className="py-10 text-4xl text-gray-600 font-extrabold font-[Open Sans] ">
-        <b className="text-6xl leading-8">What</b> our customers are saying
-      </h2>
-      {(reviews.length) > 0 ? (
-        <div
-          id="reviews-carousel"
-          className="relative flowbite"
-          data-carousel="static"
-        >
-          <div className="relative h-96 overflow-hidden rounded-0 ">
-            {reviews.map((review, i) => {
-              return (
-                <div key={i} className="hidden duration-1000 ease-in-out" data-carousel-item>
-                  <section class="bg-white dark:bg-gray-900">
-                    <div class="max-w-screen-xl px-4 pt-8 pb-4 mx-auto text-center lg:px-6">
-                        <figure class="max-w-screen-md mx-auto">
-                            <svg class="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
-                            </svg> 
-                            <blockquote>
-                                <p class="text-2xl font-medium text-gray-900 dark:text-white">{review.content}</p>
-                            </blockquote>
-                            <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                                <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile picture"/>
-                                <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                                    <div class="pr-3 font-medium text-gray-900 dark:text-white">{review.firstName} {review.lastName}</div>
-                                    <div class="pl-3 text-md font-md text-gray-600 dark:text-gray-400">Order Rate: <b className="font-bold">{review.rating}</b></div>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </div>
-                  </section>
-                </div>
-              )
-            })}
-          </div>
-          <div className="grid grid-cols-2 ">
-          <div className="relative ">
-          <button
-            type="button"
-            className="absolute -top-20 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev
-          >
-            <span className="inline-flex items-center justify-center w-30 h-30 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-100">
-              <svg
-                aria-hidden="true"
-                className=" text-gray-800 w-30 h-30 dark:text-gray-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-              <span className="sr-only">Previous</span>
-            </span>
-          </button>
-          </div>
-          <div className="relative ">
-          <button
-            type="button"
-            className="absolute -top-20 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next
-          >
-            <span className="inline-flex items-center justify-center w-30 h-30 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none opacity-100">
-              <svg
-                aria-hidden="true"
-                className="w-30 h-30 text-gray-800 dark:text-gray-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="https://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-              <span className="sr-only">Next</span>
-            </span>
-          </button>
-          </div>
-          </div>
-        </div>
-    ) : (
-      <>
-        <p>Loading...</p>
-      </>
-    )}
-      </section>
+      {reviews.length && <Reviews reviews={reviews} />}
     </div>
   );
 }
