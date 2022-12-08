@@ -4,10 +4,10 @@ const googleAPIKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export default function Search({ city, setCity, handleClick }) {
   return (
-    <div className="w-full p-2 px-10 md:mt-0 lg:flex-shrink-0  ">
+    <div className="w-full p-2 px-0 md:mt-0 lg:flex-shrink-0  ">
       <div className="mb-4 items-baseline text-white text-4xl md:text-5xl leading-12 font-extrabold font-[Open Sans]">
         Find a new
-        <b className="text-smakorange text-[5rem] leading-8"> FLAVOR</b>
+        <b className="text-smakorange text-5xl leading-8"> FLAVOR</b>
       </div>
       <div className="w-full mx-auto justify-center">
         <div className="border-orange-400 border-[0.5px] py-4 px-4 rounded-3xl shadow-[0_8px_1px_1px_rgb(244,162,89)]">

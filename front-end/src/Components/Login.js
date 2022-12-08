@@ -47,6 +47,7 @@ const Login = () => {
 
       //const jwtToken = JSON.stringify(response?.data.jwtToken);
       const jwtToken = response?.data.jwtToken;
+      const user = response?.data;
       //
       const firstName = response?.data?.firstName;
       const lastName = response?.data?.lastName;
@@ -54,7 +55,7 @@ const Login = () => {
       const userRole = response?.data?.userRole;
 
       // Setting the auth state
-      setAuth({ jwtToken });
+      setAuth( user );
       setInputs("");
       // Setting the success notification
       toast.success("Login Successfully!", {
@@ -102,7 +103,7 @@ const Login = () => {
                     type="text"
                     name="username"
                     id="username"
-                    className="mt-1 p-3 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 p-3 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 text-md text-gray-600"
                     placeholder=""
                     ref={userRef}
                     value={username}
@@ -121,7 +122,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     id="password"
-                    className="mt-1 p-3 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 p-3 block w-full rounded-md border-gray-300 border-2 focus:border-indigo-500 focus:ring-indigo-500 text-md text-gray-600 font-bold"
                     placeholder=""
                     value={password}
                     onChange={(e) => onChange(e)}

@@ -266,7 +266,7 @@ export default function About() {
               <img
                 alt="profil"
                 src="https://avatars.githubusercontent.com/u/96318127?v=4"
-                class="mx-auto object-cover rounded-lg h-40 w-40 border-4 border-gray-200 shadow-md"
+                className="mx-auto object-cover rounded-lg h-40 w-40 border-4 border-gray-200 shadow-md"
               />
             </a>
           </div>
