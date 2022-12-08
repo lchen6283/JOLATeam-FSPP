@@ -1,7 +1,8 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
-import About from "../Components/About";
+import AboutHome from "../Components/AboutHome";
 import HowitWorks from "../Components/HowitWorks";
 import useAuth from "../hooks/useAuth";
 
@@ -9,33 +10,26 @@ import banner01 from "../assets/Food_Images/Banner_01.png";
 import banner02 from "../assets/Food_Images/Banner_02.png";
 import banner03 from "../assets/Food_Images/Banner_03.png";
 import banner04 from "../assets/Food_Images/Banner_04.png";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
-const Reviewss = React.lazy(() => import("../Components/Reviews"));
 
 export default function Home() {
-  const { auth } = useAuth();
+  //const { auth } = useAuth();
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
   const [reviews, setReviews] = useState([]);
   let navigate = useNavigate();
 
-  //console.log(auth)
   useEffect(() => {
-
     getAllReviews();
-    const importFlowbiteFunc = function(flowbitePathStr)
-    {
-        const flowbiteScriptEl = document.createElement('script')
-        flowbiteScriptEl.setAttribute(
-            'src', flowbitePathStr
-        )
-        document.body.appendChild(flowbiteScriptEl)
-    }
-    importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
-    
+    const importFlowbiteFunc = function (flowbitePathStr) {
+      const flowbiteScriptEl = document.createElement("script");
+      flowbiteScriptEl.setAttribute("src", flowbitePathStr);
+      document.body.appendChild(flowbiteScriptEl);
+    };
+    importFlowbiteFunc("https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"); // here goes your path to a local flowbite.js you want to import
   }, []);
 
   const getAllReviews = () => {
@@ -278,7 +272,7 @@ export default function Home() {
       {/*  H O W - I T - W O R K S  */}
       <HowitWorks />
       {/*  A B O U T  */}
-      <About />
+      <AboutHome />
       {/*  R E V I E W S  */}
       {reviews.length && <Reviews reviews={reviews} />}
     </div>

@@ -16,8 +16,8 @@ export default function NavBar() {
   const location = useLocation();
   const from = "/";
 
-  useEffect(() => {
-
+  // Updating the V-DOM with fb
+  const flowbite = () => {
     const importFlowbiteFunc = function(flowbitePathStr)
     {
         const flowbiteScriptEl = document.createElement('script')
@@ -28,7 +28,7 @@ export default function NavBar() {
     }
     importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
     
-  }, []);
+  }
 
   const logout = async (e) => {
     e.preventDefault();
@@ -72,6 +72,7 @@ export default function NavBar() {
               aria-expanded="false" 
               data-dropdown-toggle="user-dropdown" 
               data-dropdown-placement="bottom"
+              onClick={flowbite}
             >
               <span className="sr-only">Open user menu</span>
               <img
