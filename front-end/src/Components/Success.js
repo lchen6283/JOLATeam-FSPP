@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import MapImage from "./MapImage";
 
 function Success() {
   let [pastOrders, setPastOrders] = useState([]);
@@ -19,14 +20,27 @@ function Success() {
       .catch((e) => console.log(e));
   };
   console.log(pastOrders);
+
   return (
     <div>
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
         Your SMAK order has been submitted successfully!
       </h2>
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
-        Your order from [restaurant] is on its way!
+        Your order from{" "}
+        {pastOrders[0] ? pastOrders[0].restaurant_id.name : null} is on its way!
       </h2>
+      <div className="w-3/4 grid grid-cols-2 gap-5 mx-auto ">
+        <img
+          src={pastOrders[0] ? pastOrders[0].restaurant_id.image_url : null}
+        />
+        {pastOrders[0] ? (
+          <MapImage
+            latitude={pastOrders[0].restaurant_id.coordinates.latitude}
+            longitude={pastOrders[0].restaurant_id.coordinates.longitude}
+          />
+        ) : null}
+      </div>
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
         Click{" "}
         <Link

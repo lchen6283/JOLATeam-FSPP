@@ -48,7 +48,7 @@ function Choose() {
         aria-labelledby="checkbox-group"
       >
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
-          Select 2 from the list below:
+          Select at least 2 from the list below:
         </h2>
         <div className="flex flex-col items-start mb-2">
           {list.map((item, i) => {
@@ -67,7 +67,9 @@ function Choose() {
         </div>
         <ErrorMessage name="choose" render={renderError} />
         <div className="flex flex-col items-start mb-2">
-          <label className="w-full my-4 items-justify-center text-center text-xl font-bold text-gray-600">Order Notes</label>
+          <label className="w-full my-4 items-justify-center text-center text-xl font-bold text-gray-600">
+            Order Notes
+          </label>
           <Field
             name="notes"
             as="textarea"
