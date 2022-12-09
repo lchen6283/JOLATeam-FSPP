@@ -1,8 +1,7 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React, { useContext, useState, useEffect } from "react";
 import StripeContainer from "../Stripe/StripeContainer";
 import { FormContext } from "../Pages/OrderConfirmation";
-import * as yup from "yup";
 import axios from "axios";
 import sohoAPI from "../data/data";
 
@@ -23,8 +22,14 @@ const list = [
 ];
 
 function ConfirmYourOrder() {
-  const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
-    useContext(FormContext);
+  const {
+    activeStepIndex,
+    setActiveStepIndex,
+    formData,
+    setFormData,
+    finalOrderData,
+    setFinalOrderData,
+  } = useContext(FormContext);
   let [menuItems, setMenuitems] = useState([]);
 
   const restaurantPicker = (list, apiObj, survey) => {
@@ -70,7 +75,6 @@ function ConfirmYourOrder() {
     };
     fetching();
   }, []);
-  console.log(menuItems);
   let postNewOrder = async () => {
     let obj = {
       restaurant_id: JSON.stringify(restaurant),
@@ -81,6 +85,16 @@ function ConfirmYourOrder() {
       order_contents: JSON.stringify(menuItems),
       userid: 2,
     };
+    let objNonParsed = {
+      restaurant_id: restaurant,
+      restaurant_name: restaurant.name,
+      date: created_at,
+      delivery_address: "529 APT 2F Broadway New York, NY",
+      total_cost: formData.budget,
+      order_contents: menuItems,
+      userid: 2,
+    };
+    setFinalOrderData(objNonParsed);
     axios
       .post(`${API}/users/${id}/orders`, obj)
       .then(() => {
@@ -90,7 +104,6 @@ function ConfirmYourOrder() {
         console.log(e);
       });
   };
-  console.log(menuItems);
   return (
     <Formik
       initialValues={{}}
