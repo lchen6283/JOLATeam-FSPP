@@ -129,7 +129,12 @@ function ConfirmYourOrder() {
                 })}
               </div>
               <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
-                My notes for the kitchen: {formData.notes}
+                {(formData.notes) 
+                ?
+                  <>My notes for the kitchen: {formData.notes}</>
+                :
+                  <></>
+                }
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button
