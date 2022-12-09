@@ -26,12 +26,12 @@ function Basic() {
         setActiveStepIndex(activeStepIndex + 1);
       }}
     >
-      <Form className="w-full p-10 rounded-lg shadow-lg bg-gray-400 max-w-lg mb-5">
+      <Form className="w-full p-10 rounded-xl shadow-lg bg-gray-300 max-w-xl mb-5 border-[0.5rem] border-gray-400">
         <div className="mg6">
           <div className="flex flex-col mb-2">
             <label
               htmlFor="budget"
-              className="mb-10 text-center text-2xl font-bold text-white dark:text-white"
+              className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white"
             >
               Choose A Budget
             </label>
@@ -39,7 +39,7 @@ function Basic() {
               id="budget"
               name="budget"
               as="select"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border-4 border-gray-400 font-semibold text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Select An Option</option>
               <option value="100">$ 100 (Perfect For 1)</option>
@@ -50,7 +50,7 @@ function Basic() {
           <ErrorMessage 
             name="budget" 
             render={renderError} 
-            className="text-xl font-bold"
+            className="py-2 text-xl font-bold"
           />
           <button
             className="w-full p-2 rounded-md bg-gray-600 font-bold text-white text-lg"
