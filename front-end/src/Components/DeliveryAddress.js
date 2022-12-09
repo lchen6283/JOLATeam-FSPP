@@ -43,27 +43,25 @@ function DeliveryAddress() {
         <div className="flex flex-col items-start mb-2">
   
               <label className="p-2 font-bold text-white text-xl ">
-                <Field
+                <input
                   name="addressLine1"
                   type="text"
-                
-                  className="p-4 mr-2 rounded-full border-2 text-black  border-orange-400"
+                values=''
+                  className="text-input p-4 mr-2 rounded-full border-2 text-black  border-orange-400"
                 />
                 Address Line 1
               </label>
               <label className="p-2 font-bold text-white text-xl ">
-                <Field
+              <input
                   name="addressLine1"
                   type="text"
-                 
                   className="p-4 mr-2 rounded-full border-2 text-black border-orange-400"
-                  
                 />
                 Address Line 2
                 
               </label>
               <label className="p-2 font-bold text-white text-xl ">
-                <Field
+              <input
                   name="addressLine1"
                   type="text"
              
@@ -73,7 +71,7 @@ function DeliveryAddress() {
                 
               </label>
               <label className="p-2 font-bold text-white text-xl ">
-                <Field
+              <input
                   name="addressLine1"
                   type="text"
               
@@ -83,20 +81,20 @@ function DeliveryAddress() {
                 
               </label>
               <label className="p-2 font-bold text-white text-xl ">
-                <Field
+              <input
                   name="addressLine1"
                   type="text"
             
-                  className="p-4 mr-2 rounded-full border-2 text-black  border-orange-400"
+                  className="p-4 mr-2 rounded-full border-2 text-black border-orange-400"
                 />
                 Zip
                 
               </label>
               <label className="p-2 font-bold text-white text-xl ">
-                <Field
+              <input
                   name="addressLine1"
                   type="text"
-                  className="p-4 mr-2 rounded-full border-2 text-black  border-orange-400"
+                  className="p-4 mr-2 rounded-full border-2 border-orange-400"
                 />
                 Phone Number
                 
