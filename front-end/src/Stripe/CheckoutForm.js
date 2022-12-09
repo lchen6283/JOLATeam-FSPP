@@ -56,8 +56,16 @@ export const CheckoutForm = (props) => {
     >
       
       <fieldset className="FormGroup p-0 ">
-        <div className="FormRow my-2 border-2 border-gray-200 p-2 rounded-lg">
-          <CardElement />
+        <div >
+          <label 
+            htmlFor="card-element"
+            className="texr-lg text-gray-600 font-bold"
+          >
+            Card</label>
+          <CardElement 
+            id="card-element"
+            className="FormRow my-2 border-2 border-gray-200 p-2 rounded-lg"
+          />
         </div>
       </fieldset>
       <button 
