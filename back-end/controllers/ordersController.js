@@ -6,10 +6,18 @@ const { getAllOrders, createOrder } = require("../queries/ordersqueries");
 router.get("/", async (req, res) => {
   const { userid } = req.params;
   const allOrders = await getAllOrders(userid);
-  if (allOrders.length) {
-    res.status(200).json(allOrders);
+  let parsedRes = allOrders.map((e) => {
+    let parsedInfo = JSON.parse(e.restaurant_id);
+    let parsedContents = JSON.parse(e.order_contents);
+    return {
+      ...e,
+      restaurant_id: parsedInfo,
+      order_contents: parsedContents,
+    };
+  });
+  if (parsedRes.length) {
+    res.status(200).json(parsedRes);
   } else {
-    console.error(allOrders);
     res.status(404).json({
       success: false,
       payload: `This user has not yet ordered anything`,

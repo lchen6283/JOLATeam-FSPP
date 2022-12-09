@@ -7,17 +7,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const API = process.env.REACT_APP_API_URL;
-console.log(API);
 
 const Dashboard = () => {
   const { setAuth } = useContext(AuthContext);
   const { auth } = useAuth();
+
+  //
   let [pastOrders, setPastOrders] = useState([]);
-  let [pastRes, setPastRes] = useState([]);
-  let [pastFood, setPastFood] = useState([]);
 
   useEffect(() => {
     getOrders();
+
     const importFlowbiteFunc = function (flowbitePathStr) {
       const flowbiteScriptEl = document.createElement("script");
       flowbiteScriptEl.setAttribute("src", flowbitePathStr);
@@ -25,14 +25,14 @@ const Dashboard = () => {
     };
     importFlowbiteFunc("https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"); // here goes your path to a local flowbite.js you want to import
   }, []);
-
   const getOrders = async () => {
     await axios
       .get(`${API}/users/2/orders`)
-      .then((res) => setPastOrders(...res.data.slice(-1)))
+      .then((res) => {
+        setPastOrders(res.data);
+      })
       .catch((e) => console.log(e));
   };
-  console.log("NEW STATES SET UP", pastRes, pastFood);
   const navigate = useNavigate();
   const location = useLocation();
   const from = "/";
@@ -57,9 +57,9 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col flex-auto bg-smakorange">
-      <div className="container mx-auto my-10 p-5 bg-white rounded-xl">
+      <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:mx-2 ">
+          <div className="w-full md:mx-4 ">
             <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
               <div className="">
                 <img
@@ -92,9 +92,9 @@ const Dashboard = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-9/12 mx-2 px-4">
-            <div className="bg-white p-3 shadow-sm rounded-sm">
-              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-4">
+          <div className="w-full md:w-3/2 mx-2 px-4">
+            <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
+              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-2">
                 <span clas="text-green-500">
                   <svg
                     className="h-5"
@@ -180,17 +180,17 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <button className="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+              <button className="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
                 Edit Profile Information
               </button>
             </div>
 
-            <div className="my-4"></div>
+            <div className="my-8"></div>
 
-            <div className="bg-white p-3 shadow-sm rounded-sm">
-              <div className="flex flex-row">
+            <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
+              <div className="w-full flex-row">
                 <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3 border-b-4">
+                  <div className="flex items-center py-2 space-x-2 font-semibold text-gray-900 leading-8 mb-3 border-b-2">
                     <span clas="text-green-500">
                       <svg
                         className="h-5"
@@ -223,11 +223,11 @@ const Dashboard = () => {
                         Dec 07, 2022
                       </div>
                       <button
-                        class="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                        className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
                         type="button"
                         data-modal-toggle="defaultModal"
                       >
-                        More Info...
+                        View Details
                       </button>
                       {/*<!-- Modal toggle -->*/}
                     </li>
@@ -242,11 +242,11 @@ const Dashboard = () => {
                         Nov 25, 2022
                       </div>
                       <button
-                        class="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                        className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
                         type="button"
                         data-modal-toggle="defaultModal"
                       >
-                        More Info...
+                        View Details
                       </button>
                     </li>
                   </ul>
@@ -254,11 +254,11 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="my-4"></div>
-            <div className="bg-white p-3 shadow-sm rounded-sm">
+            <div className="my-8"></div>
+            <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               <div className="flex flex-row">
                 <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-2">
                     <span clas="text-green-500">
                       <svg
                         className="h-5"
@@ -317,7 +317,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="my-4"></div>
+            <div className="my-8"></div>
             <div className="bg-white p-3 hover:shadow">
               <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                 <span className="text-green-500">
@@ -379,74 +379,107 @@ const Dashboard = () => {
       {/*  M O D A L */}
       <div
         id="defaultModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+        className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
       >
-        <div class="relative w-full h-full max-w-2xl md:h-auto">
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Jack's Wife Frieda
+        <div className="relative w-full h-full max-w-2xl md:h-auto">
+          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                Jack's Wife Frieda Order
               </h3>
               <button
                 type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-toggle="defaultModal"
               >
                 <svg
                   aria-hidden="true"
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
             </div>
-            <div class="p-6 space-y-6">
-              <div class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                <div class="flex flex-wrap justify-center">
-                  Restaurant Name : <strong>Jack's Wife Frieda</strong>
+            <div className="p-6 space-y-6">
+              <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <div className="flex flex-wrap justify-center">
+                  <h2 className=" py-4 text-2xl text-smaksalmon font-bold font-[Open Sans]">
+                    Restaurant Name :{" "}
+                    <b className=" text-gray-400 font-md font-[Open Sans]">
+                      Jacks Wife Frieda
+                    </b>
+                  </h2>
                   <img
                     src="https://s3-media4.fl.yelpcdn.com/bphoto/I_OqttO9HwtbYaPZ_azAsw/o.jpg"
-                    class="p-1 bg-white border rounded max-w-sm"
+                    className="h-96 rounded-lg border-[1rem] border-gray-200"
                     alt="..."
                   />
                 </div>
               </div>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Delivery Address : 529 Broadway Apt 2F, New York, New York
+              <p className="text-xl text-gray-600 font-bold font-[Open Sans]">
+                Delivery Address :{" "}
+                <b className=" text-gray-400 font-medium font-[Open Sans]">
+                  529 Broadway Apt 2F, New York, New York
+                </b>
               </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                <li>Appetizer : Vegetarian Mezze Platter</li>
-                <li>Appetizer : Mediterranean Tomato Bites</li>
-                <li>Entree : Roast Lamb Rack</li>
-                <li>Entree : Baked Chicken Thighs</li>
-                <li>Dessert : Kremna Rezina</li>
-              </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                Cost : $ 150
+              <ul className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">
+                  Appetizer :{" "}
+                  <b className=" text-gray-400 font-medium font-[Open Sans]">
+                    Vegetarian Mezze Platter
+                  </b>
+                </li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">
+                  Appetizer :{" "}
+                  <b className=" text-gray-400 font-medium font-[Open Sans]">
+                    Mediterranean Tomato Bites
+                  </b>
+                </li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">
+                  Entree :{" "}
+                  <b className=" text-gray-400 font-medium font-[Open Sans]">
+                    Roast Lamb Rack
+                  </b>
+                </li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">
+                  Entree :{" "}
+                  <b className=" text-gray-400 font-medium font-[Open Sans]">
+                    Baked Chicken Thighs
+                  </b>
+                </li>
+                <li className="my-1 text-xl text-gray-600 font-bold font-[Open Sans]">
+                  Dessert :{" "}
+                  <b className=" text-gray-400 font-medium font-[Open Sans]">
+                    Kremna Rezina
+                  </b>
+                </li>
+              </ul>
+              <p className="py-2 text-2xl text-smaksalmon font-bold font-[Open Sans]">
+                Total Cost : $ 150
               </p>
             </div>
-            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
               {/* <button
                 data-modal-toggle="defaultModal"
                 type="button"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 I accept
               </button>
               <button
                 data-modal-toggle="defaultModal"
                 type="button"
-                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
               >
                 Decline
               </button> */}
