@@ -53,7 +53,7 @@ function DeliveryAddress() {
               </label>
               <label className="p-2 font-bold text-white text-xl ">
               <input
-                  name="addressLine1"
+                  name="addressLine2"
                   type="text"
                   className="p-4 mr-2 rounded-full border-2 text-black border-orange-400"
                 />
@@ -62,7 +62,7 @@ function DeliveryAddress() {
               </label>
               <label className="p-2 font-bold text-white text-xl ">
               <input
-                  name="addressLine1"
+                  name="city"
                   type="text"
              
                   className="p-4 mr-2 rounded-full border-2 text-black  border-orange-400"
@@ -72,7 +72,7 @@ function DeliveryAddress() {
               </label>
               <label className="p-2 font-bold text-white text-xl ">
               <input
-                  name="addressLine1"
+                  name="state"
                   type="text"
               
                   className="p-4 mr-2 rounded-full border-2 text-black  border-orange-400"
@@ -82,9 +82,10 @@ function DeliveryAddress() {
               </label>
               <label className="p-2 font-bold text-white text-xl ">
               <input
-                  name="addressLine1"
-                  type="text"
-            
+                  type='text'
+                  name="zipcode"
+                  inputmode="numeric" 
+                  pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
                   className="p-4 mr-2 rounded-full border-2 text-black border-orange-400"
                 />
                 Zip
