@@ -10,7 +10,10 @@ const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 const Stripe = () => {
   return (
-    <Elements stripe={stripeTestPromise}>
+    <Elements 
+      stripe={stripeTestPromise}
+      className="bg-white font-bold text-white my-2 p-2"
+      >
       <CheckoutForm />
     </Elements>
   );

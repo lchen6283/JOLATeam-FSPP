@@ -154,7 +154,7 @@ function ConfirmYourOrder() {
                 </button>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex flex-col">
               <StripeContainer />
             </div>
           </div>

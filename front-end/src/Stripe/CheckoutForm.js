@@ -23,7 +23,11 @@ export const CheckoutForm = () => {
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
       <CardElement />
-      <button>Pay</button>
+      <button 
+        className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+      >
+        Pay
+      </button>
     </form>
   );
 };
