@@ -92,9 +92,13 @@ function DeliveryAddress() {
               </label>
               <label className="p-2 font-bold text-white text-xl ">
               <input
-                  name="addressLine1"
-                  type="text"
-                  className="p-4 mr-2 rounded-full border-2 border-orange-400"
+                  name="phone"
+                  type="tel"
+                  id="phone" 
+                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                 required
+                 placeholder="123-456-7890"
+                  className="p-4 mr-2 rounded-full border-2 text-black border-orange-400"
                 />
                 Phone Number
                 
