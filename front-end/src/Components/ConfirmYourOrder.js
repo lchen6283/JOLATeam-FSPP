@@ -70,7 +70,7 @@ function ConfirmYourOrder() {
     };
     fetching();
   }, []);
-
+  console.log(menuItems);
   let postNewOrder = async () => {
     let obj = {
       restaurant_id: JSON.stringify(restaurant),
@@ -100,7 +100,7 @@ function ConfirmYourOrder() {
       }}
     >
       <Form className="container mx-auto p-10 rounded-lg shadow-lg bg-gray-300  mb-5">
-        <div >
+        <div>
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
             Order Details
           </h2>
@@ -129,12 +129,11 @@ function ConfirmYourOrder() {
                 })}
               </div>
               <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
-                {(formData.notes) 
-                ?
+                {formData.notes ? (
                   <>My notes for the kitchen: {formData.notes}</>
-                :
+                ) : (
                   <></>
-                }
+                )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button
@@ -158,7 +157,6 @@ function ConfirmYourOrder() {
               <StripeContainer />
             </div>
           </div>
-          
         </div>
       </Form>
     </Formik>
