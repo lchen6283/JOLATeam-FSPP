@@ -60,14 +60,11 @@ export default function Home() {
 
   const handleStart = async () => {
     // Refreshing data to local storage
-    localStorage.removeItem('searchResults');
-    localStorage.setItem(
-      'searchResults', JSON.stringify(restaurants)
-    );
-    
+    localStorage.removeItem("searchResults");
+    localStorage.setItem("searchResults", JSON.stringify(restaurants));
+
     navigate("/survey/orderconfirmation");
   };
-
 
   return (
     <div className="h-full">
@@ -93,7 +90,9 @@ export default function Home() {
                 />
                 <div className="w-full mx-auto absolute">
                   <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smaksalmon relative inline-block ">
-                    <span class="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To <b className="text-8xl">SMAK!</b></span>
+                    <span className="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">
+                      Welcome To <b className="text-8xl">SMAK!</b>
+                    </span>
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>
@@ -237,12 +236,12 @@ export default function Home() {
       {restaurants[0] ? (
         <section className="pb-10  bg-smakHighlight ">
           <div className="mb-6 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see all your options!
+            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see
+            all your options!
           </div>
           <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
             <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
               {restaurants.map((restaurant, i) => {
-
                 return (
                   <div className="image" key={i}>
                     <img
@@ -264,7 +263,6 @@ export default function Home() {
               Start
             </button>
           </div>
-
         </section>
       ) : (
         <section></section>
