@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { flushSync } from 'react-dom';
+import { flushSync } from "react-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
@@ -20,7 +20,6 @@ const API = process.env.REACT_APP_API_URL;
 export default function Home() {
   //const { auth } = useAuth();
   const ref = useRef(null);
-  
 
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
@@ -39,7 +38,6 @@ export default function Home() {
   }, []);
 
   const getAllReviews = () => {
-    
     axios
       .get(`${API}/users/all/reviews`)
       .then((res) => {
@@ -56,36 +54,44 @@ export default function Home() {
     console.log(e.target.value)
 
     const id = toast.loading("Searching...", {
-      position: toast.POSITION.TOP_CENTER});
+      position: toast.POSITION.TOP_CENTER,
+    });
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
-    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
     await axios
       .get(`${API}/yelp/${param}`)
       .then((res) => {
-        toast.update(id, {render: "Search successful", type: "success", isLoading: false, autoClose: 1000});
+        toast.update(id, {
+          render: "Search successful",
+          type: "success",
+          isLoading: false,
+          autoClose: 1000,
+        });
         setRestaurants(res.data);
       })
       .catch((err) => {
-        toast.update(id, {render: "Something went wrong", type: "error", isLoading: false, autoClose: 1000});
+        toast.update(id, {
+          render: "Something went wrong",
+          type: "error",
+          isLoading: false,
+          autoClose: 1000,
+        });
         console.log(err);
       });
 
-      if(restaurants) {
-        ref?.current?.scrollIntoView({ behavior: 'smooth' }) 
-      }
+    if (restaurants) {
+      ref?.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleStart = async () => {
     // Refreshing data to local storage
-    localStorage.removeItem('searchResults');
-    localStorage.setItem(
-      'searchResults', JSON.stringify(restaurants)
-    );
+    localStorage.removeItem("searchResults");
+    localStorage.setItem("searchResults", JSON.stringify(restaurants));
     navigate("/survey/orderconfirmation");
   };
-
 
   return (
     <div className="h-full">
@@ -111,7 +117,9 @@ export default function Home() {
                 />
                 <div className="w-full mx-auto absolute">
                   <h2 className="p-6 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smaksalmon relative inline-block ">
-                    <span className="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Welcome To <b className="text-8xl">SMAK!</b></span>
+                    <span className="text-6xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">
+                      Welcome To <b className="text-8xl">SMAK!</b>
+                    </span>
                     <span className="block text-4xl md:text-1xl italic">
                       <b className="text-smaksalmon"></b>
                     </span>
@@ -255,12 +263,12 @@ export default function Home() {
       {restaurants[0] ? (
         <section className="pb-10  bg-smakHighlight ">
           <div className="mb-6 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see all your options!
+            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see
+            all your options!
           </div>
           <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
             <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
               {restaurants.map((restaurant, i) => {
-
                 return (
                   <div className="image" key={i}>
                     <img
@@ -275,7 +283,6 @@ export default function Home() {
           </div>
           <div className="w-full mt-8 rounded-md items-center text-center">
             <button
-              
               onClick={handleStart}
               type="button"
               className="py-2 px-24 my-8 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] hover:bg-orange-400"
@@ -283,13 +290,12 @@ export default function Home() {
               Start
             </button>
           </div>
-
         </section>
       ) : (
         <section></section>
       )}
       {/*  H O W - I T - W O R K S  */}
-      <HowitWorks ref={ref}/>
+      <HowitWorks ref={ref} />
       {/*  A B O U T  */}
       <AboutHome />
       {/*  R E V I E W S  */}

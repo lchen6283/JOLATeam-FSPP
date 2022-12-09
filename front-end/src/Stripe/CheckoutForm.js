@@ -25,7 +25,8 @@ export const CheckoutForm = (props) => {
       console.log("Stripe 23 | token generated!", paymentMethod);
       try {
         const { id } = paymentMethod;
-        const response = await axios.post(`${STRIPE_SERVER}/stripe/charge`,
+        const response = await axios.post(
+          `${STRIPE_SERVER}/stripe/charge`,
           {
             amount: 999,
             id: id,
