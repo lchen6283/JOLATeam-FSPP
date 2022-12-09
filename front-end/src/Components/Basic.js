@@ -26,7 +26,7 @@ function Basic() {
         setActiveStepIndex(activeStepIndex + 1);
       }}
     >
-      <Form className="w-full p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5">
+      <Form className="w-full p-10 rounded-lg shadow-lg bg-gray-400 max-w-lg mb-5">
         <div className="mg6">
           <div className="flex flex-col mb-2">
             <label

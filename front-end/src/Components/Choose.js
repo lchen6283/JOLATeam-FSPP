@@ -43,7 +43,7 @@ function Choose() {
       }}
     >
       <Form
-        className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5"
+        className="w-full p-10 rounded-lg shadow-lg bg-gray-400 max-w-lg mb-5"
         role="group"
         aria-labelledby="checkbox-group"
       >

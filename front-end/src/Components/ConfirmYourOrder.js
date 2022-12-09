@@ -98,27 +98,27 @@ function ConfirmYourOrder() {
         postNewOrder();
       }}
     >
-      <Form>
-        <div className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5">
-          <h2 className="mb-10 text-center text-3xl font-bold text-white dark:text-white">
+      <Form className="w-full p-10 rounded-lg shadow-lg bg-gray-300 max-w-xl mb-5">
+        <div >
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
             Order Details
           </h2>
           <div>
-            <div className="my-4 text-2xl font-bold text-smakorange dark:text-white">
+            <div className="my-4 text-2xl font-bold text-smakHighlight dark:text-white">
               Selected Package: ${formData.budget}
             </div>
-            <div className="my-0 text-xl font-semibold text-white dark:text-white">
+            <div className="my-0 text-xl font-semibold text-gray-600 dark:text-white">
               Will not include:
               {formData.eliminate.map((type, i) => {
                 return <div key={i}>{type}</div>;
               })}
             </div>
-            <div className="my-10 text-2xl font-bold text-white dark:text-white">
+            <div className="my-10 text-xl font-bold text-gray-600 dark:text-white">
               I'm in the mood for:
               {formData.choose.map((type, i) => {
                 return (
                   <div
-                    className="text-2xl font-bold text-white dark:text-white"
+                    className="text-xl font-bold text-gray-600 dark:text-white"
                     key={i}
                   >
                     * {type}
@@ -126,7 +126,7 @@ function ConfirmYourOrder() {
                 );
               })}
             </div>
-            <div className="my-10 text-center text-2xl font-bold text-white dark:text-white">
+            <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
               My notes for the kitchen: {formData.notes}
             </div>
           </div>
@@ -144,7 +144,7 @@ function ConfirmYourOrder() {
               className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
               type="submit"
             >
-              Confirm & Pay
+              Pay with Stripe
             </button>
           </div>
         </div>

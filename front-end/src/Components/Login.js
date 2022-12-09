@@ -56,6 +56,7 @@ const Login = () => {
 
       // Setting the auth state
       setAuth( user );
+      sessionStorage.setItem("jwt", jwtToken);
       setInputs("");
       // Setting the success notification
       toast.success("Login Successfully!", {

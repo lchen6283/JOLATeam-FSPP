@@ -11,6 +11,9 @@ export default function NavBar() {
   const { auth } = useContext(AuthContext);
   //const { auth } = useAuth();
   const { setAuth } = useContext(AuthContext);
+  const userAuthenticated = sessionStorage.getItem('jwt');
+
+  console.log(userAuthenticated)
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,6 +37,7 @@ export default function NavBar() {
     e.preventDefault();
     try {
       setAuth({});
+      sessionStorage.removeItem("jwt");
 
       toast.success("Logout successfully", {
         position: toast.POSITION.TOP_CENTER,

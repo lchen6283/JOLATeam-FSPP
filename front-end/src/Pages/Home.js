@@ -229,7 +229,7 @@ export default function Home() {
       </section>
       {/* S E A R C H */}
       <section className="flex flex-row bg-smakHighlight p-10">
-        <div className="w-1/3 mx-auto py-8 items-center text-center">
+        <div className="w-full md:w-1/2 px-10 sm:px-10 mx-auto py-8 items-center text-center">
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </section>
