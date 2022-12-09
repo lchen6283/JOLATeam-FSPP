@@ -1,4 +1,5 @@
 const allowedOrigins = [
+    'https://smak-team-2.netlify.app',
     'http://localhost:3000',
     'http://localhost:3001',
     'http://localhost:3002',
@@ -10,6 +11,8 @@ const allowedOrigins = [
     'http://localhost:3008',
     'http://localhost:3009',
     'http://localhost:3010',
+    'http://localhost:63836',
+    'http://localhost:51605',
 ];
 
 module.exports = allowedOrigins;
