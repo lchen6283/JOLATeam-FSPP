@@ -51,8 +51,10 @@ export default function Home() {
   };
 
   // H A N D L E R S
-  const handleClick = async () => {
+  const handleClick = async (e) => {
     //
+    console.log(e.target.value)
+
     const id = toast.loading("Searching...", {
       position: toast.POSITION.TOP_CENTER});
     setRestaurants([]);

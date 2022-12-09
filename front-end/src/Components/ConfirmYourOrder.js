@@ -58,11 +58,13 @@ function ConfirmYourOrder() {
     return chosenRestaurant;
   };
   let restaurant = restaurantPicker(list, sohoAPI, formData);
+
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(
         `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
       );
+      console.log(data)
       let items = data.payload.map((item) => {
         return { type: item.dish_type, name: item.name };
       });
@@ -92,6 +94,9 @@ function ConfirmYourOrder() {
   };
   console.log(menuItems);
   return (
+    <div className="container mx-auto p-10 rounded-lg shadow-lg bg-gray-300  mb-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="flex flex-col">
     <Formik
       initialValues={{}}
       onSubmit={(values) => {
@@ -99,7 +104,7 @@ function ConfirmYourOrder() {
         postNewOrder();
       }}
     >
-      <Form className="container mx-auto p-10 rounded-lg shadow-lg bg-gray-300  mb-5">
+      <Form className="">
         <div >
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
             Order Details
@@ -147,7 +152,7 @@ function ConfirmYourOrder() {
                   Back
                 </button>
                 <button
-                  className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+                  className="hidden rounded-md bg-gray-600 font-bold text-white my-2 p-2"
                   type="submit"
                 >
                   Pay with Stripe
@@ -155,13 +160,21 @@ function ConfirmYourOrder() {
               </div>
             </div>
             <div className="flex flex-col">
-              <StripeContainer />
+              <div className="w-full">
+                
+              </div>
             </div>
           </div>
           
         </div>
       </Form>
     </Formik>
+    </div>
+    <div className="flex flex-col">
+      <StripeContainer postNewOrder={postNewOrder} />
+    </div>
+    </div>
+    </div>
   );
 }
 

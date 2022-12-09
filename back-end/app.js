@@ -4,6 +4,8 @@ const cors = require("cors");
 const corsOptions = require('./config/corsOptions');
 const axios = require("axios");
 const bcrypt = require("bcrypt");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const usersController = require("./controllers/usersController");
@@ -43,13 +45,47 @@ app.use("/menus", menusController);
 app.use("/plates", platesController);
 
 //ROUTES
-app.use("/auth", require("./routes/jwtAuth"));
-app.use("/dashboard", require("./routes/dashboard"));
-
 app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
 });
 
+
+app.use("/auth", require("./routes/jwtAuth"));
+app.use("/dashboard", require("./routes/dashboard"));
+
+
+// S T R I P E
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+//app.use(cors());
+
+app.post("/stripe/charge", cors(), async (req, res) => {
+  console.log("stripe-routes.js 9 | route reached", req.body);
+  let { amount, id } = req.body;
+  console.log("stripe-routes.js 10 | amount and id", amount, id);
+  try {
+    const payment = await stripe.paymentIntents.create({
+      amount: amount,
+      currency: "USD",
+      description: "Your Company Description",
+      payment_method: id,
+      confirm: true,
+    });
+    console.log("stripe-routes.js 19 | payment", payment);
+    res.json({
+      message: "Payment Successful",
+      success: true,
+    });
+  } catch (error) {
+    console.log("stripe-routes.js 17 | error", error);
+    res.json({
+      message: "Payment Failed",
+      success: false,
+    });
+  }
+});
+
+// Y E L P
 const { formatted } = require("./validators/yelpvalidators");
 
 app.get("/yelp/:location", async (req, res) => {
