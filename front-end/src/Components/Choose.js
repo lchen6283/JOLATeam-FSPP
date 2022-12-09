@@ -43,22 +43,22 @@ function Choose() {
       }}
     >
       <Form
-        className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5"
+        className="w-full p-10 rounded-xl shadow-lg bg-gray-300 max-w-xl mb-5 border-[0.5rem] border-gray-400"
         role="group"
         aria-labelledby="checkbox-group"
       >
-        <h2 className="mb-10 text-center text-2xl font-bold text-white dark:text-white">
+        <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
           Select 2 from the list below:
         </h2>
         <div className="flex flex-col items-start mb-2">
           {list.map((item, i) => {
             return (
-              <label className="p-2 font-bold text-white text-xl " key={i}>
+              <label className="p-2 font-bold text-gray-600 text-xl " key={i}>
                 <Field
                   name="choose"
                   type="checkbox"
                   value={item.word}
-                  className="p-4 mr-2 rounded-full border-2 border-orange-400"
+                  className="p-4 mr-2 rounded-full border-4 border-orange-400"
                 />
                 {item.word[0].toUpperCase() + item.word.substring(1)}
               </label>
@@ -67,11 +67,11 @@ function Choose() {
         </div>
         <ErrorMessage name="choose" render={renderError} />
         <div className="flex flex-col items-start mb-2">
-          <label className="font-bold text-white">Notes</label>
+          <label className="w-full my-4 items-justify-center text-center text-xl font-bold text-gray-600">Order Notes</label>
           <Field
             name="notes"
             as="textarea"
-            className="w-full rounded-md border-2 p-2"
+            className="w-full rounded-xl border-4 border-gray-400 p-2"
             placeholder="Spicy, Allergies, Protein of Choice?"
           />
         </div>

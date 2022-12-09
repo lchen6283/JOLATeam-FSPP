@@ -1,10 +1,6 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-
-const API = process.env.REACT_APP_API_URL;
+import { useEffect } from "react";
 
 export default function Reviews(props) {
-  //const [reviews, setReviews] = useState([]);
   const { reviews } = props;
 
   useEffect(() => {
@@ -12,17 +8,17 @@ export default function Reviews(props) {
     // VIRTUAL DOM
     const importFlowbiteFunc = function(flowbitePathStr)
     {
-        const flowbiteScriptEl = document.createElement('script')
-        flowbiteScriptEl.setAttribute(
-            'src', flowbitePathStr
-        )
-        document.body.appendChild(flowbiteScriptEl)
+      const flowbiteScriptEl = document.createElement('script')
+      flowbiteScriptEl.setAttribute(
+        'src', flowbitePathStr
+      )
+      document.body.appendChild(flowbiteScriptEl)
     }
     importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
     
   }, []);
   
-
+  console.log(reviews)
   return (
     <section className="text-center w-full">
       <h2 className="py-10 text-4xl text-gray-600 font-extrabold font-[Open Sans] ">
@@ -33,11 +29,11 @@ export default function Reviews(props) {
           className="relative flowbite"
           data-carousel="static"
         >
-          <div className="relative h-96 overflow-hidden rounded-0 ">
+          <div className="relative h-96 overflow-hidden rounded-0 bg-gray-200">
             {reviews.map((review, i) => {
               return (
                 <div key={i} className="hidden duration-1000 ease-in-out" data-carousel-item>
-                  <section className="bg-white dark:bg-gray-900">
+                  <section className=" dark:bg-gray-900">
                     <div className="max-w-screen-xl px-4 pt-8 pb-4 mx-auto text-center lg:px-6">
                       <figure className="max-w-screen-md mx-auto">
                         <svg className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,9 +44,9 @@ export default function Reviews(props) {
                         </blockquote>
                         <figcaption className="flex items-center justify-center mt-6 space-x-3">
                           <img className="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile picture"/>
-                          <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                            <div className="pr-3 font-medium text-gray-900 dark:text-white">{review.firstName} {review.lastName}</div>
-                            <div className="pl-3 text-md font-md text-gray-600 dark:text-gray-400">Order Rate: <b className="font-bold">{review.rating}</b></div>
+                          <div className="flex justify-items-end divide-x-2 divide-gray-500 dark:divide-gray-700">
+                            <div className="pr-3  text-right font-bold text-gray-900 dark:text-white">{review.firstname} {review.lastname}</div>
+                            <div className="pl-3 text-md font-md text-gray-600 dark:text-gray-400 hidden">Order Rate: <b className="font-bold">{review.rating}</b></div>
                           </div>
                         </figcaption>
                       </figure>

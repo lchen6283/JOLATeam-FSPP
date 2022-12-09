@@ -30,23 +30,23 @@ function Eliminate() {
       }}
     >
       <Form
-        className="block p-10 rounded-lg shadow-lg bg-smakHighlight max-w-md mb-5"
+        className="w-full p-10 rounded-xl shadow-lg bg-gray-300 max-w-xl mb-5 border-[0.5rem] border-gray-400"
         role="group"
         aria-labelledby="checkbox-group"
       >
-        <h2 className="mb-10 text-center text-2xl font-bold text-white dark:text-white">
+        <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
           Eliminate two cuisine types from the list below:
         </h2>
 
         <div className="flex flex-col items-start mb-2">
           {apiCategories.map((category, i) => {
             return (
-              <label className="p-2 font-bold text-white text-xl " key={i}>
+              <label className="p-2 font-bold text-gray-600 text-xl " key={i}>
                 <Field
                   name="eliminate"
                   type="checkbox"
                   value={category}
-                  className="p-4 mr-2 rounded-full border-2 border-orange-400"
+                  className="p-4 mr-2 rounded-full border-4 border-orange-400"
                 />
                 {category[0].toUpperCase() + category.substring(1)}
               </label>

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { flushSync } from "react-dom";
+import { ToastContainer, toast } from "react-toastify";
 import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
 import AboutHome from "../Components/AboutHome";
@@ -17,6 +19,8 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Home() {
   //const { auth } = useAuth();
+  const ref = useRef(null);
+
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -24,6 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllReviews();
+
     const importFlowbiteFunc = function (flowbitePathStr) {
       const flowbiteScriptEl = document.createElement("script");
       flowbiteScriptEl.setAttribute("src", flowbitePathStr);
@@ -46,23 +51,43 @@ export default function Home() {
   // H A N D L E R S
   const handleClick = async () => {
     //
+    const id = toast.loading("Searching...", {
+      position: toast.POSITION.TOP_CENTER,
+    });
     setRestaurants([]);
     let param = city.label.split(",").splice(0, 2).join("");
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+
     await axios
       .get(`${API}/yelp/${param}`)
       .then((res) => {
+        toast.update(id, {
+          render: "Search successful",
+          type: "success",
+          isLoading: false,
+          autoClose: 1000,
+        });
         setRestaurants(res.data);
       })
       .catch((err) => {
+        toast.update(id, {
+          render: "Something went wrong",
+          type: "error",
+          isLoading: false,
+          autoClose: 1000,
+        });
         console.log(err);
       });
+
+    if (restaurants) {
+      ref?.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleStart = async () => {
     // Refreshing data to local storage
     localStorage.removeItem("searchResults");
     localStorage.setItem("searchResults", JSON.stringify(restaurants));
-
     navigate("/survey/orderconfirmation");
   };
 
@@ -76,7 +101,7 @@ export default function Home() {
           data-carousel="static"
         >
           {/* <!-- Carousel wrapper --> */}
-          <div className="relative h-[600px] overflow-hidden rounded-0 ">
+          <div className="relative h-96 overflow-hidden rounded-0 ">
             {/* <!-- Item 1 --> */}
             <div
               className="hidden duration-1000 ease-in-out"
@@ -228,7 +253,7 @@ export default function Home() {
       </section>
       {/* S E A R C H */}
       <section className="flex flex-row bg-smakHighlight p-10">
-        <div className="w-1/3 mx-auto py-8 items-center text-center">
+        <div className="w-full md:w-1/2 px-10 sm:px-10 mx-auto py-8 items-center text-center">
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </section>
@@ -268,7 +293,7 @@ export default function Home() {
         <section></section>
       )}
       {/*  H O W - I T - W O R K S  */}
-      <HowitWorks />
+      <HowitWorks ref={ref} />
       {/*  A B O U T  */}
       <AboutHome />
       {/*  R E V I E W S  */}
