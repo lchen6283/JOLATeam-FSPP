@@ -11,6 +11,9 @@ export default function NavBar() {
   const { auth } = useContext(AuthContext);
   //const { auth } = useAuth();
   const { setAuth } = useContext(AuthContext);
+  const userAuthenticated = sessionStorage.getItem('jwt');
+
+  console.log(userAuthenticated)
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,6 +37,7 @@ export default function NavBar() {
     e.preventDefault();
     try {
       setAuth({});
+      sessionStorage.removeItem("jwt");
 
       toast.success("Logout successfully", {
         position: toast.POSITION.TOP_CENTER,
@@ -67,7 +71,7 @@ export default function NavBar() {
             <>
             <button 
               type="button" 
-              className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" 
+              className="flex mr-3 text-sm bg-gray-200 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" 
               id="user-menu-button" 
               aria-expanded="false" 
               data-dropdown-toggle="user-dropdown" 
@@ -80,7 +84,7 @@ export default function NavBar() {
                 src="https://fakeface.rest/face/view/55?gender=female&minimum_age=20&maximum_age=30"
                 alt="User profile"
               />
-              <span className="mx-4 text-white font-bold leading-10">Hello, {auth.data.firstname}!</span>
+              <span className="mx-4 text-gray-800 font-bold leading-10">Hello, {auth.data.firstname}!</span>
             </button>
             <div
               className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
