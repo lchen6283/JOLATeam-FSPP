@@ -7,9 +7,17 @@ export const FormContext = createContext();
 export default function OrderConfirmation() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [formData, setFormData] = useState({});
+  const [finalOrderData, setFinalOrderData] = useState({});
   return (
     <FormContext.Provider
-      value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}
+      value={{
+        activeStepIndex,
+        setActiveStepIndex,
+        formData,
+        setFormData,
+        finalOrderData,
+        setFinalOrderData,
+      }}
     >
       <div className="w-screen h-full flex flex-col items-center justify-start p-10">
         <h2 className="py-8 text-gray-600 text-4xl md:text-5xl font-extrabold font-[Open Sans] text-center ">

@@ -1,6 +1,7 @@
 import React from "react";
-import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 const MAP_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+const libraries = ["places"];
 
 function MapImage({ latitude, longitude }) {
   const coordinates = { lat: Number(latitude), lng: Number(longitude) };
@@ -8,24 +9,25 @@ function MapImage({ latitude, longitude }) {
     width: "100%",
     height: "100%",
   };
-
-  return (
-    <div>
-      <LoadScript googleMapsApiKey={MAP_API_KEY}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={coordinates}
-          zoom={16}
-        >
-          <MarkerF
-            position={coordinates}
-            //   icon={{
-            //     url: "https://gcdnb.pbrd.co/images/UPbgm8xNJfhS.png",
-            //   }}
-          />
-        </GoogleMap>
-      </LoadScript>
-    </div>
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: MAP_API_KEY,
+    libraries,
+  });
+  return isLoaded ? (
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={coordinates}
+      zoom={16}
+    >
+      <MarkerF
+        position={coordinates}
+        //   icon={{
+        //     url: "https://gcdnb.pbrd.co/images/UPbgm8xNJfhS.png",
+        //   }}
+      />
+    </GoogleMap>
+  ) : (
+    <></>
   );
 }
 
