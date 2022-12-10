@@ -1,8 +1,7 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React, { useContext, useState, useEffect } from "react";
 import StripeContainer from "../Stripe/StripeContainer";
 import { FormContext } from "../Pages/OrderConfirmation";
-import * as yup from "yup";
 import axios from "axios";
 import sohoAPI from "../data/data";
 
@@ -23,8 +22,14 @@ const list = [
 ];
 
 function ConfirmYourOrder() {
-  const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
-    useContext(FormContext);
+  const {
+    activeStepIndex,
+    setActiveStepIndex,
+    formData,
+    setFormData,
+    finalOrderData,
+    setFinalOrderData,
+  } = useContext(FormContext);
   let [menuItems, setMenuitems] = useState([]);
 
   const restaurantPicker = (list, apiObj, survey) => {
@@ -60,20 +65,17 @@ function ConfirmYourOrder() {
   let restaurant = restaurantPicker(list, sohoAPI, formData);
 
   useEffect(() => {
+    const fetching = async () => {
+      const { data } = await axios.get(
+        `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
+      );
+      let items = data.payload.map((item) => {
+        return { type: item.dish_type, name: item.name };
+      });
+      setMenuitems(items);
+    };
     fetching();
   }, []);
-
-  const fetching = async () => {
-    const { data } = await axios.get(
-      `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
-    );
-    console.log(data)
-    let items = data.payload.map((item) => {
-      return { type: item.dish_type, name: item.name };
-    });
-    setMenuitems(items);
-  };
-
   let postNewOrder = async () => {
     let obj = {
       restaurant_id: JSON.stringify(restaurant),
@@ -84,9 +86,18 @@ function ConfirmYourOrder() {
       order_contents: JSON.stringify(menuItems),
       userid: 2,
     };
-
-    axios.post(`${API}/users/${id}/orders`,
-      obj)
+    let objNonParsed = {
+      restaurant_id: restaurant,
+      restaurant_name: restaurant.name,
+      date: created_at,
+      delivery_address: "529 APT 2F Broadway New York, NY",
+      total_cost: formData.budget,
+      order_contents: menuItems,
+      userid: 2,
+    };
+    setFinalOrderData(objNonParsed);
+    axios
+      .post(`${API}/users/${id}/orders`, obj)
       .then(() => {
         console.log("success");
       })
@@ -94,80 +105,72 @@ function ConfirmYourOrder() {
         console.log(e);
       });
   };
-  
-  console.log(menuItems);
   return (
-    <div className="container mx-auto p-10 rounded-lg shadow-lg bg-orange-200 mb-5 border-[0.5rem] border-orange-400">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="flex flex-col">
+    <Formik
+      initialValues={{}}
+      onSubmit={(values) => {
+        setActiveStepIndex(activeStepIndex + 1);
+        postNewOrder();
+      }}
+    >
+      <Form className="container mx-auto p-10 rounded-lg shadow-lg bg-gray-300  mb-5">
+        <div>
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
             Order Details
           </h2>
-          <Formik
-            initialValues={{}}
-            onSubmit={(values) => {
-              setActiveStepIndex(activeStepIndex + 1);
-              postNewOrder();
-            }}
-          >
-            <Form className="">
-              <div className="flex flex-col">
-                <div className="my-4 text-2xl font-bold text-smakHighlight dark:text-white">
-                  Selected Package: ${formData.budget}
-                </div>
-                <div className="my-0 text-xl font-semibold text-gray-600 dark:text-white">
-                  Will not include:
-                  {formData.eliminate.map((type, i) => {
-                    return <div key={i}>{type}</div>;
-                  })}
-                </div>
-                <div className="my-10 text-xl font-bold text-gray-600 dark:text-white">
-                  I'm in the mood for:
-                  {formData.choose.map((type, i) => {
-                    return (
-                      <div
-                        className="text-xl font-bold text-gray-600 dark:text-white"
-                        key={i}
-                      >
-                        * {type}
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
-                  {(formData.notes) 
-                  ?
-                    <>My notes for the kitchen: {formData.notes}</>
-                  :
-                    <></>
-                  }
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <button
-                    className="w-full rounded-xl bg-gray-600 text-lg font-bold text-white my-2 p-3"
-                    type="button"
-                    onClick={() => {
-                      setActiveStepIndex(activeStepIndex - 1);
-                    }}
-                  >
-                    Back
-                  </button>
-                  <button
-                    className="hidden rounded-xl bg-gray-600 text-lg font-bold text-white my-2 p-3"
-                    type="submit"
-                  >
-                    Pay with Stripe
-                  </button>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <div className="my-4 text-2xl font-bold text-smakHighlight dark:text-white">
+                Selected Package: ${formData.budget}
               </div>
-            </Form>
-          </Formik>
-        </div>
-        <div className="flex flex-col">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
-            Pay with Stripe
-          </h2>
-          <StripeContainer postNewOrder={postNewOrder} />
+              <div className="my-0 text-xl font-semibold text-gray-600 dark:text-white">
+                Will not include:
+                {formData.eliminate.map((type, i) => {
+                  return <div key={i}>{type}</div>;
+                })}
+              </div>
+              <div className="my-10 text-xl font-bold text-gray-600 dark:text-white">
+                I'm in the mood for:
+                {formData.choose.map((type, i) => {
+                  return (
+                    <div
+                      className="text-xl font-bold text-gray-600 dark:text-white"
+                      key={i}
+                    >
+                      * {type}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
+                {formData.notes ? (
+                  <>My notes for the kitchen: {formData.notes}</>
+                ) : (
+                  <></>
+                )}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  className="w-full rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+                  type="button"
+                  onClick={() => {
+                    setActiveStepIndex(activeStepIndex - 1);
+                  }}
+                >
+                  Back
+                </button>
+                <button
+                  className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+                  type="submit"
+                >
+                  Pay with Stripe
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <StripeContainer />
+            </div>
+          </div>
         </div>
       </div>
     </div>
