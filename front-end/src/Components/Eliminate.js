@@ -2,21 +2,24 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext } from "react";
 import { FormContext } from "../Pages/OrderConfirmation";
 import * as yup from "yup";
-import sohoAPI from "../data/data";
 
-let apiCategories = [...new Set(sohoAPI.map((e) => e.matchedcategory))];
 function Eliminate() {
-  const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
-    useContext(FormContext);
+  const {
+    activeStepIndex,
+    setActiveStepIndex,
+    formData,
+    setFormData,
+    apiData,
+  } = useContext(FormContext);
 
   const renderError = (message) => (
     <p className="italic text-red-600">{message}</p>
   );
+  let apiCategories = [...new Set(apiData.map((e) => e.matchedcategory))];
 
   const ValidationSchema = yup.object().shape({
     eliminate: yup.array().max(2).of(yup.string().required()).required(),
   });
-
   return (
     <Formik
       initialValues={{

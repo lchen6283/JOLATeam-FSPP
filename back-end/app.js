@@ -1,7 +1,7 @@
 //DEPENDENCIES
 const express = require("express");
 const cors = require("cors");
-const corsOptions = require('./config/corsOptions');
+const corsOptions = require("./config/corsOptions");
 const axios = require("axios");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
@@ -11,7 +11,6 @@ const reviewsController = require("./controllers/reviewsController.js");
 const ordersController = require("./controllers/ordersController");
 const menusController = require("./controllers/menusController");
 const platesController = require("./controllers/platesController");
-
 
 //CONFIG
 const app = express();
