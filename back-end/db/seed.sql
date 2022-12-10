@@ -21,7 +21,7 @@ INSERT INTO reviews (userid, orderid, rating, content, img_url, date) VALUES (1,
 (1,3,5, 'First time trying Peruvian food and I cannot wait to go back.', 'https://gradfood.com/wp-content/uploads/2022/04/Lomo-Saltado-2-scaled.jpg','2022-11-20');
 
 
-INSERT INTO menus (cuisine) VALUES ('mediterranean'),('italian'),('spanish'),('french'),('vietnamese'),('newamerican'),('korean'),('mexican'),('japanese'),('other'),('thai'),('chinese');
+INSERT INTO menus (cuisine) VALUES ('mediterranean'),('italian'),('spanish'),('french'),('vietnamese'),('newamerican'),('korean'),('mexican'),('japanese'),('thai'),('chinese'),('seafood'),('cocktailbars'), ('latin'), ('other');
 
 
 INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken Thighs'),(1, 'entree', 'Garlic Mushroom Pasta'),(1, 'entree', 'Per-Peri Chicken'),(1,'entree', 'Roast Lamb Rack'),(1, 'entree', 'Mediterranean Fish Soup'),(1,'appetizers', 'Vegetarian Mezze Platter'),(1,'appetizers', 'Spice Beet Dip'),(1,'appetizers', 'Mediterranean Tomato Bites'),(1,'desserts', 'Noams Malva Pudding'),(1,'desserts', 'Homemade Spiced Cheesecake'),(1,'desserts', 'Kremna Rezina'),
@@ -42,9 +42,15 @@ INSERT INTO plates (menuid, dish_type, name) VALUES (1, 'entree', 'Baked Chicken
 
 (9, 'entree', 'Sushi'),(9, 'entree', 'Ramen'),(9, 'entree', 'Unagi - Grilled Eel'),(9,'entree', 'Shrimp Tempura'),(9, 'entree', 'Soba'),(9,'appetizers', 'Onigiri'),(9,'appetizers', 'Yakitori'),(9,'appetizers', 'Miso Soup'),(9,'desserts', 'Dorayaki (Japanese Red Bean Pancake)'),(9,'desserts', 'Mochi'),(9,'desserts', 'Dango'),
 
-(10, 'entree', 'Chicken parmigiana'),(10, 'entree', 'Barramundi'),(10, 'entree', 'Aussie Burger'),(10,'entree', 'Aussie Steak Sandwich'),(10, 'entree', 'Meatloaf'),(10,'appetizers', 'Meat pies'),(10,'appetizers', 'Bruschetta'),(10,'appetizers', 'French Fries'),(10,'desserts', 'Lamingtons'),(10,'desserts', 'Milo Balls'),(10,'desserts', 'Pavlova'),
+(10, 'entree', 'Green Curry w/ Chicken'),(10, 'entree', 'Garlic & Black Pepper Stir Fry'),(10, 'entree', 'Pad Kee Mao'),(10,'entree', 'Fried Fish W/ Garlic'),(10, 'entree', 'Pad See Iew'),(10,'appetizers', 'Thai Spring Rolls'),(10,'appetizers', 'Sa-Teh Chicken'),(10,'appetizers', 'Fried Calamari'),(10,'desserts', 'Blackberry Rice w/ Taro & Coconut'),(10,'desserts', 'Deep Fried Banana w/ Ice Cream'),(10,'desserts', 'Tapioca W/ Taro'),
 
-(11, 'entree', 'Green Curry w/ Chicken'),(11, 'entree', 'Garlic & Black Pepper Stir Fry'),(11, 'entree', 'Pad Kee Mao'),(11,'entree', 'Fried Fish W/ Garlic'),(11, 'entree', 'Pad See Iew'),(11,'appetizers', 'Thai Spring Rolls'),(11,'appetizers', 'Sa-Teh Chicken'),(11,'appetizers', 'Fried Calamari'),(11,'desserts', 'Blackberry Rice w/ Taro & Coconut'),(11,'desserts', 'Deep Fried Banana w/ Ice Cream'),(11,'desserts', 'Tapioca W/ Taro'),
+(11, 'entree', 'Egg Foo Young'),(11, 'entree', 'Orange Chicken'),(11, 'entree', 'Choice W/ Broccoli'),(11,'entree', 'Pepper Steak'),(11, 'entree', 'Shrimp L obster Sauce'),(11,'appetizers', 'Hunan Egg Roll'),(11,'appetizers', 'Crab Rangoon'),(11,'appetizers', 'Teriyaki Chicken Sticks'),(11,'desserts', 'Shanghai Soy Milk Pudding'),(11,'desserts', 'Tropical Red Bean Cakes'),(11,'desserts', 'Coconut Milk & Rockmelon Sago'),
 
-(12, 'entree', 'Egg Foo Young'),(12, 'entree', 'Orange Chicken'),(12, 'entree', 'Choice W/ Broccoli'),(12,'entree', 'Pepper Steak'),(12, 'entree', 'Shrimp L obster Sauce'),(12,'appetizers', 'Hunan Egg Roll'),(12,'appetizers', 'Crab Rangoon'),(12,'appetizers', 'Teriyaki Chicken Sticks'),(12,'desserts', 'Shanghai Soy Milk Pudding'),(12,'desserts', 'Tropical Red Bean Cakes'),(12,'desserts', 'Coconut Milk & Rockmelon Sago');
+(12, 'entree', 'Paella Valenciana'),(12, 'entree', 'Peruvian Ceviche w/ Giant Corn'),(12, 'entree', 'Californian Fish Tacos'),(12,'entree', 'Tuna Tartare'),(12, 'entree', 'Shrimp Scampi'),(12,'appetizers', 'BBQ Shrimp Bites'),(12,'appetizers', 'Jalapeno Popper-Crab Dip'),(12,'appetizers', 'Crab & Spinach Stuffed Mushrooms'),(12,'desserts', 'Heaven on Earth Cake '),(12,'desserts', 'Fruit Kebab'),(12,'desserts', 'Lemon Pudding Cake'),
 
+(13, 'entree', 'Drunken Duck Quesadilla'),(13, 'entree', 'Bosshog Mac & Cheese'),(13, 'entree', 'Belly Of The Beast'),(13,'entree', 'Lobster & Cognac Baked Gnocchi'),(13, 'entree', 'Bucket O Wings'),(13,'appetizers', 'Turnt Mussels'),(13,'appetizers', 'Roasted Garlic & Chipotle Hummus'),(13,'appetizers', 'Veggie Flatbread'),(13,'desserts', 'Baileys Creme Brulee'),(13,'desserts', 'Chocolate Bread Pudding'),(13,'desserts', 'Warm Fudge Brownie'),
+
+(14, 'entree', 'Pabellon Criollo'),(14, 'entree', 'Ropa Vieja w/ Arroz Gandoules'),(14, 'entree', 'Ceviche (Peruvian)'),(14,'entree', 'Bandeja Tipica Colombiana'),(14, 'entree', 'Cuban Pork Sandwhich with Patacones'),(14,'appetizers', 'Empanadas Assorted (Steak, Tinga, Shrimp'),(14,'appetizers', 'Anticuchos Skewers'),(14,'appetizers', 'Mini Pupusas'),(14,'desserts', 'Tres Leches Cake'),(14,'desserts', 'Impossible Flan'),(14,'desserts', 'Cactus Ice'),
+
+
+(15, 'entree', 'Chicken parmigiana'),(15, 'entree', 'Barramundi'),(15, 'entree', 'Aussie Burger'),(15,'entree', 'Aussie Steak Sandwich'),(15, 'entree', 'Meatloaf'),(15,'appetizers', 'Meat pies'),(15,'appetizers', 'Bruschetta'),(15,'appetizers', 'French Fries'),(15,'desserts', 'Lamingtons'),(15,'desserts', 'Milo Balls'),(15,'desserts', 'Pavlova');

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Navigate, redirect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
 // COMPONENTS
 import Layout from "./Components/Layout";
 import Login from "./Components/Login";
@@ -16,7 +15,6 @@ import RequireAuth from "./Components/RequireAuth";
 import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 import Order from "./Pages/Order";
-import PaymentFinalized from "./Pages/PaymentFinalized";
 
 import PaymentInfo from "./Pages/PaymentInfo";
 import Survey from "./Pages/Survey";
@@ -28,7 +26,6 @@ const ROLES = {
 };
 
 function App() {
-
   // useEffect(() => {
   //   const importFlowbiteFunc = function(flowbitePathStr)
   // {
@@ -39,9 +36,9 @@ function App() {
   //     document.body.appendChild(flowbiteScriptEl)
   // }
   // importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
-    
+
   // }, []);
-  
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -63,7 +60,6 @@ function App() {
         {/* PROTECTED ROUTES */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
           <Route path="orders" element={<Order />} />
-          <Route path="paymentdone" element={<PaymentFinalized />} />
           <Route path="paymentInfo" element={<PaymentInfo />} />
         </Route>
       </Route>

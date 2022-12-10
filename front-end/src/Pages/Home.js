@@ -11,7 +11,6 @@ import useAuth from "../hooks/useAuth";
 import banner01 from "../assets/Food_Images/Banner_01.png";
 import banner02 from "../assets/Food_Images/Banner_02.png";
 import banner03 from "../assets/Food_Images/Banner_03.png";
-import banner04 from "../assets/Food_Images/Banner_04.png";
 
 import axios from "axios";
 

@@ -3,7 +3,6 @@ import React, { useContext, useState, useEffect } from "react";
 import StripeContainer from "../Stripe/StripeContainer";
 import { FormContext } from "../Pages/OrderConfirmation";
 import axios from "axios";
-import sohoAPI from "../data/data";
 
 const API = process.env.REACT_APP_API_URL;
 const id = 2;
@@ -23,6 +22,7 @@ const list = [
 
 function ConfirmYourOrder() {
   const {
+    apiData,
     activeStepIndex,
     setActiveStepIndex,
     formData,
@@ -62,7 +62,7 @@ function ConfirmYourOrder() {
     }
     return chosenRestaurant;
   };
-  let restaurant = restaurantPicker(list, sohoAPI, formData);
+  let restaurant = restaurantPicker(list, apiData, formData);
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(
