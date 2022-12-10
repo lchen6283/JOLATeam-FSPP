@@ -8,13 +8,15 @@ const PUBLIC_KEY = "pk_test_51KsxPfEDJs1UCEIIMbLIJmNULUkLQbcjEdwIzbvj19HHtr6zEtU
 
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
-const Stripe = () => {
+const Stripe = (props) => {
+  const { postNewOrder } = props;
+
   return (
     <Elements 
       stripe={stripeTestPromise}
       className=""
     >
-      <CheckoutForm />
+      <CheckoutForm postNewOrder={postNewOrder} />
     </Elements>
   );
 };

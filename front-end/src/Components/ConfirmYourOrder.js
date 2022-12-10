@@ -30,6 +30,7 @@ function ConfirmYourOrder() {
     finalOrderData,
     setFinalOrderData,
   } = useContext(FormContext);
+
   let [menuItems, setMenuitems] = useState([]);
 
   const restaurantPicker = (list, apiObj, survey) => {
@@ -65,17 +66,20 @@ function ConfirmYourOrder() {
   let restaurant = restaurantPicker(list, sohoAPI, formData);
 
   useEffect(() => {
-    const fetching = async () => {
-      const { data } = await axios.get(
-        `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
-      );
-      let items = data.payload.map((item) => {
-        return { type: item.dish_type, name: item.name };
-      });
-      setMenuitems(items);
-    };
+    
     fetching();
   }, []);
+
+  const fetching = async () => {
+    const { data } = await axios.get(
+      `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
+    );
+    let items = data.payload.map((item) => {
+      return { type: item.dish_type, name: item.name };
+    });
+    setMenuitems(items);
+  };
+
   let postNewOrder = async () => {
     let obj = {
       restaurant_id: JSON.stringify(restaurant),
@@ -86,6 +90,7 @@ function ConfirmYourOrder() {
       order_contents: JSON.stringify(menuItems),
       userid: 2,
     };
+
     let objNonParsed = {
       restaurant_id: restaurant,
       restaurant_name: restaurant.name,
@@ -95,7 +100,11 @@ function ConfirmYourOrder() {
       order_contents: menuItems,
       userid: 2,
     };
+
+    console.log(formData)
+    console.log(objNonParsed)
     setFinalOrderData(objNonParsed);
+    //
     axios
       .post(`${API}/users/${id}/orders`, obj)
       .then(() => {
@@ -105,6 +114,8 @@ function ConfirmYourOrder() {
         console.log(e);
       });
   };
+
+
   return (
     <div className="container mx-auto p-10 rounded-lg shadow-lg bg-orange-200 mb-5 border-[0.5rem] border-orange-400">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
