@@ -19,7 +19,7 @@ function Success() {
           <h2 className="my-10 text-center text-2xl font-bold text-gray-600 dark:text-white">
             Order details
           </h2>
-          
+
           <ul>
           <li className="my-0 text-center text-xl font-semibold text-gray-600 dark:text-white">
             Restaurant: {finalOrderData.restaurant_id.name}
@@ -48,7 +48,7 @@ function Success() {
         </div>
         </div>
       </div>
-      <div className="flex flex-col ">
+      <div className="flex flex-col hidden">
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
         Click{" "}
         <Link

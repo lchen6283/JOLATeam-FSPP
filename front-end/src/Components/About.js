@@ -48,16 +48,11 @@ export default function About() {
           </p>
         </article>
       </div>
-
-      <br />
       <hr className="border-2 mx-20" />
       <p className="mt-10 mb-20 text-center text-4xl font-bold text-gray-800">
         The Team
       </p>
-      <br />
-      {/* <p className="text-center mb-20 text-2xl font-normal text-white">
-          Meet the developers behind the project
-        </p> */}
+      
       <div className="items-center justify-center flex items-center space-y-24 md:space-y-0 md:pt-10 lg:pt-0 flex-col md:flex-row justify evenly ">
         <div className="p-4 relative">
           <div className="text-center mb-4 absolute -top-16 right-1/2 transform translate-x-1/2">
@@ -276,7 +271,7 @@ export default function About() {
               <p className="text-2xl text-smakHighlight font-bold">
                 Augusto Rupay
               </p>
-              <p className="text-xl text-gray-800 font-normal">UX Designer</p>
+              <p className="text-xl text-gray-800 font-normal">Backend Engineer</p>
               <p className="text-md text-gray-500 w-60 mx-auto py-4 font-light">
                 I am a software engineer with a passion for creativity and
                 functionality. I incorporate these concepts into all my projects

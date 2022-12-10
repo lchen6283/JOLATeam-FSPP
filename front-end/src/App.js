@@ -17,7 +17,6 @@ import Error from "./Pages/Error";
 import Order from "./Pages/Order";
 
 import PaymentInfo from "./Pages/PaymentInfo";
-import Survey from "./Pages/Survey";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 
 const ROLES = {
@@ -48,12 +47,12 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="error404" element={<Error />} />
+        
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="survey" element={<Survey />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="*" element={<Error />} />
         <Route
-          path="survey/orderconfirmation"
+          path="order"
           element={<OrderConfirmation />}
         />
 
