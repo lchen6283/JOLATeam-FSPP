@@ -24,7 +24,7 @@ export default function Search({ city, setCity, handleClick }) {
             selectProps={{
               city,
               onChange: setCity,
-              placeholder: "",
+              placeholder: "Choose a location to get started...",
               styles: {
                 input: (provided) => ({
                   ...provided,

@@ -28,7 +28,7 @@ export default function Reviews(props) {
             return (
               <div
                 key={i}
-                className="hidden duration-1000 ease-in-out"
+                className="hidden duration-1000 ease-linear"
                 data-carousel-item
               >
                 <section className=" dark:bg-gray-900">
