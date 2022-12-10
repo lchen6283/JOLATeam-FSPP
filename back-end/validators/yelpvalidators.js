@@ -10,8 +10,11 @@ const formatted = (data) => {
     "mexican",
     "japanese",
     "thai",
-    "other",
+    "seafood",
     "chinese",
+    "cocktailbars",
+    "latin",
+    "other",
   ];
 
   let catMatcher = (cuisines, apiCats) => {
@@ -22,7 +25,21 @@ const formatted = (data) => {
         }
       }
     }
-    return "other";
+    if (
+      apiCats.includes("szechuan") ||
+      apiCats.includes("shanghainese") ||
+      apiCats.includes("shanghainese")
+    ) {
+      return "chinese";
+    } else if (
+      apiCats.includes("tradamerican") ||
+      apiCats.includes("comfort")
+    ) {
+      return "newamerican";
+    } else {
+      console.log(apiCats, "HERE IS API CATS NOW");
+      return "other";
+    }
   };
 
   let catReducer = (categories) => {

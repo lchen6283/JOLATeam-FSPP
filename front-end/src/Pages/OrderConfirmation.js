@@ -8,6 +8,8 @@ export default function OrderConfirmation() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [formData, setFormData] = useState({});
   const [finalOrderData, setFinalOrderData] = useState({});
+  const [apiData, setApiData] = useState([]);
+
   return (
     <FormContext.Provider
       value={{
@@ -17,6 +19,8 @@ export default function OrderConfirmation() {
         setFormData,
         finalOrderData,
         setFinalOrderData,
+        apiData,
+        setApiData,
       }}
     >
       <div className="w-screen h-full flex flex-col items-center justify-start p-10">

@@ -1,7 +1,7 @@
 //DEPENDENCIES
 const express = require("express");
 const cors = require("cors");
-const corsOptions = require('./config/corsOptions');
+const corsOptions = require("./config/corsOptions");
 const axios = require("axios");
 const bcrypt = require("bcrypt");
 const stripe = require("stripe")("sk_test_51KsxPfEDJs1UCEIIKCtjkb7pvriBI1C5Zkp8yya3zc5ghlTKSTi4W56wBF2AYDrbxxGeDuItFatFGoLrEsQlRbAM002kHywyfv");

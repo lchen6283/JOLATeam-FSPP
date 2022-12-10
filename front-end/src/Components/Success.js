@@ -17,24 +17,34 @@ function Success() {
       <div className="w-full grid md:grid-cols-2 gap-5 mx-auto ">
         <div className="flex flex-col ">
           <h2 className="my-10 text-center text-2xl font-bold text-gray-600 dark:text-white">
-            Your order from{" "}
-            {finalOrderData ? finalOrderData.restaurant_id.name : null} is on its
-            way!
+            Order details
           </h2>
+          
+          <ul>
+          <li className="my-0 text-center text-xl font-semibold text-gray-600 dark:text-white">
+            Restaurant: {finalOrderData.restaurant_id.name}
+          </li>
+          <li className="my-0 text-center text-xl font-semibold text-gray-600 dark:text-white">
+            Restaurant: {finalOrderData.restaurant_id.name}
+          </li>
+          <li className="my-0 text-center text-xl font-semibold text-gray-600 dark:text-white">
+            Restaurant: {finalOrderData.restaurant_id.name}
+          </li>
+          </ul>
             <img
               className="w-1/2"
               src={finalOrderData ? finalOrderData.restaurant_id.image_url : null}
             />
-            {finalOrderData.restaurant_id ? (
-            <MapImage
-              latitude={finalOrderData.restaurant_id.coordinates.latitude}
-              longitude={finalOrderData.restaurant_id.coordinates.longitude}
-            />
-          ) : null}
+            
         </div>
         <div className="flex flex-col ">
-        <div className="p-10 ">
+        <div className="w-full h-96 p-10 ">
+       
           
+          <MapImage
+            latitude={finalOrderData.restaurant_id.coordinates.latitude}
+            longitude={finalOrderData.restaurant_id.coordinates.longitude}
+          />
         </div>
         </div>
       </div>

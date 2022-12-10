@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import AuthContext from "../context/AuthProvider"; 
+import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,9 +11,7 @@ export default function NavBar() {
   const { auth } = useContext(AuthContext);
   //const { auth } = useAuth();
   const { setAuth } = useContext(AuthContext);
-  const userAuthenticated = sessionStorage.getItem('jwt');
-
-  console.log(userAuthenticated)
+  const userAuthenticated = sessionStorage.getItem("jwt");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,17 +19,13 @@ export default function NavBar() {
 
   // Updating the V-DOM with fb
   const flowbite = () => {
-    const importFlowbiteFunc = function(flowbitePathStr)
-    {
-        const flowbiteScriptEl = document.createElement('script')
-        flowbiteScriptEl.setAttribute(
-            'src', flowbitePathStr
-        )
-        document.body.appendChild(flowbiteScriptEl)
-    }
-    importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
-    
-  }
+    const importFlowbiteFunc = function (flowbitePathStr) {
+      const flowbiteScriptEl = document.createElement("script");
+      flowbiteScriptEl.setAttribute("src", flowbitePathStr);
+      document.body.appendChild(flowbiteScriptEl);
+    };
+    importFlowbiteFunc("https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"); // here goes your path to a local flowbite.js you want to import
+  };
 
   const logout = async (e) => {
     e.preventDefault();
@@ -52,10 +46,10 @@ export default function NavBar() {
       console.error(err.message);
     }
   };
-  
+
   return (
     <header>
-      <ToastContainer/>
+      <ToastContainer />
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Link to="/" aria-current="page" className="flex items-center">
@@ -64,7 +58,7 @@ export default function NavBar() {
               SMAK
             </span>
           </Link>
-          
+
           <div className="flex items-center md:order-2">
             {auth.jwtToken
             ?

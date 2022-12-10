@@ -3,7 +3,6 @@ import React, { useContext, useState, useEffect } from "react";
 import StripeContainer from "../Stripe/StripeContainer";
 import { FormContext } from "../Pages/OrderConfirmation";
 import axios from "axios";
-import sohoAPI from "../data/data";
 
 const API = process.env.REACT_APP_API_URL;
 const id = 2;
@@ -23,6 +22,7 @@ const list = [
 
 function ConfirmYourOrder() {
   const {
+    apiData,
     activeStepIndex,
     setActiveStepIndex,
     formData,
@@ -63,8 +63,7 @@ function ConfirmYourOrder() {
     }
     return chosenRestaurant;
   };
-  let restaurant = restaurantPicker(list, sohoAPI, formData);
-
+  let restaurant = restaurantPicker(list, apiData, formData);
   useEffect(() => {
     
     fetching();
@@ -118,7 +117,7 @@ function ConfirmYourOrder() {
 
   return (
     <div className="container mx-auto p-10 rounded-lg shadow-lg bg-orange-200 mb-5 border-[0.5rem] border-orange-400">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="flex flex-col px-10">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
             Order Details
