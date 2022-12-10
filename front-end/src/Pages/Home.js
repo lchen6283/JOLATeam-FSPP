@@ -261,10 +261,10 @@ export default function Home() {
       </section>
       {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
-        <section className="py-10 bg-smakHighlight ">
-          <div className="w-full mt-4 rounded-md items-center text-center">
+        <section className="py-10 bg-gray-600 ">
+          <div className="w-full mt-0 rounded-md items-center text-center">
             <div className="mb-4 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-              <b className="text-smakorange text-[4rem] leading-4"></b> 
+              <b className="text-smakorange text-4xl leading-4"></b> 
               Your possible matches!
             </div>
             <button

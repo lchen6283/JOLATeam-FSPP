@@ -11,7 +11,7 @@ export default function Search({ city, setCity, handleClick }) {
     <div className="w-full p-0 px-0 md:mt-0 lg:flex-shrink-0  ">
       <div className="my-0 items-baseline text-white text-4xl md:text-5xl leading-12 font-extrabold font-[Open Sans]">
         Find a new
-        <b className="text-smakorange text-5xl leading-8"> FLAVOR</b>
+        <b className="ml-2 text-smakorange text-5xl leading-8"> FLAVOR</b>
       </div>
       <div className="w-full mx-auto justify-center">
         <div 
@@ -50,51 +50,6 @@ export default function Search({ city, setCity, handleClick }) {
               },
               
             }}
-            
-            
-            // styles={{
-            //   container: {
-            //     flex: 1,
-            //   },
-            //   textInputContainer: {
-            //     flexDirection: 'row',
-            //   },
-            //   textInput: {
-            //     backgroundColor: '#FFFFFF',
-            //     height: 44,
-            //     borderRadius: 15,
-            //     paddingVertical: 5,
-            //     paddingHorizontal: 10,
-            //     fontSize: 15,
-            //     flex: 1,
-            //   },
-            //   poweredContainer: {
-            //     justifyContent: 'flex-end',
-            //     alignItems: 'center',
-            //     borderBottomRightRadius: 5,
-            //     borderBottomLeftRadius: 5,
-            //     borderColor: '#c8c7cc',
-            //     borderTopWidth: 0.5,
-            //   },
-            //   powered: {},
-            //   listView: {},
-            //   row: {
-            //     backgroundColor: '#FFFFFF',
-            //     padding: 13,
-            //     height: 44,
-            //     flexDirection: 'row',
-            //   },
-            //   separator: {
-            //     height: 0.5,
-            //     backgroundColor: '#c8c7cc',
-            //   },
-            //   description: {},
-            //   loader: {
-            //     flexDirection: 'row',
-            //     justifyContent: 'flex-end',
-            //     height: 20,
-            //   },
-            // }}
           />
           <div className="mt-8 inline-flex">
             <button
@@ -102,7 +57,7 @@ export default function Search({ city, setCity, handleClick }) {
               type="button"
               className=" py-0 px-0 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-xl focus:outline-none focus:ring-0 focus:ring-offset-0 rounded-br-xl rounded-tr-xl font-extrabold font-[Open Sans]  leading-8 focus:ring-smakHighlight border-[14px] border-[#b7324b] border-l-0"
             >
-              <FaSearch className="w-14 h-14 py-3 px-2 my-0 fill-white border-0 border-smakorange rounded-br-lg rounded-tr-lg bg-smakorange" />
+              <FaSearch className="w-14 h-14 py-4 px-2 my-0 fill-white border-0 border-smakorange rounded-br-lg rounded-tr-lg bg-smakorange" />
             </button>
           </div>
         </div>
