@@ -30,7 +30,7 @@ function Eliminate() {
       }}
     >
       <Form
-        className="w-full p-10 rounded-xl shadow-lg bg-gray-300 max-w-xl mb-5 border-[0.5rem] border-gray-400"
+        className="w-full p-10 rounded-xl shadow-lg bg-orange-200 max-w-xl mb-5 border-[0.5rem] border-orange-400"
         role="group"
         aria-labelledby="checkbox-group"
       >
@@ -46,7 +46,7 @@ function Eliminate() {
                   name="eliminate"
                   type="checkbox"
                   value={category}
-                  className="p-4 mr-2 rounded-full border-4 border-orange-400"
+                  className="p-4 mr-2 rounded-full border-4 border-orange-400 text-orange-400 focus:ring-orange-400 focus:border-gray-500"
                 />
                 {category[0].toUpperCase() + category.substring(1)}
               </label>
@@ -56,7 +56,7 @@ function Eliminate() {
         <ErrorMessage name="eliminate" render={renderError} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <button
-            className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+            className="rounded-xl bg-gray-600 hover:bg-gray-700 text-lg font-bold text-white my-2 p-3"
             type="button"
             onClick={() => {
               setActiveStepIndex(activeStepIndex - 1);
@@ -65,7 +65,7 @@ function Eliminate() {
             Back
           </button>
           <button
-            className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
+            className="rounded-xl bg-gray-800 hover:bg-gray-900 text-lg font-bold text-white my-2 p-3"
             type="submit"
           >
             Continue

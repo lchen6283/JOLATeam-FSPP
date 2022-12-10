@@ -13,7 +13,7 @@ const allowedOrigins = [
     'http://localhost:3010',
     'http://localhost:63836',
     'http://localhost:53075',
-    'http://localhost:55707',
+    'http://localhost:50602',
 ];
 
 module.exports = allowedOrigins;

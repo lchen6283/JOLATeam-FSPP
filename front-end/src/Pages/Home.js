@@ -281,11 +281,11 @@ export default function Home() {
               })}
             </div>
           </div>
-          <div className="w-full mt-8 rounded-md items-center text-center">
+          <div className="w-full mt-6 rounded-md items-center text-center">
             <button
               onClick={handleStart}
               type="button"
-              className="py-2 px-24 my-8 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] hover:bg-orange-400"
+              className="py-3 px-[8rem] my-6 bg-smakorange hover:bg-orange-400 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-xl font-extrabold font-[Open Sans] hover:bg-orange-400"
             >
               Start
             </button>

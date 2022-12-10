@@ -19,7 +19,7 @@ function Success() {
       })
       .catch((e) => console.log(e));
   };
-  console.log(pastOrders);
+  console.log(pastOrders[0]);
 
   return (
     <div>
@@ -28,7 +28,7 @@ function Success() {
       </h2>
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
         Your order from{" "}
-        {pastOrders[0] ? pastOrders[0].restaurant_id.name : null} is on its way!
+        {/* {pastOrders[0] ? pastOrders[0].restaurant_id.name : null} is on its way! */}
       </h2>
       <div className="w-3/4 grid grid-cols-2 gap-5 mx-auto ">
         <img

@@ -12,9 +12,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'smakorange':'#fbb02d',
-        'smaksalmon':'#f4978e',
-        'smakHighlight': '#ce4257', 
+        'smakorange':'#fbb02d', //fbb02d
+        'smaksalmon':'#e7968b', //f4978e
+        'smakHighlight': '#ce4257', //ce4257
         primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a"}
       },
       textShadow: {

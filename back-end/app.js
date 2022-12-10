@@ -4,7 +4,7 @@ const cors = require("cors");
 const corsOptions = require('./config/corsOptions');
 const axios = require("axios");
 const bcrypt = require("bcrypt");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+const stripe = require("stripe")("sk_test_51KsxPfEDJs1UCEIIKCtjkb7pvriBI1C5Zkp8yya3zc5ghlTKSTi4W56wBF2AYDrbxxGeDuItFatFGoLrEsQlRbAM002kHywyfv");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -15,14 +15,11 @@ const menusController = require("./controllers/menusController");
 const platesController = require("./controllers/platesController");
 
 
-//CONFIG
+
+// CONFIG
 const app = express();
 
-// app.use(function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   next();
-// });
+// MIDLEWARE
 app.use(cors(corsOptions));
 //app.use(cors({ credentials: true, origin: "*" }));
 
@@ -44,7 +41,7 @@ app.use("/orders", ordersController);
 app.use("/menus", menusController);
 app.use("/plates", platesController);
 
-//ROUTES
+// ROUTES
 app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
 });
@@ -60,24 +57,27 @@ app.use(bodyParser.json());
 //app.use(cors());
 
 app.post("/stripe/charge", cors(), async (req, res) => {
-  console.log("stripe-routes.js 9 | route reached", req.body);
+  console.log("Route reached", req.body);
   let { amount, id } = req.body;
-  console.log("stripe-routes.js 10 | amount and id", amount, id);
+  
+  console.log("Amount and id", amount, id);
   try {
     const payment = await stripe.paymentIntents.create({
+      payment_method_types: ["card"],
       amount: amount,
       currency: "USD",
       description: "Your Company Description",
       payment_method: id,
       confirm: true,
     });
-    console.log("stripe-routes.js 19 | payment", payment);
+
+    console.log("Payment", payment);
     res.json({
       message: "Payment Successful",
       success: true,
     });
   } catch (error) {
-    console.log("stripe-routes.js 17 | error", error);
+    console.log("Error", error);
     res.json({
       message: "Payment Failed",
       success: false,
