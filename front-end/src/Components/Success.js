@@ -21,9 +21,9 @@ function Success() {
       })
       .catch((e) => console.log(e));
   };
-  console.log(pastOrders[0]);
+  //
   const { finalOrderData } = useContext(FormContext);
-
+  console.log(finalOrderData);
   return (
     <div>
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
@@ -31,7 +31,7 @@ function Success() {
       </h2>
       <h2 className="my-20 text-center text-4xl font-extrabold text-smaksalmon dark:text-white">
         Your order from{" "}
-        {finalOrderData ? finalOrderData.restaurant_id.name : null} is on its
+        {finalOrderData ? finalOrderData.restaurant.name : null} is on its
         way!
       </h2>
       <div className="w-3/4 grid grid-cols-2 gap-5 mx-auto ">

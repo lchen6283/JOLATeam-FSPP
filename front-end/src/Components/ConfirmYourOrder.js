@@ -106,71 +106,77 @@ function ConfirmYourOrder() {
       });
   };
   return (
-    <Formik
-      initialValues={{}}
-      onSubmit={(values) => {
-        setActiveStepIndex(activeStepIndex + 1);
-        postNewOrder();
-      }}
-    >
-      <Form className="container mx-auto p-10 rounded-lg shadow-lg bg-gray-300  mb-5">
-        <div>
+    <div className="container mx-auto p-10 rounded-lg shadow-lg bg-orange-200 mb-5 border-[0.5rem] border-orange-400">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col px-10">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
             Order Details
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <div className="my-4 text-2xl font-bold text-smakHighlight dark:text-white">
-                Selected Package: ${formData.budget}
+          <Formik
+            initialValues={{}}
+            onSubmit={(values) => {
+              setActiveStepIndex(activeStepIndex + 1);
+              postNewOrder();
+            }}
+          >
+            <Form className="">
+              <div className="flex flex-col">
+                <div className="my-4 text-2xl font-bold text-smakHighlight dark:text-white">
+                  Selected Package: ${formData.budget}
+                </div>
+                <div className="my-0 text-xl font-semibold text-gray-600 dark:text-white">
+                  Will not include:
+                  {formData.eliminate.map((type, i) => {
+                    return <div key={i}>{type}</div>;
+                  })}
+                </div>
+                <div className="my-10 text-xl font-bold text-gray-600 dark:text-white">
+                  I'm in the mood for:
+                  {formData.choose.map((type, i) => {
+                    return (
+                      <div
+                        className="text-xl font-bold text-gray-600 dark:text-white"
+                        key={i}
+                      >
+                        * {type}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
+                  {(formData.notes) 
+                  ?
+                    <>My notes for the kitchen: {formData.notes}</>
+                  :
+                    <></>
+                  }
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <button
+                    className="w-full rounded-xl bg-gray-600 text-lg font-bold text-white my-2 p-3"
+                    type="button"
+                    onClick={() => {
+                      setActiveStepIndex(activeStepIndex - 1);
+                    }}
+                  >
+                    Back
+                  </button>
+                  <button
+                    className="hidden rounded-xl bg-gray-600 text-lg font-bold text-white my-2 p-3"
+                    type="submit"
+                  >
+                    Pay with Stripe
+                  </button>
+                </div>
               </div>
-              <div className="my-0 text-xl font-semibold text-gray-600 dark:text-white">
-                Will not include:
-                {formData.eliminate.map((type, i) => {
-                  return <div key={i}>{type}</div>;
-                })}
-              </div>
-              <div className="my-10 text-xl font-bold text-gray-600 dark:text-white">
-                I'm in the mood for:
-                {formData.choose.map((type, i) => {
-                  return (
-                    <div
-                      className="text-xl font-bold text-gray-600 dark:text-white"
-                      key={i}
-                    >
-                      * {type}
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
-                {formData.notes ? (
-                  <>My notes for the kitchen: {formData.notes}</>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <button
-                  className="w-full rounded-md bg-gray-600 font-bold text-white my-2 p-2"
-                  type="button"
-                  onClick={() => {
-                    setActiveStepIndex(activeStepIndex - 1);
-                  }}
-                >
-                  Back
-                </button>
-                <button
-                  className="rounded-md bg-gray-600 font-bold text-white my-2 p-2"
-                  type="submit"
-                >
-                  Pay with Stripe
-                </button>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <StripeContainer />
-            </div>
-          </div>
+            </Form>
+          </Formik>
+        </div>
+        <div className="flex flex-col px-20">
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
+            Pay with Stripe
+          </h2>
+          <StripeContainer postNewOrder={postNewOrder} />
         </div>
       </div>
     </div>

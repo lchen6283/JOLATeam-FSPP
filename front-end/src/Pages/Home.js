@@ -95,6 +95,7 @@ export default function Home() {
 
   return (
     <div className="h-full">
+      <ToastContainer />
       {/* M A I N - C A R O U S E L  */}
       <section className="text-center w-full">
         <div
@@ -255,7 +256,7 @@ export default function Home() {
       </section>
       {/* S E A R C H */}
       <section className="flex flex-row bg-smakHighlight p-10">
-        <div className="w-full md:w-1/2 px-10 sm:px-10 mx-auto py-8 items-center text-center">
+        <div className="sm:w-full md:w-full lg:w-1/2  px-10 sm:px-10 mx-auto py-8 items-center text-center">
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </section>

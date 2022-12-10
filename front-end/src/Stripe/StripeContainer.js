@@ -12,7 +12,7 @@ const Stripe = () => {
   return (
     <Elements 
       stripe={stripeTestPromise}
-      className="p-6 my-2 bg-white font-bold text-white"
+      className=""
     >
       <CheckoutForm />
     </Elements>

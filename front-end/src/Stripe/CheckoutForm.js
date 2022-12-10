@@ -67,12 +67,13 @@ export const CheckoutForm = (props) => {
   };
 
   return (
-    <>
+    <div 
+    className=" px-10 ">
       <ToastContainer/>
       <form 
       onSubmit={handleSubmit} 
       // style={{ maxWidth: 400 }}
-      className="w-full h-64 bg-white p-10 border-8 border-gray-200 rounded-lg"
+      className="w-full h-64 bg-white py-10 px-10 border-0 border-gray-200 rounded-xl"
       >
         
         <fieldset className="FormGroup p-0 ">
@@ -89,11 +90,11 @@ export const CheckoutForm = (props) => {
           </div>
         </fieldset>
         <button 
-          className="rounded-xl bg-smakHighlight font-bold text-white my-2 py-3 px-8"
+          className="w-full rounded-xl bg-smakHighlight text-xl font-bold text-white my-2 py-3 px-8"
         >
           Submit Pay
         </button>
       </form>
-    </>
+    </div>
   );
 };
