@@ -290,7 +290,7 @@ export default function Home() {
                   }
                 )}
               )} */}
-              <Gallery images={restaurants[0]} speed={20000} />
+              <Gallery restaurants={restaurants[0]} speed={20000} />
             </div>
           </div>
         </section>

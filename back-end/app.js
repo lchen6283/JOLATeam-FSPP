@@ -79,7 +79,7 @@ app.get("/yelp/:location", async (req, res) => {
   const { location } = req.params;
   const config = {
     method: "get",
-    url: `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${location}&limit=9`,
+    url: `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${location}&limit=20`,
     headers: {
       Authorization: `Bearer ${process.env.YELP_API_KEY}`,
       "Accept-Encoding": false,

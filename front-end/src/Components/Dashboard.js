@@ -261,7 +261,7 @@ const Dashboard = () => {
                       I've never been to this place wow how amazing was this
                       food omg omg omg.
                     </div>
-                    <div className="text-lg text-gray-600 font-md font-[Open Sans]">
+                    <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
                       Dec 04, 2022
                     </div>
                   </li>
@@ -288,7 +288,7 @@ const Dashboard = () => {
                     src="https://i.ibb.co/T1PX3tc/bocaphe.png"
                     alt=""
                   />
-                  <a href="#" className="text-main-color">
+                  <a href="#" className="block my-4 text-main-color font-bold">
                     BoCaphe
                   </a>
                 </div>
@@ -298,7 +298,7 @@ const Dashboard = () => {
                     src="https://i.ibb.co/d22pD9z/Boqueria-Soho.png"
                     alt=""
                   />
-                  <a href="#" className="text-main-color">
+                  <a href="#" className="block my-4 text-main-color font-bold">
                     Boqueria Soho
                   </a>
                 </div>
@@ -308,7 +308,7 @@ const Dashboard = () => {
                     src="https://i.ibb.co/zb1fKHF/Jackswifefrieda.png"
                     alt=""
                   />
-                  <a href="#" className="text-main-color">
+                  <a href="#" className="block my-4 text-main-color font-bold">
                     Jack's Wife Frieda
                   </a>
                 </div>
