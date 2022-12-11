@@ -102,7 +102,7 @@ const Dashboard = () => {
               {/* H E A D E R */}
               <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
                 <FaUser className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
                   About
                 </span>
               </div>
@@ -180,13 +180,13 @@ const Dashboard = () => {
               {/* H E A D E R */}
               <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
                 <FaRegCopy className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
                   Orders History
                 </span>
               </div>
               <div className="w-full flex-row">
                 <ul className="list-inside space-y-2">
-                  <li className="p-2">
+                  <li className="p-6">
                     <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
                       Jack's Wife Frieda
                     </div>
@@ -205,7 +205,7 @@ const Dashboard = () => {
                     </button>
                     {/*<!-- Modal toggle -->*/}
                   </li>
-                  <li className="p-2">
+                  <li className="p-6">
                     <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
                       Cabo Rockville Centre
                     </div>
@@ -231,43 +231,41 @@ const Dashboard = () => {
               {/* H E A D E R */}
               <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
                 <FaFileSignature className="w-6 h-6 py-0 px-0 my-1  mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
                   Reviews History
                 </span>
               </div>
               <div className="flex flex-row">
-                <div>
-                  <ul className="w-full list-inside space-y-2">
-                    <li className="p-4">
-                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
-                        Great experience!
-                      </div>
-                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                        I can't believe how great Boqueria Soho was, wow I am
-                        absolutely amazed by the food quality. SMAK sent me
-                        amazing patatas bravas, and probably one of the best
-                        paellas I've ever had. To think I was gonna get the same
-                        ol' stuff again. Thank god I found SMAK.
-                      </div>
-                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">
-                        Dec 04, 2022
-                      </div>
-                    </li>
-                    <li className="p-4">
-                      <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
-                        Definitely a life changing{" "}
-                      </div>
-                      <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                        Where has BoCaphe been my whole life? I can't believe
-                        I've never been to this place wow how amazing was this
-                        food omg omg omg.
-                      </div>
-                      <div className="text-lg text-gray-600 font-sm font-[Open Sans]">
-                        Dec 04, 2022
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="w-full list-inside space-y-2">
+                  <li className="p-6">
+                    <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
+                      Great experience!
+                    </div>
+                    <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                      I can't believe how great Boqueria Soho was, wow I am
+                      absolutely amazed by the food quality. SMAK sent me
+                      amazing patatas bravas, and probably one of the best
+                      paellas I've ever had. To think I was gonna get the same
+                      ol' stuff again. Thank god I found SMAK.
+                    </div>
+                    <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
+                      Dec 04, 2022
+                    </div>
+                  </li>
+                  <li className="p-6">
+                    <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
+                      Definitely a life changing{" "}
+                    </div>
+                    <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                      Where has BoCaphe been my whole life? I can't believe
+                      I've never been to this place wow how amazing was this
+                      food omg omg omg.
+                    </div>
+                    <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
+                      Dec 04, 2022
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
             <div className="my-8"></div>
@@ -275,7 +273,7 @@ const Dashboard = () => {
               {/* H E A D E R */}
               <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
                 <RiShieldStarLine className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
                   User Badges
                 </span>
               </div>
@@ -290,7 +288,7 @@ const Dashboard = () => {
                     src="https://i.ibb.co/T1PX3tc/bocaphe.png"
                     alt=""
                   />
-                  <a href="#" className="text-main-color">
+                  <a href="#" className="block my-4 text-main-color font-bold">
                     BoCaphe
                   </a>
                 </div>
@@ -300,7 +298,7 @@ const Dashboard = () => {
                     src="https://i.ibb.co/d22pD9z/Boqueria-Soho.png"
                     alt=""
                   />
-                  <a href="#" className="text-main-color">
+                  <a href="#" className="block my-4 text-main-color font-bold">
                     Boqueria Soho
                   </a>
                 </div>
@@ -310,7 +308,7 @@ const Dashboard = () => {
                     src="https://i.ibb.co/zb1fKHF/Jackswifefrieda.png"
                     alt=""
                   />
-                  <a href="#" className="text-main-color">
+                  <a href="#" className="block my-4 text-main-color font-bold">
                     Jack's Wife Frieda
                   </a>
                 </div>
