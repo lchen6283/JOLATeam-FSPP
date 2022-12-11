@@ -2,6 +2,7 @@ import React from "react";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 const MAP_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const libraries = ["places"];
+console.log(MAP_API_KEY)
 
 function MapImage({ latitude, longitude }) {
   const coordinates = { lat: Number(latitude), lng: Number(longitude) };

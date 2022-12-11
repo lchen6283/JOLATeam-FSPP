@@ -30,6 +30,16 @@
   color: #61dafb;
 }
 
+.css-2b097c-container {
+  border-radius: 15px 0 0 15px !important;
+  border: 15px #b7324b solid;
+  border-right: 0;
+}
+.css-yk16xz-control {
+  border-radius: 6px 0 0 6px !important;
+  border: 0px #fbb02d solid !important;  
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -4,6 +4,8 @@ const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
 const axios = require("axios");
 const bcrypt = require("bcrypt");
+const stripe = require("stripe")("sk_test_51KsxPfEDJs1UCEIIKCtjkb7pvriBI1C5Zkp8yya3zc5ghlTKSTi4W56wBF2AYDrbxxGeDuItFatFGoLrEsQlRbAM002kHywyfv");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const usersController = require("./controllers/usersController");
@@ -12,14 +14,12 @@ const ordersController = require("./controllers/ordersController");
 const menusController = require("./controllers/menusController");
 const platesController = require("./controllers/platesController");
 
-//CONFIG
+
+
+// CONFIG
 const app = express();
 
-// app.use(function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   next();
-// });
+// MIDLEWARE
 app.use(cors(corsOptions));
 //app.use(cors({ credentials: true, origin: "*" }));
 
@@ -41,14 +41,51 @@ app.use("/orders", ordersController);
 app.use("/menus", menusController);
 app.use("/plates", platesController);
 
-//ROUTES
-app.use("/auth", require("./routes/jwtAuth"));
-app.use("/dashboard", require("./routes/dashboard"));
-
+// ROUTES
 app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
 });
 
+
+app.use("/auth", require("./routes/jwtAuth"));
+app.use("/dashboard", require("./routes/dashboard"));
+
+
+// S T R I P E
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+//app.use(cors());
+
+app.post("/stripe/charge", cors(), async (req, res) => {
+  console.log("Route reached", req.body);
+  let { amount, id } = req.body;
+  
+  console.log("Amount and id", amount, id);
+  try {
+    const payment = await stripe.paymentIntents.create({
+      payment_method_types: ["card"],
+      amount: amount,
+      currency: "USD",
+      description: "Your Company Description",
+      payment_method: id,
+      confirm: true,
+    });
+
+    console.log("Payment", payment);
+    res.json({
+      message: "Payment Successful",
+      success: true,
+    });
+  } catch (error) {
+    console.log("Error", error);
+    res.json({
+      message: "Payment Failed",
+      success: false,
+    });
+  }
+});
+
+// Y E L P
 const { formatted } = require("./validators/yelpvalidators");
 
 app.get("/yelp/:location", async (req, res) => {

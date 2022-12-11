@@ -103,7 +103,7 @@ function Basic() {
     } else {
       return (
         <div className="text-3xl flex flex-row text-center">
-          <div className="mx-auto">🤤</div>
+          <div className="mx-auto"></div>
         </div>
       );
     }
@@ -122,7 +122,7 @@ function Basic() {
       }}
     >
       {({ values }) => (
-        <Form className="w-full p-10 rounded-xl shadow-lg bg-gray-300 max-w-xl mb-5 border-[0.5rem] border-gray-400">
+        <Form className="w-full p-10 rounded-xl shadow-lg bg-orange-200 max-w-xl mb-5 border-[0.5rem] border-orange-400">
           <div className="mg6">
             <div className="flex flex-col mb-2">
               <label
@@ -150,7 +150,7 @@ function Basic() {
             />
             <div>{packageLegend(values.budget)}</div>
             <button
-              className="w-full p-2 rounded-md bg-gray-600 font-bold text-white text-lg"
+              className="w-full p-3 my-2 rounded-xl bg-gray-600 font-bold text-white text-xl"
               type="submit"
             >
               Continue

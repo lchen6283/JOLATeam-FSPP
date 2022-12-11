@@ -48,8 +48,10 @@ export default function Home() {
   };
 
   // H A N D L E R S
-  const handleClick = async () => {
+  const handleClick = async (e) => {
     //
+    console.log(e.target.value)
+
     const id = toast.loading("Searching...", {
       position: toast.POSITION.TOP_CENTER,
     });
@@ -87,11 +89,12 @@ export default function Home() {
     // Refreshing data to local storage
     localStorage.removeItem("searchResults");
     localStorage.setItem("searchResults", JSON.stringify(restaurants));
-    navigate("/survey/orderconfirmation");
+    navigate("/order");
   };
 
   return (
     <div className="h-full">
+      <ToastContainer />
       {/* M A I N - C A R O U S E L  */}
       <section className="text-center w-full">
         <div
@@ -252,16 +255,25 @@ export default function Home() {
       </section>
       {/* S E A R C H */}
       <section className="flex flex-row bg-smakHighlight p-10">
-        <div className="w-full md:w-1/2 px-10 sm:px-10 mx-auto py-8 items-center text-center">
+        <div className="sm:w-full md:w-full lg:w-1/2  px-10 sm:px-10 mx-auto py-0 items-center text-center">
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </section>
       {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
-        <section className="pb-10  bg-smakHighlight ">
-          <div className="mb-6 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-            <b className="text-smakorange text-[5rem] leading-8"></b> Let's see
-            all your options!
+        <section className="py-10 bg-gray-600 ">
+          <div className="w-full mt-0 rounded-md items-center text-center">
+            <div className="mb-4 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
+              <b className="text-smakorange text-4xl leading-4"></b> 
+              Your possible matches!
+            </div>
+            <button
+              onClick={handleStart}
+              type="button"
+              className="py-3 px-[8rem] my-6 bg-[#b7324b] hover:bg-orange-400 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-xl font-extrabold font-[Open Sans] border-smakorange border-4"
+            >
+              Start
+            </button>
           </div>
           <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
             <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
@@ -278,15 +290,7 @@ export default function Home() {
               })}
             </div>
           </div>
-          <div className="w-full mt-8 rounded-md items-center text-center">
-            <button
-              onClick={handleStart}
-              type="button"
-              className="py-2 px-24 my-8 bg-smakorange hover:opacity-75 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-2xl font-extrabold font-[Open Sans] hover:bg-orange-400"
-            >
-              Start
-            </button>
-          </div>
+          
         </section>
       ) : (
         <section></section>

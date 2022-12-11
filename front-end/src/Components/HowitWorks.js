@@ -8,15 +8,15 @@ export default function HowitWorks() {
   return (
     <div className="w-full py-10 px-0 md:mt-0 bg-white">
       <div className="container mx-auto">
-        <h2 className="py-8 text-smaksalmon text-4xl md:text-5xl font-extrabold font-[Open Sans] text-center ">
+        <h2 className="py-8 text-smakHighlight text-4xl md:text-5xl font-extrabold font-[Open Sans] text-center ">
           How Does It Work?
         </h2>
-        <div className="flex flex-row p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div className=" pt-4 pb-6 px-4 border-gray-400 bg-smaksalmon border-0 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] ">
-              <GoLocation className="w-full h-32 my-4 fill-white  " />
+        <div className="flex flex-row py-10 px-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+            <div className=" pt-2 pb-6 px-4 border-smakHighlight bg-smaksalmon border-2 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] ">
+              <GoLocation className="w-32 mx-auto h-32 py-0 px-0 my-4 fill-smakHighlight border-smakHighlight border-0 rounded-full" />
               <div className="flex-row">
-                <h4 className="my-4 text-2xl text-white text-center font-extrabold font-[Open Sans]">
+                <h4 className="my-2 text-3xl text-white text-center font-extrabold font-[Open Sans]">
                   Find Nearby
                   <br />
                   Restaurants
@@ -26,23 +26,22 @@ export default function HowitWorks() {
                 </p>
               </div>
             </div>
-            <div className=" pt-4 pb-6 px-4 border-gray-400 bg-smaksalmon border-0 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] ">
-              <FaConciergeBell className="w-full h-32 my-4 fill-white  " />
+            <div className=" pt-2 pb-6 px-4 border-smakHighlight bg-smaksalmon border-2 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] ">
+              <FaConciergeBell className="w-32 mx-auto h-32 py-2 px-2 my-4 fill-smakHighlight rounded-xl border-smakHighlight border-0" />
               <div className="flex-row">
-                <h4 className="my-4 text-2xl text-white text-center font-extrabold font-[Open Sans]">
+                <h4 className="my-2 text-3xl text-white text-center font-extrabold font-[Open Sans]">
                   Get <br />
                   Matched
                 </h4>
                 <p className=" text-xl text-white text-center font-medium">
-                  Take our quiz, skip the menu and find your new favorite
-                  restaurant.
+                  Take our quiz, skip the menu and create your order.
                 </p>
               </div>
             </div>
-            <div className=" pt-4 pb-6 px-4 border-gray-400 bg-smaksalmon border-0 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)]">
-              <GiTakeMyMoney className="w-full h-32 my-4 fill-white  " />
+            <div className=" pt-2 pb-6 px-4 border-smakHighlight bg-smaksalmon border-2 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)]">
+              <GiTakeMyMoney className="w-32 mx-auto h-32 py-2 px-2 my-4 fill-smakHighlight rounded-xl border-smakHighlight border-0" />
               <div className="flex-row">
-                <h4 className="my-4 text-2xl text-white text-center font-extrabold font-[Open Sans]">
+                <h4 className="my-2 text-3xl text-white text-center font-extrabold font-[Open Sans]">
                   Checkout <br /> Made Easy
                 </h4>
                 <p className=" text-xl text-white text-center font-medium">
@@ -50,10 +49,10 @@ export default function HowitWorks() {
                 </p>
               </div>
             </div>
-            <div className=" pt-4 pb-6 px-4 border-gray-400 bg-smaksalmon border-0 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] ">
-              <GiFullPizza className="w-full h-32 my-4 fill-white " />
+            <div className=" pt-2 pb-6 px-4 border-smakHighlight bg-smaksalmon border-2 py-4 px-4 rounded-3xl items-center text-center shadow-[0_8px_1px_1px_rgb(251,176,45)] ">
+              <GiFullPizza className="w-32 mx-auto h-32 py-2 px-2 my-4 fill-smakHighlight rounded-xl border-smakHighlight border-0" />
               <div className="flex-row">
-                <h4 className="my-4 text-2xl text-white text-center font-extrabold font-[Open Sans]">
+                <h4 className="my-2 text-3xl text-white text-center font-extrabold font-[Open Sans]">
                   Enjoy Your
                   <br /> Meal!
                 </h4>
