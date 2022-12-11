@@ -35,7 +35,7 @@ function ConfirmYourOrder() {
   } = useContext(FormContext);
 
   let [menuItems, setMenuitems] = useState([]);
-  const id = auth.data.id ? auth.data.id : 2;
+  const id = auth.data ? auth.data.id : "2";
   const restaurantPicker = (list, apiObj, survey) => {
     if (!formData.choose && !formData.eliminate) {
       console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
