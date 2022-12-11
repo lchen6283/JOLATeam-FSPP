@@ -4,7 +4,6 @@ const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
 const axios = require("axios");
 const bcrypt = require("bcrypt");
-const stripe = require("stripe")("sk_test_51KsxPfEDJs1UCEIIKCtjkb7pvriBI1C5Zkp8yya3zc5ghlTKSTi4W56wBF2AYDrbxxGeDuItFatFGoLrEsQlRbAM002kHywyfv");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -14,26 +13,14 @@ const ordersController = require("./controllers/ordersController");
 const menusController = require("./controllers/menusController");
 const platesController = require("./controllers/platesController");
 
-
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // CONFIG
 const app = express();
 
 // MIDLEWARE
 app.use(cors(corsOptions));
-//app.use(cors({ credentials: true, origin: "*" }));
 
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authortization');
-//   res.setHeader('Acces-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
-// });
-// app.use(cors({
-//   origin: '*', // use your actual domain name (or localhost), using * is not recommended
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
-//   credentials: true
-// }))
 app.use(express.json());
 app.use("/users", usersController);
 app.use("/reviews", reviewsController);

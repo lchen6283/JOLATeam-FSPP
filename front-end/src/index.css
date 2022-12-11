@@ -5,17 +5,17 @@
 
 @keyframes marquee {
 	0% {
-		left: 0;
+		left: 1000%;
 	}
 	100% {
-		left: -900%;
+		left: -1000%;
 	}
 }
 .animate {
-	width: 4000%;
+	width: 1000%;
 	animation: marquee 40s linear infinite;
 	top: 50%;
-	transform: translate(0, -50%);
+	transform: translate(0, -200%);
 }
 .image img {
 	width: 30rem;
@@ -32,7 +32,7 @@
 		}
 	}
 	.animate {
-		width: 300%;
+		width: 290%;
 		animation: marquee 20s linear infinite;
 		top: 50%;
 		transform: translate(0, -50%);

@@ -4,6 +4,11 @@ import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { FaUser } from "@react-icons/all-files/fa/FaUser";
+import { FaRegCopy } from "@react-icons/all-files/fa/FaRegCopy";
+import { FaFileSignature } from "@react-icons/all-files/fa/FaFileSignature";
+import { RiShieldStarLine } from "@react-icons/all-files/ri/RiShieldStarLine";
+
 import "react-toastify/dist/ReactToastify.css";
 
 const API = process.env.REACT_APP_API_URL;
@@ -59,11 +64,11 @@ const Dashboard = () => {
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
         <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
-          <div className="w-full md:mx-4 ">
-            <div className="bg-white p-3 rounded border-t-0 border-yellow-200">
+          <div className="col-span-1">
+            <div className="bg-white p-0 lg:mr-4">
               <div className="">
                 <img
-                  className="h-auto w-full mx-auto rounded-lg border-[1rem] border-gray-200"
+                  className="h-auto w-full mx-auto rounded-lg border-[12px] border-gray-200"
                   src="https://fakeface.rest/face/view/55?gender=female&minimum_age=20&maximum_age=30"
                   alt=""
                 />
@@ -92,198 +97,146 @@ const Dashboard = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-3/2 mx-2 px-4">
+          <div className="col-span-2">
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
-              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 border-b-2">
-                <span clas="text-green-500">
-                  <svg
-                    className="h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
-                </span>
-                <span className="py-2 tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
+              {/* H E A D E R */}
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
+                <FaUser className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
                   About
                 </span>
               </div>
               <div className="my-2 text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      First Name: <br />
+                  <div className="flex flex-row my-2">
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
+                      First Name:
+                    </div>
+                    <div 
+                      className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                      {/* {auth.firstName} */}
                       Piper
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.firstName}
-                    </div>
                   </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Last Name: <br />
+                  <div className="flex flex-row my-2">
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
+                      Last Name:
+                    </div>
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                      {/* {auth.lastName} */}
                       Williams
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.lastName}
-                    </div>
                   </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Phone Number: <br />
+                  <div className="flex flex-row my-2">
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
+                      Phone Number:
+                    </div>
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                      {/* {auth.phonenumber} */}
                       718-987-654
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      {" "}
-                      {auth.phonenumber}
-                    </div>
                   </div>
-                  <div>
+                  <div className="flex flex-row  my-2">
                     {/* <div className="grid grid-cols-2"> */}
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Address: <br />
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
+                      Address:
+                    </div>
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                      {/* {auth.address} {auth.city} */}
                       529 Broadway Apt 2F, New York, New York
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.address} {auth.city}
-                    </div>
                   </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Zip: <br />
+                  <div className="flex flex-row  my-2">
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
+                      Zip:
+                    </div>
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                      {/* {auth.zip} */}
                       10012
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.zip}
-                    </div>
                   </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 text-lg font-semibold font-[Open Sans]">
-                      Email: <br />
-                      pWilliams0735@gmail.com
+                  <div className="flex flex-row  my-2">
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800  font-[Open Sans]">
+                      Email:
                     </div>
-                    <div className="px-4 py-2 text-lg text-gray-400 font-semibold font-[Open Sans]">
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
                       <a
                         className="text-blue-800"
                         href="mailto:jane@example.com"
                       >
-                        {auth.userName}
+                        {/* {auth.userName} */}
+                        pWilliams0735@gmail.com
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <button className="block px-4 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+              <button className="block px-4 text-white text-md font-semibold rounded-lg bg-gray-600 hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
                 Edit Profile Information
               </button>
             </div>
-
             <div className="my-8"></div>
-
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
+              {/* H E A D E R */}
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
+                <FaRegCopy className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                  Orders History
+                </span>
+              </div>
               <div className="w-full flex-row">
-                <div>
-                  <div className="flex items-center py-2 space-x-2 font-semibold text-gray-900 leading-8 mb-3 border-b-2">
-                    <span clas="text-green-500">
-                      <svg
-                        className="h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
-                      Recent Orders
-                    </span>
-                  </div>
-                  <ul className="list-inside space-y-2">
-                    <li className="p-2">
-                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
-                        Jack's Wife Frieda
-                      </div>
-                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">
-                        Budget $150
-                      </div>
-                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
-                        Dec 07, 2022
-                      </div>
-                      <button
-                        className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
-                        type="button"
-                        data-modal-toggle="defaultModal"
-                      >
-                        View Details
-                      </button>
-                      {/*<!-- Modal toggle -->*/}
-                    </li>
-                    <li className="p-2">
-                      <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
-                        Cabo Rockville Centre
-                      </div>
-                      <div className="text-gray-500 text-md font-bold font-[Open Sans]">
-                        Budget $100
-                      </div>
-                      <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
-                        Nov 25, 2022
-                      </div>
-                      <button
-                        className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
-                        type="button"
-                        data-modal-toggle="defaultModal"
-                      >
-                        View Details
-                      </button>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="list-inside space-y-2">
+                  <li className="p-2">
+                    <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
+                      Jack's Wife Frieda
+                    </div>
+                    <div className="text-gray-500 text-md font-bold font-[Open Sans]">
+                      Budget $150
+                    </div>
+                    <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
+                      Dec 07, 2022
+                    </div>
+                    <button
+                      className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
+                      type="button"
+                      data-modal-toggle="defaultModal"
+                    >
+                      View Details
+                    </button>
+                    {/*<!-- Modal toggle -->*/}
+                  </li>
+                  <li className="p-2">
+                    <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
+                      Cabo Rockville Centre
+                    </div>
+                    <div className="text-gray-500 text-md font-bold font-[Open Sans]">
+                      Budget $100
+                    </div>
+                    <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
+                      Nov 25, 2022
+                    </div>
+                    <button
+                      className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
+                      type="button"
+                      data-modal-toggle="defaultModal"
+                    >
+                      View Details
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
-
             <div className="my-8"></div>
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
+              {/* H E A D E R */}
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
+                <FaFileSignature className="w-6 h-6 py-0 px-0 my-1  mx-2 fill-gray-600 border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                  Reviews History
+                </span>
+              </div>
               <div className="flex flex-row">
                 <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-2">
-                    <span clas="text-green-500">
-                      <svg
-                        className="h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path
-                          fill="#fff"
-                          d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                        />
-                      </svg>
-                    </span>
-                    <span className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
-                      Recent Reviews
-                    </span>
-                  </div>
                   <ul className="w-full list-inside space-y-2">
                     <li className="p-4">
                       <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
@@ -318,30 +271,20 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="my-8"></div>
-            <div className="bg-white p-3 hover:shadow">
-              <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                <span className="text-green-500">
-                  <svg
-                    className="h-5 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </span>
-                <span className="tracking-wide text-2xl text-gray-600 font-extrabold font-[Open Sans]">
-                  Badges
+            <div className="g-white p-4 shadow-lg rounded-md border-gray-200 border-2">
+              {/* H E A D E R */}
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
+                <RiShieldStarLine className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-2xl text-gray-600 font-bold font-[Open Sans]">
+                  User Badges
                 </span>
               </div>
+
+              <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                
+              </div>
               <div className="grid grid-cols-3">
-                <div className="text-center my-2">
+                <div className="p-4 text-center my-2">
                   <img
                     className="h-16 w-16 rounded-full mx-auto"
                     src="https://i.ibb.co/T1PX3tc/bocaphe.png"
@@ -351,7 +294,7 @@ const Dashboard = () => {
                     BoCaphe
                   </a>
                 </div>
-                <div className="text-center my-2">
+                <div className="p-4 text-center my-2">
                   <img
                     className="h-16 w-16 rounded-full mx-auto"
                     src="https://i.ibb.co/d22pD9z/Boqueria-Soho.png"
@@ -361,7 +304,7 @@ const Dashboard = () => {
                     Boqueria Soho
                   </a>
                 </div>
-                <div className="text-center my-2">
+                <div className="p-4 text-center my-2">
                   <img
                     className="h-16 w-16 rounded-full mx-auto"
                     src="https://i.ibb.co/zb1fKHF/Jackswifefrieda.png"

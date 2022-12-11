@@ -6,6 +6,7 @@ import Search from "../Components/Search";
 import Reviews from "../Components/Reviews";
 import AboutHome from "../Components/AboutHome";
 import HowitWorks from "../Components/HowitWorks";
+import { Gallery } from "../Components/Gallery";
 import useAuth from "../hooks/useAuth";
 
 import banner01 from "../assets/Food_Images/Banner_01.png";
@@ -19,11 +20,13 @@ const API = process.env.REACT_APP_API_URL;
 export default function Home() {
   //const { auth } = useAuth();
   const ref = useRef(null);
-
+  let navigate = useNavigate();
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
+  let [searchResults, setSearchResults] = useState({});
   const [reviews, setReviews] = useState([]);
-  let navigate = useNavigate();
+  let images = [];
+  
 
   useEffect(() => {
     getAllReviews();
@@ -259,8 +262,10 @@ export default function Home() {
           <Search setCity={setCity} city={city} handleClick={handleClick} />
         </div>
       </section>
+      {/* {console.log(restaurants[0])} */}
       {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
+
         <section className="py-10 bg-gray-600 ">
           <div className="w-full mt-0 rounded-md items-center text-center">
             <div className="mb-4 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
@@ -275,22 +280,19 @@ export default function Home() {
               Start
             </button>
           </div>
-          <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
-            <div className="grid grid-cols-9 grid-flow-row auto-rows-max animate absolute left-0">
-              {restaurants.map((restaurant, i) => {
-                return (
-                  <div className="image" key={i}>
-                    <img
-                      alt="gallery"
-                      className="block object-cover object-center w-full h-60 rounded-lg"
-                      src={restaurant.image_url}
-                    />
-                  </div>
-                );
-              })}
+          <div className="w-full h-64 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
+            <div className="">
+              {/* {restaurants.map((restaurant) => {
+                setSearchResults(
+                  {
+                    'image': restaurant.image_url,
+                    'category': restaurant.matchedcategory
+                  }
+                )}
+              )} */}
+              <Gallery images={restaurants[0]} speed={20000} />
             </div>
           </div>
-          
         </section>
       ) : (
         <section></section>
