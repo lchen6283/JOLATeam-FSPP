@@ -20,6 +20,7 @@ const Dashboard = () => {
   //
   let [pastOrders, setPastOrders] = useState([]);
   console.log(auth);
+  let id = auth.data ? auth.data.id : "2";
   useEffect(() => {
     getOrders();
 
@@ -32,7 +33,7 @@ const Dashboard = () => {
   }, []);
   const getOrders = async () => {
     await axios
-      .get(`${API}/users/${auth.data.id || "2"}/orders`)
+      .get(`${API}/users/${id}/orders`)
       .then((res) => {
         setPastOrders(res.data);
       })
@@ -75,7 +76,7 @@ const Dashboard = () => {
                 />
               </div>
               <h1 className="my-4 text-3xl text-gray-600 font-extrabold font-[Open Sans]">
-                {auth.data.firstname || "Piper"}
+                {auth.data ? auth.data.firstname : "Piper"}
               </h1>
               <div className="py-4 ml-2 ">
                 <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
@@ -114,7 +115,7 @@ const Dashboard = () => {
                       First Name:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.data.firstname || "Piper"}
+                      {auth.data ? auth.data.firstname : "Piper"}
                     </div>
                   </div>
                   <div className="flex flex-row my-2">
@@ -122,7 +123,7 @@ const Dashboard = () => {
                       Last Name:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.lastname || "Williams"}
+                      {auth.data ? auth.data.lastname : "Williams"}
                       Williams
                     </div>
                   </div>
@@ -131,7 +132,7 @@ const Dashboard = () => {
                       Phone Number:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.data.phonenumber || "(718)-987-654"}
+                      {auth.data ? auth.data.phonenumber : "(718)-987-654"}
                     </div>
                   </div>
                   <div className="flex flex-row  my-2">
@@ -140,7 +141,7 @@ const Dashboard = () => {
                       Address:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.data.address
+                      {auth.data
                         ? `${auth.data.address} ${auth.data.city}`
                         : "529 Broadway Apt 2F, New York, New York"}
                     </div>
@@ -150,7 +151,7 @@ const Dashboard = () => {
                       Zip:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {auth.data.zip || "10012"}
+                      {auth.data ? auth.data.zip : "10012"}
                     </div>
                   </div>
                   <div className="flex flex-row  my-2">
@@ -162,7 +163,9 @@ const Dashboard = () => {
                         className="text-blue-800"
                         href="mailto:jane@example.com"
                       >
-                        {auth.data.username || "pWilliams0735@gmail.com"}
+                        {auth.data
+                          ? auth.data.username
+                          : "pWilliams0735@gmail.com"}
                       </a>
                     </div>
                   </div>
@@ -181,19 +184,10 @@ const Dashboard = () => {
                   Orders History
                 </span>
               </div>
-              <label for="underline_select" class="sr-only">
+              <label htmlFor="underline_select" className="sr-only">
                 Underline select
               </label>
-              <select
-                id="underline_select"
-                class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-              >
-                <option selected>Choose an order</option>
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
-                <option value="FR">France</option>
-                <option value="DE">Germany</option>
-              </select>
+
               {/*MAP HERE */}
               <div className="w-full flex-row">
                 <ul className="list-inside space-y-2">
