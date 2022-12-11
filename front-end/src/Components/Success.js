@@ -39,8 +39,6 @@ function Success() {
         </div>
         <div className="flex flex-col ">
         <div className="w-full h-96 p-10 ">
-       
-          
           <MapImage
             latitude={finalOrderData.restaurant_id.coordinates.latitude}
             longitude={finalOrderData.restaurant_id.coordinates.longitude}
