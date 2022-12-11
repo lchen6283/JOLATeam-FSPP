@@ -2,25 +2,28 @@ import { Field, Form, Formik } from "formik";
 import React, { useContext, useState, useEffect } from "react";
 import StripeContainer from "../Stripe/StripeContainer";
 import { FormContext } from "../Pages/OrderConfirmation";
+import AuthContext from "../context/AuthProvider";
+import useAuth from "../hooks/useAuth";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
-const id = 2;
 let created_at = new Date().toISOString().slice(0, 19).replace("T", " ");
 
 const list = [
-  { word: "zesty", menu: ["mediterranean", "mexican"] },
-  { word: "rich", menu: ["french", "italian"] },
+  { word: "zesty", menu: ["mediterranean", "mexican", "latin"] },
+  { word: "rich", menu: ["french", "italian", "chinese"] },
   { word: "creamy", menu: ["italian", "french"] },
   { word: "hearty", menu: ["spanish", "other"] },
-  { word: "crunchy", menu: ["other", "korean"] },
+  { word: "crunchy", menu: ["other", "korean", "japanese"] },
   { word: "sweet", menu: ["newamerican", "thai"] },
   { word: "savory", menu: ["spanish", "korean"] },
-  { word: "comfort", menu: ["american", "vietnamese"] },
-  { word: "fresh", menu: ["mediterranean", "vietnamese"] },
+  { word: "comfort", menu: ["american", "vietnamese", "cocktailbars"] },
+  { word: "fresh", menu: ["mediterranean", "vietnamese", "seafood"] },
 ];
 
 function ConfirmYourOrder() {
+  const { setAuth } = useContext(AuthContext);
+  const { auth } = useAuth();
   const {
     apiData,
     activeStepIndex,
@@ -32,7 +35,7 @@ function ConfirmYourOrder() {
   } = useContext(FormContext);
 
   let [menuItems, setMenuitems] = useState([]);
-
+  const id = auth.data.id ? auth.data.id : 2;
   const restaurantPicker = (list, apiObj, survey) => {
     if (!formData.choose && !formData.eliminate) {
       console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
@@ -40,8 +43,8 @@ function ConfirmYourOrder() {
     //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
     let postElimination = apiObj.filter(
       (e) =>
-        e.matchedcategory !== survey.eliminate[0] &&
-        e.matchedcategory !== survey.eliminate[1]
+        e.matchedcategory.type !== survey.eliminate[0] &&
+        e.matchedcategory.type !== survey.eliminate[1]
     );
     let wordAssociationCuisines = list
       .filter((e) => survey.choose.includes(e.word))
@@ -49,7 +52,7 @@ function ConfirmYourOrder() {
       .flat();
 
     let finalChoice = postElimination.filter((restaurant) =>
-      wordAssociationCuisines.includes(restaurant.matchedcategory)
+      wordAssociationCuisines.includes(restaurant.matchedcategory.type)
     );
     let chosenRestaurant = {};
     if (finalChoice.length === 1) {
@@ -65,13 +68,12 @@ function ConfirmYourOrder() {
   };
   let restaurant = restaurantPicker(list, apiData, formData);
   useEffect(() => {
-    
     fetching();
   }, []);
 
   const fetching = async () => {
     const { data } = await axios.get(
-      `${API}/menus/${restaurant.matchedcategory}/plates/${formData.budget}`
+      `${API}/menus/${restaurant.matchedcategory.type}/plates/${formData.budget}`
     );
     let items = data.payload.map((item) => {
       return { type: item.dish_type, name: item.name };
@@ -100,8 +102,8 @@ function ConfirmYourOrder() {
       userid: 2,
     };
 
-    console.log(formData)
-    console.log(objNonParsed)
+    console.log(formData);
+    console.log(objNonParsed);
     setFinalOrderData(objNonParsed);
     //
     axios
@@ -113,7 +115,6 @@ function ConfirmYourOrder() {
         console.log(e);
       });
   };
-
 
   return (
     <div className="container mx-auto p-10 rounded-lg shadow-lg bg-orange-200 mb-5 border-[0.5rem] border-orange-400">
@@ -154,12 +155,11 @@ function ConfirmYourOrder() {
                   })}
                 </div>
                 <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
-                  {(formData.notes) 
-                  ?
+                  {formData.notes ? (
                     <>My notes for the kitchen: {formData.notes}</>
-                  :
+                  ) : (
                     <></>
-                  }
+                  )}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <button
