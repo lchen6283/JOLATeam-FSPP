@@ -14,6 +14,7 @@ import banner02 from "../assets/Food_Images/Banner_02.png";
 import banner03 from "../assets/Food_Images/Banner_03.png";
 
 import axios from "axios";
+import { array } from "yup";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -23,9 +24,9 @@ export default function Home() {
   let navigate = useNavigate();
   let [city, setCity] = useState("");
   let [restaurants, setRestaurants] = useState([]);
-  let [searchResults, setSearchResults] = useState({});
+  let [searchResults, setSearchResults] = useState([]);
   const [reviews, setReviews] = useState([]);
-  let images = [];
+  let search = [];
   
 
   useEffect(() => {
@@ -53,7 +54,6 @@ export default function Home() {
   // H A N D L E R S
   const handleClick = async (e) => {
     //
-    console.log(e.target.value)
 
     const id = toast.loading("Searching...", {
       position: toast.POSITION.TOP_CENTER,
@@ -266,9 +266,9 @@ export default function Home() {
       {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
 
-        <section className="py-10 bg-gray-600 ">
+        <section className="py-10 bg-[#d3d3d3]">
           <div className="w-full mt-0 rounded-md items-center text-center">
-            <div className="mb-4 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
+            <div className="mb-4 items-baseline text-gray-600 text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
               <b className="text-smakorange text-4xl leading-4"></b> 
               Your possible matches!
             </div>
@@ -280,18 +280,17 @@ export default function Home() {
               Start
             </button>
           </div>
-          <div className="w-full h-64 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
-            <div className="">
-              {/* {restaurants.map((restaurant) => {
-                setSearchResults(
-                  {
-                    'image': restaurant.image_url,
-                    'category': restaurant.matchedcategory
+          <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
+            <div className="hidden">
+              {restaurants.map((restaurant) => search.push(
+                  { 
+                    'image_url' : restaurant.image_url,
+                    'category'   : restaurant.matchedcategory
                   }
-                )}
-              )} */}
-              <Gallery restaurants={restaurants[0]} speed={20000} />
+                )
+              )}
             </div>
+            <Gallery restaurants={search} speed={40000} /> 
           </div>
         </section>
       ) : (
