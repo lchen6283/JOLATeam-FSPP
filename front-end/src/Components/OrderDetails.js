@@ -22,8 +22,8 @@ export function OrderDetails({ selectedOrder }) {
           <div className="relative bg-white">
             <div className="p-6 space-y-6">
               <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                <div className="flex flex-wrap justify-center">
-                  <h2 className=" py-4 text-2xl text-smaksalmon font-bold font-[Open Sans]">
+                <div className="flex flex-row">
+                  <h2 className=" py-4 text-2xl text-left text-smaksalmon font-bold font-[Open Sans]">
                     <div>
                       Restaurant Name :{" "}
                       <b className=" text-gray-400 font-md font-[Open Sans]">
@@ -36,6 +36,8 @@ export function OrderDetails({ selectedOrder }) {
                       </b>
                     </div>
                   </h2>
+                </div>
+                <div className="my-4 block mx-auto">
                   <img
                     src={selectedOrder.restaurant_id.image_url}
                     className="h-96 rounded-lg border-[1rem] border-gray-200"
@@ -43,6 +45,7 @@ export function OrderDetails({ selectedOrder }) {
                   />
                 </div>
               </div>
+
               <div className="my-4"></div>
               <p className="text-xl text-gray-600 font-bold font-[Open Sans]">
                 Delivery Address :
