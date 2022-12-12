@@ -32,44 +32,14 @@ function ConfirmYourOrder() {
     setFormData,
     finalOrderData,
     setFinalOrderData,
+    restaurant,
   } = useContext(FormContext);
-
   let [menuItems, setMenuitems] = useState([]);
-  const id = auth.data ? auth.data.id : "2";
-  const restaurantPicker = (list, apiObj, survey) => {
-    if (!formData.choose && !formData.eliminate) {
-      console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
-    }
-    //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
-    let postElimination = apiObj.filter(
-      (e) =>
-        e.matchedcategory.type !== survey.eliminate[0] &&
-        e.matchedcategory.type !== survey.eliminate[1]
-    );
-    let wordAssociationCuisines = list
-      .filter((e) => survey.choose.includes(e.word))
-      .map((e) => e.menu)
-      .flat();
-
-    let finalChoice = postElimination.filter((restaurant) =>
-      wordAssociationCuisines.includes(restaurant.matchedcategory.type)
-    );
-    let chosenRestaurant = {};
-    if (finalChoice.length === 1) {
-      chosenRestaurant = finalChoice[0];
-    } else if (finalChoice.length > 1) {
-      chosenRestaurant =
-        finalChoice[Math.floor(Math.random() * finalChoice.length)];
-    } else {
-      chosenRestaurant =
-        postElimination[Math.floor(Math.random() * postElimination.length)];
-    }
-    return chosenRestaurant;
-  };
-  let restaurant = restaurantPicker(list, apiData, formData);
   useEffect(() => {
     fetching();
   }, []);
+
+  const id = auth.data ? auth.data.id : "2";
 
   const fetching = async () => {
     const { data } = await axios.get(
@@ -102,8 +72,6 @@ function ConfirmYourOrder() {
       userid: 2,
     };
 
-    console.log(formData);
-    console.log(objNonParsed);
     setFinalOrderData(objNonParsed);
     //
     axios

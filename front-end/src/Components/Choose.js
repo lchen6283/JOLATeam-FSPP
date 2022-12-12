@@ -16,8 +16,14 @@ const list = [
   { word: "fresh", menu: ["mediterranean", "vietnamese"] },
 ];
 function Choose() {
-  const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
-    useContext(FormContext);
+  const {
+    activeStepIndex,
+    setActiveStepIndex,
+    formData,
+    setFormData,
+    apiData,
+    setRestaurant,
+  } = useContext(FormContext);
 
   const renderError = (message) => (
     <p className="italic text-red-600">{message}</p>
@@ -27,6 +33,35 @@ function Choose() {
     choose: yup.array().min(2).of(yup.string().required()).required(),
     name: yup.string(),
   });
+  const restaurantPicker = (list, apiObj, survey) => {
+    if (!formData.choose && !formData.eliminate) {
+    }
+    //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
+    let postElimination = apiObj.filter(
+      (e) =>
+        e.matchedcategory.type !== survey.eliminate[0] &&
+        e.matchedcategory.type !== survey.eliminate[1]
+    );
+    let wordAssociationCuisines = list
+      .filter((e) => survey.choose.includes(e.word))
+      .map((e) => e.menu)
+      .flat();
+
+    let finalChoice = postElimination.filter((restaurant) =>
+      wordAssociationCuisines.includes(restaurant.matchedcategory.type)
+    );
+    let chosenRestaurant = {};
+    if (finalChoice.length === 1) {
+      chosenRestaurant = finalChoice[0];
+    } else if (finalChoice.length > 1) {
+      chosenRestaurant =
+        finalChoice[Math.floor(Math.random() * finalChoice.length)];
+    } else {
+      chosenRestaurant =
+        postElimination[Math.floor(Math.random() * postElimination.length)];
+    }
+    return chosenRestaurant;
+  };
 
   return (
     <Formik
@@ -38,6 +73,7 @@ function Choose() {
       onSubmit={(values) => {
         const data = { ...formData, ...values };
         setFormData(data);
+        setRestaurant(restaurantPicker(list, apiData, formData));
         setActiveStepIndex(activeStepIndex + 1);
       }}
     >

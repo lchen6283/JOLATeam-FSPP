@@ -26,7 +26,6 @@ export default function Home() {
   let [searchResults, setSearchResults] = useState({});
   const [reviews, setReviews] = useState([]);
   let images = [];
-  
 
   useEffect(() => {
     getAllReviews();
@@ -53,8 +52,6 @@ export default function Home() {
   // H A N D L E R S
   const handleClick = async (e) => {
     //
-    console.log(e.target.value)
-
     const id = toast.loading("Searching...", {
       position: toast.POSITION.TOP_CENTER,
     });
@@ -265,11 +262,10 @@ export default function Home() {
       {/* {console.log(restaurants[0])} */}
       {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
-
         <section className="py-10 bg-gray-600 ">
           <div className="w-full mt-0 rounded-md items-center text-center">
             <div className="mb-4 items-baseline text-white text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-              <b className="text-smakorange text-4xl leading-4"></b> 
+              <b className="text-smakorange text-4xl leading-4"></b>
               Your possible matches!
             </div>
             <button

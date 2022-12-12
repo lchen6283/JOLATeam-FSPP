@@ -8,6 +8,7 @@ import { FaUser } from "@react-icons/all-files/fa/FaUser";
 import { FaRegCopy } from "@react-icons/all-files/fa/FaRegCopy";
 import { FaFileSignature } from "@react-icons/all-files/fa/FaFileSignature";
 import { RiShieldStarLine } from "@react-icons/all-files/ri/RiShieldStarLine";
+import OrderSelect from "./OrderSelect";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,7 +20,6 @@ const Dashboard = () => {
 
   //
   let [pastOrders, setPastOrders] = useState([]);
-  console.log(auth);
   let id = auth.data ? auth.data.id : "2";
   useEffect(() => {
     getOrders();
@@ -35,11 +35,11 @@ const Dashboard = () => {
     await axios
       .get(`${API}/users/${id}/orders`)
       .then((res) => {
-        setPastOrders(res.data);
+        let newestFirst = res.data.reverse();
+        setPastOrders(newestFirst);
       })
       .catch((e) => console.log(e));
   };
-  console.log(pastOrders);
   const navigate = useNavigate();
   const location = useLocation();
   const from = "/";
@@ -102,9 +102,9 @@ const Dashboard = () => {
           <div className="col-span-2">
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               {/* H E A D E R */}
-              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
-                <FaUser className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-smakHighlight rounded-lg">
+                <FaUser className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-white border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-xl text-white font-bold leading-8 font-[Open Sans]">
                   About
                 </span>
               </div>
@@ -124,7 +124,6 @@ const Dashboard = () => {
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
                       {auth.data ? auth.data.lastname : "Williams"}
-                      Williams
                     </div>
                   </div>
                   <div className="flex flex-row my-2">
@@ -178,48 +177,44 @@ const Dashboard = () => {
             <div className="my-8"></div>
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               {/* H E A D E R */}
-              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
-                <FaRegCopy className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-smakHighlight rounded-lg">
+                <FaRegCopy className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-white border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-xl text-white font-bold leading-8 font-[Open Sans]">
                   Orders History
                 </span>
               </div>
-              <label htmlFor="underline_select" className="sr-only">
-                Underline select
-              </label>
-
-              {/*MAP HERE */}
-              <div className="w-full flex-row">
-                <ul className="list-inside space-y-2">
-                  <li className="p-6">
-                    <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
-                      Jack's Wife Frieda
-                    </div>
-                    <div className="text-gray-500 text-md font-bold font-[Open Sans]">
-                      Budget $150
-                    </div>
-                    <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
-                      Dec 07, 2022
-                    </div>
-                    <button
-                      className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
-                      type="button"
-                      data-modal-toggle="defaultModal"
-                    >
-                      View Details
-                    </button>
-                    {/*<!-- Modal toggle -->*/}
-                  </li>
-                </ul>
-              </div>
-              {/*MAP HERE */}
+              <OrderSelect pastOrders={pastOrders} />
+              {/*
+            <div className="w-full flex-row">
+              <ul className="list-inside space-y-2">
+                <li className="p-6">
+                  <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
+                    Jack's Wife Frieda
+                  </div>
+                  <div className="text-gray-500 text-md font-bold font-[Open Sans]">
+                    Budget $150
+                  </div>
+                  <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
+                    Dec 07, 2022
+                  </div>
+                  <button
+                    className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
+                    type="button"
+                    data-modal-toggle="defaultModal"
+                  >
+                    View Details
+                  </button>
+                 
+                </li>
+              </ul>
+            </div>*/}
             </div>
             <div className="my-8"></div>
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               {/* H E A D E R */}
-              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
-                <FaFileSignature className="w-6 h-6 py-0 px-0 my-1  mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-smakHighlight rounded-lg">
+                <FaFileSignature className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-white border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-xl text-white font-bold leading-8 font-[Open Sans]">
                   Reviews History
                 </span>
               </div>
@@ -259,10 +254,10 @@ const Dashboard = () => {
             <div className="my-8"></div>
             <div className="g-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               {/* H E A D E R */}
-              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-[#e2eafc] rounded-lg">
-                <RiShieldStarLine className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
-                <span className="py-0 tracking-wide text-xl text-gray-600 font-bold leading-8 font-[Open Sans]">
-                  User Badges
+              <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-smakHighlight rounded-lg">
+                <RiShieldStarLine className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-white border-0 rounded-sm" />
+                <span className="py-0 tracking-wide text-xl text-white font-bold leading-8 font-[Open Sans]">
+                  User Badges (Beta)
                 </span>
               </div>
 

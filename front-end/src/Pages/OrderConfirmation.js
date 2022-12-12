@@ -9,6 +9,7 @@ export default function OrderConfirmation() {
   const [formData, setFormData] = useState({});
   const [finalOrderData, setFinalOrderData] = useState({});
   const [apiData, setApiData] = useState([]);
+  const [restaurant, setRestaurant] = useState([]);
 
   return (
     <FormContext.Provider
@@ -21,6 +22,8 @@ export default function OrderConfirmation() {
         setFinalOrderData,
         apiData,
         setApiData,
+        restaurant,
+        setRestaurant,
       }}
     >
       <div className="w-screen h-full flex flex-col items-center justify-start p-10">

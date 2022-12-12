@@ -14,11 +14,9 @@ VALUES
   'Mike','Perez','237 Gary Street','Elmhurst','New York','11372',5162229482,'mikeperez@gmail.com','429njs2k',0,null,true,2
 );
 
+INSERT INTO orders (restaurant_id, restaurant_name, date, delivery_address, total_cost, order_contents, userid) VALUES ('{"name":"Wan Wan","id":"AybQUv47u16bwg83kqNf5w","image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/fz4WWFN5lr72YKE0jjibYQ/o.jpg", "location":"9 Maiden Ln","coordinates":{"latitude":40.7218,"longitude":-73.99643},"originalcategories":["thai"],"matchedcategory":{"type":"thai","label":"Thai"}}', 'Wan Wan', '2022-12-2T05:00:00.000Z', '231 Gary Street Elmhurst New York 11372', 150, '[{"type":"appetizers","name":"Potato chips"},{"type":"appetizers","name":"Nachos"},{"type":"entree","name":"Barbecue ribs"},{"type":"entree","name":"Chicken fried steak"},{"type":"desserts","name":"Apple pie"}]', 2);
 
-INSERT INTO orders (restaurant_id, restaurant_name, date, delivery_address, total_cost, order_contents, userid) VALUES (null, 'CaboRVC', '2022-11-11', '231 Gary Street Elmhurst New York 11372', 7500, null, 1),(null, 'CaboRVC', '2022-11-12', '231 Gary Street Elmhurst New York 11372', 10000, null, 2), (null, 'PioPio', '2022-11-20', '200 West 44th Street, Hells Kitchen New York 10010', 100, null, 1);
-
-INSERT INTO reviews (userid, orderid, rating, content, img_url, date) VALUES (1, 1, 5, 'Those enchiladas hit the spot so good, how did they know?  Im just blown away', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-11'), (2, 2, 5, 'These tongue tacos are the best i never had. Wow wow wow', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-12'),
-(1,3,5, 'First time trying Peruvian food and I cannot wait to go back.', 'https://gradfood.com/wp-content/uploads/2022/04/Lomo-Saltado-2-scaled.jpg','2022-11-20');
+INSERT INTO reviews (userid, orderid, rating, content, img_url, date) VALUES (1, 1, 5, 'Those enchiladas hit the spot so good, how did they know?  Im just blown away', 'https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/3/de/3de25464-fc61-11ea-bad1-4f7f5411be85/5f6935d287a6c.image.jpg', '2022-11-11');
 
 
 INSERT INTO menus (cuisine) VALUES ('mediterranean'),('italian'),('spanish'),('french'),('vietnamese'),('newamerican'),('korean'),('mexican'),('japanese'),('thai'),('chinese'),('seafood'),('cocktailbars'), ('latin'), ('other');
