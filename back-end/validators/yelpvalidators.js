@@ -28,20 +28,23 @@ const formatted = (data) => {
     if (
       apiCats.includes("szechuan") ||
       apiCats.includes("shanghainese") ||
-      apiCats.includes("shanghainese")
+      apiCats.includes("cantonese") ||
+      apiCats.includes("dimsum")
     ) {
       return cuisines.find((e) => e.type === "chinese");
     } else if (
       apiCats.includes("tradamerican") ||
-      apiCats.includes("comfort")
+      apiCats.includes("comfort") ||
+      apiCats.includes("comfortfood")
     ) {
       return cuisines.find((e) => e.type === "newamerican");
-    } else if (apiCats.includes("sushi")) {
+    } else if (apiCats.includes("sushi") || apiCats.includes("ramen")) {
       return cuisines.find((e) => e.type === "japanese");
+    } else if (apiCats.includes("pizza")) {
+      return cuisines.find((e) => e.type === "italian");
     } else if (apiCats.includes("tacos")) {
       return cuisines.find((e) => e.type === "mexican");
     } else {
-      console.log(apiCats, "HERE IS API CATS NOW");
       return cuisines.find((e) => e.type === "other");
     }
   };
@@ -53,6 +56,7 @@ const formatted = (data) => {
   return data.map((e) => {
     return {
       name: e.name,
+      location: e.location.display_address[0],
       id: e.id,
       price: e.price,
       image_url: e.image_url,
