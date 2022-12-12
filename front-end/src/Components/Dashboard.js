@@ -19,7 +19,8 @@ const Dashboard = () => {
 
   //
   let [pastOrders, setPastOrders] = useState([]);
-
+  console.log(auth);
+  let id = auth.data ? auth.data.id : "2";
   useEffect(() => {
     getOrders();
 
@@ -32,12 +33,13 @@ const Dashboard = () => {
   }, []);
   const getOrders = async () => {
     await axios
-      .get(`${API}/users/2/orders`)
+      .get(`${API}/users/${id}/orders`)
       .then((res) => {
         setPastOrders(res.data);
       })
       .catch((e) => console.log(e));
   };
+  console.log(pastOrders);
   const navigate = useNavigate();
   const location = useLocation();
   const from = "/";
@@ -74,7 +76,7 @@ const Dashboard = () => {
                 />
               </div>
               <h1 className="my-4 text-3xl text-gray-600 font-extrabold font-[Open Sans]">
-                {auth.firstName}
+                {auth.data ? auth.data.firstname : "Piper"}
               </h1>
               <div className="py-4 ml-2 ">
                 <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
@@ -112,10 +114,8 @@ const Dashboard = () => {
                     <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
                       First Name:
                     </div>
-                    <div 
-                      className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {/* {auth.firstName} */}
-                      Piper
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                      {auth.data ? auth.data.firstname : "Piper"}
                     </div>
                   </div>
                   <div className="flex flex-row my-2">
@@ -123,7 +123,7 @@ const Dashboard = () => {
                       Last Name:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {/* {auth.lastName} */}
+                      {auth.data ? auth.data.lastname : "Williams"}
                       Williams
                     </div>
                   </div>
@@ -132,8 +132,7 @@ const Dashboard = () => {
                       Phone Number:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {/* {auth.phonenumber} */}
-                      718-987-654
+                      {auth.data ? auth.data.phonenumber : "(718)-987-654"}
                     </div>
                   </div>
                   <div className="flex flex-row  my-2">
@@ -142,8 +141,9 @@ const Dashboard = () => {
                       Address:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {/* {auth.address} {auth.city} */}
-                      529 Broadway Apt 2F, New York, New York
+                      {auth.data
+                        ? `${auth.data.address} ${auth.data.city}`
+                        : "529 Broadway Apt 2F, New York, New York"}
                     </div>
                   </div>
                   <div className="flex flex-row  my-2">
@@ -151,8 +151,7 @@ const Dashboard = () => {
                       Zip:
                     </div>
                     <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
-                      {/* {auth.zip} */}
-                      10012
+                      {auth.data ? auth.data.zip : "10012"}
                     </div>
                   </div>
                   <div className="flex flex-row  my-2">
@@ -164,8 +163,9 @@ const Dashboard = () => {
                         className="text-blue-800"
                         href="mailto:jane@example.com"
                       >
-                        {/* {auth.userName} */}
-                        pWilliams0735@gmail.com
+                        {auth.data
+                          ? auth.data.username
+                          : "pWilliams0735@gmail.com"}
                       </a>
                     </div>
                   </div>
@@ -184,6 +184,11 @@ const Dashboard = () => {
                   Orders History
                 </span>
               </div>
+              <label htmlFor="underline_select" className="sr-only">
+                Underline select
+              </label>
+
+              {/*MAP HERE */}
               <div className="w-full flex-row">
                 <ul className="list-inside space-y-2">
                   <li className="p-6">
@@ -205,26 +210,9 @@ const Dashboard = () => {
                     </button>
                     {/*<!-- Modal toggle -->*/}
                   </li>
-                  <li className="p-6">
-                    <div className="text-gray-800 text-lg font-extrabold font-[Open Sans]">
-                      Cabo Rockville Centre
-                    </div>
-                    <div className="text-gray-500 text-md font-bold font-[Open Sans]">
-                      Budget $100
-                    </div>
-                    <div className="text-gray-500 text-md font-semibold font-[Open Sans]">
-                      Nov 25, 2022
-                    </div>
-                    <button
-                      className="block py-2 px-6 text-white text-md font-semibold rounded-lg bg-smaksalmon hover:bg-[#ce4257] focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs my-4"
-                      type="button"
-                      data-modal-toggle="defaultModal"
-                    >
-                      View Details
-                    </button>
-                  </li>
                 </ul>
               </div>
+              {/*MAP HERE */}
             </div>
             <div className="my-8"></div>
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
@@ -257,9 +245,9 @@ const Dashboard = () => {
                       Definitely a life changing{" "}
                     </div>
                     <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                      Where has BoCaphe been my whole life? I can't believe
-                      I've never been to this place wow how amazing was this
-                      food omg omg omg.
+                      Where has BoCaphe been my whole life? I can't believe I've
+                      never been to this place wow how amazing was this food omg
+                      omg omg.
                     </div>
                     <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
                       Dec 04, 2022
@@ -278,9 +266,7 @@ const Dashboard = () => {
                 </span>
               </div>
 
-              <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                
-              </div>
+              <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8"></div>
               <div className="grid grid-cols-3">
                 <div className="p-4 text-center my-2">
                   <img

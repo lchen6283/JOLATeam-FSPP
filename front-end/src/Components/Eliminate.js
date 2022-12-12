@@ -15,7 +15,13 @@ function Eliminate() {
   const renderError = (message) => (
     <p className="italic text-red-600">{message}</p>
   );
-  let apiCategories = [...new Set(apiData.map((e) => e.matchedcategory))];
+  let onlyCategories = apiData.map((e) => e.matchedcategory);
+  var apiCategories = onlyCategories.reduce((unique, o) => {
+    if (!unique.some((obj) => obj.type === o.type && obj.label === o.label)) {
+      unique.push(o);
+    }
+    return unique;
+  }, []);
 
   const ValidationSchema = yup.object().shape({
     eliminate: yup.array().max(2).of(yup.string().required()).required(),
@@ -48,13 +54,16 @@ function Eliminate() {
                 <Field
                   name="eliminate"
                   type="checkbox"
-                  value={category}
+                  value={category.type}
                   className="p-4 mr-2 rounded-full border-4 border-orange-400 text-orange-400 focus:ring-orange-400 focus:border-gray-500"
                 />
-                {category[0].toUpperCase() + category.substring(1)}
+                {category.label}
               </label>
             );
           })}
+        </div>
+        <div>
+          * Mystery option includes categories not included in the list above.
         </div>
         <ErrorMessage name="eliminate" render={renderError} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
