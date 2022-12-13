@@ -16,6 +16,9 @@ export const CheckoutForm = (props) => {
     event.preventDefault();
     //console.log()
 
+    const search = toast.loading("Proccesing...", {
+      position: toast.POSITION.TOP_CENTER,
+    });
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -30,7 +33,10 @@ export const CheckoutForm = (props) => {
           //   amount: 999,
           //   id: id,
           // }
-          JSON.stringify({ amount: 999, id: id }),
+          JSON.stringify({ 
+            amount: 999, 
+            id: id 
+          }),
           {
             headers: { "Content-Type": "application/json" },
             Authorization: `Bearer pk_test_51KsxPfEDJs1UCEIIMbLIJmNULUkLQbcjEdwIzbvj19HHtr6zEtU5WISWQo9DMB6ws8lNf1VquosSSlkpvtzHAJ1j00didwPp1m`,
@@ -43,7 +49,7 @@ export const CheckoutForm = (props) => {
           console.log("Payment successful!");
           
           // Notification
-          toast.update(id, {
+          toast.update(search, {
             render: "Payment successful!",
             type: "success",
             isLoading: false,

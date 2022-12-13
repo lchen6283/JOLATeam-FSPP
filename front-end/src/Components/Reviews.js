@@ -20,10 +20,10 @@ export default function Reviews(props) {
       </h2>
       <div
         id="reviews-carousel"
-        className="relative flowbite"
+        className="relative flowbite bg-gray-200"
         data-carousel="static"
       >
-        <div className="relative h-96 overflow-hidden rounded-0 bg-gray-200">
+        <div className="relative h-96 overflow-hidden rounded-0 ">
           {reviews.map((review, i) => {
             return (
               <div
@@ -31,7 +31,7 @@ export default function Reviews(props) {
                 className="hidden duration-1000 ease-linear"
                 data-carousel-item
               >
-                <section className=" dark:bg-gray-900">
+                <section className="bg-gray-200 dark:bg-gray-900">
                   <div className="max-w-screen-xl px-4 pt-8 pb-4 mx-auto text-center lg:px-6">
                     <figure className="max-w-screen-md mx-auto">
                       <svg

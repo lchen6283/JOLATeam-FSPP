@@ -9,21 +9,8 @@ import axios from "axios";
 import { MdCheckCircle } from "@react-icons/all-files/md/MdCheckCircle";
 import { MdBlock } from "@react-icons/all-files/md/MdBlock.esm";
 
-
 const API = process.env.REACT_APP_API_URL;
 let created_at = new Date().toISOString().slice(0, 19).replace("T", " ");
-
-const list = [
-  { word: "zesty", menu: ["mediterranean", "mexican", "latin"] },
-  { word: "rich", menu: ["french", "italian", "chinese"] },
-  { word: "creamy", menu: ["italian", "french"] },
-  { word: "hearty", menu: ["spanish", "other"] },
-  { word: "crunchy", menu: ["other", "korean", "japanese"] },
-  { word: "sweet", menu: ["newamerican", "thai"] },
-  { word: "savory", menu: ["spanish", "korean"] },
-  { word: "comfort", menu: ["american", "vietnamese", "cocktailbars"] },
-  { word: "fresh", menu: ["mediterranean", "vietnamese", "seafood"] },
-];
 
 function ConfirmYourOrder() {
   const { setAuth } = useContext(AuthContext);
@@ -36,44 +23,14 @@ function ConfirmYourOrder() {
     setFormData,
     finalOrderData,
     setFinalOrderData,
+    restaurant,
   } = useContext(FormContext);
-
   let [menuItems, setMenuitems] = useState([]);
-  const id = auth.data ? auth.data.id : "2";
-  const restaurantPicker = (list, apiObj, survey) => {
-    if (!formData.choose && !formData.eliminate) {
-      console.log(apiObj[Math.floor(Math.random() * apiObj.length + 1)]);
-    }
-    //POST ELIMINATION IS LIST OF RESTAURANT OBJECTS REMAINING AFTER FIRST ELIMINATION ROUND
-    let postElimination = apiObj.filter(
-      (e) =>
-        e.matchedcategory.type !== survey.eliminate[0] &&
-        e.matchedcategory.type !== survey.eliminate[1]
-    );
-    let wordAssociationCuisines = list
-      .filter((e) => survey.choose.includes(e.word))
-      .map((e) => e.menu)
-      .flat();
-
-    let finalChoice = postElimination.filter((restaurant) =>
-      wordAssociationCuisines.includes(restaurant.matchedcategory.type)
-    );
-    let chosenRestaurant = {};
-    if (finalChoice.length === 1) {
-      chosenRestaurant = finalChoice[0];
-    } else if (finalChoice.length > 1) {
-      chosenRestaurant =
-        finalChoice[Math.floor(Math.random() * finalChoice.length)];
-    } else {
-      chosenRestaurant =
-        postElimination[Math.floor(Math.random() * postElimination.length)];
-    }
-    return chosenRestaurant;
-  };
-  let restaurant = restaurantPicker(list, apiData, formData);
   useEffect(() => {
     fetching();
   }, []);
+
+  const id = auth.data ? auth.data.id : "2";
 
   const fetching = async () => {
     const { data } = await axios.get(
@@ -93,7 +50,7 @@ function ConfirmYourOrder() {
       delivery_address: "529 APT 2F Broadway New York, NY",
       total_cost: formData.budget,
       order_contents: JSON.stringify(menuItems),
-      userid: 2,
+      userid: id,
     };
 
     let objNonParsed = {
@@ -103,13 +60,11 @@ function ConfirmYourOrder() {
       delivery_address: "529 APT 2F Broadway New York, NY",
       total_cost: formData.budget,
       order_contents: menuItems,
-      userid: 2,
+      userid: id,
     };
 
-    console.log(formData);
-    console.log(objNonParsed);
     setFinalOrderData(objNonParsed);
-    //
+
     axios
       .post(`${API}/users/${id}/orders`, obj)
       .then(() => {
@@ -140,24 +95,32 @@ function ConfirmYourOrder() {
                   Selected Package: $ {formData.budget}
                 </div>
                 <div className="p-4 my-2 bg-gray-200  rounded-xl">
-                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">Will not include:</h4> 
+                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">
+                    Will not include:
+                  </h4>
                   {formData.eliminate.map((type, i) => {
-                    return <div 
-                      className="flex flex-row text-xl text-gray-600 font-[Open Sans]"
-                      key={i}><MdBlock className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" /> 
-                      {type}
-                    </div>;
+                    return (
+                      <div
+                        className="flex flex-row text-xl text-gray-600 font-[Open Sans]"
+                        key={i}
+                      >
+                        <MdBlock className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
+                        {type}
+                      </div>
+                    );
                   })}
                 </div>
                 <div className="p-4 my-2 bg-gray-200 rounded-xl">
-                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">I'm in the mood for:</h4>
+                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">
+                    I'm in the mood for:
+                  </h4>
                   {formData.choose.map((type, i) => {
                     return (
                       <div
                         className="flex flex-row text-xl font-bold text-gray-600 dark:text-white "
                         key={i}
                       >
-                        <MdCheckCircle className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" /> 
+                        <MdCheckCircle className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
                         {type}
                       </div>
                     );

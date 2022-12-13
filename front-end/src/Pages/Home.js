@@ -27,7 +27,6 @@ export default function Home() {
   let [searchResults, setSearchResults] = useState([]);
   const [reviews, setReviews] = useState([]);
   let search = [];
-  
 
   useEffect(() => {
     getAllReviews();
@@ -265,11 +264,10 @@ export default function Home() {
       {/* {console.log(restaurants[0])} */}
       {/* S E A R C H  - R E S U L T S */}
       {restaurants[0] ? (
-
         <section className="py-10 bg-[#d3d3d3]">
           <div className="w-full mt-0 rounded-md items-center text-center">
             <div className="mb-4 items-baseline text-gray-600 text-4xl md:text-5xl text-center font-extrabold font-[Open Sans]">
-              <b className="text-smakorange text-4xl leading-4"></b> 
+              <b className="text-smakorange text-4xl leading-4"></b>
               Your possible matches!
             </div>
             <button
@@ -282,15 +280,14 @@ export default function Home() {
           </div>
           <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">
             <div className="hidden">
-              {restaurants.map((restaurant) => search.push(
-                  { 
-                    'image_url' : restaurant.image_url,
-                    'category'   : restaurant.matchedcategory
-                  }
-                )
+              {restaurants.map((restaurant) =>
+                search.push({
+                  image_url: restaurant.image_url,
+                  category: restaurant.matchedcategory,
+                })
               )}
             </div>
-            <Gallery restaurants={search} speed={40000} /> 
+            <Gallery restaurants={search} speed={40000} />
           </div>
         </section>
       ) : (
