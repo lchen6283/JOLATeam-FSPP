@@ -11,7 +11,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 const LOGIN_URL = `${API_URL}/auth/login`;
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, persist, setPersist } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -80,19 +80,30 @@ const Login = () => {
     }
   };
 
+  const togglePersist = () => {
+    setPersist(prev => !prev);
+  }
+
+  useEffect(() => {
+      localStorage.setItem("persist", persist);
+  }, [persist])
+
   return (
     <div className="w-full ">
       <ToastContainer />
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
         <div className="w-full flex flex-col items-center justify-center px-6 py-[20] mx-auto md:h-full lg:py-0">
-          <div className="w-full md:w-3/4 bg-[#edf2f4] rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="w-full md:w-3/4 bg-[#edf2f4] rounded-xl shadow-xl md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 border-8 border-gray-200">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8 relative">
-              <div className="w-full mx-auto absolute -top-[3rem] -right-40">
-                <h2 className="py-2 px-4 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block ">
-                  <span className="text-3xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Sing <b className="text-4xl">In</b></span>
+              <div className="w-full mx-auto absolute -top-[2rem] -right-40">
+                <h2 className="py-1 px-4 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-smakHighlight relative inline-block ">
+                  <span className="text-2xl relative text-white font-extrabold font-[Open Sans] text-shadow-md">Sing <b className="text-3xl">In</b></span>
                 </h2>
               </div>
-              <form className="pt-4 space-y-4 md:space-y-4" >
+              <form
+                onClick={onSubmitForm}
+                className="pt-4 space-y-4 md:space-y-4" 
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -127,26 +138,28 @@ const Login = () => {
                     placeholder=""
                     value={password}
                     onChange={(e) => onChange(e)}
-                    required
+                    required="required"
                   />
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
                       <input
-                        id="remember"
-                        aria-describedby="remember"
+                        id="persist"
+                        aria-describedby="persist"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                        onChange={togglePersist}
+                        checked={persist}
                         required=""
                       />
                     </div>
                     <div className="ml-3 text-sm">
                       <label
-                        htmlFor="remember"
+                        htmlFor="persist"
                         className="text-gray-500 dark:text-gray-300"
                       >
-                        Remember me
+                        Trust This Device
                       </label>
                     </div>
                   </div>
@@ -160,7 +173,7 @@ const Login = () => {
                 <button
                   type="submit"
                   className="w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-md px-5 py-2.5 text-center dark:bg-smaksalmon dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  onClick={onSubmitForm}
+                  // onClick={onSubmitForm}
                 >
                   Submit
                 </button>
@@ -178,8 +191,9 @@ const Login = () => {
           </div>
         </div>
         <div className="p-0">
-          <div className="h-screen p-0 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80')] bg-opacity-75 ">
-            <div className="h-full p-[28px] bg-[#ffbe0b] bg-opacity-50 rounded-md text-center">
+          {/* <div className="h-screen p-0 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80')] bg-opacity-75 "> */}
+          <div className="h-screen p-0 ">
+            <div className="h-full p-[28px] bg-[#ffbe0b]  rounded-md text-center">
               <div className="flex-row hidden">
                 <span className="p-0 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-800 relative inline-block">
                   <span className="text-6xl relative text-white font-extrabold font-[Open Sans] italic">

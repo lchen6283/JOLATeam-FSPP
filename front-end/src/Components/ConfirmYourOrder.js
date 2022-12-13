@@ -6,6 +6,10 @@ import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 
+import { MdCheckCircle } from "@react-icons/all-files/md/MdCheckCircle";
+import { MdBlock } from "@react-icons/all-files/md/MdBlock.esm";
+
+
 const API = process.env.REACT_APP_API_URL;
 let created_at = new Date().toISOString().slice(0, 19).replace("T", " ");
 
@@ -117,11 +121,11 @@ function ConfirmYourOrder() {
   };
 
   return (
-    <div className="container mx-auto p-10 rounded-lg shadow-lg bg-orange-200 mb-5 border-[0.5rem] border-orange-400">
+    <div className="container mx-auto p-10 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="flex flex-col px-10">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
-            Order Details
+        <div className="flex flex-col py-10 px-10 rounded-lg shadow-lg bg-orange-200 border-[0.5rem] border-orange-400">
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-800 dark:text-white">
+            Pre-Order Configuration
           </h2>
           <Formik
             initialValues={{}}
@@ -132,29 +136,34 @@ function ConfirmYourOrder() {
           >
             <Form className="">
               <div className="flex flex-col">
-                <div className="my-4 text-2xl font-bold text-smakHighlight dark:text-white">
-                  Selected Package: ${formData.budget}
+                <div className="inline-block p-4 my-4 text-2xl font-bold bg-gray-600 text-white rounded-xl">
+                  Selected Package: $ {formData.budget}
                 </div>
-                <div className="my-0 text-xl font-semibold text-gray-600 dark:text-white">
-                  Will not include:
+                <div className="p-4 my-2 bg-gray-200  rounded-xl">
+                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">Will not include:</h4> 
                   {formData.eliminate.map((type, i) => {
-                    return <div key={i}>{type}</div>;
+                    return <div 
+                      className="flex flex-row text-xl text-gray-600 font-[Open Sans]"
+                      key={i}><MdBlock className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" /> 
+                      {type}
+                    </div>;
                   })}
                 </div>
-                <div className="my-10 text-xl font-bold text-gray-600 dark:text-white">
-                  I'm in the mood for:
+                <div className="p-4 my-2 bg-gray-200 rounded-xl">
+                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">I'm in the mood for:</h4>
                   {formData.choose.map((type, i) => {
                     return (
                       <div
-                        className="text-xl font-bold text-gray-600 dark:text-white"
+                        className="flex flex-row text-xl font-bold text-gray-600 dark:text-white "
                         key={i}
                       >
-                        * {type}
+                        <MdCheckCircle className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" /> 
+                        {type}
                       </div>
                     );
                   })}
                 </div>
-                <div className="my-10 text-left text-xl font-bold text-gray-600 dark:text-white">
+                <div className="my-10 text-2xl font-bold text-gray-800 font-[Open Sans]">
                   {formData.notes ? (
                     <>My notes for the kitchen: {formData.notes}</>
                   ) : (
@@ -182,8 +191,8 @@ function ConfirmYourOrder() {
             </Form>
           </Formik>
         </div>
-        <div className="flex flex-col px-20">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
+        <div className="flex flex-col py-40 px-20">
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-800 dark:text-white">
             Pay with Stripe
           </h2>
           <StripeContainer postNewOrder={postNewOrder} />
