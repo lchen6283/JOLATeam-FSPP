@@ -225,8 +225,8 @@ const Register = () => {
           </div>
         </div>
         <div className="p-0">
-          <div className="h-screen p-0 bg-[url('https://images.unsplash.com/photo-1652862730784-bb2a6e862514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80')] bg-opacity-75 ">
-            <div className="h-full p-[28px] bg-[#ffbe0b] bg-opacity-50 rounded-md text-center">
+          <div className="h-screen p-0  ">
+            <div className="h-full p-[28px] bg-[#ffbe0b] rounded-md text-center">
               <div className="flex-row hidden">
                 <span class="p-0 mt-4 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-800 relative inline-block">
                   <span class="text-6xl relative text-white font-extrabold font-[Open Sans] italic">

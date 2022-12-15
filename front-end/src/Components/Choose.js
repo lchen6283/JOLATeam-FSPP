@@ -83,11 +83,12 @@ function Choose() {
         aria-labelledby="checkbox-group"
       >
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white">
-          Select at least 2 from the list below:
+          Select at least 2 from the list:
         </h2>
-        <div className="flex flex-col items-start mb-2">
+        <div className="flex flex-wrap items-start mb-2">
           {list.map((item, i) => {
             return (
+              <div className="w-1/2 my-1 flex-col">
               <label className="p-2 font-bold text-gray-600 text-xl " key={i}>
                 <Field
                   name="choose"
@@ -97,12 +98,13 @@ function Choose() {
                 />
                 {item.word[0].toUpperCase() + item.word.substring(1)}
               </label>
+              </div>
             );
           })}
         </div>
         <ErrorMessage name="choose" render={renderError} />
         <div className="flex flex-col items-start mb-2">
-          <label className="w-full my-4 items-justify-center text-center text-xl font-bold text-gray-600">
+          <label className="w-full mb-4 items-justify-center text-center text-xl font-bold text-gray-600">
             Order Notes
           </label>
           <Field

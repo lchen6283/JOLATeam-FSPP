@@ -6,18 +6,6 @@ import { AuthProvider } from './context/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-//import "flowbite/dist/flowbite.css";
-// const importFlowbiteFunc = function(flowbitePathStr)
-// {
-//     const flowbiteScriptEl = document.createElement('script')
-//     flowbiteScriptEl.setAttribute(
-//         'src', flowbitePathStr
-//     )
-//     document.body.appendChild(flowbiteScriptEl)
-// }
-// importFlowbiteFunc('https://unpkg.com/flowbite@1.5.4/dist/flowbite.js') // here goes your path to a local flowbite.js you want to import
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

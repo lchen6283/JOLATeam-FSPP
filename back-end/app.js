@@ -33,6 +33,13 @@ app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
 });
 
+// app.use('/register', require('./routes/register'));
+// app.use('/auth', require('./routes/auth'));
+// app.use('/refresh', require('./routes/refresh'));
+// app.use('/logout', require('./routes/logout'));
+
+//app.use(verifyJWT);
+
 app.use("/auth", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"));
 

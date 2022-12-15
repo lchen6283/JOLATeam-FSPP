@@ -122,12 +122,12 @@ function Basic() {
       }}
     >
       {({ values }) => (
-        <Form className="w-full p-10 rounded-xl shadow-lg bg-orange-200 max-w-xl mb-5 border-[0.5rem] border-orange-400">
+        <Form className="w-full pt-0 pb-8 px-8 rounded-xl shadow-lg bg-orange-200 max-w-xl mb-5 border-[0.5rem] border-orange-400">
           <div className="mg6">
             <div className="flex flex-col mb-2">
               <label
                 htmlFor="budget"
-                className="mb-10 text-center text-3xl font-bold text-gray-600 dark:text-white"
+                className="my-4 text-center text-2xl font-bold text-gray-600 dark:text-white"
               >
                 Choose A Budget
               </label>
@@ -150,7 +150,7 @@ function Basic() {
             />
             <div>{packageLegend(values.budget)}</div>
             <button
-              className="w-full p-3 my-2 rounded-xl bg-gray-600 font-bold text-white text-xl"
+              className="w-full p-3 mt-2 rounded-xl bg-gray-600 font-bold text-white text-lg"
               type="submit"
             >
               Continue
