@@ -25,7 +25,6 @@ router.get("/", async (req, res) => {
 });
 
 //Get one review BY review ID
-
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const review = await getOneReview(id);
@@ -36,10 +35,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Create
-router.post("/", async (req, res) => {
+// CREATE
+router.post("/:orderid", async (req, res) => {
+  const { orderid } = req.params;
   try {
-    const review = await createReview(req.params.userid, req.body);
+    const review = await createReview(orderid, req.body);
     res.json(review);
   } catch (error) {
     res.status(400).json({ error: error });

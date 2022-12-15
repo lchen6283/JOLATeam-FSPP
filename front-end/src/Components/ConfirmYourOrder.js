@@ -5,6 +5,7 @@ import { FormContext } from "../Pages/OrderConfirmation";
 import AuthContext from "../context/AuthProvider";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 import { MdCheckCircle } from "@react-icons/all-files/md/MdCheckCircle";
 import { MdBlock } from "@react-icons/all-files/md/MdBlock.esm";
@@ -77,8 +78,9 @@ function ConfirmYourOrder() {
 
   return (
     <div className="container mx-auto p-10 ">
+      <ToastContainer />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="flex flex-col py-10 px-10 rounded-lg shadow-lg bg-orange-200 border-[0.5rem] border-orange-400">
+        <div className="flex flex-col py-10 px-10 rounded-xl shadow-xl bg-orange-200 border-[0.5rem] border-orange-400">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-800 dark:text-white">
             Pre-Order Configuration
           </h2>
@@ -90,45 +92,61 @@ function ConfirmYourOrder() {
             }}
           >
             <Form className="">
-              <div className="flex flex-col">
-                <div className="inline-block p-4 my-4 text-2xl font-bold bg-gray-600 text-white rounded-xl">
-                  Selected Package: $ {formData.budget}
+              <div className="flex flex-col p-8 bg-white rounded-xl">
+                <div className="py-0 px-0 my-2 border-2 border-gray-200 rounded-lg">
+                  <h4
+                    className="p-2 mb-0 text-xl font-bold text-gray-600 bg-gray-200 font-[Open Sans] ">
+                    Order Budget: 
+                  </h4>
+                  <p
+                    className="p-2 flex flex-row my-2 text-xl font-bold text-gray-600 font-[Open Sans] ">
+                    ${formData.budget} Package 
+                  </p>
                 </div>
-                <div className="p-4 my-2 bg-gray-200  rounded-xl">
-                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">
-                    Will not include:
+                <div className="py-0 px-0 my-8 border-2 border-gray-200 rounded-lg">
+                  <h4 className="p-2 mb-4 text-xl font-bold text-gray-600 bg-gray-200 font-[Open Sans]">
+                    Cousines Eliminated:
                   </h4>
                   {formData.eliminate.map((type, i) => {
                     return (
                       <div
-                        className="flex flex-row text-xl text-gray-600 font-[Open Sans]"
+                        className="px-2 my-2 flex flex-row text-xl font-bold text-gray-600 font-[Open Sans]"
                         key={i}
                       >
-                        <MdBlock className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
+                        <MdBlock className="w-6 h-6 py-0 px-0 my-1 mr-2 fill-[#cc444b] border-0 rounded-sm" />
                         {type}
                       </div>
                     );
                   })}
                 </div>
-                <div className="p-4 my-2 bg-gray-200 rounded-xl">
-                  <h4 className="my-4 text-2xl font-bold text-gray-800 font-[Open Sans]">
-                    I'm in the mood for:
+                <div className="py-0 px-0 my-2 border-2 border-gray-200 rounded-lg">
+                  <h4 className="p-2 mb-4 text-xl font-bold text-gray-600 bg-gray-200 font-[Open Sans]">
+                    Tastes Selected:
                   </h4>
                   {formData.choose.map((type, i) => {
                     return (
                       <div
-                        className="flex flex-row text-xl font-bold text-gray-600 dark:text-white "
+                        className="px-2 my-2 flex flex-row text-xl font-bold text-gray-600 dark:text-white "
                         key={i}
                       >
-                        <MdCheckCircle className="w-6 h-6 py-0 px-0 my-1 mx-2 fill-gray-600 border-0 rounded-sm" />
+                        <MdCheckCircle className="w-6 h-6 py-0 px-0 my-1 mr-2 fill-[#23856d] border-0 rounded-sm" />
                         {type}
                       </div>
                     );
                   })}
                 </div>
-                <div className="my-10 text-2xl font-bold text-gray-800 font-[Open Sans]">
+                <div >
                   {formData.notes ? (
-                    <>My notes for the kitchen: {formData.notes}</>
+                    <div className="py-0 px-0 my-2 border-2 border-gray-200 rounded-lg">
+                      <h4 className="p-2 mb-4 text-xl font-bold text-gray-600 bg-gray-200 font-[Open Sans]">
+                        Order Notes:
+                      </h4>
+                      <div
+                        className="px-2 my-2 flex flex-row text-xl font-bold text-gray-600 dark:text-white "
+                      > 
+                        {formData.notes}
+                      </div>
+                    </div>
                   ) : (
                     <></>
                   )}

@@ -21,6 +21,7 @@ const Dashboard = () => {
   //
   let [pastOrders, setPastOrders] = useState([]);
   let id = auth.data ? auth.data.id : "2";
+
   useEffect(() => {
     getOrders();
 
@@ -31,6 +32,7 @@ const Dashboard = () => {
     };
     importFlowbiteFunc("https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"); // here goes your path to a local flowbite.js you want to import
   }, []);
+
   const getOrders = async () => {
     await axios
       .get(`${API}/users/${id}/orders`)
@@ -65,7 +67,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
-        <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
+        <div className="flex flex-row">
           <div className="col-span-1">
             <div className="bg-white p-0 lg:mr-4">
               <div className="">

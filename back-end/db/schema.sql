@@ -37,6 +37,7 @@ CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     userid INTEGER REFERENCES users (id),
     orderid INTEGER REFERENCES orders (id),
+    title TEXT,
     rating smallint not null check (rating between 1 and 5),
     content TEXT NOT NULL,
     img_url TEXT,

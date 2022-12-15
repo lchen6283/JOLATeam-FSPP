@@ -33,8 +33,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to SMAK APP");
 });
 
+// app.use('/register', require('./routes/register'));
+// app.use('/auth', require('./routes/auth'));
+// app.use('/refresh', require('./routes/refresh'));
+// app.use('/logout', require('./routes/logout'));
+
+//app.use(verifyJWT);
+
 app.use("/auth", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"));
+
 
 // S T R I P E
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,7 +52,7 @@ app.use(bodyParser.json());
 app.post("/stripe/charge", cors(), async (req, res) => {
   console.log("Route reached", req.body);
   let { amount, id } = req.body;
-
+  
   console.log("Amount and id", amount, id);
   try {
     const payment = await stripe.paymentIntents.create({

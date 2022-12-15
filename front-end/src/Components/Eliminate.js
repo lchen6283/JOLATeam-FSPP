@@ -47,10 +47,11 @@ function Eliminate() {
           Eliminate two cuisine types from the list below:
         </h2>
 
-        <div className="flex flex-col items-start mb-2">
+        <div className="flex flex-wrap items-start mb-2">
           {apiCategories.map((category, i) => {
             return (
-              <label className="p-2 font-bold text-gray-600 text-xl " key={i}>
+              <div className="w-1/2 my-1 flex-col">
+              <label className=" p-2 font-bold text-gray-600 text-xl " key={i}>
                 <Field
                   name="eliminate"
                   type="checkbox"
@@ -59,6 +60,7 @@ function Eliminate() {
                 />
                 {category.label}
               </label>
+              </div>
             );
           })}
         </div>

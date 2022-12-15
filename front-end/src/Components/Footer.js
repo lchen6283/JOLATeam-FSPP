@@ -4,7 +4,7 @@ import logo from "../assets/SmakLogos/Transparent_Logo2_01.png";
 
 export default function Footer() {
   return (
-    <footer className=" mt-auto w-full p-4 bg-gray-800 rounded-0 shadow md:px-6 md:py-8 dark:bg-gray-900">
+    <footer className="w-full p-4 bg-gray-800 rounded-0 shadow md:px-6 md:py-4 dark:bg-gray-900">
       <div className="sm:flex sm:items-center sm:justify-between">
         <Link
           to="/"

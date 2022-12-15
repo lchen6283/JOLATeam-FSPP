@@ -74,12 +74,12 @@ export const CheckoutForm = (props) => {
 
   return (
     <div 
-    className=" px-10 ">
+    className=" md:px-0 ">
       <ToastContainer/>
       <form 
       onSubmit={handleSubmit} 
       // style={{ maxWidth: 400 }}
-      className="w-full h-64 bg-white py-10 px-10 border-0 border-gray-200 rounded-xl"
+      className="w-full h-64 bg-white py-10 px-4 md:px-10 border-0 border-gray-200 rounded-xl"
       >
         
         <fieldset className="FormGroup p-0 ">

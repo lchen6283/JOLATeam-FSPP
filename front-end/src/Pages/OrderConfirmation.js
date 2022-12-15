@@ -26,8 +26,8 @@ export default function OrderConfirmation() {
         setRestaurant,
       }}
     >
-      <div className="w-screen h-full flex flex-col items-center justify-start p-10">
-        <h2 className="py-8 text-gray-600 text-4xl md:text-5xl font-extrabold font-[Open Sans] text-center ">
+      <div className="w-full h-full flex flex-col items-center justify-start pt-0 pb-10 px-0 bg-[#edf2f4]">
+        <h2 className="py-4 text-gray-600 text-3xl md:text-3xl font-extrabold font-[Open Sans] text-center ">
           Processing your SMAK order
         </h2>
         <Stepper />
