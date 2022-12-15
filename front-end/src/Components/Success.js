@@ -324,7 +324,7 @@ function Success() {
                             data-modal-toggle="reviewOrderModal"
                             // ref={button => this.buttonElement = button}
                             // ref={closeRef}
-                            // onClick={handleModal}
+                            onClick={handleModal}
                             //onClose={onClose}
                           >
                             Cancel
@@ -332,18 +332,18 @@ function Success() {
                       </div>
                   </form>
                   :
-                  <div className="w-full mx-auto p-0 ">
+                  <div className="w-full mx-auto p-0 items-center">
                     <h2 className=" mx-auto my-0 py-4 px-10 text-center text-2xl font-bold text-smakHighlight border-0 border-smakHighlight rounded-xl">
                       Review saved successfully!
                     </h2>
                     <button 
-                      id="btnClose" 
+                      
                       type="button" 
-                      class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                      class="w-1/4 mx-auto text-white items-center bg-smakHighlight hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-bold rounded-lg text-lg px-4 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
                       data-modal-toggle="reviewOrderModal"
                       // ref={button => this.buttonElement = button}
                       // ref={closeRef}
-                      // onClick={handleModal}
+                      // onClick={handleC}
                       //onClose={onClose}
                     >
                       Done
