@@ -61,7 +61,7 @@ export function OrderDetails({ selectedOrder }) {
               <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"></div>
             </div>
             <p className="py-2 text-2xl text-center text-smaksalmon font-bold font-[Open Sans]">
-              Total Cost : $ 150
+              Total Cost : ${selectedOrder.total_cost}
             </p>
           </div>
         </div>

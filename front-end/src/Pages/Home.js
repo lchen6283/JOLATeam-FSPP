@@ -275,7 +275,7 @@ export default function Home() {
               type="button"
               className="py-3 px-[8rem] my-6 bg-[#b7324b] hover:bg-orange-400 focus:ring-smakorange focus:ring-offset-gray-200 text-white text-xl transition ease-in duration-200 text-center font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-xl font-extrabold font-[Open Sans] border-smakorange border-4"
             >
-              Start
+              Start Order
             </button>
           </div>
           <div className="w-full h-96 px-0 py-2 mx-auto lg:pt-12 lg:px-32 relative overflow-hidden">

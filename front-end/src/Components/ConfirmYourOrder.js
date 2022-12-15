@@ -105,7 +105,7 @@ function ConfirmYourOrder() {
                 </div>
                 <div className="py-0 px-0 my-8 border-2 border-gray-200 rounded-lg">
                   <h4 className="p-2 mb-4 text-xl font-bold text-gray-600 bg-gray-200 font-[Open Sans]">
-                    Cousines Eliminated:
+                    Cuisines Eliminated:
                   </h4>
                   {formData.eliminate.map((type, i) => {
                     return (
@@ -121,7 +121,7 @@ function ConfirmYourOrder() {
                 </div>
                 <div className="py-0 px-0 my-2 border-2 border-gray-200 rounded-lg">
                   <h4 className="p-2 mb-4 text-xl font-bold text-gray-600 bg-gray-200 font-[Open Sans]">
-                    Tastes Selected:
+                    Flavors Selected:
                   </h4>
                   {formData.choose.map((type, i) => {
                     return (
