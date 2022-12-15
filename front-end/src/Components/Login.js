@@ -18,8 +18,9 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/dashboard";
 
   const userRef = useRef();
+  
   useEffect(() => {
-    userRef.current.focus();
+    //userRef.current.focus();
   }, []);
 
   const [inputs, setInputs] = useState({
@@ -101,7 +102,6 @@ const Login = () => {
                 </h2>
               </div>
               <form
-                onClick={onSubmitForm}
                 className="pt-4 space-y-4 md:space-y-4" 
               >
                 <div>
@@ -173,7 +173,7 @@ const Login = () => {
                 <button
                   type="submit"
                   className="w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-md px-5 py-2.5 text-center dark:bg-smaksalmon dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  // onClick={onSubmitForm}
+                  onClick={onSubmitForm}
                 >
                   Submit
                 </button>
