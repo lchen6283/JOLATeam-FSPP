@@ -24,6 +24,7 @@ function Success() {
   const from = location.state?.from?.pathname || "/dashboard";
   
   const [orderid, setOrderid] = useState()
+  const [saveReview, setSaveReview] = useState(false)
   const [review, setReview] = useState({
     userid: finalOrderData.userid,
     title: "",
@@ -35,9 +36,8 @@ function Success() {
     setReview({ ...review, [event.target.id]: event.target.value });
   };
 
-  
-
   useEffect(() => {
+    setSaveReview(false);
 
     const importFlowbiteFunc = function (flowbitePathStr) {
       const flowbiteScriptEl = document.createElement("script");
@@ -74,17 +74,13 @@ function Success() {
           if(res) {
             handleModal();
 
-            toast.update({
-              render: "Review saved successfully",
-              type: "success",
-              isLoading: false,
-              autoClose: 1000,
-            });
+            setReview({});
+            setSaveReview(true);
             
             // After validate credentials, proceed to redirect to Dashboard
-            setTimeout(() => {
-              navigate(from, { replace: true });
-            }, 1050);
+            // setTimeout(() => {
+            //   navigate(from, { replace: true });
+            // }, 3000);
           }
         },
         (error) => console.error(error)
@@ -101,7 +97,7 @@ function Success() {
   };
 
   const handleModal = () => {
-    document.querySelector('[modal-backdrop]').remove();
+    document.querySelector('body [modal-backdrop]').remove();
   }
 
   const handleReturn = () => {
@@ -142,7 +138,7 @@ function Success() {
                 </li>
                 <li className="flex flex-row px-2 my-2 text-xl text-gray-600 font-[Open Sans]">
                   Cuisine:
-                  <span className="ml-4 text-gray-600 font-bold font-[Open Sans]">
+                  <span className="ml-2 text-gray-600 font-bold font-[Open Sans]">
                     {finalOrderData.restaurant_id.matchedcategory["label"]}
                   </span>
                 </li>
@@ -245,7 +241,8 @@ function Success() {
       <div 
         id="reviewOrderModal" 
         tabIndex="-1" 
-        aria-hidden="true" 
+        aria-hidden="true"
+        data-modal-backdrop="dynamic" 
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full"
       >
           <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
@@ -268,6 +265,7 @@ function Success() {
                       </button>
                   </div>
                   {/* <!-- Modal body --> */}
+                  {(!saveReview) ?
                   <form action="#">
                       <div class="grid gap-4 mb-4 sm:grid-cols-2">
                           <div>
@@ -301,8 +299,8 @@ function Success() {
                               <label for="content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
                               <textarea 
                                 id="content" 
-                                rows="5" 
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                                rows="3" 
+                                class="block p-4 w-full text-md text-gray-800 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
                                 placeholder="Write your review..."
                                 value={review.content}
                                 onChange={handleTextChange}
@@ -333,6 +331,25 @@ function Success() {
                           </button>
                       </div>
                   </form>
+                  :
+                  <div className="w-full mx-auto p-0 ">
+                    <h2 className=" mx-auto my-0 py-4 px-10 text-center text-2xl font-bold text-smakHighlight border-0 border-smakHighlight rounded-xl">
+                      Review saved successfully!
+                    </h2>
+                    <button 
+                      id="btnClose" 
+                      type="button" 
+                      class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                      data-modal-toggle="reviewOrderModal"
+                      // ref={button => this.buttonElement = button}
+                      // ref={closeRef}
+                      // onClick={handleModal}
+                      //onClose={onClose}
+                    >
+                      Done
+                    </button>
+                  </div>
+                  }
               </div>
           </div>
       </div>

@@ -42,9 +42,11 @@ const Dashboard = () => {
       })
       .catch((e) => console.log(e));
   };
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = "/";
+
   const logout = async (e) => {
     e.preventDefault();
     try {
@@ -64,6 +66,10 @@ const Dashboard = () => {
     }
   };
 
+  const handleModal = () => {
+    document.querySelector('[modal-backdrop]').remove();
+  }
+
   return (
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
@@ -77,9 +83,14 @@ const Dashboard = () => {
                   alt=""
                 />
               </div>
-              <h1 className="my-4 text-3xl text-gray-600 font-extrabold font-[Open Sans]">
-                {auth.data ? auth.data.firstname : "Piper"}
-              </h1>
+              <div className="flex flex-row ">
+              <span className="my-4 text-xl text-gray-800 font-bold font-[Open Sans]">
+              {auth.data ? auth.data.firstname : "Piper"}
+              </span>
+              <span className="my-4 ml-2 text-xl text-gray-500 font-extrabold font-[Open Sans]">
+              {auth.data ? auth.data.lastname : "Williams"}
+              </span>
+              </div>
               <div className="py-4 ml-2 ">
                 <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
                   Newbie
@@ -89,7 +100,7 @@ const Dashboard = () => {
                 <li className="flex items-center py-3 font-bold font-[Open Sans]">
                   <span>Status</span>
                   <span className="ml-auto">
-                    <span className="bg-green-500 py-1 px-2 rounded text-white text-md font-bold font-[Open Sans]">
+                    <span className="bg-green-500 py-2 px-4 rounded text-white text-md font-bold font-[Open Sans]">
                       Active
                     </span>
                   </span>
@@ -156,12 +167,12 @@ const Dashboard = () => {
                     </div>
                   </div>
                   <div className="flex flex-row  my-2">
-                    <div className="px-4 py-2 text-lg font-bold text-gray-800  font-[Open Sans]">
+                    <div className="px-4 py-2 text-lg font-bold text-gray-800 font-[Open Sans]">
                       Email:
                     </div>
-                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-semibold font-[Open Sans]">
+                    <div className="grow px-4 py-2 text-lg text-right text-gray-400 font-bold font-[Open Sans]">
                       <a
-                        className="text-blue-800"
+                        className="text-smakHighlight"
                         href="mailto:jane@example.com"
                       >
                         {auth.data

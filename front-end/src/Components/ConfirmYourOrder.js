@@ -81,7 +81,7 @@ function ConfirmYourOrder() {
       <ToastContainer />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="flex flex-col py-10 px-10 rounded-xl shadow-xl bg-orange-200 border-[0.5rem] border-orange-400">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-800 dark:text-white">
+          <h2 className="mb-4 text-center text-3xl font-bold text-gray-800 dark:text-white">
             Pre-Order Configuration
           </h2>
           <Formik

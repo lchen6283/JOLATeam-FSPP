@@ -11,18 +11,18 @@ export default function OrderSelect({ pastOrders }) {
     setSelectedOrder(orderObj);
   };
   return (
-    <div className="my-3">
-      <label htmlFor="underline_select" className="sr-only">
-        Underline select
+    <div className="p-2 my-3">
+      <label htmlFor="underline_select" className="block px-0 py-2 text-lg font-semibold text-gray-700 font-[Open Sans] ">
+        Select an order to view details
       </label>
       <select
         id="underline_select"
-        className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+        className="w-full p-2 text-lg text-gray-400 bg-transparent border-2 border-gray-400 rounded-lg"
         onChange={handleChange}
         defaultValue={"default"}
       >
         <option value="default" disabled>
-          Select An Order
+          Orders list
         </option>
         {pastOrders.map((order, i) => {
           let formattedDate = moment(order.date).utc().format("MM-DD-YYYY");
