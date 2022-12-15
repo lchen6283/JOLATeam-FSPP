@@ -65,7 +65,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
-        <div className="grid grid-cols-[400px_minmax(800px,_1fr)_100px]">
+        <div className="flex flex-row">
           <div className="col-span-1">
             <div className="bg-white p-0 lg:mr-4">
               <div className="">
