@@ -34,19 +34,19 @@ const OrderFiller = async (cuisine, budget) => {
     const apps = allPlates.filter((e) => e.dish_type === "appetizers");
     const entrees = allPlates.filter((e) => e.dish_type === "entree");
     const desserts = allPlates.filter((e) => e.dish_type === "desserts");
-    if (budget === "100") {
+    if (budget === "60") {
       return [
         ...pickRandom(apps, 1),
         ...pickRandom(entrees, 1),
         ...pickRandom(desserts, 1),
       ];
-    } else if (budget === "150") {
+    } else if (budget === "100") {
       return [
         ...pickRandom(apps, 2),
         ...pickRandom(entrees, 2),
         ...pickRandom(desserts, 1),
       ];
-    } else if (budget === "200") {
+    } else if (budget === "150") {
       return [
         ...pickRandom(apps, 2),
         ...pickRandom(entrees, 3),
