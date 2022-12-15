@@ -25,7 +25,7 @@ function Basic() {
   });
   let packageLegend = (val) => {
     val = Number(val);
-    if (val === 100) {
+    if (val === 60) {
       return (
         <div className="flex text-center text-1xl font-bold my-5">
           <div className="w-1/3 h-12 ">
@@ -42,7 +42,7 @@ function Basic() {
           </div>
         </div>
       );
-    } else if (val === 150) {
+    } else if (val === 100) {
       return (
         <div className="flex text-center text-1xl font-bold my-5">
           <div className="w-1/3 h-12 ">
@@ -67,7 +67,7 @@ function Basic() {
           </div>
         </div>
       );
-    } else if (val === 200) {
+    } else if (val === 150) {
       return (
         <div className="flex text-center text-1xl font-bold my-5">
           <div className="w-1/3 h-12 ">
@@ -138,9 +138,9 @@ function Basic() {
                 className="bg-gray-50 border-4 border-gray-400 font-semibold text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option value="">Select An Option</option>
-                <option value="100">$ 100 (Perfect For 1)</option>
-                <option value="150">$ 150 (Ideal for 2)</option>
-                <option value="200">$ 200 (Treat The Family)</option>
+                <option value="60">$ 60 (Perfect For 1)</option>
+                <option value="100">$ 100 (Ideal for 2)</option>
+                <option value="150">$ 150 (Treat The Family)</option>
               </Field>
             </div>
             <ErrorMessage
