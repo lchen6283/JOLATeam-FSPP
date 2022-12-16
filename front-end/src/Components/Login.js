@@ -18,8 +18,9 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/dashboard";
 
   const userRef = useRef();
+  
   useEffect(() => {
-    userRef.current.focus();
+    //userRef.current.focus();
   }, []);
 
   const [inputs, setInputs] = useState({
@@ -101,7 +102,6 @@ const Login = () => {
                 </h2>
               </div>
               <form
-//                 onClick={onSubmitForm}
                 className="pt-4 space-y-4 md:space-y-4" 
               >
                 <div>

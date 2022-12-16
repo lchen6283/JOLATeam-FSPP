@@ -19,11 +19,13 @@ const Dashboard = () => {
   const { auth } = useAuth();
 
   //
+  const [reviews, setReviews] = useState([]);
   let [pastOrders, setPastOrders] = useState([]);
   let id = auth.data ? auth.data.id : "2";
 
   useEffect(() => {
     getOrders();
+    getReviewsById();
 
     const importFlowbiteFunc = function (flowbitePathStr) {
       const flowbiteScriptEl = document.createElement("script");
@@ -41,6 +43,18 @@ const Dashboard = () => {
         setPastOrders(newestFirst);
       })
       .catch((e) => console.log(e));
+  };
+
+  const getReviewsById = () => {
+    axios
+      .get(`${API}/users/${id}/reviews`)
+      .then((res) => {
+        setReviews(res.data);
+        console.log('reviews', res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const navigate = useNavigate();
@@ -73,30 +87,31 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col flex-auto bg-smakorange">
       <div className="container mx-auto my-10 p-8 bg-white rounded-xl">
-        <div className="flex flex-row">
-          <div className="col-span-1">
+        <div className="grid-container grid grid-cols-6">
+          <div className="col-span-2">
             <div className="bg-white p-0 lg:mr-4">
-              <div className="">
+              <div className="p-10 bg-gray-200 rounded-lg">
                 <img
-                  className="h-auto w-full mx-auto rounded-lg border-[12px] border-gray-200"
+                  className="h-auto w-full mx-auto rounded-lg border-[12px] border-white"
                   src="https://fakeface.rest/face/view/55?gender=female&minimum_age=20&maximum_age=30"
                   alt=""
                 />
+                <div className="flex flex-row ">
+                  <span className="mt-4 text-2xl text-gray-800 font-bold font-[Open Sans]">
+                  {auth.data ? auth.data.firstname : "Piper"}
+                  </span>
+                  <span className="mt-4 ml-2 text-2xl text-gray-500 font-extrabold uppercase font-[Open Sans]">
+                  {auth.data ? auth.data.lastname : "Williams"}
+                  </span>
+                  </div>
               </div>
-              <div className="flex flex-row ">
-              <span className="my-4 text-xl text-gray-800 font-bold font-[Open Sans]">
-              {auth.data ? auth.data.firstname : "Piper"}
-              </span>
-              <span className="my-4 ml-2 text-xl text-gray-500 font-extrabold font-[Open Sans]">
-              {auth.data ? auth.data.lastname : "Williams"}
-              </span>
+              
+              <div className="mt-2 py-4">
+                <h2 className="text-smakHighlight text-xl  font-bold font-[Open Sans]">
+                  Account log
+                </h2>
               </div>
-              <div className="py-4 ml-2 ">
-                <h3 className="text-gray-600 font-2xl leading-6 font-bold font-[Open Sans]">
-                  Newbie
-                </h3>
-              </div>
-              <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+              <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 divide-y rounded shadow-sm">
                 <li className="flex items-center py-3 font-bold font-[Open Sans]">
                   <span>Status</span>
                   <span className="ml-auto">
@@ -109,10 +124,14 @@ const Dashboard = () => {
                   <span>Most Recent SMAK:</span>
                   <span className="ml-auto">Nov 07, 2022</span>
                 </li>
+                <li className="flex items-center py-3 font-bold font-[Open Sans]">
+                  <span>User Reviews:</span>
+                  <span className="ml-auto">{(reviews.length)}</span>
+                </li>
               </ul>
             </div>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-4">
             <div className="bg-white p-4 shadow-lg rounded-md border-gray-200 border-2">
               {/* H E A D E R */}
               <div className="flex flex-row p-2 font-semibold text-gray-900 border-b-2 bg-smakHighlight rounded-lg">
@@ -233,34 +252,28 @@ const Dashboard = () => {
               </div>
               <div className="flex flex-row">
                 <ul className="w-full list-inside space-y-2">
-                  <li className="p-6">
-                    <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
-                      Great experience!
-                    </div>
-                    <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                      I can't believe how great Boqueria Soho was, wow I am
-                      absolutely amazed by the food quality. SMAK sent me
-                      amazing patatas bravas, and probably one of the best
-                      paellas I've ever had. To think I was gonna get the same
-                      ol' stuff again. Thank god I found SMAK.
-                    </div>
-                    <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
-                      Dec 04, 2022
-                    </div>
-                  </li>
-                  <li className="p-6">
-                    <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
-                      Definitely a life changing{" "}
-                    </div>
-                    <div className="text-lg text-gray-400 font-md font-[Open Sans]">
-                      Where has BoCaphe been my whole life? I can't believe I've
-                      never been to this place wow how amazing was this food omg
-                      omg omg.
-                    </div>
-                    <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
-                      Dec 04, 2022
-                    </div>
-                  </li>
+                  {(reviews) ? (
+                    reviews.map((review, i) => {
+                      return (
+                        <li
+                          key={i}
+                          className="p-6"
+                        >
+                        <div className="text-gray-800 text-xl font-bold font-[Open Sans]">
+                          {review.title}
+                        </div>
+                        <div className="text-lg text-gray-400 font-md font-[Open Sans]">
+                          {review.content}
+                        </div>
+                        <div className="text-lg text-gray-600 font-bold font-[Open Sans]">
+                        Order Rate:<b className="ml-2 font-bold">{review.rating}</b>
+                        </div>
+                      </li>
+                      )
+                    })
+                  ) : (
+                  <li className="p-6">No Reviews to display</li>
+                  )}
                 </ul>
               </div>
             </div>
