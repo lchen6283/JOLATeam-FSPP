@@ -5,12 +5,12 @@ const getAllReviews = async (userid) => {
   try {
     if (userid === "all") {
       const allReviews = await db.any(
-        "SELECT users.firstname, users.lastname, users.avatar, reviews.rating, reviews.content, reviews.img_url, reviews.date FROM reviews JOIN users ON users.id = reviews.userid"
+        "SELECT users.firstname, users.lastname, users.avatar, users.title, reviews.rating, reviews.content, reviews.img_url, reviews.date FROM reviews JOIN users ON users.id = reviews.userid"
       );
       return allReviews;
     }
     const allReviews = await db.any(
-      `SELECT users.firstname, users.lastname, users.avatar, reviews.rating, reviews.content, reviews.img_url, reviews.date FROM reviews JOIN users ON users.id = reviews.userid WHERE users.id = ${userid}`
+      `SELECT users.firstname, users.lastname, users.avatar, users.title, reviews.rating, reviews.content, reviews.img_url, reviews.date FROM reviews JOIN users ON users.id = reviews.userid WHERE users.id = ${userid}`
     );
     return allReviews;
   } catch (error) {
