@@ -298,7 +298,7 @@ export default function Home() {
       {/*  A B O U T  */}
       <AboutHome />
       {/*  R E V I E W S  */}
-      {reviews.length && <Reviews reviews={reviews} />}
+      {/* {reviews.length && <Reviews reviews={reviews} />} */}
     </div>
   );
 }
